@@ -1,2 +1,2 @@
-# zasa
-Android App: ZustandsAnalyse Stauanlagen (OOP Projekt)
+# Codename: ZASA
+Android App: ZustandsAnalyse StauAnlagen (OOP Projekt)
