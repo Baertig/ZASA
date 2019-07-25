@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.badresden.zasa" >
+    package="de.badresden.zasa">
 
     <application
         android:allowBackup="true"
@@ -8,13 +8,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".FragebogenAllgemein"
+            android:label="FragebogenAllgemein"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".FragebogenKlassifizierung"
+            android:label="FragebogenKlassifizierung"
+            android:parentActivityName=".FragebogenAllgemein">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FragebogenAllgemein" />
         </activity>
     </application>
 

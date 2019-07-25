@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/frage_name_der_anlage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_margin_top"
+        android:text="@string/lbl_name_der_anlage"
+        android:textSize="@dimen/question_lbl_text_size" />
+
+    <EditText
+        android:id="@+id/antw_name_der_anlage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_input_margin_top"
+        android:layout_marginRight="@dimen/question_input_margin_right"
+        android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+    <TextView
+        android:id="@+id/frage_lage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_margin_top"
+        android:text="@string/lbl_lage"
+        android:textSize="@dimen/question_lbl_text_size" />
+
+    <EditText
+        android:id="@+id/antw_lage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_input_margin_top"
+        android:layout_marginRight="@dimen/question_input_margin_right"
+        android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+    <TextView
+        android:id="@+id/frage_gewaesser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_margin_top"
+        android:text="@string/lbl_gewaesser"
+        android:textSize="@dimen/question_lbl_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/antw_gewaesser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_input_margin_top"
+        android:layout_marginRight="@dimen/question_input_margin_right"
+        android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+    <TextView
+        android:id="@+id/frage_eigentuemer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_margin_top"
+        android:text="@string/lbl_eigentuemer"
+        android:textSize="@dimen/question_lbl_text_size" />
+
+    <EditText
+        android:id="@+id/antw_eigentuemer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/question_input_margin_top"
+        android:layout_marginRight="@dimen/question_input_margin_right"
+        android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:onClick="oeffneFragebogenKlassifizierung"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="20dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/btn_weiter" />
+</LinearLayout>
