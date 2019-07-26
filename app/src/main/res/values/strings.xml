@@ -8,4 +8,7 @@
     <string name="btn_weiter">Weiter</string>
     <string name="lbl_gewaesser">gestautes Gewässer:</string>
     <string name="lbl_eigentuemer">Eigentümer/Betreiber:</string>
+    <string name="lbl_art_des_absperrbauwerkes">Art des Absperrbauwerkes:</string>
+    <string name="lbl_hoehe">Höhe Absperrbauwerk über Gründung (m):</string>
+    <string name="lbl_bhq1">BHQ₁ (m³/s):</string>
 </resources>
