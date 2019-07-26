@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
-                android:text="BHQ₂ (m³/s):"
+                android:text="@string/lbl_bhq2"
                 android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
@@ -169,6 +169,89 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+            <!-- TODO Nur sichtbar, wenn BHQ unbekannt
+                 TODO Bild 3 DWA-M522 einfügen? -->
+            <TextView
+                android:id="@+id/frage_bhq2_abschaetzung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_bhq2_abschaetzung"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_bhq2_abschaetzung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_betriebsvorschrift_normalbetrieb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_betriebsvorschrift_normalbetrieb"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <!-- TODO Horizontale Anordgnung? (optional) -->
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_ja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ja"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_nein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_betriebsvorschtift_hochwasserfall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_betriebsvorschrift_hochwasserfall"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_ja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ja"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_nein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+            </RadioGroup>
 
 
             <!-- TODO Felix: Remove this template before submission
