@@ -13,8 +13,5 @@ public class FragebogenKlassifizierung extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragebogen_klassifizierung);
         setTitle("Klassifizierung");
-
-        Intent intent = getIntent();
-        Toast.makeText(this, intent.getStringExtra(FragebogenAllgemein.NAME_DER_ANLAGE), Toast.LENGTH_LONG).show();
     }
 }

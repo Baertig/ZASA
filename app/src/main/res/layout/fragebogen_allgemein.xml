@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:orientation="vertical">
@@ -58,9 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_gewaesser"
-                android:textSize="@dimen/question_lbl_text_size"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="@dimen/question_lbl_text_size"/>
 
             <EditText
                 android:id="@+id/antw_gewaesser"
@@ -210,14 +207,14 @@
                     android:id="@+id/radio_betriebsvorschrift_normalbetrieb_ja"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ja"
+                    android:text="@string/radio_ja"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
                     android:id="@+id/radio_betriebsvorschrift_normalbetrieb_nein"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nein"
+                    android:text="@string/radio_nein"
                     android:textSize="@dimen/radio_option_text_size" />
             </RadioGroup>
 
@@ -242,14 +239,14 @@
                     android:id="@+id/radio_betriebsvorschrift_hochwasserfall_ja"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ja"
+                    android:text="@string/radio_ja"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
                     android:id="@+id/radio_betriebsvorschrift_hochwasserfall_nein"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nein"
+                    android:text="@string/radio_nein"
                     android:textSize="@dimen/radio_option_text_size" />
             </RadioGroup>
 
@@ -274,15 +271,15 @@
                 android:layout_marginBottom="@dimen/question_input_margin_bottom" />
                -->
 
-
             <Button
+                android:id="@+id/btn_allgemein_weiter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="@dimen/btn_weiter_margin_right"
                 android:onClick="oeffneFragebogenKlassifizierung"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="20dp"
+                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
+                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
                 android:text="@string/btn_weiter" />
         </LinearLayout>
     </ScrollView>
