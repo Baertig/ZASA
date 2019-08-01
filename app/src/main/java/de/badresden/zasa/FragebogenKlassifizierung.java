@@ -15,7 +15,7 @@ public class FragebogenKlassifizierung extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragebogen_klassifizierung);
-        setTitle("Klassifizierung");
+        setTitle("Klassifizierung (Erdbauwerke)");
 
         // TODO Gespeicherte Inputs laden
     }
