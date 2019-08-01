@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/frage_name_der_anlage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_name_der_anlage"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_name_der_anlage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_lage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_lage"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_lage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_gewaesser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_gewaesser"
+                android:textSize="@dimen/question_lbl_text_size"/>
+
+            <EditText
+                android:id="@+id/antw_gewaesser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_eigentuemer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_eigentuemer"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_eigentuemer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+            <TextView
+                android:id="@+id/frage_art_des_absperrbauwerkes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_art_des_absperrbauwerkes"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_art_des_absperrbauwerkes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+            <TextView
+                android:id="@+id/frage_hoehe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_hoehe"
+                android:textSize="@dimen/question_lbl_text_size" /><!-- TODO Zahlen-Input -->
+
+            <EditText
+                android:id="@+id/antw_hoehe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_stauinhalt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="Stauinhalt (m³):"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_stauinhalt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_bhq1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_bhq1"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_bhq1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_bhq2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_bhq2"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_bhq2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+            <!-- TODO Nur sichtbar, wenn BHQ unbekannt
+                 TODO Bild 3 DWA-M522 einfügen? -->
+            <TextView
+                android:id="@+id/frage_bhq2_abschaetzung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_bhq2_abschaetzung"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_bhq2_abschaetzung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+
+
+            <TextView
+                android:id="@+id/frage_betriebsvorschrift_normalbetrieb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_betriebsvorschrift_normalbetrieb"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <!-- TODO Horizontale Anordgnung? (optional) -->
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_ja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_ja"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_nein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_betriebsvorschtift_hochwasserfall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text="@string/lbl_betriebsvorschrift_hochwasserfall"
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_ja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_ja"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_nein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+            </RadioGroup>
+
+
+            <!-- TODO Felix: Remove this template before submission
+
+
+            <TextView
+                android:id="@+id/frage_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text=""
+                android:textSize="@dimen/question_lbl_text_size" />
+
+            <EditText
+                android:id="@+id/antw_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+               -->
+
+            <Button
+                android:id="@+id/btn_allgemein_weiter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/btn_weiter_margin_right"
+                android:onClick="oeffneFragebogenKlassifizierung"
+                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
+                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
+                android:text="@string/btn_weiter" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ZASA</string>
+    <string name="startseite_ueberschrift">ZASA - ZustandsAnalyse StauAnlagen</string>
+    <string name="neuer_fragebogen">Neuer Fragebogen</string>
+    <string name="ausgefuellte_frageboegen">Ausgefüllte Fragebögen</string>
+    <string name="lbl_name_der_anlage">Name der Anlage:</string>
+    <string name="lbl_lage">Geographische Lage:</string>
+    <string name="btn_weiter">Weiter</string>
+    <string name="lbl_gewaesser">gestautes Gewässer:</string>
+    <string name="lbl_eigentuemer">Eigentümer/Betreiber:</string>
+    <string name="lbl_art_des_absperrbauwerkes">Art des Absperrbauwerkes:</string>
+    <string name="lbl_hoehe">Höhe Absperrbauwerk über Gründung (m):</string>
+    <string name="lbl_bhq1">BHQ₁ (m³/s):</string>
+    <string name="lbl_bhq2">BHQ₂ (m³/s):</string>
+    <string name="lbl_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
+    <string name="lbl_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
+    <string name="lbl_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
+    <string name="radio_ja">Ja</string>
+    <string name="radio_nein">Nein</string>
+    <string name="radio_kleinste_stauanlagen">kleinste Stauanlagen</string>
+    <string name="radio_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
 </resources>
