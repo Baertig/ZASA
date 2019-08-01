@@ -5,8 +5,11 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
 @Database(entities = {Stauanlage.class},version = 1)
+@TypeConverters({DateTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	public abstract StauanlageDao stauanlageDao();
@@ -19,7 +22,7 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 					//create Database here
 					INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
 							StauanlageRoomDatabase.class,"stauanlage_database")
-							// Migration is not nessacary yet
+							// Migration is not nessacary yet, only version 1 exists
 							.build();
 				}
 			}

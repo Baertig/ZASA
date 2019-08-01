@@ -14,10 +14,10 @@ public interface StauanlageDao {
 	void insert(Stauanlage stauanlage);
 
 	@Query("SELECT * FROM stauanlage_tabelle")
-	LiveData<List<Stauanlage>> holeAlleStauanlagen();
+	LiveData<List<Stauanlage>> getAllStauanlagen();
 
 	@Query("SELECT primary_key,name_der_Anlage,datum_und_uhrzeit_letzte_bebearbeitung FROM stauanlage_tabelle")
-	LiveData<List<StauanlageSimplyfied>> holeAlleStauanlageSimplyfied();
+	LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied();
 
 	@Update
 	void update(Stauanlage... stauanlagen);

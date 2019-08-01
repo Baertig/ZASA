@@ -2,7 +2,7 @@ package de.badresden.zasa;
 
 import androidx.room.ColumnInfo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class StauanlageSimplyfied {
 	@ColumnInfo(name = "primary_key")
