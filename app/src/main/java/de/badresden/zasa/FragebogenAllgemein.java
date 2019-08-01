@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 public class FragebogenAllgemein extends AppCompatActivity {
 
-    public static final String NAME_DER_ANLAGE = "de.badresden.zasa.extra.name";
     private static final String LOG_TAG = FragebogenAllgemein.class.getSimpleName();
 
     // relevante GUI-Elemente:
@@ -50,7 +49,7 @@ public class FragebogenAllgemein extends AppCompatActivity {
 
     public void oeffneFragebogenKlassifizierung(View view) {
         Intent oeffneFragebogenKlassifizierungIntent = new Intent(this, FragebogenKlassifizierung.class);
-        Log.d(LOG_TAG, "Continue Button on page " + this.getLocalClassName() + "clicked.");
+        Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         //oeffneFragebogenKlassifizierungIntent.putExtra(); // Optional parameters
         startActivity(oeffneFragebogenKlassifizierungIntent);
     }
