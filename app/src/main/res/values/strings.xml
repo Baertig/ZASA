@@ -28,4 +28,9 @@
     <string name="lbl_frage_frei_und_funktionstuechtig">Treibgutsperre/Grobrechen/Palisadenrechen frei und funktionstüchtig</string>
     <string name="heading_grundablass">Grundablass (GA)</string>
     <string name="lbl_frage_querschnittsreduktion_ga">Querschnittsreduktion im GA (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="lbl_frage_beschaedigungen_ga">Fehlstellen, Beschädigungen, Undichtigkeiten</string>
+    <string name="beschaedigungen_tosbecken_ga">Fehlstellen, Beschädigungen im Tosbecken</string>
+    <string name="lbl_frage_schwergaengigkeit_verschluss">Schwergängigkeit oder Blockieren des Verschlusses (falls vorhanden)</string>
+    <string name="heading_messeinrichtungen">Messeinrichtungen (falls vorhanden)</string>
+    <string name="lbl_frage_messeinrichtungen_funktionsfaehig">Messeinrichtungen funktionsfähig</string>
 </resources>
