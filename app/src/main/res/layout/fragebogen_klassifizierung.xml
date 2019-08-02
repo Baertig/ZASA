@@ -51,7 +51,7 @@
                     android:id="@+id/radio_kleine_stauanlagen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_sehr_kleine_stauanlagen"
+                    android:text="@string/radio_kleine_stauanlagen"
                     android:textSize="@dimen/radio_option_text_size" />
             </RadioGroup>
 

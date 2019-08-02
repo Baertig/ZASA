@@ -19,4 +19,5 @@
     <string name="radio_nein">Nein</string>
     <string name="radio_kleinste_stauanlagen">kleinste Stauanlagen</string>
     <string name="radio_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
+    <string name="radio_kleine_stauanlagen">kleine Stauanlagen</string>
 </resources>
