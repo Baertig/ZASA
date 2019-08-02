@@ -32,7 +32,8 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
 
 
             <TextView
@@ -50,7 +51,8 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
-                android:imeOptions="actionNext"  />
+                android:imeOptions="actionNext"
+                android:inputType="text" />
 
 
             <TextView
@@ -68,7 +70,8 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="text" />
 
 
             <TextView
@@ -86,7 +89,8 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/frage_art_des_absperrbauwerkes"
@@ -103,7 +107,8 @@
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
 
             <TextView
                 android:id="@+id/frage_hoehe"

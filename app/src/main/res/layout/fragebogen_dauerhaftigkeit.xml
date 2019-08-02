@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginRight="@dimen/btn_weiter_margin_right"
-                android:onClick="oeffneFragebogenTragfaehigkeit"
+                android:onClick="oeffneFragebogenGebrauchstauglichkeit"
                 android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
                 android:paddingVertical="@dimen/btn_weiter_padding_vertical"
                 android:text="@string/btn_weiter" />
