@@ -15,9 +15,10 @@
     <string name="lbl_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
     <string name="lbl_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
     <string name="lbl_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
-    <string name="radio_ja">Ja</string>
-    <string name="radio_nein">Nein</string>
-    <string name="radio_kleinste_stauanlagen">kleinste Stauanlagen</string>
-    <string name="radio_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
-    <string name="radio_kleine_stauanlagen">kleine Stauanlagen</string>
+    <string name="opt_ja">Ja</string>
+    <string name="opt_nein">Nein</string>
+    <string name="opt_kleinste_stauanlagen">kleinste Stauanlagen</string>
+    <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
+    <string name="opt_kleine_stauanlagen">kleine Stauanlagen</string>
+    <string name="opt_unbekannt">Unbekannt</string>
 </resources>

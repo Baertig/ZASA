@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
     android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
     android:orientation="vertical">
 
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_name_der_anlage"
-                android:textSize="@dimen/question_lbl_text_size"/>
+                android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
                 android:id="@+id/antw_name_der_anlage"
@@ -33,7 +33,7 @@
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
                 android:imeOptions="actionNext"
-                android:inputType="text"/>
+                android:inputType="text" />
 
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_lage"
-                android:textSize="@dimen/question_lbl_text_size"/>
+                android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
                 android:id="@+id/antw_lage"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_gewaesser"
-                android:textSize="@dimen/question_lbl_text_size"/>
+                android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
                 android:id="@+id/antw_gewaesser"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_eigentuemer"
-                android:textSize="@dimen/question_lbl_text_size"/>
+                android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
                 android:id="@+id/antw_eigentuemer"
@@ -108,7 +108,7 @@
                 android:layout_marginRight="@dimen/question_input_margin_right"
                 android:layout_marginBottom="@dimen/question_input_margin_bottom"
                 android:imeOptions="actionNext"
-                android:inputType="text"/>
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/frage_hoehe"
@@ -221,20 +221,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_normalbetrieb">
 
                 <RadioButton
-                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_ja"
+                    android:id="@+id/opt_ja_betriebsvorschrift_normalbetrieb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_ja"
+                    android:text="@string/opt_ja"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb_nein"
+                    android:id="@+id/opt_nein_betriebsvorschrift_normalbetrieb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_nein"
+                    android:text="@string/opt_nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/opt_unbekannt"
                     android:textSize="@dimen/radio_option_text_size" />
             </RadioGroup>
 
@@ -253,34 +262,41 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_hochwasserfall">
 
                 <RadioButton
-                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_ja"
+                    android:id="@+id/opt_ja_betriebsvorschrift_hochwasserfall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_ja"
+                    android:text="@string/opt_ja"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radio_betriebsvorschrift_hochwasserfall_nein"
+                    android:id="@+id/opt_nein_betriebsvorschrift_hochwasserfall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_nein"
+                    android:text="@string/opt_nein"
                     android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/opt_unbekannt"
+                    android:textSize="@dimen/radio_option_text_size" /> <!-- TODO Standard-Auswahl auf Unbekannt? -->
             </RadioGroup>
 
 
             <!-- TODO Felix: Remove this template before submission
-
-
+            Normale Frage
             <TextView
                 android:id="@+id/frage_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text=""
-                android:textSize="@dimen/question_lbl_text_size" />
+                android:layout_marginTop="@dimen/question_"
+                android:text="@string/lbl_"
+                android:textSize="@dimen/question_lbl_text_size"/>
 
             <EditText
                 android:id="@+id/antw_"
@@ -288,7 +304,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+
+             Ja-/Nein-Frage
+             <RadioGroup
+                android:id="@+id/radio_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_input_margin_top"
+                android:layout_marginRight="@dimen/question_input_margin_right"
+                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+
+                <RadioButton
+                    android:id="@+id/radio_ja_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_ja"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/radio_nein_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_nein"
+                    android:textSize="@dimen/radio_option_text_size" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/opt_unbekannt"
+                    android:textSize="@dimen/radio_option_text_size"
+                    android:checked="true"/>
+            </RadioGroup>
+
                -->
 
             <Button
