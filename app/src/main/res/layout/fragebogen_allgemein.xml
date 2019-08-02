@@ -284,7 +284,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" /> <!-- TODO Standard-Auswahl auf Unbekannt? -->
+                    android:textSize="@dimen/radio_option_text_size" />
             </RadioGroup>
 
 
@@ -309,26 +309,35 @@
                 android:inputType="text"/>
 
              Ja-/Nein-Frage
+             <TextView
+                android:id="@+id/frage_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/question_margin_top"
+                android:text=""
+                android:textSize="@dimen/question_lbl_text_size" />
+
              <RadioGroup
                 android:id="@+id/radio_"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_input_margin_top"
                 android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom">
+                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                android:checkedButton="@+id/opt_unknown_">
 
                 <RadioButton
-                    android:id="@+id/radio_ja_"
+                    android:id="@+id/opt_ja_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_ja"
+                    android:text="@string/opt_ja"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
-                    android:id="@+id/radio_nein_"
+                    android:id="@+id/opt_nein_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/radio_nein"
+                    android:text="@string/opt_nein"
                     android:textSize="@dimen/radio_option_text_size" />
 
                 <RadioButton
@@ -336,8 +345,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size"
-                    android:checked="true"/>
+                    android:textSize="@dimen/radio_option_text_size"/>
             </RadioGroup>
 
                -->

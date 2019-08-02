@@ -21,4 +21,5 @@
     <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
     <string name="opt_kleine_stauanlagen">kleine Stauanlagen</string>
     <string name="opt_unbekannt">Unbekannt</string>
+    <string name="lbl_frage_querschnittsreduktion">Querschnittsreduktion der Wasserwege (z. B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
 </resources>
