@@ -42,21 +42,22 @@
                 android:value=".FragebogenKlassifizierung" />
         </activity>
         <activity
-            android:name=".FragebogenDauerhaftigkeit"
-            android:label="FragebogenDauerhaftigkeit"
+            android:name=".FragebogenGebrauchstauglichkeit"
+            android:label="FragebogenGebrauchstauglichkeit"
             android:parentActivityName=".FragebogenTragfaehigkeit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FragebogenTragfaehigkeit" />
         </activity>
         <activity
-            android:name=".FragebogenGebrauchstauglichkeit"
-            android:label="FragebogenGebrauchstauglichkeit"
-            android:parentActivityName=".FragebogenDauerhaftigkeit">
+            android:name=".FragebogenDauerhaftigkeit"
+            android:label="FragebogenDauerhaftigkeit"
+            android:parentActivityName=".FragebogenGebrauchstauglichkeit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FragebogenDauerhaftigkeit" />
+                android:value=".FragebogenGebrauchstauglichkeit" />
         </activity>
+
 
 
 

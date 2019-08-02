@@ -18,10 +18,11 @@ public class FragebogenDauerhaftigkeit extends AppCompatActivity {
         setTitle("Dauerhaftigkeit");
     }
 
+    public void submitData(View view) {
+        // TODO Daten als CSV speichern
 
-    public void oeffneFragebogenGebrauchstauglichkeit(View view) {
-        Intent oeffneFragebogenGebrauchstauglichkeitIntent = new Intent(this, FragebogenGebrauchstauglichkeit.class);
+        Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        startActivity(oeffneFragebogenGebrauchstauglichkeitIntent);
+        startActivity(goBackToMainPageIntent);
     }
 }
