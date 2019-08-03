@@ -58,17 +58,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/question_margin_top"
                 android:text="@string/lbl_gewaesser"
-                android:textSize="@dimen/question_lbl_text_size"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="@dimen/question_lbl_text_size" />
 
             <EditText
                 android:id="@+id/antw_gewaesser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom" />
+                style="@style/Edit_text_style"/>
 
 
             <TextView

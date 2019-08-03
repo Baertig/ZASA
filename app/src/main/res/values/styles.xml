@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="text_view_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/question_margin_top</item>
+        <item name="android:textSize">@dimen/question_lbl_text_size</item>
+    </style>
+
+    <style name="Edit_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/question_input_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/question_input_margin_bottom</item>
+        <item name="android:layout_marginRight">@dimen/question_input_margin_right</item>
+    </style>
 </resources>
