@@ -26,7 +26,7 @@
                 android:onClick="submitData"
                 android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
                 android:paddingVertical="@dimen/btn_weiter_padding_vertical"
-                android:text="@string/btn_weiter" />
+                android:text="@string/btn_submit" />
 
         </LinearLayout>
     </ScrollView>
