@@ -19,393 +19,259 @@
 
             <TextView
                 android:id="@+id/heading_hochwasserentlastung"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/heading_margin_top"
-                android:text="@string/heading_hochwasserentlastung"
-                android:textSize="@dimen/heading_text_size"
-                android:textStyle="bold" />
+                style="@style/question_section_heading"
+                android:text="@string/heading_hochwasserentlastung" />
 
             <TextView
                 android:id="@+id/frage_querschnittsreduktion_hwe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_querschnittsreduktion_hwe"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_querschnittsreduktion_hwe" />
 
             <RadioGroup
                 android:id="@+id/radio_querschnittsreduktion_hwe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@id/opt_unknown_querschnittsreduktion_hwe">
 
                 <RadioButton
                     android:id="@+id/opt_ja_querschnittsreduktion_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_querschnittsreduktion_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_querschnittsreduktion_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_beschaedigungen_wasserwege"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_beschaedigungen_wasserwege"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_beschaedigungen_wasserwege" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_wasserwege"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@id/opt_unknown_beschaedigungen_wasserwege">
 
                 <RadioButton
                     android:id="@+id/opt_ja_beschaedigungen_wasserwege"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_beschaedigungen_wasserwege"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_wasserwege"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_beschaedigungen_tosbecken_hwe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_beschaedigungen_tosbecken_hwe"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_beschaedigungen_tosbecken_hwe" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_tosbecken_hwe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_hwe">
 
                 <RadioButton
                     android:id="@+id/opt_ja_beschaedigungen_tosbecken_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_beschaedigungen_tosbecken_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_tosbecken_hwe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt"/>
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_frei_und_funktionstuechtig"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_frei_und_funktionstuechtig"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_frei_und_funktionstuechtig" />
 
             <RadioGroup
                 android:id="@+id/radio_frei_und_funktionstuechtig"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_frei_und_funktionstuechtig">
 
                 <RadioButton
                     android:id="@+id/opt_ja_frei_und_funktionstuechtig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_frei_und_funktionstuechtig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_frei_und_funktionstuechtig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt"/>
             </RadioGroup>
 
 
             <TextView
                 android:id="@+id/heading_grundablass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/heading_margin_top"
-                android:text="@string/heading_grundablass"
-                android:textSize="@dimen/heading_text_size"
-                android:textStyle="bold" />
+                style="@style/question_section_heading"
+                android:text="@string/heading_grundablass" />
 
             <TextView
                 android:id="@+id/frage_querschnittsreduktion_ga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_querschnittsreduktion_ga"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_querschnittsreduktion_ga"/>
 
             <RadioGroup
                 android:id="@+id/radio_querschnittsreduktion_ga"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@id/opt_unknown_querschnittsreduktion_ga">
 
                 <RadioButton
                     android:id="@+id/opt_ja_querschnittsreduktion_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_querschnittsreduktion_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_querschnittsreduktion_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt"/>
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_beschaedigungen_ga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_beschaedigungen_ga"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_beschaedigungen_ga"/>
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_ga"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_ga">
 
                 <RadioButton
                     android:id="@+id/opt_ja_beschaedigungen_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_beschaedigungen_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size"/>
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_beschaedigungen_tosbecken_ga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/beschaedigungen_tosbecken_ga"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/beschaedigungen_tosbecken_ga" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_tosbecken_ga"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_ga">
 
                 <RadioButton
                     android:id="@+id/opt_ja_beschaedigungen_tosbecken_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_beschaedigungen_tosbecken_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_tosbecken_ga"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size"/>
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/frage_schwergaengigkeit_verschluss"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_schwergaengigkeit_verschluss"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_schwergaengigkeit_verschluss" />
 
             <RadioGroup
                 android:id="@+id/radio_schwergaengigkeit_verschluss"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_schwergaengigkeit_verschluss">
 
                 <RadioButton
                     android:id="@+id/opt_ja_schwergaengigkeit_verschluss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_schwergaengigkeit_verschluss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_schwergaengigkeit_verschluss"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size"/>
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/heading_messeinrichtungen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/heading_margin_top"
-                android:text="@string/heading_messeinrichtungen"
-                android:textSize="@dimen/heading_text_size"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btn_gebrauchstauglichkeit_weiter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginRight="@dimen/btn_weiter_margin_right"
-                android:onClick="oeffneFragebogenDauerhaftigkeit"
-                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
-                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
-                android:text="Fertig" />
+                style="@style/question_section_heading"
+                android:text="@string/heading_messeinrichtungen" />
 
             <TextView
                 android:id="@+id/frage_messeinrichtungen_funktionsfaehig"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_margin_top"
-                android:text="@string/lbl_frage_messeinrichtungen_funktionsfaehig"
-                android:textSize="@dimen/question_lbl_text_size" />
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_messeinrichtungen_funktionsfaehig" />
 
             <RadioGroup
                 android:id="@+id/radio_messeinrichtungen_funktionsfaehig"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/question_input_margin_top"
-                android:layout_marginRight="@dimen/question_input_margin_right"
-                android:layout_marginBottom="@dimen/question_input_margin_bottom"
+                style="@style/question_radiogroup"
                 android:checkedButton="@+id/opt_unknown_messeinrichtungen_funktionsfaehig">
 
                 <RadioButton
                     android:id="@+id/opt_ja_messeinrichtungen_funktionsfaehig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_ja"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
 
                 <RadioButton
                     android:id="@+id/opt_nein_messeinrichtungen_funktionsfaehig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_nein"
-                    android:textSize="@dimen/radio_option_text_size" />
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_messeinrichtungen_funktionsfaehig"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/opt_unbekannt"
-                    android:textSize="@dimen/radio_option_text_size"/>
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
             </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_gebrauchstauglichkeit_weiter"
+                style="@style/continue_button"
+                android:onClick="oeffneFragebogenDauerhaftigkeit"
+                android:text="@string/btn_submit" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
