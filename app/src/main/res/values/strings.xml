@@ -21,7 +21,7 @@
     <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
     <string name="opt_kleine_stauanlagen">kleine Stauanlagen</string>
     <string name="opt_unbekannt">Unbekannt</string>
-    <string name="lbl_frage_querschnittsreduktion_hwe">Querschnittsreduktion der Wasserwege (z. B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="lbl_frage_querschnittsreduktion_hwe">Querschnittsreduktion der Wasserwege (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
     <string name="heading_hochwasserentlastung">Hochwasserentlastung (HWE)</string>
     <string name="lbl_frage_beschaedigungen_wasserwege">Fehlstellen, Beschädigungen an Wasserwegen</string>
     <string name="lbl_frage_beschaedigungen_tosbecken_hwe">Fehlstellen, Beschädigungen im Tosbecken</string>
