@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FragebogenDauerhaftigkeit"></activity>
-        <activity android:name=".FragebogenGebrauchstauglichkeit" />
-        <activity android:name=".FragebogenTragfaehigkeit" />
+        <activity android:name=".FinishedQuestionaires"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +33,35 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FragebogenAllgemein" />
         </activity>
+        <activity
+            android:name=".FragebogenTragfaehigkeit"
+            android:label="FragebogenTragfaehigkeit"
+            android:parentActivityName=".FragebogenKlassifizierung">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FragebogenKlassifizierung" />
+        </activity>
+        <activity
+            android:name=".FragebogenGebrauchstauglichkeit"
+            android:label="FragebogenGebrauchstauglichkeit"
+            android:parentActivityName=".FragebogenTragfaehigkeit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FragebogenTragfaehigkeit" />
+        </activity>
+        <activity
+            android:name=".FragebogenDauerhaftigkeit"
+            android:label="FragebogenDauerhaftigkeit"
+            android:parentActivityName=".FragebogenGebrauchstauglichkeit">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FragebogenGebrauchstauglichkeit" />
+        </activity>
+
+
+
+
+
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ZASA</string>
-    <string name="startseite_ueberschrift">ZASA - ZustandsAnalyse StauAnlagen</string>
+    <string name="startseite_ueberschrift">ZASA - ZustandsAnalyse \n StauAnlagen</string>
     <string name="neuer_fragebogen">Neuer Fragebogen</string>
     <string name="ausgefuellte_frageboegen">Ausgefüllte Fragebögen</string>
     <string name="lbl_name_der_anlage">Name der Anlage:</string>
@@ -15,9 +15,23 @@
     <string name="lbl_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
     <string name="lbl_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
     <string name="lbl_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
-    <string name="radio_ja">Ja</string>
-    <string name="radio_nein">Nein</string>
-    <string name="radio_kleinste_stauanlagen">kleinste Stauanlagen</string>
-    <string name="radio_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
-    <string name="radio_kleine_stauanlagen">kleine Stauanlagen</string>
+    <string name="opt_ja">Ja</string>
+    <string name="opt_nein">Nein</string>
+    <string name="opt_kleinste_stauanlagen">kleinste Stauanlagen</string>
+    <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
+    <string name="opt_kleine_stauanlagen">kleine Stauanlagen</string>
+    <string name="opt_unbekannt">Unbekannt</string>
+    <string name="lbl_frage_querschnittsreduktion_hwe">Querschnittsreduktion der Wasserwege (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="heading_hochwasserentlastung">Hochwasserentlastung (HWE)</string>
+    <string name="lbl_frage_beschaedigungen_wasserwege">Fehlstellen, Beschädigungen an Wasserwegen</string>
+    <string name="lbl_frage_beschaedigungen_tosbecken_hwe">Fehlstellen, Beschädigungen im Tosbecken</string>
+    <string name="lbl_frage_frei_und_funktionstuechtig">Treibgutsperre/Grobrechen/Palisadenrechen frei und funktionstüchtig</string>
+    <string name="heading_grundablass">Grundablass (GA)</string>
+    <string name="lbl_frage_querschnittsreduktion_ga">Querschnittsreduktion im GA (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="lbl_frage_beschaedigungen_ga">Fehlstellen, Beschädigungen, Undichtigkeiten</string>
+    <string name="beschaedigungen_tosbecken_ga">Fehlstellen, Beschädigungen im Tosbecken</string>
+    <string name="lbl_frage_schwergaengigkeit_verschluss">Schwergängigkeit oder Blockieren des Verschlusses (falls vorhanden)</string>
+    <string name="heading_messeinrichtungen">Messeinrichtungen (falls vorhanden)</string>
+    <string name="lbl_frage_messeinrichtungen_funktionsfaehig">Messeinrichtungen funktionsfähig</string>
+    <string name="btn_submit">Fertig</string>
 </resources>

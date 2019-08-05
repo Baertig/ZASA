@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="question_lbl_text_size">20sp</dimen>
-    <dimen name="question_margin_top">16dp</dimen>
+    <dimen name="question_margin_top">12dp</dimen>
     <dimen name="question_input_margin_top">0dp</dimen>
     <dimen name="question_input_margin_right">8dp</dimen>
     <dimen name="question_input_margin_bottom">10dp</dimen>
@@ -9,4 +9,6 @@
     <dimen name="btn_weiter_padding_horizontal">50dp</dimen>
     <dimen name="btn_weiter_padding_vertical">20dp</dimen>
     <dimen name="btn_weiter_margin_right">8dp</dimen>
+    <dimen name="heading_margin_top">20dp</dimen>
+    <dimen name="heading_text_size">30sp</dimen>
 </resources>

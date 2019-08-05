@@ -1,0 +1,106 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "79211c57eb300cda7d164d5588116e66",
+    "entities": [
+      {
+        "tableName": "stauanlage_tabelle",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primary_key` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `datum_und_uhrzeit_letzte_bebearbeitung` INTEGER, `name_der_Anlage` TEXT, `geographische_lage` TEXT, `gestautes_gewaesser` TEXT, `eigentuemer_betreiber` TEXT, `art_des_absperrbauwerkes` TEXT, `hoehe_absperrwerk_ueber_gruendung` INTEGER NOT NULL, `stauinhalt_in_cbm` INTEGER NOT NULL, `bhq1_in_cbm_pro_sekunde` INTEGER NOT NULL, `bhq2_in_cbm_pro_sekunde` INTEGER NOT NULL, `betriebsvorschrift_normalfall_liegt_vor` INTEGER NOT NULL, `betriebsvorschrift_hochwasser_liegt_vor` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "primaryKey",
+            "columnName": "primary_key",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "datumUndUhrzeitLetzteBearbeitung",
+            "columnName": "datum_und_uhrzeit_letzte_bebearbeitung",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nameDerAnlage",
+            "columnName": "name_der_Anlage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "geographischeLage",
+            "columnName": "geographische_lage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gestautesGewaesser",
+            "columnName": "gestautes_gewaesser",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eigentuemerBetreiber",
+            "columnName": "eigentuemer_betreiber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "artDesAbsperrauwerkes",
+            "columnName": "art_des_absperrbauwerkes",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hoeheAbsperrwerkUeberGruendung",
+            "columnName": "hoehe_absperrwerk_ueber_gruendung",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stauinhaltInCbm",
+            "columnName": "stauinhalt_in_cbm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bhq1InCbmProSekunde",
+            "columnName": "bhq1_in_cbm_pro_sekunde",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bhq2InCbmProSekunde",
+            "columnName": "bhq2_in_cbm_pro_sekunde",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "BetriebsvorschriftNormalfallLiegtVor",
+            "columnName": "betriebsvorschrift_normalfall_liegt_vor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "BetriebsvorschriftHochwasserLiegtVor",
+            "columnName": "betriebsvorschrift_hochwasser_liegt_vor",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "primary_key"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '79211c57eb300cda7d164d5588116e66')"
+    ]
+  }
+}

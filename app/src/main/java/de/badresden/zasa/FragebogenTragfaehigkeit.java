@@ -18,9 +18,9 @@ public class FragebogenTragfaehigkeit extends AppCompatActivity {
         setTitle("Tragfähigkeit");
     }
 
-    public void oeffneFragebogenDauerhaftigkeit(View view) {
-        Intent oeffneFragebogenDauerhaftigkeitIntent = new Intent(this, FragebogenDauerhaftigkeit.class);
+    public void oeffneFragebogenGebrauchstauglichkeit(View view) {
+        Intent oeffneFragebogenGebrauchstauglichkeitIntent = new Intent(this, FragebogenGebrauchstauglichkeit.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        startActivity(oeffneFragebogenDauerhaftigkeitIntent);
+        startActivity(oeffneFragebogenGebrauchstauglichkeitIntent);
     }
 }
