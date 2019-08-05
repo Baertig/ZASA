@@ -1,5 +1,5 @@
 package de.badresden.zasa;
-
+//TODO Felix und Georg: Java-Klassen mit Packages neu organisieren (Package für Activities z.B.)
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,5 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent oeffneFragebogenAllgemeinIntent = new Intent(this, FragebogenAllgemein.class);
         oeffneFragebogenAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
         startActivity(oeffneFragebogenAllgemeinIntent);
+    }
+
+	public void openFinishedQuestionairesAcitivity(View view) {
+
     }
 }
