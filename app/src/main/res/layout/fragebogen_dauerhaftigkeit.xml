@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
     android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
     android:orientation="vertical">
 
@@ -17,15 +17,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/question_uferveraenderungen"
+                style="@style/question_textview"
+                android:text="Uferveränderungen des Stausees"/>
+
+            <EditText
+                android:id="@+id/answer_uferveraenderungen"
+                style="@style/question_edittext"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+
             <Button
                 android:id="@+id/btn_dauerhaftigkeit_weiter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginRight="@dimen/btn_weiter_margin_right"
+                style="@style/continue_button"
                 android:onClick="submitData"
-                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
-                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
                 android:text="@string/btn_submit" />
 
         </LinearLayout>
