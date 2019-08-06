@@ -37,5 +37,23 @@
     <string name="lbl_frage_uferveraenderungen">Uferveränderungen des Stausees</string>
     <string name="lbl_frage_rutschungen">Rutschungen</string>
     <string name="lbl_frage_risse_erd">Risse</string>
-    <string name="lbl_frage_setzungen">sichtbare Setzungen</string>
+    <string name="lbl_frage_setzungen_erd">sichtbare Setzungen</string>
+    <string name="lbl_frage_hebungen_erd">sichtbare Hebungen</string>
+    <string name="lbl_frage_verschiebungen_erd">sichtbare Horizontalverschiebungen</string>
+    <string name="lbl_frage_wasseraustritte_erd">Luftseitige Wasseraustritte</string>
+    <string name="lbl_frage_materialaustritt_erd">Materialaustrag durch Sickerwasser</string>
+    <string name="lbl_frage_erosion">Erosion der wasserseitigen Schutzschicht</string>
+    <string name="lbl_frage_fehlstellen_grasnarbe">Fehlstellen in der Grasnarbe auf dem Damm</string>
+    <string name="lbl_frage_gehoelzbewuchs">Gehölzbewuchs ohne Zusatzquerschnitt</string>
+    <string name="lbl_frage_visuelle_einschraenkung">Einschränkung der visuellen Inspektionsmöglichkeiten durch Bewuchs auf der luftseitigen Böschung</string>
+    <string name="lbl_frage_grabende_tiere">Grabende Tiere</string>
+    <string name="lbl_frage_risse_massiv">Risse</string>
+    <string name="heading_veraenderungen_massivbauwerke">Veränderungen an Massivbauwerken</string>
+    <string name="lbl_frage_setzungen_massiv">sichtbare Setzungen</string>
+    <string name="lbl_frage_verschiebungen">sichtbare Horizontalverschiebungen</string>
+    <string name="lbl_frage_kippungen">Neigungsänderungen, Kippungen</string>
+    <string name="lbl_frage_abplatzungen">Abplatzungen</string>
+    <string name="lbl_frage_auswaschungen">Auswaschungen, Ausblühungen</string>
+    <string name="lbl_frage_wasseraustritte_massiv">Luftseitige Wasseraustritte</string>
+    <string name="lbl_frage_fehlstellen_mauerwerk">Fehlstellen im Mauerwerk</string>
 </resources>
