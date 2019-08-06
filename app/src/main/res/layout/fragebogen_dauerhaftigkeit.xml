@@ -20,13 +20,142 @@
             <TextView
                 android:id="@+id/question_uferveraenderungen"
                 style="@style/question_textview"
-                android:text="Uferveränderungen des Stausees"/>
+                android:text="@string/lbl_frage_uferveraenderungen"/>
 
-            <EditText
-                android:id="@+id/answer_uferveraenderungen"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text"/>
+            <RadioGroup
+                android:id="@+id/radio_uferveraenderungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_uferveraenderungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/heading_veraenderungen_erdbauwerke"
+                style="@style/question_section_heading"
+                android:text="Veränderungen an Erdbauwerken" />
+
+
+            <TextView
+                android:id="@+id/frage_rutschungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_rutschungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_rutschungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_rutschungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_risse_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_risse_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_risse_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_risse_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/frage_setzungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_setzungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_setzungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_setzungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/frage_"
+                style="@style/question_textview"
+                android:text="" />
+
+
+
+            <RadioGroup
+                android:id="@+id/radio_"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
 
             <Button
                 android:id="@+id/btn_dauerhaftigkeit_weiter"

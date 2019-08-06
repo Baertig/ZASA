@@ -34,4 +34,8 @@
     <string name="heading_messeinrichtungen">Messeinrichtungen (falls vorhanden)</string>
     <string name="lbl_frage_messeinrichtungen_funktionsfaehig">Messeinrichtungen funktionsfähig</string>
     <string name="btn_submit">Fertig</string>
+    <string name="lbl_frage_uferveraenderungen">Uferveränderungen des Stausees</string>
+    <string name="lbl_frage_rutschungen">Rutschungen</string>
+    <string name="lbl_frage_risse_erd">Risse</string>
+    <string name="lbl_frage_setzungen">sichtbare Setzungen</string>
 </resources>
