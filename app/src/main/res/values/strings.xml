@@ -56,4 +56,5 @@
     <string name="lbl_frage_auswaschungen">Auswaschungen, Ausblühungen</string>
     <string name="lbl_frage_wasseraustritte_massiv">Luftseitige Wasseraustritte</string>
     <string name="lbl_frage_fehlstellen_mauerwerk">Fehlstellen im Mauerwerk</string>
+    <string name="btn_location">Standort</string>
 </resources>

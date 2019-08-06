@@ -53,4 +53,9 @@ public class FragebogenAllgemein extends AppCompatActivity {
         //oeffneFragebogenKlassifizierungIntent.putExtra(); // Optional parameters
         startActivity(oeffneFragebogenKlassifizierungIntent);
     }
+
+    public void chooseLocationByGps(View view) {
+
+    }
+
 }

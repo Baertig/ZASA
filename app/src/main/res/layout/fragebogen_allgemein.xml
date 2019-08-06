@@ -29,10 +29,24 @@
                 android:inputType="text" />
 
 
-            <TextView
-                android:id="@+id/frage_lage"
-                style="@style/question_textview"
-                android:text="@string/lbl_lage" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/frage_lage"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_lage"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/btn_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_location"
+                    android:layout_marginTop="@dimen/question_margin_top"
+                    android:onClick="chooseLocationByGps"/>
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/antw_lage"

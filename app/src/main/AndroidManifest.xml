@@ -57,11 +57,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FragebogenGebrauchstauglichkeit" />
         </activity>
-
-
-
-
-
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
