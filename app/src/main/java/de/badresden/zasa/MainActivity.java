@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 	public void openFinishedQuestionairesAcitivity(View view) {
-
+        Intent openActivityFinishedQuestionaires =
+                new Intent(this,FinishedQuestionaires.class);
+        startActivity(openActivityFinishedQuestionaires);
     }
 }
