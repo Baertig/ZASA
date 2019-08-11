@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "stauanlage_tabelle")
+@Entity(tableName = "stauanlage_table")
 public class Stauanlage {
 
     @PrimaryKey(autoGenerate = true)
@@ -39,4 +39,9 @@ public class Stauanlage {
     public boolean BetriebsvorschriftNormalfallLiegtVor;
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
     public boolean BetriebsvorschriftHochwasserLiegtVor;
+
+    //FIXME Georg: ist erstmal nur zum testen
+    public Stauanlage(String nameDerAnlage) {
+        this.nameDerAnlage = nameDerAnlage;
+    }
 }
