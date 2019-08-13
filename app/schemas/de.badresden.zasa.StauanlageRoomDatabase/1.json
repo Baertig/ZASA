@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "729742dd6881ef94fb2e9b1910cff626",
+    "identityHash": "0a9719203de8d973c34c43dce0c65e5b",
     "entities": [
       {
-        "tableName": "stauanlage_tabelle",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primary_key` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `datum_und_uhrzeit_letzte_bebearbeitung` INTEGER, `name_der_Anlage` TEXT, `geographische_lage` TEXT, `gestautes_gewaesser` TEXT, `eigentuemer_betreiber` TEXT, `art_des_absperrbauwerkes` TEXT, `hoehe_absperrwerk_ueber_gruendung` INTEGER NOT NULL, `stauinhalt_in_cbm` INTEGER NOT NULL, `bhq1_in_cbm_pro_sekunde` INTEGER NOT NULL, `bhq2_in_cbm_pro_sekunde` INTEGER NOT NULL, `betriebsvorschrift_normalfall_liegt_vor` INTEGER NOT NULL, `betriebsvorschrift_hochwasser_liegt_vor` INTEGER NOT NULL, `wasserseitige_Böschungsneigung_zu_luftseitige_Böschungsneigung_kleiner_1_zu_3` INTEGER NOT NULL, `statische_berechnung_liegt_vor` INTEGER NOT NULL)",
+        "tableName": "stauanlage_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primary_key` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `datum_und_uhrzeit_letzte_bebearbeitung` INTEGER, `name_der_Anlage` TEXT, `geographische_lage` TEXT, `gestautes_gewaesser` TEXT, `eigentuemer_betreiber` TEXT, `art_des_absperrbauwerkes` TEXT, `hoehe_absperrwerk_ueber_gruendung` INTEGER NOT NULL, `stauinhalt_in_cbm` INTEGER NOT NULL, `bhq1_in_cbm_pro_sekunde` INTEGER NOT NULL, `bhq2_in_cbm_pro_sekunde` INTEGER NOT NULL, `betriebsvorschrift_normalfall_liegt_vor` INTEGER NOT NULL, `betriebsvorschrift_hochwasser_liegt_vor` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "primaryKey",
@@ -85,18 +85,6 @@
             "columnName": "betriebsvorschrift_hochwasser_liegt_vor",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "wasserseitigZuLuftseitigKleinerEinszuDrei",
-            "columnName": "wasserseitige_Böschungsneigung_zu_luftseitige_Böschungsneigung_kleiner_1_zu_3",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "statischeBerechnungLiegtVor",
-            "columnName": "statische_berechnung_liegt_vor",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -112,7 +100,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '729742dd6881ef94fb2e9b1910cff626')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a9719203de8d973c34c43dce0c65e5b')"
     ]
   }
 }

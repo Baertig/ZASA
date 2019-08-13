@@ -17,7 +17,7 @@ public class StauanlageSimplyfiedListAdapter extends
 	private final LayoutInflater mInflater;
 	private List<StauanlageSimplyfied> stauanlageSimplyfiedList; //Cached Copy
 
-	public StauanlageSimplyfiedListAdapter(Context context) {
+	StauanlageSimplyfiedListAdapter(Context context) {
 		this.mInflater = LayoutInflater.from(context);
 	}
 
