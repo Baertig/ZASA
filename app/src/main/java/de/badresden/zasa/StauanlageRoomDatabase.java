@@ -12,7 +12,7 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {Stauanlage.class},version = 1)
-@TypeConverters({DateTypeConverter.class})
+@TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	public abstract StauanlageDao stauanlageDao();

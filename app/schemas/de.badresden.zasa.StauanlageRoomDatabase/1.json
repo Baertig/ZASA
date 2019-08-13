@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0a9719203de8d973c34c43dce0c65e5b",
+    "identityHash": "c444738e3d72eb1d11fe8c19a1ad50ee",
     "entities": [
       {
         "tableName": "stauanlage_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primary_key` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `datum_und_uhrzeit_letzte_bebearbeitung` INTEGER, `name_der_Anlage` TEXT, `geographische_lage` TEXT, `gestautes_gewaesser` TEXT, `eigentuemer_betreiber` TEXT, `art_des_absperrbauwerkes` TEXT, `hoehe_absperrwerk_ueber_gruendung` INTEGER NOT NULL, `stauinhalt_in_cbm` INTEGER NOT NULL, `bhq1_in_cbm_pro_sekunde` INTEGER NOT NULL, `bhq2_in_cbm_pro_sekunde` INTEGER NOT NULL, `betriebsvorschrift_normalfall_liegt_vor` INTEGER NOT NULL, `betriebsvorschrift_hochwasser_liegt_vor` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primary_key` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `datum_und_uhrzeit_letzte_bebearbeitung` INTEGER, `name_der_Anlage` TEXT, `geographische_lage` TEXT, `gestautes_gewaesser` TEXT, `eigentuemer_betreiber` TEXT, `art_des_absperrbauwerkes` TEXT, `hoehe_absperrwerk_ueber_gruendung` INTEGER NOT NULL, `stauinhalt_in_cbm` INTEGER NOT NULL, `bhq1_in_cbm_pro_sekunde` INTEGER NOT NULL, `bhq2_in_cbm_pro_sekunde` INTEGER NOT NULL, `betriebsvorschrift_normalfall_liegt_vor` TEXT, `betriebsvorschrift_hochwasser_liegt_vor` TEXT, `wasserseitige_boeschungsneigung_zu_luftseitige_boeschungsneigung_kleiner_1_zu_3` TEXT, `statische_berechnung_liegt_vor` TEXT, `QHWE_von_BHW1_groesser_gleich_BHQ1` TEXT, `QHWE_von_BHW2_groesser_gleich_BHQ2` TEXT, `freibord_zur_UK_von_fruecken_oder_ftegen_groesser_gleich_halb_meter` TEXT, `freibord_zur_dammkrone_pauschal` TEXT, `nachweis_nach_DVWK-Mbl_246_mit_im_BF2_um_15_prozent_reduzierter_windgeschwindigkeit` TEXT, `bisherige_betriebsauffaelligkeiten` TEXT, `querschnittsreduktion_der_wasserwege` TEXT, `fehlstellen_oder_beschaedigungen_an_wasserwegen` TEXT, `fehlstellen_oder_beschaedigungen_im_tosbecken_HWE` TEXT, `treibgutsperre_und_grobrechen_und_palisadenrechen_frei_und_funktionstuechtig` TEXT, `querschnittsreduktion_im_GA` TEXT, `fehlstellen_oder_beschaedigungen_oder_undichtigkeiten_GA` TEXT, `fehlstellen_oder_beschaedigungen_im_tosbecken_GA` TEXT, `schwergaengigkeit_oder_blockieren_des_verschlusses` TEXT, `messeinrichtung_funktionsfaehig` TEXT, `uferveraenderungen_des_stausees` TEXT, `rutschungen` TEXT, `risse_erdbau` TEXT, `sichtbare_setzungen_erdbau` TEXT, `sichtbare_hebungen` TEXT, `sichtbare_horizontalverschiebungen_erdbau` TEXT, `luftseitige_wasseraustritte_erdbau` TEXT, `materialaustrag_durch_sickerwasser` TEXT, `erosion_der_wasserseitigen_schutzschicht` TEXT, `fehlstellen_in_der_grasnarbe_auf_dem_damm` TEXT, `gehoelzbewuchs_ohne_zusatzquerschnitt` TEXT, `einschraenkung_visuelle_inspektionsmoeglichkeiten_bewuchs_luftseitigen_boeschung` TEXT, `grabende_tiere` TEXT, `risse_massivbau` TEXT, `sichtbare_setzungen_massivbau` TEXT, `sichtbare_horizontalverschiebungen_massivbau` TEXT, `neigungsaenderungen_oder_kippungen` TEXT, `abplatzungen` TEXT, `auswaschungen_oder_ausbluehungen` TEXT, `luftseitige_wasseraustritte_massivbau` TEXT, `fehlstellen_im_mauerwerk` TEXT)",
         "fields": [
           {
             "fieldPath": "primaryKey",
@@ -77,14 +77,242 @@
           {
             "fieldPath": "BetriebsvorschriftNormalfallLiegtVor",
             "columnName": "betriebsvorschrift_normalfall_liegt_vor",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "BetriebsvorschriftHochwasserLiegtVor",
             "columnName": "betriebsvorschrift_hochwasser_liegt_vor",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wasserseitigZuLuftseitigKleinerEinszuDrei",
+            "columnName": "wasserseitige_boeschungsneigung_zu_luftseitige_boeschungsneigung_kleiner_1_zu_3",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "statischeBerechnungLiegtVor",
+            "columnName": "statische_berechnung_liegt_vor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "qHWWEVonBHW1GoesserGleichBHQ1",
+            "columnName": "QHWE_von_BHW1_groesser_gleich_BHQ1",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "qHWEVonBHW2GroesserGleichBHQ2",
+            "columnName": "QHWE_von_BHW2_groesser_gleich_BHQ2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "FreiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter",
+            "columnName": "freibord_zur_UK_von_fruecken_oder_ftegen_groesser_gleich_halb_meter",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "FreibordZurDammkronePauschal",
+            "columnName": "freibord_zur_dammkrone_pauschal",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit",
+            "columnName": "nachweis_nach_DVWK-Mbl_246_mit_im_BF2_um_15_prozent_reduzierter_windgeschwindigkeit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bisherigeBetriebsauffaelligkeiten",
+            "columnName": "bisherige_betriebsauffaelligkeiten",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "querschnittsreduktionDerWasserwege",
+            "columnName": "querschnittsreduktion_der_wasserwege",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fehlstellenOderBeschaedigungenAnWasserwegen",
+            "columnName": "fehlstellen_oder_beschaedigungen_an_wasserwegen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fehlstellenOderBeschaedigungenImTosbeckenHWE",
+            "columnName": "fehlstellen_oder_beschaedigungen_im_tosbecken_HWE",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig",
+            "columnName": "treibgutsperre_und_grobrechen_und_palisadenrechen_frei_und_funktionstuechtig",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "querschnittsreduktionImGA",
+            "columnName": "querschnittsreduktion_im_GA",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fehlstellenOderBeschaedigungenOderUndichtigkeitenGA",
+            "columnName": "fehlstellen_oder_beschaedigungen_oder_undichtigkeiten_GA",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "FehlstellenOderBeschaedigungenImTosbeckenGA",
+            "columnName": "fehlstellen_oder_beschaedigungen_im_tosbecken_GA",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "schwergaengigkeitOderBlockierenDesVerschlusses",
+            "columnName": "schwergaengigkeit_oder_blockieren_des_verschlusses",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "messeinrichtungFunktionsfaehig",
+            "columnName": "messeinrichtung_funktionsfaehig",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uferveraenderungenDesStausees",
+            "columnName": "uferveraenderungen_des_stausees",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rutschungen",
+            "columnName": "rutschungen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "risseErdbau",
+            "columnName": "risse_erdbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sichtbareSetzungenErdbaubau",
+            "columnName": "sichtbare_setzungen_erdbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sichtbareHebungen",
+            "columnName": "sichtbare_hebungen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sichtbareHorizontalverschiebungenErdbau",
+            "columnName": "sichtbare_horizontalverschiebungen_erdbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "luftseitigeWasseraustritteErdbau",
+            "columnName": "luftseitige_wasseraustritte_erdbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "materialaustragDurchSickerwasser",
+            "columnName": "materialaustrag_durch_sickerwasser",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "erosionDerWasserseitigenSchutzschicht",
+            "columnName": "erosion_der_wasserseitigen_schutzschicht",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fehlstellenInDerGrasnarbeAufDemDamm",
+            "columnName": "fehlstellen_in_der_grasnarbe_auf_dem_damm",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gehoelzbewuchsOhneZusatzquerschnitt",
+            "columnName": "gehoelzbewuchs_ohne_zusatzquerschnitt",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung",
+            "columnName": "einschraenkung_visuelle_inspektionsmoeglichkeiten_bewuchs_luftseitigen_boeschung",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "grabendeTiere",
+            "columnName": "grabende_tiere",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "risseMassivbau",
+            "columnName": "risse_massivbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sichtbareSetzungenMassivbau",
+            "columnName": "sichtbare_setzungen_massivbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "SichtbareHorizontalverschiebungenMassivbau",
+            "columnName": "sichtbare_horizontalverschiebungen_massivbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "neigungsaenderungenOderKippungen",
+            "columnName": "neigungsaenderungen_oder_kippungen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "abplatzungen",
+            "columnName": "abplatzungen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "auswaschungenOderAusbluehungen",
+            "columnName": "auswaschungen_oder_ausbluehungen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "luftseitigeWasseraustritteMassivbau",
+            "columnName": "luftseitige_wasseraustritte_massivbau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fehlstellenImMauerwerk",
+            "columnName": "fehlstellen_im_mauerwerk",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -100,7 +328,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0a9719203de8d973c34c43dce0c65e5b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c444738e3d72eb1d11fe8c19a1ad50ee')"
     ]
   }
 }
