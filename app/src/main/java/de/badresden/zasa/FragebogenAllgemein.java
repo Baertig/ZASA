@@ -18,6 +18,15 @@ public class FragebogenAllgemein extends AppCompatActivity {
     // relevante GUI-Elemente:
     private EditText inputNameDerAnlage;
     private EditText inputGeoLage;
+    private EditText inputGewaesser;
+    private EditText inputEigentuemer;
+    private EditText inputArtDesAbsperrbauwerkes;
+    private EditText inputHoehe;
+    private EditText inputStauinhalt;
+    private EditText inputbhq1;
+    private EditText inputbhq2;
+    private EditText inputbhq2Abschaetzung;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,14 @@ public class FragebogenAllgemein extends AppCompatActivity {
 
         inputNameDerAnlage = findViewById(R.id.antw_name_der_anlage);
         inputGeoLage = findViewById(R.id.antw_lage);
+        inputGewaesser = findViewById(R.id.antw_gewaesser);
+        inputEigentuemer = findViewById(R.id.antw_eigentuemer);
+        inputArtDesAbsperrbauwerkes = findViewById(R.id.antw_art_des_absperrbauwerkes);
+        inputHoehe = findViewById(R.id.antw_hoehe);
+        inputStauinhalt = findViewById(R.id.antw_stauinhalt);
+        inputbhq1 = findViewById(R.id.antw_bhq1);
+        inputbhq2 = findViewById(R.id.antw_bhq2);
+        inputbhq2Abschaetzung = findViewById(R.id.antw_bhq2_abschaetzung);
 
         Log.d(LOG_TAG, "Loading input data...");
         // TODO for-loop über EditText Array?

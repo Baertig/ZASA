@@ -40,12 +40,15 @@ public class StauanlageViewModel extends AndroidViewModel {
 		mRepository.update(stauanlage);
 	}
 
-	public void createStauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
+	public void createStauanlage(){
+		stauanlage = new Stauanlage();
+	}
+	public void updateStauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
 								 String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
 								 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor){
 
-		stauanlage = new Stauanlage(nameDerAnlage,geographischeLage , gestautesGewaesser, eigentuemerBetreiber,
-									 artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde, bhq2InCbmProSekunde,
-									 betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor);
+		stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber,
+									artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde,
+									bhq2InCbmProSekunde, betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor);
 	}
 }

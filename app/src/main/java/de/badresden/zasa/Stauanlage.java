@@ -140,7 +140,9 @@ public class Stauanlage {
         this.nameDerAnlage = nameDerAnlage;
     }
 
-    public Stauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
+    public Stauanlage(){}
+
+    public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
                       String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
                       Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor) {
         this.nameDerAnlage = nameDerAnlage;
