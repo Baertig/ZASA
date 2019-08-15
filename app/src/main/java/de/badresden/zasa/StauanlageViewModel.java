@@ -1,6 +1,7 @@
 package de.badresden.zasa;
 
 import android.app.Application;
+import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -50,5 +51,18 @@ public class StauanlageViewModel extends AndroidViewModel {
 		stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber,
 									artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde,
 									bhq2InCbmProSekunde, betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor);
+	}
+
+	public Answer decideRadioAnswer(int radioIdAnswer,int radioIdJa, int radioIdUnbekannt, int radioIdNein){
+		if (radioIdAnswer == radioIdJa){
+			return Answer.JA;
+		}else if(radioIdAnswer == radioIdUnbekannt){
+			return Answer.UNBEKANNT;
+		}else if(radioIdAnswer == radioIdNein){
+			return Answer.NEIN;
+		}else {
+			return null; //FIXME sollte eigentlich nicht eintreten ... vllt sollte ein Exception geworfen werden ?
+		}
+
 	}
 }

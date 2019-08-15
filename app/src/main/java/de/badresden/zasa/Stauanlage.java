@@ -136,9 +136,9 @@ public class Stauanlage {
     //FIXME Georg: ist erstmal nur zum testen
 
 
-    public Stauanlage(String nameDerAnlage) {
+   /* public Stauanlage(String nameDerAnlage) {
         this.nameDerAnlage = nameDerAnlage;
-    }
+    }*/
 
     public Stauanlage(){}
 

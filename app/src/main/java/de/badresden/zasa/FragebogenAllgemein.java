@@ -3,11 +3,15 @@ package de.badresden.zasa;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.IntentService;
 import android.content.Intent;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 
 public class FragebogenAllgemein extends AppCompatActivity {
 
@@ -26,6 +30,8 @@ public class FragebogenAllgemein extends AppCompatActivity {
     private EditText inputbhq1;
     private EditText inputbhq2;
     private EditText inputbhq2Abschaetzung;
+    private RadioGroup inputBetriebsvorschriftNormalbetrieb;
+    private RadioGroup inputBetriebsvorschriftHochwasserfall;
 
 
     @Override
@@ -44,6 +50,9 @@ public class FragebogenAllgemein extends AppCompatActivity {
         inputbhq1 = findViewById(R.id.antw_bhq1);
         inputbhq2 = findViewById(R.id.antw_bhq2);
         inputbhq2Abschaetzung = findViewById(R.id.antw_bhq2_abschaetzung);
+        inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
+        inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
+
 
         Log.d(LOG_TAG, "Loading input data...");
         // TODO for-loop über EditText Array?
@@ -70,8 +79,31 @@ public class FragebogenAllgemein extends AppCompatActivity {
 
 
     public void oeffneFragebogenKlassifizierung(View view) {
-        //TODO Inhalt der GUI Elemente dem ViewModel uebergeben und stauanlage - Objekt erzeugen
+        // Werte aus der GUI an Stauanlagen-Objekt im View Model übergeben.
+        Answer BetriebsvorschriftNormalfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(),
+                R.id.opt_ja_betriebsvorschrift_normalbetrieb,
+                R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
+                R.id.opt_nein_betriebsvorschrift_normalbetrieb);
+        Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(),
+                R.id.opt_ja_betriebsvorschrift_hochwasserfall,
+                R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
+                R.id.opt_nein_betriebsvorschrift_hochwasserfall);
 
+
+        mStauanlageViewModel.updateStauanlage(
+                inputNameDerAnlage.getText().toString(),
+                inputGeoLage.getText().toString(),
+                inputGewaesser.getText().toString(),
+                inputEigentuemer.getText().toString(),
+                inputArtDesAbsperrbauwerkes.getText().toString(),
+                Integer.valueOf(inputHoehe.getText().toString()),
+                Integer.valueOf(inputStauinhalt.getText().toString()),
+                Integer.valueOf(inputbhq1.getText().toString()),
+                Integer.valueOf(inputbhq2.getText().toString()),
+                BetriebsvorschriftNormalfall,
+                BetriebsvorschriftHochwasserfall);
+
+        mStauanlageViewModel.insert();//FIXME Georg: nur fuers testen!
         //nächste Activity oeffnen
         Intent oeffneFragebogenKlassifizierungIntent = new Intent(this, FragebogenKlassifizierung.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
