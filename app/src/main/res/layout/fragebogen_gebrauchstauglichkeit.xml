@@ -271,7 +271,7 @@
                 android:id="@+id/btn_gebrauchstauglichkeit_weiter"
                 style="@style/continue_button"
                 android:onClick="oeffneFragebogenDauerhaftigkeit"
-                android:text="@string/btn_submit" />
+                android:text="@string/btn_weiter" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

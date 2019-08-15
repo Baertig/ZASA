@@ -192,6 +192,44 @@
                     android:text="@string/opt_unbekannt" />
             </RadioGroup>
 
+            <!-- TODO Vorlagen - bitte vor Abgabe entfernen -->
+            <!--
+
+            <TextView
+                android:id="@+id/frage_"
+                style="@style/question_textview"
+                android:text="" />
+
+            <RadioGroup
+                android:id="@+id/radio_"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/heading_"
+                style="@style/question_section_heading"
+                android:text="" />
+
+
+            -->
+
             <Button
                 android:id="@+id/btn_allgemein_weiter"
                 style="@style/continue_button"

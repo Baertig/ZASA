@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
     android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
     android:layout_marginRight="8dp"
     android:orientation="vertical">
 
@@ -17,16 +17,592 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/question_uferveraenderungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_uferveraenderungen"/>
+
+            <RadioGroup
+                android:id="@+id/radio_uferveraenderungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_uferveraenderungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_uferveraenderungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/heading_veraenderungen_erdbauwerke"
+                style="@style/question_section_heading"
+                android:text="Veränderungen an Erdbauwerken" />
+
+
+            <TextView
+                android:id="@+id/frage_rutschungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_rutschungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_rutschungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_rutschungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_rutschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_risse_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_risse_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_risse_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_risse_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_risse_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/frage_setzungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_setzungen_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_setzungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_setzungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_setzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/frage_hebungen_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_hebungen_erd" />
+
+
+
+            <RadioGroup
+                android:id="@+id/radio_hebungen_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_hebungen_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_hebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_hebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_hebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_verschiebungen_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_verschiebungen_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_verschiebungen_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_verschiebungen_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_verschiebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_verschiebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_verschiebungen_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_wasseraustritte_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_wasseraustritte_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_wasseraustritte_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_wasseraustritte_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_wasseraustritte_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_wasseraustritte_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_wasseraustritte_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_materialaustritt_erd"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_materialaustritt_erd" />
+
+            <RadioGroup
+                android:id="@+id/radio_materialaustritt_erd"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_materialaustritt_erd">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_materialaustritt_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_materialaustritt_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_materialaustritt_erd"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_erosion"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_erosion" />
+
+            <RadioGroup
+                android:id="@+id/radio_erosion"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_erosion">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_erosion"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_erosion"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_erosion"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_fehlstellen_grasnarbe"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_fehlstellen_grasnarbe" />
+
+            <RadioGroup
+                android:id="@+id/radio_fehlstellen_grasnarbe"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_fehlstellen_grasnarbe">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_fehlstellen_grasnarbe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_fehlstellen_grasnarbe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_fehlstellen_grasnarbe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_gehoelzbewuchs"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_gehoelzbewuchs" />
+
+            <RadioGroup
+                android:id="@+id/radio_gehoelzbewuchs"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_gehoelzbewuchs">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_gehoelzbewuchs"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_gehoelzbewuchs"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_gehoelzbewuchs"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_visuelle_einschraenkung"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_visuelle_einschraenkung" />
+
+            <RadioGroup
+                android:id="@+id/radio_visuelle_einschraenkung"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_visuelle_einschraenkung">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_visuelle_einschraenkung"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_visuelle_einschraenkung"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_visuelle_einschraenkung"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_grabende_tiere"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_grabende_tiere" />
+
+            <RadioGroup
+                android:id="@+id/radio_grabende_tiere"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_grabende_tiere">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_grabende_tiere"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_grabende_tiere"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_grabende_tiere"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+
+            <TextView
+                android:id="@+id/heading_veraenderungen_massivbauwerke"
+                style="@style/question_section_heading"
+                android:text="@string/heading_veraenderungen_massivbauwerke" />
+
+
+            <TextView
+                android:id="@+id/frage_risse_massiv"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_risse_massiv" />
+
+            <RadioGroup
+                android:id="@+id/radio_risse_massiv"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_risse_massiv">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_risse_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_risse_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_risse_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_setzungen_massiv"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_setzungen_massiv" />
+
+            <RadioGroup
+                android:id="@+id/radio_setzungen_massiv"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_setzungen_massiv">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_setzungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_setzungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_setzungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_verschiebungen_massiv"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_verschiebungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_verschiebungen_massiv"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_verschiebungen_massiv">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_verschiebungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_verschiebungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_verschiebungen_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_kippungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_kippungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_kippungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_kippungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_kippungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_kippungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_kippungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+
+            <TextView
+                android:id="@+id/frage_abplatzungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_abplatzungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_abplatzungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_abplatzungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_abplatzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_abplatzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_abplatzungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_auswaschungen"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_auswaschungen" />
+
+            <RadioGroup
+                android:id="@+id/radio_auswaschungen"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_auswaschungen">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_auswaschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_auswaschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_auswaschungen"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_wasseraustritte_massiv"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_wasseraustritte_massiv" />
+
+            <RadioGroup
+                android:id="@+id/radio_wasseraustritte_massiv"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_wasseraustritte_massiv">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_wasseraustritte_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_wasseraustritte_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_wasseraustritte_massiv"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/frage_fehlstellen_mauerwerk"
+                style="@style/question_textview"
+                android:text="@string/lbl_frage_fehlstellen_mauerwerk" />
+
+            <RadioGroup
+                android:id="@+id/radio_fehlstellen_mauerwerk"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_fehlstellen_mauerwerk">
+
+                <RadioButton
+                    android:id="@+id/opt_ja_fehlstellen_mauerwerk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_ja" />
+
+                <RadioButton
+                    android:id="@+id/opt_nein_fehlstellen_mauerwerk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_nein" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_fehlstellen_mauerwerk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unbekannt" />
+            </RadioGroup>
+
+
             <Button
                 android:id="@+id/btn_dauerhaftigkeit_weiter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginRight="@dimen/btn_weiter_margin_right"
+                style="@style/continue_button"
                 android:onClick="submitData"
-                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
-                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
-                android:text="@string/btn_weiter" />
+                android:text="@string/btn_submit" />
 
         </LinearLayout>
     </ScrollView>
