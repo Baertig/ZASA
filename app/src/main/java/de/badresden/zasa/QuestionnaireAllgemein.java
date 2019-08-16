@@ -1,16 +1,16 @@
 package de.badresden.zasa;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-public class FragebogenAllgemein extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private static final String LOG_TAG = FragebogenAllgemein.class.getSimpleName();
+public class QuestionnaireAllgemein extends AppCompatActivity {
+
+    private static final String LOG_TAG = QuestionnaireAllgemein.class.getSimpleName();
 
     // relevante GUI-Elemente:
     private EditText inputNameDerAnlage;
@@ -19,7 +19,7 @@ public class FragebogenAllgemein extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragebogen_allgemein);
+        setContentView(R.layout.activity_questionnaire_allgemein);
         setTitle("Allgemein");
 
         inputNameDerAnlage = findViewById(R.id.antw_name_der_anlage);
@@ -47,11 +47,11 @@ public class FragebogenAllgemein extends AppCompatActivity {
     }
 
 
-    public void oeffneFragebogenKlassifizierung(View view) {
-        Intent oeffneFragebogenKlassifizierungIntent = new Intent(this, FragebogenKlassifizierung.class);
+    public void openQuestionnaireKlassifizierung(View view) {
+        Intent openQuestionnaireKlassifizierungIntent = new Intent(this, QuestionnaireKlassifizierung.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        //oeffneFragebogenKlassifizierungIntent.putExtra(); // Optional parameters
-        startActivity(oeffneFragebogenKlassifizierungIntent);
+        //openQuestionnaireKlassifizierungIntent.putExtra(); // Optional parameters
+        startActivity(openQuestionnaireKlassifizierungIntent);
     }
 
     public void chooseLocationByGps(View view) {

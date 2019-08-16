@@ -18,44 +18,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FragebogenAllgemein"
-            android:label="FragebogenAllgemein"
+            android:name=".QuestionnaireAllgemein"
+            android:label="QuestionnaireAllgemein"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".FragebogenKlassifizierung"
-            android:label="FragebogenKlassifizierung"
-            android:parentActivityName=".FragebogenAllgemein">
+            android:name=".QuestionnaireKlassifizierung"
+            android:label="QuestionnaireKlassifizierung"
+            android:parentActivityName=".QuestionnaireAllgemein">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FragebogenAllgemein" />
+                android:value=".QuestionnaireAllgemein" />
         </activity>
         <activity
-            android:name=".FragebogenTragfaehigkeit"
-            android:label="FragebogenTragfaehigkeit"
-            android:parentActivityName=".FragebogenKlassifizierung">
+            android:name=".QuestionnaireTragfaehigkeit"
+            android:label="QuestionnaireKlassifizierung"
+            android:parentActivityName=".QuestionnaireKlassifizierung">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FragebogenKlassifizierung" />
+                android:value=".QuestionnaireKlassifizierung" />
         </activity>
         <activity
-            android:name=".FragebogenGebrauchstauglichkeit"
-            android:label="FragebogenGebrauchstauglichkeit"
-            android:parentActivityName=".FragebogenTragfaehigkeit">
+            android:name=".QuestionnaireGebrauchstauglichkeit"
+            android:label="QuestionnaireKlassifizierung"
+            android:parentActivityName=".QuestionnaireTragfaehigkeit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FragebogenTragfaehigkeit" />
+                android:value=".QuestionnaireTragfaehigkeit" />
         </activity>
         <activity
-            android:name=".FragebogenDauerhaftigkeit"
-            android:label="FragebogenDauerhaftigkeit"
-            android:parentActivityName=".FragebogenGebrauchstauglichkeit">
+            android:name=".QuestionnaireDauerhaftigkeit"
+            android:label="QuestionnaireKlassifizierung"
+            android:parentActivityName=".QuestionnaireGebrauchstauglichkeit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FragebogenGebrauchstauglichkeit" />
+                android:value=".QuestionnaireGebrauchstauglichkeit" />
         </activity>
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

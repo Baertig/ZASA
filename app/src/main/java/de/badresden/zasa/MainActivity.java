@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void oeffneFragebogenAllgemein(View view) {
-        Intent oeffneFragebogenAllgemeinIntent = new Intent(this, FragebogenAllgemein.class);
-        oeffneFragebogenAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
-        startActivity(oeffneFragebogenAllgemeinIntent);
+    public void openQuestionnaireAllgemein(View view) {
+        Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemein.class);
+        openQuestionnaireAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
+        startActivity(openQuestionnaireAllgemeinIntent);
     }
 
 	public void openFinishedQuestionairesAcitivity(View view) {

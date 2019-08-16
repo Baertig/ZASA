@@ -25,7 +25,7 @@
             <TextView
                 android:id="@+id/frage_querschnittsreduktion_hwe"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_querschnittsreduktion_hwe" />
+                android:text="@string/lbl_question_querschnittsreduktion_hwe" />
 
             <RadioGroup
                 android:id="@+id/radio_querschnittsreduktion_hwe"
@@ -33,14 +33,14 @@
                 android:checkedButton="@id/opt_unknown_querschnittsreduktion_hwe">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_querschnittsreduktion_hwe"
+                    android:id="@+id/opt_yes_querschnittsreduktion_hwe"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_querschnittsreduktion_hwe"
+                    android:id="@+id/opt_no_querschnittsreduktion_hwe"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein" />
+                    android:text="@string/opt_no" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_querschnittsreduktion_hwe"
@@ -51,7 +51,7 @@
             <TextView
                 android:id="@+id/frage_beschaedigungen_wasserwege"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_beschaedigungen_wasserwege" />
+                android:text="@string/lbl_question_beschaedigungen_wasserwege" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_wasserwege"
@@ -59,14 +59,14 @@
                 android:checkedButton="@id/opt_unknown_beschaedigungen_wasserwege">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_beschaedigungen_wasserwege"
+                    android:id="@+id/opt_yes_beschaedigungen_wasserwege"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_beschaedigungen_wasserwege"
+                    android:id="@+id/opt_no_beschaedigungen_wasserwege"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein" />
+                    android:text="@string/opt_no" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_wasserwege"
@@ -77,7 +77,7 @@
             <TextView
                 android:id="@+id/frage_beschaedigungen_tosbecken_hwe"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_beschaedigungen_tosbecken_hwe" />
+                android:text="@string/lbl_question_beschaedigungen_tosbecken_hwe" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_tosbecken_hwe"
@@ -85,14 +85,14 @@
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_hwe">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_beschaedigungen_tosbecken_hwe"
+                    android:id="@+id/opt_yes_beschaedigungen_tosbecken_hwe"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_beschaedigungen_tosbecken_hwe"
+                    android:id="@+id/opt_no_beschaedigungen_tosbecken_hwe"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein"/>
+                    android:text="@string/opt_no"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_tosbecken_hwe"
@@ -103,7 +103,7 @@
             <TextView
                 android:id="@+id/frage_frei_und_funktionstuechtig"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_frei_und_funktionstuechtig" />
+                android:text="@string/lbl_question_frei_und_funktionstuechtig" />
 
             <RadioGroup
                 android:id="@+id/radio_frei_und_funktionstuechtig"
@@ -111,14 +111,14 @@
                 android:checkedButton="@+id/opt_unknown_frei_und_funktionstuechtig">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_frei_und_funktionstuechtig"
+                    android:id="@+id/opt_yes_frei_und_funktionstuechtig"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_frei_und_funktionstuechtig"
+                    android:id="@+id/opt_no_frei_und_funktionstuechtig"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein"/>
+                    android:text="@string/opt_no"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_frei_und_funktionstuechtig"
@@ -135,7 +135,7 @@
             <TextView
                 android:id="@+id/frage_querschnittsreduktion_ga"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_querschnittsreduktion_ga"/>
+                android:text="@string/lbl_question_querschnittsreduktion_ga"/>
 
             <RadioGroup
                 android:id="@+id/radio_querschnittsreduktion_ga"
@@ -143,14 +143,14 @@
                 android:checkedButton="@id/opt_unknown_querschnittsreduktion_ga">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_querschnittsreduktion_ga"
+                    android:id="@+id/opt_yes_querschnittsreduktion_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_querschnittsreduktion_ga"
+                    android:id="@+id/opt_no_querschnittsreduktion_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein"/>
+                    android:text="@string/opt_no"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_querschnittsreduktion_ga"
@@ -161,7 +161,7 @@
             <TextView
                 android:id="@+id/frage_beschaedigungen_ga"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_beschaedigungen_ga"/>
+                android:text="@string/lbl_question_beschaedigungen_ga"/>
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_ga"
@@ -169,14 +169,14 @@
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_ga">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_beschaedigungen_ga"
+                    android:id="@+id/opt_yes_beschaedigungen_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_beschaedigungen_ga"
+                    android:id="@+id/opt_no_beschaedigungen_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein"/>
+                    android:text="@string/opt_no"/>
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_ga"
@@ -187,7 +187,7 @@
             <TextView
                 android:id="@+id/frage_beschaedigungen_tosbecken_ga"
                 style="@style/question_textview"
-                android:text="@string/beschaedigungen_tosbecken_ga" />
+                android:text="@string/lbl_question_beschaedigungen_tosbecken_ga" />
 
             <RadioGroup
                 android:id="@+id/radio_beschaedigungen_tosbecken_ga"
@@ -195,14 +195,14 @@
                 android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_ga">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_beschaedigungen_tosbecken_ga"
+                    android:id="@+id/opt_yes_beschaedigungen_tosbecken_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_beschaedigungen_tosbecken_ga"
+                    android:id="@+id/opt_no_beschaedigungen_tosbecken_ga"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein" />
+                    android:text="@string/opt_no" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_beschaedigungen_tosbecken_ga"
@@ -213,7 +213,7 @@
             <TextView
                 android:id="@+id/frage_schwergaengigkeit_verschluss"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_schwergaengigkeit_verschluss" />
+                android:text="@string/lbl_question_schwergaengigkeit_verschluss" />
 
             <RadioGroup
                 android:id="@+id/radio_schwergaengigkeit_verschluss"
@@ -221,14 +221,14 @@
                 android:checkedButton="@+id/opt_unknown_schwergaengigkeit_verschluss">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_schwergaengigkeit_verschluss"
+                    android:id="@+id/opt_yes_schwergaengigkeit_verschluss"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_schwergaengigkeit_verschluss"
+                    android:id="@+id/opt_no_schwergaengigkeit_verschluss"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein" />
+                    android:text="@string/opt_no" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_schwergaengigkeit_verschluss"
@@ -244,7 +244,7 @@
             <TextView
                 android:id="@+id/frage_messeinrichtungen_funktionsfaehig"
                 style="@style/question_textview"
-                android:text="@string/lbl_frage_messeinrichtungen_funktionsfaehig" />
+                android:text="@string/lbl_question_messeinrichtungen_funktionsfaehig" />
 
             <RadioGroup
                 android:id="@+id/radio_messeinrichtungen_funktionsfaehig"
@@ -252,14 +252,14 @@
                 android:checkedButton="@+id/opt_unknown_messeinrichtungen_funktionsfaehig">
 
                 <RadioButton
-                    android:id="@+id/opt_ja_messeinrichtungen_funktionsfaehig"
+                    android:id="@+id/opt_yes_messeinrichtungen_funktionsfaehig"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_ja" />
+                    android:text="@string/opt_yes" />
 
                 <RadioButton
-                    android:id="@+id/opt_nein_messeinrichtungen_funktionsfaehig"
+                    android:id="@+id/opt_no_messeinrichtungen_funktionsfaehig"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_nein" />
+                    android:text="@string/opt_no" />
 
                 <RadioButton
                     android:id="@+id/opt_unknown_messeinrichtungen_funktionsfaehig"
@@ -270,8 +270,8 @@
             <Button
                 android:id="@+id/btn_gebrauchstauglichkeit_weiter"
                 style="@style/continue_button"
-                android:onClick="oeffneFragebogenDauerhaftigkeit"
-                android:text="@string/btn_weiter" />
+                android:onClick="openQuestionnaireDauerhaftigkeit"
+                android:text="@string/btn_continue" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
