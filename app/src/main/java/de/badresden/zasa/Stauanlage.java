@@ -136,11 +136,11 @@ public class Stauanlage {
     //FIXME Georg: ist erstmal nur zum testen
 
 
-   /* public Stauanlage(String nameDerAnlage) {
+    public Stauanlage(String nameDerAnlage) {
         this.nameDerAnlage = nameDerAnlage;
-    }*/
+    }
 
-    public Stauanlage(){}
+    //public Stauanlage(){}
 
     public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
                       String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,

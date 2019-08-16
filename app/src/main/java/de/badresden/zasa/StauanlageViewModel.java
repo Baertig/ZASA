@@ -22,6 +22,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 		mRepository = new StauanlageRepository(application);
 		mAllStauanlagen = mRepository.getAllStauanlagen();
 		mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
+		stauanlage = new Stauanlage("useless placeholder Name"); //FIXME
 	}
     // wrapper Methods:
 	public LiveData<List<Stauanlage>> getAllStauanlagen(){
@@ -42,7 +43,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	}
 
 	public void createStauanlage(){
-		stauanlage = new Stauanlage();
+		this.stauanlage = new Stauanlage("useless placeholder Name");//FIXME
 	}
 	public void updateStauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
 								 String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,

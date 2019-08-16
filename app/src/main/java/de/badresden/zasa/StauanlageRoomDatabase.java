@@ -11,7 +11,7 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Stauanlage.class},version = 1)
+@Database(entities = {Stauanlage.class},version = 2)
 @TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
@@ -46,8 +46,8 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	private static class PopulateDbAsync extends AsyncTask<Void,Void,Void>{
 		private final StauanlageDao mStauanlageDao;
-		private Stauanlage stauanlageEins = new Stauanlage();
-		private Stauanlage stauanlageZwei = new Stauanlage();
+		private Stauanlage stauanlageEins = new Stauanlage("Ernst");
+		private Stauanlage stauanlageZwei = new Stauanlage("Fridolin");
 		Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
 
 		PopulateDbAsync(StauanlageRoomDatabase db){
@@ -57,8 +57,6 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 		@Override
 		protected Void doInBackground(Void... voids) {
 			mStauanlageDao.deleteAll();
-			stauanlageEins.nameDerAnlage = "Ernst";
-			stauanlageZwei.nameDerAnlage = "Fridolin";
 			for(int i = 0; i < stauanlagen.length; i++){
 				mStauanlageDao.insert(stauanlagen[i]);
 			}
