@@ -38,10 +38,10 @@ public class StauanlageSimplyfiedListAdapter extends
 			holder.StauanlageSimpyfiedItemView.setText("Keine Daten zum darstellen");
 		}
 	}
-	//TODO: weiß nicht ob wie diese Methode wirklich brauchen
+
 	void setStauanlageSimplyfiedList (List<StauanlageSimplyfied> stauanlageSimplyfiedList){
 		this.stauanlageSimplyfiedList = stauanlageSimplyfiedList;
-		notifyDataSetChanged();
+		notifyDataSetChanged(); // aktualisiert die View
 	}
 
 	// getItemCount() is called many times, and when it is first called,

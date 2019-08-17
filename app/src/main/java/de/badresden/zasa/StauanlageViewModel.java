@@ -13,20 +13,14 @@ public class StauanlageViewModel extends AndroidViewModel {
 
 	private Stauanlage stauanlage;
 	private StauanlageRepository mRepository;
-	private LiveData<List<Stauanlage>> mAllStauanlagen;
-	private LiveData <List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied;
+	private LiveData <List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //TODO: aktualisiert sich irgendwie nicht richtig
 
 
 	public StauanlageViewModel(@NonNull Application application) {
 		super(application);
 		mRepository = new StauanlageRepository(application);
-		mAllStauanlagen = mRepository.getAllStauanlagen();
 		mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
 		stauanlage = new Stauanlage("useless placeholder Name"); //FIXME
-	}
-    // wrapper Methods:
-	public LiveData<List<Stauanlage>> getAllStauanlagen(){
-		return mAllStauanlagen;
 	}
 
 	public LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied(){
@@ -36,6 +30,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	// das private Feld wird gespeichert
 	public void insert(){
 		mRepository.insert(stauanlage);
+        //mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
 	}
 
 	public void update(Stauanlage stauanlage){

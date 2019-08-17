@@ -1,5 +1,6 @@
 package de.badresden.zasa;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -25,7 +26,7 @@ public class FinishedQuestionaires extends AppCompatActivity {
 		mStauanlageViewModel.getAllStauanlagenSimplyfied().observe(this,
 				new Observer<List<StauanlageSimplyfied>>() {
 					@Override
-					public void onChanged(List<StauanlageSimplyfied> stauanlageSimplyfiedList) {
+					public void onChanged(@Nullable final List<StauanlageSimplyfied> stauanlageSimplyfiedList) {
 						adapter.setStauanlageSimplyfiedList(stauanlageSimplyfiedList);
 					}
 				});
