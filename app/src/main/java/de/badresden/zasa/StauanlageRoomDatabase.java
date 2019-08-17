@@ -25,7 +25,7 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 					//create Database here
 					INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
 							StauanlageRoomDatabase.class,"stauanlage_database")
-							// Migration is not nessacary yet, only version 1 exists
+							// Migration is not nessacary yet
 							.fallbackToDestructiveMigration()
 							.addCallback(sRoomDataBaseCallback)
 							.build();

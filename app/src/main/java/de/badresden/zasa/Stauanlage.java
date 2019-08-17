@@ -1,5 +1,6 @@
 package de.badresden.zasa;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -144,8 +145,9 @@ public class Stauanlage {
 
     public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
                       String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
-                      Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor) {
+                      Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
+        this.datumUndUhrzeitLetzteBearbeitung = datumUndUhrzeitLetzteBearbeitung;
         this.geographischeLage = geographischeLage;
         this.gestautesGewaesser = gestautesGewaesser;
         this.eigentuemerBetreiber = eigentuemerBetreiber;
@@ -154,7 +156,7 @@ public class Stauanlage {
         this.stauinhaltInCbm = stauinhaltInCbm;
         this.bhq1InCbmProSekunde = bhq1InCbmProSekunde;
         this.bhq2InCbmProSekunde = bhq2InCbmProSekunde;
-        BetriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
-        BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
+        this.BetriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
+        this.BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
     }
 }

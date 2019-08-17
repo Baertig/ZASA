@@ -7,18 +7,25 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.icu.lang.UCharacter;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class FragebogenAllgemein extends AppCompatActivity {
 
     private static final String LOG_TAG = FragebogenAllgemein.class.getSimpleName();
 
     private StauanlageViewModel mStauanlageViewModel;
-
+    //bilden zusammen den Schlüssel für die Datenbank
+    //sie werden also benötigt in der nächsten Activity das Stauanlagen Objekt zu laden
+    private Date currentDate;
+    private String nameDerAnlage;
     // relevante GUI-Elemente:
     private EditText inputNameDerAnlage;
     private EditText inputGeoLage;
@@ -39,7 +46,6 @@ public class FragebogenAllgemein extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragebogen_allgemein);
         setTitle("Allgemein");
-
         inputNameDerAnlage = findViewById(R.id.antw_name_der_anlage);
         inputGeoLage = findViewById(R.id.antw_lage);
         inputGewaesser = findViewById(R.id.antw_gewaesser);
@@ -53,33 +59,43 @@ public class FragebogenAllgemein extends AppCompatActivity {
         inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
         inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
 
-
-        Log.d(LOG_TAG, "Loading input data...");
-        // TODO for-loop über EditText Array?
-        if (DataHandler.answerStorage.containsKey("name_der_anlage")) {
-            inputNameDerAnlage.setText(DataHandler.answerStorage.get("name_der_anlage").toString());
-        }
-        if (DataHandler.answerStorage.containsKey("name_der_anlage")) {
-            inputNameDerAnlage.setText(DataHandler.answerStorage.get("name_der_anlage").toString());
-        }
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+        //das Bearbeitungsdatum setzten
+        currentDate = Calendar.getInstance().getTime();
+        //falls ein man aus vorheriger Activity kommt
+        if (StauanlageViewModel.stauanlage != null){
+            loadStauanlageInUI();
+        }
+
+    }
+
+
+    private void loadStauanlageInUI() {
+        inputNameDerAnlage.setText(StauanlageViewModel.stauanlage.nameDerAnlage);
+        inputGeoLage.setText(StauanlageViewModel.stauanlage.geographischeLage);
+        inputGewaesser.setText(StauanlageViewModel.stauanlage.gestautesGewaesser);
+        inputEigentuemer.setText(StauanlageViewModel.stauanlage.eigentuemerBetreiber);
+        inputArtDesAbsperrbauwerkes.setText(StauanlageViewModel.stauanlage.artDesAbsperrauwerkes);
+        inputHoehe.setText(StauanlageViewModel.stauanlage.hoeheAbsperrwerkUeberGruendung);
+        inputStauinhalt.setText(StauanlageViewModel.stauanlage.stauinhaltInCbm);
+        inputbhq1.setText(StauanlageViewModel.stauanlage.bhq1InCbmProSekunde);
+        inputbhq2.setText(StauanlageViewModel.stauanlage.bhq2InCbmProSekunde);
+        //inputBetriebsvorschriftNormalbetrieb; FIXME: Methode um Answer wieder in RadioButton zu konvertieren
+        //inputBetriebsvorschriftHochwasserfall;
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(LOG_TAG, "Saving input data...");
-        // TODO Loop
-        if (inputNameDerAnlage == null) {
-            throw new RuntimeException("Couldn't save input data: EditText not found");
-        }
-        DataHandler.answerStorage.put("name_der_anlage", inputNameDerAnlage.getText().toString());
+        //löschen der bisher gespeichert Daten
+        StauanlageViewModel.stauanlage = null;
     }
 
 
     public void oeffneFragebogenKlassifizierung(View view) {
-        // Werte aus der GUI an Stauanlagen-Objekt im View Model übergeben.
+        // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
         Answer BetriebsvorschriftNormalfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(),
                 R.id.opt_ja_betriebsvorschrift_normalbetrieb,
                 R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
@@ -101,13 +117,14 @@ public class FragebogenAllgemein extends AppCompatActivity {
                 Integer.valueOf(inputbhq1.getText().toString()),
                 Integer.valueOf(inputbhq2.getText().toString()),
                 BetriebsvorschriftNormalfall,
-                BetriebsvorschriftHochwasserfall);
-
-        mStauanlageViewModel.insert();//FIXME Georg: nur fuers testen!
+                BetriebsvorschriftHochwasserfall,
+                currentDate);
+        //mStauanlageViewModel.insert();
+        nameDerAnlage = inputNameDerAnlage.getText().toString();
         //nächste Activity oeffnen
-        Intent oeffneFragebogenKlassifizierungIntent = new Intent(this, FragebogenKlassifizierung.class);
+        Intent oeffneFragebogenTragfaehigkeitIntent = new Intent(this, FragebogenTragfaehigkeit.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        //oeffneFragebogenKlassifizierungIntent.putExtra(); // Optional parameters
-        startActivity(oeffneFragebogenKlassifizierungIntent);
+        //oeffneFragebogenTragfaehigkeitIntent.putExtra(); // Optional parameters
+        startActivity(oeffneFragebogenTragfaehigkeitIntent);
     }
 }

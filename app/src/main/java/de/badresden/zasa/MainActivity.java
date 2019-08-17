@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+        //Observer der dafür sorgt das die LiveData weiß, dass sie beobachtet wird
+        mStauanlageViewModel.getAllStauanlagenSimplyfied().observe(this, new Observer<List<StauanlageSimplyfied>>() {
+            @Override
+            public void onChanged(List<StauanlageSimplyfied> stauanlageSimplyfieds) {
+            }
+        });
     }
 
     public void oeffneFragebogenAllgemein(View view) {
