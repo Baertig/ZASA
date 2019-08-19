@@ -108,7 +108,7 @@
                 android:id="@+id/answer_hoehe"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
 
             <TextView
@@ -120,7 +120,7 @@
                 android:id="@+id/answer_stauinhalt"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
 
             <TextView
@@ -132,7 +132,7 @@
                 android:id="@+id/answer_bhq1"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
 
             <TextView
@@ -144,7 +144,7 @@
                 android:id="@+id/answer_bhq2"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/question_bhq2_abschaetzung"
@@ -155,7 +155,7 @@
                 android:id="@+id/answer_bhq2_abschaetzung"
                 style="@style/question_edittext"
                 android:imeOptions="actionDone"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
 
             <TextView
@@ -182,7 +182,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -209,11 +209,25 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
             <!-- TODO Vorlagen - bitte vor Abgabe entfernen -->
             <!--
+
+            Text-Frage:
+
+            <TextView
+                android:id="@+id/question_"
+                style="@style/question_textview"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/answer_"
+                style="@style/question_edittext" />
+
+
+            Ja/Nein/Unbekannt-Frage
 
             <TextView
                 android:id="@+id/question_"
@@ -238,9 +252,11 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
+
+            Section Heading:
 
             <TextView
                 android:id="@+id/heading_"
@@ -248,6 +264,19 @@
                 android:text="" />
 
 
+
+            Number Input:
+
+            <TextView
+                android:id="@+id/question_"
+                style="@style/question_textview"
+                android:text="" />
+
+            <EditText
+                android:id="@+id/answer_"
+                style="@style/question_edittext"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal" />
             -->
 
             <Button

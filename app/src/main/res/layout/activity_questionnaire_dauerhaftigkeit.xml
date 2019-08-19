@@ -40,7 +40,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_uferveraenderungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -73,7 +73,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_rutschungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -100,7 +100,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_risse_erd"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
             <TextView
@@ -126,7 +126,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_setzungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
             <TextView
@@ -154,7 +154,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_hebungen_erd"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -181,7 +181,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_verschiebungen_erd"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -208,7 +208,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_wasseraustritte_erd"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -235,7 +235,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_materialaustritt_erd"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -262,7 +262,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_erosion"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -289,7 +289,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_fehlstellen_grasnarbe"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -316,7 +316,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_gehoelzbewuchs"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -343,7 +343,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_visuelle_einschraenkung"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -370,7 +370,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_grabende_tiere"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -404,7 +404,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_risse_massiv"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -431,7 +431,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_setzungen_massiv"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -458,7 +458,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_verschiebungen_massiv"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -485,7 +485,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_kippungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -513,7 +513,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_abplatzungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -540,7 +540,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_auswaschungen"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -567,7 +567,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_wasseraustritte_massiv"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
@@ -594,7 +594,7 @@
                 <RadioButton
                     android:id="@+id/opt_unknown_fehlstellen_mauerwerk"
                     style="@style/question_radiobutton"
-                    android:text="@string/opt_unbekannt" />
+                    android:text="@string/opt_unknown" />
             </RadioGroup>
 
 
