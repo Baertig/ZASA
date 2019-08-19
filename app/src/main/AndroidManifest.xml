@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FinishedQuestionaires"></activity>
+        <activity
+            android:name=".FinishedQuestionaires"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,7 +59,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".QuestionnaireGebrauchstauglichkeit" />
         </activity>
+
+
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

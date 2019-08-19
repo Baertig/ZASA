@@ -1,20 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:padding = "8dp">
 
     <TextView
+        android:id="@+id/questionaireNameTestView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="placeholder_Text" />
+        android:layout_alignBottom="@id/deleteButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"
+        tools:text="placeholder Text" />
 
-    <Button
-        android:id="@+id/button_show"
+    <ImageButton
+        android:id="@+id/showButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_show"
-        android:drawableLeft="@drawable/ic_show"/>
-</LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_show" />
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/showButton"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/ic_delete_white_24dp"/>
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/deleteButton"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/ic_edit_white_24dp"
+        android:clickable="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignTop="@+id/showButton"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/darker_gray" />
+</RelativeLayout>
