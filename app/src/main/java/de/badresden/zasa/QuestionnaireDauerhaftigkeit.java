@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class FragebogenDauerhaftigkeit extends AppCompatActivity {
+public class QuestionnaireDauerhaftigkeit extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Dauerhaftigkeit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragebogen_dauerhaftigkeit);
+        setContentView(R.layout.activity_questionnaire_dauerhaftigkeit);
         setTitle("Dauerhaftigkeit");
     }
 

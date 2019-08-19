@@ -57,15 +57,15 @@
 
             <!-- TODO So anordnen, dass Button in der Bildschirm-Ecke unten rechts ist -->
             <Button
-                android:id="@+id/btn_klassifizierung_weiter"
+                android:id="@+id/btn_klassifizierung_continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginRight="@dimen/btn_weiter_margin_right"
-                android:onClick="oeffneFragebogenTragfaehigkeit"
-                android:paddingHorizontal="@dimen/btn_weiter_padding_horizontal"
-                android:paddingVertical="@dimen/btn_weiter_padding_vertical"
-                android:text="@string/btn_weiter" />
+                android:layout_marginRight="@dimen/btn_continue_margin_right"
+                android:onClick="openQuestionnaireTragfaehigkeit"
+                android:paddingHorizontal="@dimen/btn_continue_padding_horizontal"
+                android:paddingVertical="@dimen/btn_continue_padding_vertical"
+                android:text="@string/btn_continue" />
 
 
 

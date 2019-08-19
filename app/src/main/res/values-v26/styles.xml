@@ -5,8 +5,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">end</item>
-        <item name="android:layout_marginRight">@dimen/btn_weiter_margin_right</item>
-        <item name="android:paddingHorizontal">@dimen/btn_weiter_padding_horizontal</item>
-        <item name="android:paddingVertical">@dimen/btn_weiter_padding_vertical</item>
+        <item name="android:layout_marginRight">@dimen/btn_continue_margin_right</item>
+        <item name="android:paddingHorizontal">@dimen/btn_continue_padding_horizontal</item>
+        <item name="android:paddingVertical">@dimen/btn_continue_padding_vertical</item>
     </style>
 </resources>

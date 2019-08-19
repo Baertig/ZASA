@@ -1,15 +1,18 @@
 package de.badresden.zasa;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Stauanlage.class},version = 1)
-@TypeConverters({DateTypeConverter.class})
+@Database(entities = {Stauanlage.class},version = 2)
+@TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	public abstract StauanlageDao stauanlageDao();
@@ -22,11 +25,42 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 					//create Database here
 					INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
 							StauanlageRoomDatabase.class,"stauanlage_database")
-							// Migration is not nessacary yet, only version 1 exists
+							// Migration is not nessacary yet
+							.fallbackToDestructiveMigration()
+							.addCallback(sRoomDataBaseCallback)
 							.build();
 				}
 			}
 		}
 		return INSTANCE;
+	}
+	//FIXME Georg: nur zum Testen
+	private static RoomDatabase.Callback sRoomDataBaseCallback =
+			new RoomDatabase.Callback(){
+				@Override
+				public void onOpen(@NonNull SupportSQLiteDatabase db) {
+					super.onOpen(db);
+					new PopulateDbAsync(INSTANCE).execute();
+				}
+			};
+
+	private static class PopulateDbAsync extends AsyncTask<Void,Void,Void>{
+		private final StauanlageDao mStauanlageDao;
+		private Stauanlage stauanlageEins = new Stauanlage("Ernst");
+		private Stauanlage stauanlageZwei = new Stauanlage("Fridolin");
+		Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
+
+		PopulateDbAsync(StauanlageRoomDatabase db){
+			mStauanlageDao = db.stauanlageDao();
+		}
+
+		@Override
+		protected Void doInBackground(Void... voids) {
+			mStauanlageDao.deleteAll();
+			for(int i = 0; i < stauanlagen.length; i++){
+				mStauanlageDao.insert(stauanlagen[i]);
+			}
+			return null;
+		}
 	}
 }
