@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/startseite_ueberschrift">
 
         <Button
-            android:id="@+id/button_neuer_fragebogen"
+            android:id="@+id/button_new_questionnaire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="openQuestionnaireAllgemein"
@@ -44,13 +44,13 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button_ausgefuellte_frageboegen"
+            android:id="@+id/button_finished_questionnaires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/filled_questionnaires"
             android:onClick="openFinishedQuestionairesAcitivity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_neuer_fragebogen" />
+            app:layout_constraintTop_toBottomOf="@+id/button_new_questionnaire" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

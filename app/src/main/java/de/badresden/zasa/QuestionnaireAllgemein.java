@@ -98,13 +98,13 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
     public void openQuestionnaireKlassifizierung(View view) {
         // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
         Answer BetriebsvorschriftNormalfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(),
-                R.id.opt_ja_betriebsvorschrift_normalbetrieb,
+                R.id.opt_yes_betriebsvorschrift_normalbetrieb,
                 R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
-                R.id.opt_nein_betriebsvorschrift_normalbetrieb);
+                R.id.opt_no_betriebsvorschrift_normalbetrieb);
         Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(),
-                R.id.opt_ja_betriebsvorschrift_hochwasserfall,
+                R.id.opt_yes_betriebsvorschrift_hochwasserfall,
                 R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
-                R.id.opt_nein_betriebsvorschrift_hochwasserfall);
+                R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
 
         mStauanlageViewModel.updateStauanlage(
@@ -123,7 +123,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         //mStauanlageViewModel.insert();
         nameDerAnlage = inputNameDerAnlage.getText().toString();
         //nächste Activity oeffnen
-        Intent oeffneFragebogenTragfaehigkeitIntent = new Intent(this, FragebogenTragfaehigkeit.class);
+        Intent openQuestionnaireKlassifizierungIntent = new Intent(this, QuestionnaireTragfaehigkeit.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         //openQuestionnaireKlassifizierungIntent.putExtra(); // Optional parameters
         startActivity(openQuestionnaireKlassifizierungIntent);
