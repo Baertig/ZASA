@@ -57,7 +57,7 @@
 
             <!-- TODO So anordnen, dass Button in der Bildschirm-Ecke unten rechts ist -->
             <Button
-                android:id="@+id/btn_klassifizierung_weiter"
+                android:id="@+id/btn_klassifizierung_continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

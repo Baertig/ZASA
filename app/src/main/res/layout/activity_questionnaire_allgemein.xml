@@ -19,12 +19,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/frage_name_der_anlage"
+                android:id="@+id/question_name_der_anlage"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_name_der_anlage" />
 
             <EditText
-                android:id="@+id/antw_name_der_anlage"
+                android:id="@+id/answer_name_der_anlage"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="text" />
@@ -41,7 +41,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/frage_lage"
+                        android:id="@+id/question_lage"
                         style="@style/question_textview"
                         android:layout_weight="1"
                         android:text="@string/lbl_question_lage" />
@@ -57,109 +57,109 @@
             </FrameLayout>
 
             <EditText
-                android:id="@+id/antw_lage"
+                android:id="@+id/answer_lage"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="text" />
 
 
             <TextView
-                android:id="@+id/frage_gewaesser"
+                android:id="@+id/question_gewaesser"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_gewaesser" />
 
             <EditText
-                android:id="@+id/antw_gewaesser"
+                android:id="@+id/answer_gewaesser"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="text" />
 
 
             <TextView
-                android:id="@+id/frage_eigentuemer"
+                android:id="@+id/question_eigentuemer"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_eigentuemer" />
 
             <EditText
-                android:id="@+id/antw_eigentuemer"
+                android:id="@+id/answer_eigentuemer"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="text" />
 
 
             <TextView
-                android:id="@+id/frage_art_des_absperrbauwerkes"
+                android:id="@+id/question_art_des_absperrbauwerkes"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_art_des_absperrbauwerkes" />
 
             <EditText
-                android:id="@+id/antw_art_des_absperrbauwerkes"
+                android:id="@+id/answer_art_des_absperrbauwerkes"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="text" />
 
 
             <TextView
-                android:id="@+id/frage_hoehe"
+                android:id="@+id/question_hoehe"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_hoehe" />
 
             <EditText
-                android:id="@+id/antw_hoehe"
+                android:id="@+id/answer_hoehe"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="number" />
 
 
             <TextView
-                android:id="@+id/frage_stauinhalt"
+                android:id="@+id/question_stauinhalt"
                 style="@style/question_textview"
                 android:text="Stauinhalt (m³):" />
 
             <EditText
-                android:id="@+id/antw_stauinhalt"
+                android:id="@+id/answer_stauinhalt"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="number" />
 
 
             <TextView
-                android:id="@+id/frage_bhq1"
+                android:id="@+id/question_bhq1"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_bhq1" />
 
             <EditText
-                android:id="@+id/antw_bhq1"
+                android:id="@+id/answer_bhq1"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="number" />
 
 
             <TextView
-                android:id="@+id/frage_bhq2"
+                android:id="@+id/question_bhq2"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_bhq2" />
 
             <EditText
-                android:id="@+id/antw_bhq2"
+                android:id="@+id/answer_bhq2"
                 style="@style/question_edittext"
                 android:imeOptions="actionNext"
                 android:inputType="number" />
 
             <TextView
-                android:id="@+id/frage_bhq2_abschaetzung"
+                android:id="@+id/question_bhq2_abschaetzung"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_bhq2_abschaetzung" />
 
             <EditText
-                android:id="@+id/antw_bhq2_abschaetzung"
+                android:id="@+id/answer_bhq2_abschaetzung"
                 style="@style/question_edittext"
                 android:imeOptions="actionDone"
                 android:inputType="number" />
 
 
             <TextView
-                android:id="@+id/frage_betriebsvorschrift_normalbetrieb"
+                android:id="@+id/question_betriebsvorschrift_normalbetrieb"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
 
@@ -187,7 +187,7 @@
 
 
             <TextView
-                android:id="@+id/frage_betriebsvorschtift_hochwasserfall"
+                android:id="@+id/question_betriebsvorschtift_hochwasserfall"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_betriebsvorschrift_hochwasserfall" />
 
@@ -216,7 +216,7 @@
             <!--
 
             <TextView
-                android:id="@+id/frage_"
+                android:id="@+id/question_"
                 style="@style/question_textview"
                 android:text="" />
 
@@ -251,7 +251,7 @@
             -->
 
             <Button
-                android:id="@+id/btn_allgemein_weiter"
+                android:id="@+id/btn_allgemein_continue"
                 style="@style/continue_button"
                 android:onClick="openQuestionnaireKlassifizierung"
                 android:text="@string/btn_continue" />

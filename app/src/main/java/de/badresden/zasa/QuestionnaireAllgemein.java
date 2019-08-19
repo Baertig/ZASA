@@ -22,8 +22,8 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         setContentView(R.layout.activity_questionnaire_allgemein);
         setTitle("Allgemein");
 
-        inputNameDerAnlage = findViewById(R.id.antw_name_der_anlage);
-        inputGeoLage = findViewById(R.id.antw_lage);
+        inputNameDerAnlage = findViewById(R.id.answer_name_der_anlage);
+        inputGeoLage = findViewById(R.id.answer_lage);
 
         Log.d(LOG_TAG, "Loading input data...");
         // TODO for-loop über EditText Array?

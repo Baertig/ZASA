@@ -51,7 +51,7 @@
 
 
             <TextView
-                android:id="@+id/frage_rutschungen"
+                android:id="@+id/question_rutschungen"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_rutschungen" />
 
@@ -78,7 +78,7 @@
 
 
             <TextView
-                android:id="@+id/frage_risse_erd"
+                android:id="@+id/question_risse_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_risse_erd" />
 
@@ -104,7 +104,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_setzungen"
+                android:id="@+id/question_setzungen"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_setzungen_erd" />
 
@@ -130,7 +130,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_hebungen_erd"
+                android:id="@+id/question_hebungen_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_hebungen_erd" />
 
@@ -159,7 +159,7 @@
 
 
             <TextView
-                android:id="@+id/frage_verschiebungen_erd"
+                android:id="@+id/question_verschiebungen_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_verschiebungen_erd" />
 
@@ -186,7 +186,7 @@
 
 
             <TextView
-                android:id="@+id/frage_wasseraustritte_erd"
+                android:id="@+id/question_wasseraustritte_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_wasseraustritte_erd" />
 
@@ -213,7 +213,7 @@
 
 
             <TextView
-                android:id="@+id/frage_materialaustritt_erd"
+                android:id="@+id/question_materialaustritt_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_materialaustritt_erd" />
 
@@ -240,7 +240,7 @@
 
 
             <TextView
-                android:id="@+id/frage_erosion"
+                android:id="@+id/question_erosion"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_erosion" />
 
@@ -267,7 +267,7 @@
 
 
             <TextView
-                android:id="@+id/frage_fehlstellen_grasnarbe"
+                android:id="@+id/question_fehlstellen_grasnarbe"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_fehlstellen_grasnarbe" />
 
@@ -294,7 +294,7 @@
 
 
             <TextView
-                android:id="@+id/frage_gehoelzbewuchs"
+                android:id="@+id/question_gehoelzbewuchs"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_gehoelzbewuchs" />
 
@@ -321,7 +321,7 @@
 
 
             <TextView
-                android:id="@+id/frage_visuelle_einschraenkung"
+                android:id="@+id/question_visuelle_einschraenkung"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_visuelle_einschraenkung" />
 
@@ -348,7 +348,7 @@
 
 
             <TextView
-                android:id="@+id/frage_grabende_tiere"
+                android:id="@+id/question_grabende_tiere"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_grabende_tiere" />
 
@@ -382,7 +382,7 @@
 
 
             <TextView
-                android:id="@+id/frage_risse_massiv"
+                android:id="@+id/question_risse_massiv"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_risse_massiv" />
 
@@ -409,7 +409,7 @@
 
 
             <TextView
-                android:id="@+id/frage_setzungen_massiv"
+                android:id="@+id/question_setzungen_massiv"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_setzungen_massiv" />
 
@@ -436,7 +436,7 @@
 
 
             <TextView
-                android:id="@+id/frage_verschiebungen_massiv"
+                android:id="@+id/question_verschiebungen_massiv"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_verschiebungen" />
 
@@ -463,7 +463,7 @@
 
 
             <TextView
-                android:id="@+id/frage_kippungen"
+                android:id="@+id/question_kippungen"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_kippungen" />
 
@@ -491,7 +491,7 @@
 
 
             <TextView
-                android:id="@+id/frage_abplatzungen"
+                android:id="@+id/question_abplatzungen"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_abplatzungen" />
 
@@ -518,7 +518,7 @@
 
 
             <TextView
-                android:id="@+id/frage_auswaschungen"
+                android:id="@+id/question_auswaschungen"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_auswaschungen" />
 
@@ -545,7 +545,7 @@
 
 
             <TextView
-                android:id="@+id/frage_wasseraustritte_massiv"
+                android:id="@+id/question_wasseraustritte_massiv"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_wasseraustritte_massiv" />
 
@@ -572,7 +572,7 @@
 
 
             <TextView
-                android:id="@+id/frage_fehlstellen_mauerwerk"
+                android:id="@+id/question_fehlstellen_mauerwerk"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_fehlstellen_mauerwerk" />
 
@@ -599,7 +599,7 @@
 
 
             <Button
-                android:id="@+id/btn_dauerhaftigkeit_weiter"
+                android:id="@+id/btn_dauerhaftigkeit_continue"
                 style="@style/continue_button"
                 android:onClick="submitData"
                 android:text="@string/btn_submit" />

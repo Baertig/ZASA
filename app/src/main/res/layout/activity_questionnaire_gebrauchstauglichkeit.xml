@@ -23,7 +23,7 @@
                 android:text="@string/heading_hochwasserentlastung" />
 
             <TextView
-                android:id="@+id/frage_querschnittsreduktion_hwe"
+                android:id="@+id/question_querschnittsreduktion_hwe"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_querschnittsreduktion_hwe" />
 
@@ -49,7 +49,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_beschaedigungen_wasserwege"
+                android:id="@+id/question_beschaedigungen_wasserwege"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_beschaedigungen_wasserwege" />
 
@@ -75,7 +75,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_beschaedigungen_tosbecken_hwe"
+                android:id="@+id/question_beschaedigungen_tosbecken_hwe"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_beschaedigungen_tosbecken_hwe" />
 
@@ -101,7 +101,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_frei_und_funktionstuechtig"
+                android:id="@+id/question_frei_und_funktionstuechtig"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_frei_und_funktionstuechtig" />
 
@@ -133,7 +133,7 @@
                 android:text="@string/heading_grundablass" />
 
             <TextView
-                android:id="@+id/frage_querschnittsreduktion_ga"
+                android:id="@+id/question_querschnittsreduktion_ga"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_querschnittsreduktion_ga"/>
 
@@ -159,7 +159,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_beschaedigungen_ga"
+                android:id="@+id/question_beschaedigungen_ga"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_beschaedigungen_ga"/>
 
@@ -185,7 +185,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_beschaedigungen_tosbecken_ga"
+                android:id="@+id/question_beschaedigungen_tosbecken_ga"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_beschaedigungen_tosbecken_ga" />
 
@@ -211,7 +211,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/frage_schwergaengigkeit_verschluss"
+                android:id="@+id/question_schwergaengigkeit_verschluss"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_schwergaengigkeit_verschluss" />
 
@@ -242,7 +242,7 @@
                 android:text="@string/heading_messeinrichtungen" />
 
             <TextView
-                android:id="@+id/frage_messeinrichtungen_funktionsfaehig"
+                android:id="@+id/question_messeinrichtungen_funktionsfaehig"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_messeinrichtungen_funktionsfaehig" />
 
@@ -268,7 +268,7 @@
             </RadioGroup>
 
             <Button
-                android:id="@+id/btn_gebrauchstauglichkeit_weiter"
+                android:id="@+id/btn_gebrauchstauglichkeit_continue"
                 style="@style/continue_button"
                 android:onClick="openQuestionnaireDauerhaftigkeit"
                 android:text="@string/btn_continue" />
