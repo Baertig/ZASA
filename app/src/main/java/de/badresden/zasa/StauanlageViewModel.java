@@ -46,13 +46,25 @@ public class StauanlageViewModel extends AndroidViewModel {
 								 String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
 								 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor,Date datumUndUhrzeitLetzteBearbeitung){
 
-		stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber,
+		stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber, //TODO beim renaming beachten !!!
 									artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde,
 									bhq2InCbmProSekunde, betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor,datumUndUhrzeitLetzteBearbeitung);
 	}
 
+	public void uptdateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
+											 Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
+											 Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+											 Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
+											 Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig){
+
+		stauanlage.uptdateGebrauchstauglichkeit(qHWWEVonBHW1GoesserGleichBHQ1, qHWEVonBHW2GroesserGleichBHQ2, freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
+				 freibordZurDammkronePauschal, nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, bisherigeBetriebsauffaelligkeiten,
+				querschnittsreduktionDerWasserwege, fehlstellenOderBeschaedigungenAnWasserwegen, fehlstellenOderBeschaedigungenImTosbeckenHWE, treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+				querschnittsreduktionImGA, fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, fehlstellenOderBeschaedigungenImTosbeckenGA,
+				schwergaengigkeitOderBlockierenDesVerschlusses, messeinrichtungFunktionsfaehig);
+	}
 	public void loadStauanlageWith(String nameDerAnlage, Date datumUndUhrzeitLetzteBearbeitung){
-		stauanlage = mRepository.getStauanlageWith(nameDerAnlage,datumUndUhrzeitLetzteBearbeitung).get(0); //FIXME Fehlerbehandlung wenn mehrer Stauanlagen gefunden wurden
+		stauanlage = mRepository.getStauanlageWith(nameDerAnlage,datumUndUhrzeitLetzteBearbeitung).get(0); //FIXME fuer OOP Abgabe loeschen
 	}
 
 	public Answer decideRadioAnswer(int radioIdAnswer,int radioIdJa, int radioIdUnbekannt, int radioIdNein){
@@ -66,5 +78,28 @@ public class StauanlageViewModel extends AndroidViewModel {
 			return null; //FIXME sollte eigentlich nicht eintreten ... vllt sollte ein Exception geworfen werden ?
 		}
 
+	}
+	public Answer decideQHEW1GreaterEqualBHQ1(Integer qhwe1){
+		if (qhwe1 != null && stauanlage.bhq1InCbmProSekunde != null){
+			if (qhwe1 >= stauanlage.bhq1InCbmProSekunde){
+				return Answer.JA;
+			}else{
+				return Answer.NEIN;
+			}
+		}else{
+			return Answer.UNBEKANNT;
+		}
+	}
+
+	public Answer decideQHEW2GreaterEqualBHQ2(Integer qhwe2){
+		if (qhwe2 != null && stauanlage.bhq2InCbmProSekunde != null){
+			if (qhwe2 >= stauanlage.bhq1InCbmProSekunde){
+				return Answer.JA;
+			}else{
+				return Answer.NEIN;
+			}
+		}else{
+			return Answer.UNBEKANNT;
+		}
 	}
 }

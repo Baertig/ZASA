@@ -16,9 +16,7 @@ import java.util.Date;
 public class QuestionnaireTragfaehigkeit extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Tragfaehigkeit";
-    private Date datumUndUhrzeitLetzteBearbeitung;
-    private String nameDerAnlage;
-    private ViewModel mStauanlageViewModel;
+    private StauanlageViewModel mStauanlageViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

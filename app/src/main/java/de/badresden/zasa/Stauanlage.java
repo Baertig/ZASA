@@ -1,6 +1,5 @@
 package de.badresden.zasa;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -29,13 +28,13 @@ public class Stauanlage {
     @ColumnInfo(name = "art_des_absperrbauwerkes")
     public String artDesAbsperrauwerkes;
     @ColumnInfo(name = "hoehe_absperrwerk_ueber_gruendung")
-    public int hoeheAbsperrwerkUeberGruendung;
+    public Integer hoeheAbsperrwerkUeberGruendung;
     @ColumnInfo(name = "stauinhalt_in_cbm")
-    public int stauinhaltInCbm;
+    public Integer stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
-    public int bhq1InCbmProSekunde;
+    public Integer bhq1InCbmProSekunde;
     @ColumnInfo(name = "bhq2_in_cbm_pro_sekunde")
-    public int bhq2InCbmProSekunde;
+    public Integer bhq2InCbmProSekunde;
     @ColumnInfo(name = "betriebsvorschrift_normalfall_liegt_vor")
     public Answer BetriebsvorschriftNormalfallLiegtVor;
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
@@ -49,10 +48,10 @@ public class Stauanlage {
 
     //Gebrauchstauglichkeit
     @ColumnInfo(name = "QHWE_von_BHW1_groesser_gleich_BHQ1")
-    public Answer qHWWEVonBHW1GoesserGleichBHQ1;
+    public Answer qHWEVonBHW1GoesserGleichBHQ1; //FIXME doppel W
     @ColumnInfo(name = "QHWE_von_BHW2_groesser_gleich_BHQ2")
     public Answer qHWEVonBHW2GroesserGleichBHQ2;
-    @ColumnInfo(name = "freibord_zur_UK_von_fruecken_oder_ftegen_groesser_gleich_halb_meter")
+    @ColumnInfo(name = "freibord_zur_UK_von_bruecken_oder_stegen_groesser_gleich_halb_meter")
     public Answer FreiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter;
     @ColumnInfo(name = "freibord_zur_dammkrone_pauschal")
     public Answer FreibordZurDammkronePauschal;
@@ -158,5 +157,27 @@ public class Stauanlage {
         this.bhq2InCbmProSekunde = bhq2InCbmProSekunde;
         this.BetriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
         this.BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
+    }
+
+    public void uptdateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
+                      Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
+                      Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+                      Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
+                      Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig) {
+        this.qHWEVonBHW1GoesserGleichBHQ1 = qHWWEVonBHW1GoesserGleichBHQ1;
+        this.qHWEVonBHW2GroesserGleichBHQ2 = qHWEVonBHW2GroesserGleichBHQ2;
+        this.FreiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter = freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter;
+        this.FreibordZurDammkronePauschal = freibordZurDammkronePauschal;
+        this.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit = nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit;
+        this.bisherigeBetriebsauffaelligkeiten = bisherigeBetriebsauffaelligkeiten;
+        this.querschnittsreduktionDerWasserwege = querschnittsreduktionDerWasserwege;
+        this.fehlstellenOderBeschaedigungenAnWasserwegen = fehlstellenOderBeschaedigungenAnWasserwegen;
+        this.fehlstellenOderBeschaedigungenImTosbeckenHWE = fehlstellenOderBeschaedigungenImTosbeckenHWE;
+        this.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig = treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig;
+        this.querschnittsreduktionImGA = querschnittsreduktionImGA;
+        this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA = fehlstellenOderBeschaedigungenOderUndichtigkeitenGA;
+        this.FehlstellenOderBeschaedigungenImTosbeckenGA = fehlstellenOderBeschaedigungenImTosbeckenGA;
+        this.schwergaengigkeitOderBlockierenDesVerschlusses = schwergaengigkeitOderBlockierenDesVerschlusses;
+        this.messeinrichtungFunktionsfaehig = messeinrichtungFunktionsfaehig;
     }
 }

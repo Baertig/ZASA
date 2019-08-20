@@ -90,20 +90,17 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        //löschen der bisher gespeichert Daten
-        StauanlageViewModel.stauanlage = null;
+        //löschen der bisher gespeichert Daten (beim pressen des zurueckButtons (FIXME eigtl. geht das vllt auch besser -> nicht in OnPause()  ))
+        StauanlageViewModel.stauanlage = null; //FIXME is ganz großer quatsch  --> Bei Configuration Change werden Werte geloescht ... muss geaendert werden !!!
     }
 
+    //TODO Welche Events werden getriggered beim drehen des Handys --> da müssen die Daten genauso wie beim weiter Button gesichert werden
 
     public void openQuestionnaireKlassifizierung(View view) {
         // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
-        Answer BetriebsvorschriftNormalfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(),
-                R.id.opt_yes_betriebsvorschrift_normalbetrieb,
-                R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
+        Answer BetriebsvorschriftNormalfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_normalbetrieb, R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
                 R.id.opt_no_betriebsvorschrift_normalbetrieb);
-        Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(),
-                R.id.opt_yes_betriebsvorschrift_hochwasserfall,
-                R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
+        Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
 
@@ -113,7 +110,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
                 inputGewaesser.getText().toString(),
                 inputEigentuemer.getText().toString(),
                 inputArtDesAbsperrbauwerkes.getText().toString(),
-                Integer.valueOf(inputHoehe.getText().toString()),
+                Integer.valueOf(inputHoehe.getText().toString()), //TODO was passiert wenn Feld leer ist
                 Integer.valueOf(inputStauinhalt.getText().toString()),
                 Integer.valueOf(inputbhq1.getText().toString()),
                 Integer.valueOf(inputbhq2.getText().toString()),

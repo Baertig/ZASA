@@ -21,7 +21,7 @@
                 android:id="@+id/question_qhwe1"
                 style="@style/question_textview"
                 android:layout_height="@dimen/question_lbl_height_with_subscript"
-                android:text="@string/question_qhwe1" />
+                android:text="@string/lbl_question_qhwe1" />
 
             <EditText
                 android:id="@+id/answer_qhwe1"
@@ -35,7 +35,7 @@
                 android:id="@+id/question_qhwe2"
                 style="@style/question_textview"
                 android:layout_height="@dimen/question_lbl_height_with_subscript"
-                android:text="@string/question_qhwe2" />
+                android:text="@string/lbl_question_qhwe2" />
 
             <EditText
                 android:id="@+id/answer_qhwe2"
