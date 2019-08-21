@@ -73,7 +73,7 @@ public class QuestionnaireGebrauchstauglichkeit extends AppCompatActivity {
         Answer beschaedigungenGA = stauanlageViewModel.decideRadioAnswer(inputBeschaedigungenGA.getCheckedRadioButtonId(),R.id.opt_yes_beschaedigungen_ga,R.id.opt_unknown_beschaedigungen_ga,
                 R.id.opt_no_beschaedigungen_ga);
 
-        stauanlageViewModel.uptdateGebrauchstauglichkeit(
+        /*stauanlageViewModel.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,
                 qHWEVonBHW2GroesserGleichBHQ2,
                 Answer.UNBEKANNT, //TODO siehe unten
@@ -86,7 +86,7 @@ public class QuestionnaireGebrauchstauglichkeit extends AppCompatActivity {
                 freiUndFunktionstuechtig,
                 querschnittsreduktionGA,
                 beschaedigungenGA,
-        );
+        );*/
 
 
         Intent openQuestionnaireDauerhaftigkeitIntent = new Intent(this, QuestionnaireDauerhaftigkeit.class);

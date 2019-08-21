@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openQuestionnaireAllgemein(View view) {
-        mStauanlageViewModel.createStauanlage();
         Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemein.class);
         openQuestionnaireAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
         startActivity(openQuestionnaireAllgemeinIntent);

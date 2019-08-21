@@ -65,7 +65,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         //das Bearbeitungsdatum setzten
         currentDate = Calendar.getInstance().getTime();
         //falls ein man aus vorheriger Activity kommt
-        if (StauanlageViewModel.stauanlage != null){
+        if (StauanlageViewModel.stauanlage != null && StauanlageViewModel.stauanlage.hoeheAbsperrwerkUeberGruendung != null){ //FIXME
             loadStauanlageInUI();
         }
 
@@ -103,7 +103,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
-
+        mStauanlageViewModel.createStauanlage(); //FIXME
         mStauanlageViewModel.updateStauanlage(
                 inputNameDerAnlage.getText().toString(),
                 inputGeoLage.getText().toString(),

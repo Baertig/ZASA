@@ -13,7 +13,7 @@ import java.util.List;
 
 public class StauanlageViewModel extends AndroidViewModel {
 
-	public static Stauanlage stauanlage;
+	public static Stauanlage stauanlage = null;
 	private StauanlageRepository mRepository;
 	private LiveData <List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //TODO: aktualisiert sich irgendwie nicht richtig
 
