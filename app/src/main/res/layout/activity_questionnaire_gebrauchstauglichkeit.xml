@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/question_qhwe1"
+                style="@style/question_textview"
+                android:layout_height="@dimen/question_lbl_height_with_subscript"
+                android:text="@string/lbl_question_qhwe1" />
+
+            <EditText
+                android:id="@+id/answer_qhwe1"
+                style="@style/question_edittext"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal" />
+
+            <!-- TODO Anzeige, ob BHQ größer oder kleiner ist als QHWE -->
+
+            <TextView
+                android:id="@+id/question_qhwe2"
+                style="@style/question_textview"
+                android:layout_height="@dimen/question_lbl_height_with_subscript"
+                android:text="@string/lbl_question_qhwe2" />
+
+            <EditText
+                android:id="@+id/answer_qhwe2"
+                style="@style/question_edittext"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal" />
+
+            <!-- TODO Anzeige, ob BHQ größer oder kleiner ist als QHWE -->
+
+            <TextView
+                android:id="@+id/question_freibord_uk"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_freibord_uk" />
+
+            <EditText
+                android:id="@+id/answer_freibord_uk"
+                style="@style/question_edittext"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal" />
+
+            <!-- TODO Anzeige, ob Freiboard zur UK >= 0,50 m eingehalten wird -->
+
+            <TextView
+                android:id="@+id/question_freibord_dammkrone"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_freibord_dammkrone" />
+
+            <EditText
+                android:id="@+id/answer_freibord_dammkrone"
+                style="@style/question_edittext"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/question_nachweis_dvwk"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_nachweis_dvwk" />
+
+            <RadioGroup
+                android:id="@+id/radio_nachweis_dvwk"
+                style="@style/question_radiogroup"
+                android:orientation="vertical"
+                android:checkedButton="@+id/opt_unknown_nachweis_dvwk">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_nachweis_dvwk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes_liegt_vor" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_nachweis_dvwk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no_noch_zu_erstellen" />
+
+                <!--TODO Unbekannt weg?-->
+                <RadioButton
+                    android:id="@+id/opt_unknown_nachweis_dvwk"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/question_betriebsauffaelligkeiten"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_betriebsauffaelligkeiten" />
+            <!--TODO -->
+
+            <EditText
+                android:id="@+id/answer_betriebsauffaelligkeiten"
+                style="@style/question_edittext" />
+
+
+            <TextView
+                android:id="@+id/heading_hochwasserentlastung"
+                style="@style/question_section_heading"
+                android:text="@string/heading_hochwasserentlastung" />
+
+            <TextView
+                android:id="@+id/question_querschnittsreduktion_hwe"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_querschnittsreduktion_hwe" />
+
+            <RadioGroup
+                android:id="@+id/radio_querschnittsreduktion_hwe"
+                style="@style/question_radiogroup"
+                android:checkedButton="@id/opt_unknown_querschnittsreduktion_hwe">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_querschnittsreduktion_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_querschnittsreduktion_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_querschnittsreduktion_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_beschaedigungen_wasserwege"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_beschaedigungen_wasserwege" />
+
+            <RadioGroup
+                android:id="@+id/radio_beschaedigungen_wasserwege"
+                style="@style/question_radiogroup"
+                android:checkedButton="@id/opt_unknown_beschaedigungen_wasserwege">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_beschaedigungen_wasserwege"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_beschaedigungen_wasserwege"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_beschaedigungen_wasserwege"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_beschaedigungen_tosbecken_hwe"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_beschaedigungen_tosbecken_hwe" />
+
+            <RadioGroup
+                android:id="@+id/radio_beschaedigungen_tosbecken_hwe"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_hwe">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_beschaedigungen_tosbecken_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_beschaedigungen_tosbecken_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no"/>
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_beschaedigungen_tosbecken_hwe"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_frei_und_funktionstuechtig"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_frei_und_funktionstuechtig" />
+
+            <RadioGroup
+                android:id="@+id/radio_frei_und_funktionstuechtig"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_frei_und_funktionstuechtig">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_frei_und_funktionstuechtig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_frei_und_funktionstuechtig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no"/>
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_frei_und_funktionstuechtig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown"/>
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/heading_grundablass"
+                style="@style/question_section_heading"
+                android:text="@string/heading_grundablass" />
+
+            <TextView
+                android:id="@+id/question_querschnittsreduktion_ga"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_querschnittsreduktion_ga"/>
+
+            <RadioGroup
+                android:id="@+id/radio_querschnittsreduktion_ga"
+                style="@style/question_radiogroup"
+                android:checkedButton="@id/opt_unknown_querschnittsreduktion_ga">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_querschnittsreduktion_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_querschnittsreduktion_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no"/>
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_querschnittsreduktion_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_beschaedigungen_ga"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_beschaedigungen_ga"/>
+
+            <RadioGroup
+                android:id="@+id/radio_beschaedigungen_ga"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_beschaedigungen_ga">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_beschaedigungen_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_beschaedigungen_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no"/>
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_beschaedigungen_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_beschaedigungen_tosbecken_ga"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_beschaedigungen_tosbecken_ga" />
+
+            <RadioGroup
+                android:id="@+id/radio_beschaedigungen_tosbecken_ga"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_beschaedigungen_tosbecken_ga">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_beschaedigungen_tosbecken_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_beschaedigungen_tosbecken_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_beschaedigungen_tosbecken_ga"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question_schwergaengigkeit_verschluss"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_schwergaengigkeit_verschluss" />
+
+            <RadioGroup
+                android:id="@+id/radio_schwergaengigkeit_verschluss"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_schwergaengigkeit_verschluss">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_schwergaengigkeit_verschluss"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_schwergaengigkeit_verschluss"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_schwergaengigkeit_verschluss"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/heading_messeinrichtungen"
+                style="@style/question_section_heading"
+                android:text="@string/heading_messeinrichtungen" />
+
+            <TextView
+                android:id="@+id/question_messeinrichtungen_funktionsfaehig"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_messeinrichtungen_funktionsfaehig" />
+
+            <RadioGroup
+                android:id="@+id/radio_messeinrichtungen_funktionsfaehig"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_messeinrichtungen_funktionsfaehig">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_messeinrichtungen_funktionsfaehig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_messeinrichtungen_funktionsfaehig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_messeinrichtungen_funktionsfaehig"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_gebrauchstauglichkeit_continue"
+                style="@style/continue_button"
+                android:onClick="openQuestionnaireDauerhaftigkeit"
+                android:text="@string/btn_continue" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

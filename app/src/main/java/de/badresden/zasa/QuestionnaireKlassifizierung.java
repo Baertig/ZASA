@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class FragebogenKlassifizierung extends AppCompatActivity {
+public class QuestionnaireKlassifizierung extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Klassifizierung";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragebogen_klassifizierung);
-        setTitle("Klassifizierung");
+        setContentView(R.layout.activity_questionnaire_klassifizierung);
+        setTitle("Klassifizierung (Erdbauwerke)");
 
         // TODO Gespeicherte Inputs laden
     }
@@ -27,10 +27,10 @@ public class FragebogenKlassifizierung extends AppCompatActivity {
 
     }
 
-    public void oeffneFragebogenTragfaehigkeit(View view) {
-        Intent oeffneFragebogenTragaehigkeitIntent = new Intent(this, FragebogenTragfaehigkeit.class);
+    public void openQuestionnaireTragfaehigkeit(View view) {
+        Intent openQuestionnaireTragaehigkeitIntent = new Intent(this, QuestionnaireTragfaehigkeit.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        startActivity(oeffneFragebogenTragaehigkeitIntent);
+        startActivity(openQuestionnaireTragaehigkeitIntent);
     }
 
 }

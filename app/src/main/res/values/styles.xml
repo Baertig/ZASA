@@ -8,4 +8,49 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="question_textview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/question_margin_top</item>
+        <item name="android:textSize">@dimen/question_lbl_text_size</item>
+    </style>
+
+    <style name="question_section_heading">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/heading_margin_top</item>
+        <item name="android:textSize">@dimen/heading_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="question_edittext">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/question_input_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/question_input_margin_bottom</item>
+        <item name="android:layout_marginRight">@dimen/question_input_margin_right</item>
+    </style>
+
+    <style name="question_radiogroup">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/question_input_margin_top</item>
+        <item name="android:layout_marginRight">@dimen/question_input_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/question_input_margin_bottom</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="question_radiobutton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/radio_option_text_size</item>
+        <item name="android:layout_marginRight">30dp</item>
+    </style>
+
+    <style name="continue_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginRight">@dimen/btn_continue_margin_right</item>
+    </style>
 </resources>

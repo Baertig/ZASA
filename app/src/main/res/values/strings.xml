@@ -1,22 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">ZASA</string>
-    <string name="startseite_ueberschrift">ZASA - ZustandsAnalyse StauAnlagen</string>
-    <string name="neuer_fragebogen">Neuer Fragebogen</string>
-    <string name="ausgefuellte_frageboegen">Ausgefüllte Fragebögen</string>
-    <string name="lbl_name_der_anlage">Name der Anlage:</string>
-    <string name="lbl_lage">Geographische Lage:</string>
-    <string name="btn_weiter">Weiter</string>
-    <string name="lbl_gewaesser">gestautes Gewässer:</string>
-    <string name="lbl_eigentuemer">Eigentümer/Betreiber:</string>
-    <string name="lbl_art_des_absperrbauwerkes">Art des Absperrbauwerkes:</string>
-    <string name="lbl_hoehe">Höhe Absperrbauwerk über Gründung (m):</string>
-    <string name="lbl_bhq1">BHQ₁ (m³/s):</string>
-    <string name="lbl_bhq2">BHQ₂ (m³/s):</string>
-    <string name="lbl_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
-    <string name="lbl_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
-    <string name="lbl_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
-    <string name="radio_ja">Ja</string>
-    <string name="radio_nein">Nein</string>
-    <string name="radio_kleinste_stauanlagen">kleinste Stauanlagen</string>
-    <string name="radio_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
+
+    <string name="btn_continue">Weiter</string>
+    <string name="btn_location">Standort</string>
+    <string name="btn_submit">Fertig</string>
+
+    <string name="filled_questionnaires">Ausgefüllte Fragebögen</string>
+
+    <string name="heading_grundablass">Grundablass (GA)</string>
+    <string name="heading_hochwasserentlastung">Hochwasserentlastung (HWE)</string>
+    <string name="heading_messeinrichtungen">Messeinrichtungen (falls vorhanden)</string>
+    <string name="heading_veraenderungen_massivbauwerke">Veränderungen an Massivbauwerken</string>
+
+    <string name="lbl_question_abplatzungen">Abplatzungen</string>
+    <string name="lbl_question_art_des_absperrbauwerkes">Art des Absperrbauwerkes:</string>
+    <string name="lbl_question_auswaschungen">Auswaschungen, Ausblühungen</string>
+    <string name="lbl_question_beschaedigungen_ga">Fehlstellen, Beschädigungen, Undichtigkeiten</string>
+    <string name="lbl_question_beschaedigungen_tosbecken_ga">Fehlstellen, Beschädigungen im Tosbecken</string>
+    <string name="lbl_question_beschaedigungen_tosbecken_hwe">Fehlstellen, Beschädigungen im Tosbecken</string>
+    <string name="lbl_question_beschaedigungen_wasserwege">Fehlstellen, Beschädigungen an Wasserwegen</string>
+    <string name="lbl_question_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
+    <string name="lbl_question_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
+    <string name="lbl_question_bhq1">BHQ₁ (m³/s):</string>
+    <string name="lbl_question_bhq2">BHQ₂ (m³/s):</string>
+    <string name="lbl_question_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
+    <string name="lbl_question_eigentuemer">Eigentümer/Betreiber:</string>
+    <string name="lbl_question_erosion">Erosion der wasserseitigen Schutzschicht</string>
+    <string name="lbl_question_fehlstellen_grasnarbe">Fehlstellen in der Grasnarbe auf dem Damm</string>
+    <string name="lbl_question_fehlstellen_mauerwerk">Fehlstellen im Mauerwerk</string>
+    <string name="lbl_question_frei_und_funktionstuechtig">Treibgutsperre/Grobrechen/Palisadenrechen frei und funktionstüchtig</string>
+    <string name="lbl_question_gehoelzbewuchs">Gehölzbewuchs ohne Zusatzquerschnitt</string>
+    <string name="lbl_question_gewaesser">gestautes Gewässer:</string>
+    <string name="lbl_question_grabende_tiere">Grabende Tiere</string>
+    <string name="lbl_question_hebungen_erd">sichtbare Hebungen</string>
+    <string name="lbl_question_hoehe">Höhe Absperrbauwerk über Gründung (m):</string>
+    <string name="lbl_question_kippungen">Neigungsänderungen, Kippungen</string>
+    <string name="lbl_question_lage">Geographische Lage:</string>
+    <string name="lbl_question_materialaustritt_erd">Materialaustrag durch Sickerwasser</string>
+    <string name="lbl_question_messeinrichtungen_funktionsfaehig">Messeinrichtungen funktionsfähig</string>
+    <string name="lbl_question_name_der_anlage">Name der Anlage:</string>
+    <string name="lbl_question_querschnittsreduktion_ga">Querschnittsreduktion im GA (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="lbl_question_querschnittsreduktion_hwe">Querschnittsreduktion der Wasserwege (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
+    <string name="lbl_question_risse_erd">Risse</string>
+    <string name="lbl_question_risse_massiv">Risse</string>
+    <string name="lbl_question_rutschungen">Rutschungen</string>
+    <string name="lbl_question_schwergaengigkeit_verschluss">Schwergängigkeit oder Blockieren des Verschlusses (falls vorhanden)</string>
+    <string name="lbl_question_setzungen_erd">sichtbare Setzungen</string>
+    <string name="lbl_question_setzungen_massiv">sichtbare Setzungen</string>
+    <string name="lbl_question_uferveraenderungen">Uferveränderungen des Stausees</string>
+    <string name="lbl_question_verschiebungen">sichtbare Horizontalverschiebungen</string>
+    <string name="lbl_question_verschiebungen_erd">sichtbare Horizontalverschiebungen</string>
+    <string name="lbl_question_visuelle_einschraenkung">Einschränkung der visuellen Inspektionsmöglichkeiten durch Bewuchs auf der luftseitigen Böschung</string>
+    <string name="lbl_question_wasseraustritte_erd">Luftseitige Wasseraustritte</string>
+    <string name="lbl_question_wasseraustritte_massiv">Luftseitige Wasseraustritte</string>
+
+    <string name="main_title">ZASA - ZustandsAnalyse \n StauAnlagen</string>
+
+    <string name="new_questionnaire">Neuer Fragebogen</string>
+
+    <string name="opt_kleine_stauanlagen">kleine Stauanlagen</string>
+    <string name="opt_kleinste_stauanlagen">kleinste Stauanlagen</string>
+    <string name="opt_no">Nein</string>
+    <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
+    <string name="opt_unknown">Unbekannt</string>
+    <string name="opt_yes">Ja</string>
+    <string name="lbl_question_qhwe1">Q<sub><small>HWE</small></sub>(BHW₁) in m³/s</string>
+    <string name="lbl_question_qhwe2">Q<sub><small>HWE</small></sub>(BHW₂) in m³/s</string>
+    <string name="lbl_question_freibord_uk">Freibord zur UK von Brücken/Stegen (falls vorhanden)</string>
+    <string name="lbl_question_freibord_dammkrone">Freibord zur Dammkrone pauschal </string>
+    <string name="opt_yes_liegt_vor">Ja, liegt vor</string>
+    <string name="opt_no_noch_zu_erstellen">Nein, noch zu erstellen</string>
+    <string name="lbl_question_nachweis_dvwk">Nachweis nach DVWK-Mbl. 246 mit im BF2 um 15% reduzierter Windgeschwindigkeit</string>
+    <string name="lbl_question_betriebsauffaelligkeiten">Bisherige Betriebsauffälligkeiten, welche? (z.B. Überströmung, Erdbeben, Versagen von Bauteilen, schnelle Stauspiegelsenkung, ...)</string>
 </resources>

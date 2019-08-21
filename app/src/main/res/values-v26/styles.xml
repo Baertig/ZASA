@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="continue_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginRight">@dimen/btn_continue_margin_right</item>
+        <item name="android:paddingHorizontal">@dimen/btn_continue_padding_horizontal</item>
+        <item name="android:paddingVertical">@dimen/btn_continue_padding_vertical</item>
+    </style>
+</resources>
