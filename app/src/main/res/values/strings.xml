@@ -54,6 +54,12 @@
     <string name="lbl_question_visuelle_einschraenkung">Einschränkung der visuellen Inspektionsmöglichkeiten durch Bewuchs auf der luftseitigen Böschung</string>
     <string name="lbl_question_wasseraustritte_erd">Luftseitige Wasseraustritte</string>
     <string name="lbl_question_wasseraustritte_massiv">Luftseitige Wasseraustritte</string>
+    <string name="lbl_question_qhwe1">Q<sub><small>HWE</small></sub>(BHW₁) in m³/s</string>
+    <string name="lbl_question_qhwe2">Q<sub><small>HWE</small></sub>(BHW₂) in m³/s</string>
+    <string name="lbl_question_freibord_uk">Freibord zur UK von Brücken/Stegen (falls vorhanden)</string>
+    <string name="lbl_question_freibord_dammkrone">Freibord zur Dammkrone pauschal </string><string name="lbl_question_nachweis_dvwk">Nachweis nach DVWK-Mbl. 246 mit im BF2 um 15% reduzierter Windgeschwindigkeit</string>
+    <string name="lbl_question_betriebsauffaelligkeiten">Bisherige Betriebsauffälligkeiten, welche? (z.B. Überströmung, Erdbeben, Versagen von Bauteilen, schnelle Stauspiegelsenkung, ...)</string>
+    <string name="lbl_question_boeschungsneigung_verhaeltnis"><![CDATA[Wasserseitigie Böschungsneigung und luftseitige Böschungsneigung < 1:3]]></string>
 
     <string name="main_title">ZASA - ZustandsAnalyse \n StauAnlagen</string>
 
@@ -65,12 +71,7 @@
     <string name="opt_sehr_kleine_stauanlagen">sehr kleine Stauanlagen</string>
     <string name="opt_unknown">Unbekannt</string>
     <string name="opt_yes">Ja</string>
-    <string name="lbl_question_qhwe1">Q<sub><small>HWE</small></sub>(BHW₁) in m³/s</string>
-    <string name="lbl_question_qhwe2">Q<sub><small>HWE</small></sub>(BHW₂) in m³/s</string>
-    <string name="lbl_question_freibord_uk">Freibord zur UK von Brücken/Stegen (falls vorhanden)</string>
-    <string name="lbl_question_freibord_dammkrone">Freibord zur Dammkrone pauschal </string>
     <string name="opt_yes_liegt_vor">Ja, liegt vor</string>
     <string name="opt_no_noch_zu_erstellen">Nein, noch zu erstellen</string>
-    <string name="lbl_question_nachweis_dvwk">Nachweis nach DVWK-Mbl. 246 mit im BF2 um 15% reduzierter Windgeschwindigkeit</string>
-    <string name="lbl_question_betriebsauffaelligkeiten">Bisherige Betriebsauffälligkeiten, welche? (z.B. Überströmung, Erdbeben, Versagen von Bauteilen, schnelle Stauspiegelsenkung, ...)</string>
+
 </resources>
