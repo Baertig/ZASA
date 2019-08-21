@@ -1,13 +1,11 @@
 package de.badresden.zasa;
 
 import android.app.Application;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +20,6 @@ public class StauanlageViewModel extends AndroidViewModel {
 		super(application);
 		mRepository = new StauanlageRepository(application);
 		mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
-		stauanlage = new Stauanlage("useless placeholder Name"); //FIXME
 	}
 
 	public LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied(){
@@ -42,6 +39,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	public void createStauanlage(){
 		stauanlage = new Stauanlage("useless placeholder Name");//FIXME
 	}
+
 	public void updateStauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
 								 String artDesAbsperrauwerkes, int hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
 								 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor,Date datumUndUhrzeitLetzteBearbeitung){
@@ -57,11 +55,23 @@ public class StauanlageViewModel extends AndroidViewModel {
 											 Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
 											 Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig){
 
-		stauanlage.uptdateGebrauchstauglichkeit(qHWWEVonBHW1GoesserGleichBHQ1, qHWEVonBHW2GroesserGleichBHQ2, freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
+		stauanlage.updateGebrauchstauglichkeit(qHWWEVonBHW1GoesserGleichBHQ1, qHWEVonBHW2GroesserGleichBHQ2, freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
 				 freibordZurDammkronePauschal, nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, bisherigeBetriebsauffaelligkeiten,
 				querschnittsreduktionDerWasserwege, fehlstellenOderBeschaedigungenAnWasserwegen, fehlstellenOderBeschaedigungenImTosbeckenHWE, treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
 				querschnittsreduktionImGA, fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, fehlstellenOderBeschaedigungenImTosbeckenGA,
 				schwergaengigkeitOderBlockierenDesVerschlusses, messeinrichtungFunktionsfaehig);
+	}
+
+	public void updateDauerhaftigkeit(Answer uferveraenderungenDesStausees, Answer rutschungen, Answer risseErdbau, Answer sichtbareSetzungenErdbaubau, Answer sichtbareHebungen, Answer sichtbareHorizontalverschiebungenErdbau,
+									  Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
+									  Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,
+									  Answer sichtbareSetzungenMassivbau, Answer sichtbareHorizontalverschiebungenMassivbau, Answer neigungsaenderungenOderKippungen, Answer abplatzungen, Answer auswaschungenOderAusbluehungen,
+									  Answer luftseitigeWasseraustritteMassivbau, Answer fehlstellenImMauerwerk){
+		stauanlage.updateDauerhaftigkeit(uferveraenderungenDesStausees, rutschungen, risseErdbau, sichtbareSetzungenErdbaubau, sichtbareHebungen, sichtbareHorizontalverschiebungenErdbau,
+				 luftseitigeWasseraustritteErdbau, materialaustragDurchSickerwasser, erosionDerWasserseitigenSchutzschicht, fehlstellenInDerGrasnarbeAufDemDamm,
+				gehoelzbewuchsOhneZusatzquerschnitt, einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, grabendeTiere, risseMassivbau,
+				sichtbareSetzungenMassivbau, sichtbareHorizontalverschiebungenMassivbau, neigungsaenderungenOderKippungen, abplatzungen, auswaschungenOderAusbluehungen,
+				luftseitigeWasseraustritteMassivbau, fehlstellenImMauerwerk);
 	}
 	public void loadStauanlageWith(String nameDerAnlage, Date datumUndUhrzeitLetzteBearbeitung){
 		stauanlage = mRepository.getStauanlageWith(nameDerAnlage,datumUndUhrzeitLetzteBearbeitung).get(0); //FIXME fuer OOP Abgabe loeschen

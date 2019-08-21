@@ -159,11 +159,11 @@ public class Stauanlage {
         this.BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
     }
 
-    public void uptdateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
-                      Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
-                      Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
-                      Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
-                      Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig) {
+    public void updateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
+                                            Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
+                                            Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+                                            Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
+                                            Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig) {
         this.qHWEVonBHW1GoesserGleichBHQ1 = qHWWEVonBHW1GoesserGleichBHQ1;
         this.qHWEVonBHW2GroesserGleichBHQ2 = qHWEVonBHW2GroesserGleichBHQ2;
         this.FreiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter = freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter;
@@ -179,5 +179,33 @@ public class Stauanlage {
         this.FehlstellenOderBeschaedigungenImTosbeckenGA = fehlstellenOderBeschaedigungenImTosbeckenGA;
         this.schwergaengigkeitOderBlockierenDesVerschlusses = schwergaengigkeitOderBlockierenDesVerschlusses;
         this.messeinrichtungFunktionsfaehig = messeinrichtungFunktionsfaehig;
+    }
+
+    public void updateDauerhaftigkeit(Answer uferveraenderungenDesStausees, Answer rutschungen, Answer risseErdbau, Answer sichtbareSetzungenErdbaubau, Answer sichtbareHebungen, Answer sichtbareHorizontalverschiebungenErdbau,
+                      Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
+                      Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,
+                      Answer sichtbareSetzungenMassivbau, Answer sichtbareHorizontalverschiebungenMassivbau, Answer neigungsaenderungenOderKippungen, Answer abplatzungen, Answer auswaschungenOderAusbluehungen,
+                      Answer luftseitigeWasseraustritteMassivbau, Answer fehlstellenImMauerwerk) {
+        this.uferveraenderungenDesStausees = uferveraenderungenDesStausees;
+        this.rutschungen = rutschungen;
+        this.risseErdbau = risseErdbau;
+        this.sichtbareSetzungenErdbaubau = sichtbareSetzungenErdbaubau;
+        this.sichtbareHebungen = sichtbareHebungen;
+        this.sichtbareHorizontalverschiebungenErdbau = sichtbareHorizontalverschiebungenErdbau;
+        this.luftseitigeWasseraustritteErdbau = luftseitigeWasseraustritteErdbau;
+        this.materialaustragDurchSickerwasser = materialaustragDurchSickerwasser;
+        this.erosionDerWasserseitigenSchutzschicht = erosionDerWasserseitigenSchutzschicht;
+        this.fehlstellenInDerGrasnarbeAufDemDamm = fehlstellenInDerGrasnarbeAufDemDamm;
+        this.gehoelzbewuchsOhneZusatzquerschnitt = gehoelzbewuchsOhneZusatzquerschnitt;
+        this.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung = einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung;
+        this.grabendeTiere = grabendeTiere;
+        this.risseMassivbau = risseMassivbau;
+        this.sichtbareSetzungenMassivbau = sichtbareSetzungenMassivbau;
+        SichtbareHorizontalverschiebungenMassivbau = sichtbareHorizontalverschiebungenMassivbau;
+        this.neigungsaenderungenOderKippungen = neigungsaenderungenOderKippungen;
+        this.abplatzungen = abplatzungen;
+        this.auswaschungenOderAusbluehungen = auswaschungenOderAusbluehungen;
+        this.luftseitigeWasseraustritteMassivbau = luftseitigeWasseraustritteMassivbau;
+        this.fehlstellenImMauerwerk = fehlstellenImMauerwerk;
     }
 }

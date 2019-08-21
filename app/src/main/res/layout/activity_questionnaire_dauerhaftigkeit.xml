@@ -20,7 +20,7 @@
             <TextView
                 android:id="@+id/question_uferveraenderungen"
                 style="@style/question_textview"
-                android:text="@string/lbl_question_uferveraenderungen"/>
+                android:text="@string/lbl_question_uferveraenderungen" />
 
             <RadioGroup
                 android:id="@+id/radio_uferveraenderungen"
@@ -133,7 +133,6 @@
                 android:id="@+id/question_hebungen_erd"
                 style="@style/question_textview"
                 android:text="@string/lbl_question_hebungen_erd" />
-
 
 
             <RadioGroup
@@ -374,7 +373,6 @@
             </RadioGroup>
 
 
-
             <TextView
                 android:id="@+id/heading_veraenderungen_massivbauwerke"
                 style="@style/question_section_heading"
@@ -487,7 +485,6 @@
                     style="@style/question_radiobutton"
                     android:text="@string/opt_unknown" />
             </RadioGroup>
-
 
 
             <TextView
