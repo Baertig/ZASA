@@ -14,8 +14,64 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!--TODO Bei bestimmten Klassifizierungen ausblenden? -->
+            <TextView
+                android:id="@+id/question_boeschungsneigung_verhaeltnis"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_boeschungsneigung_verhaeltnis" />
+
+            <RadioGroup
+                android:id="@+id/radio_boeschungsneigung_verhaeltnis"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_boeschungsneigung_verhaeltnis">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_boeschungsneigung_verhaeltnis"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_boeschungsneigung_verhaeltnis"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
+
+                <RadioButton
+                    android:id="@+id/opt_unknown_boeschungsneigung_verhaeltnis"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/question_statische_berechnung_liegt_vor"
+                style="@style/question_textview"
+                android:text="Statische Berechnung liegt vor" />
+
+            <RadioGroup
+                android:id="@+id/radio_statische_berechnung_liegt_vor"
+                style="@style/question_radiogroup"
+                android:orientation="vertical"
+                android:checkedButton="@+id/opt_unknown_statische_berechnung_liegt_vor">
+
+                <RadioButton
+                    android:id="@+id/opt_yes_statische_berechnung_liegt_vor"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes_liegt_vor" />
+
+                <RadioButton
+                    android:id="@+id/opt_no_statische_berechnung_liegt_vor"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no_noch_zu_erstellen" />
+
+                <!--TODO Unbekannt weg?-->
+                <RadioButton
+                    android:id="@+id/opt_unknown_statische_berechnung_liegt_vor"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
 
             <Button
                 android:id="@+id/btn_tragfaehigkeit_continue"

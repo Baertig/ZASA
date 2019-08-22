@@ -11,7 +11,7 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Stauanlage.class},version = 2)
+@Database(entities = {Stauanlage.class},version = 3)
 @TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
