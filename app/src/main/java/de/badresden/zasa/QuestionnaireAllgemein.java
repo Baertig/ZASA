@@ -3,16 +3,12 @@ package de.badresden.zasa;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.IntentService;
 import android.content.Intent;
-import android.icu.lang.UCharacter;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Switch;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -104,7 +100,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
         mStauanlageViewModel.createStauanlage(); //FIXME
-        mStauanlageViewModel.updateStauanlage(
+        mStauanlageViewModel.updateAllgemein(
                 inputNameDerAnlage.getText().toString(),
                 inputGeoLage.getText().toString(),
                 inputGewaesser.getText().toString(),

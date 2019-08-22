@@ -1,32 +1,42 @@
 package de.badresden.zasa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-
-import java.util.Date;
+import android.widget.RadioGroup;
 
 public class QuestionnaireTragfaehigkeit extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Tragfaehigkeit";
-    private StauanlageViewModel mStauanlageViewModel;
+    private StauanlageViewModel stauanlageViewModel;
+    private RadioGroup inputBoeschungsneigungVerhaeltnis;
+    private RadioGroup inputStatischeBerechnungLiegtVor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_tragfaehigkeit);
         setTitle("Tragfähigkeit");
-        mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+
+        inputBoeschungsneigungVerhaeltnis = findViewById(R.id.radio_boeschungsneigung_verhaeltnis);
+        inputStatischeBerechnungLiegtVor = findViewById(R.id.radio_statische_berechnung_liegt_vor);
+
+        stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
     }
 
     public void openQuestionnaireGebrauchstauglichkeit(View view) {
+
+        Answer boeschungsneigungVerhaeltnis = stauanlageViewModel.decideRadioAnswer(inputBoeschungsneigungVerhaeltnis.getCheckedRadioButtonId(),R.id.opt_yes_boeschungsneigung_verhaeltnis,
+                R.id.opt_unknown_boeschungsneigung_verhaeltnis,R.id.opt_no_boeschungsneigung_verhaeltnis);
+        Answer statischeBerechnungLiegtVor = stauanlageViewModel.decideRadioAnswer(inputStatischeBerechnungLiegtVor.getCheckedRadioButtonId(),R.id.opt_yes_statische_berechnung_liegt_vor,
+                R.id.opt_unknown_statische_berechnung_liegt_vor,R.id.opt_no_statische_berechnung_liegt_vor);
+
+        stauanlageViewModel.updateTragfaehigkeit(boeschungsneigungVerhaeltnis,statischeBerechnungLiegtVor);
+
         Intent openQuestionnaireGebrauchstauglichkeitIntent = new Intent(this, QuestionnaireGebrauchstauglichkeit.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(openQuestionnaireGebrauchstauglichkeitIntent);

@@ -46,8 +46,8 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	private static class PopulateDbAsync extends AsyncTask<Void,Void,Void>{
 		private final StauanlageDao mStauanlageDao;
-		private Stauanlage stauanlageEins = new Stauanlage("Ernst");
-		private Stauanlage stauanlageZwei = new Stauanlage("Fridolin");
+		private Stauanlage stauanlageEins = new Stauanlage();
+		private Stauanlage stauanlageZwei = new Stauanlage();
 		Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
 
 		PopulateDbAsync(StauanlageRoomDatabase db){
@@ -56,6 +56,8 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 		@Override
 		protected Void doInBackground(Void... voids) {
+			stauanlagen[0].nameDerAnlage = "Staudamm 1";
+			stauanlagen[1].nameDerAnlage = "Staudamm 2";
 			mStauanlageDao.deleteAll();
 			for(int i = 0; i < stauanlagen.length; i++){
 				mStauanlageDao.insert(stauanlagen[i]);
