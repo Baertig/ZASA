@@ -29,6 +29,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	// das private Feld wird gespeichert
 	public void insert(){
 		mRepository.insert(stauanlage);
+		stauanlage = null; // leeren des Zwischenspeichers, damit neue stauanlage gespeichert werden kann
         //mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
 	}
 
@@ -37,7 +38,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	}
 
 	public void createStauanlage(){
-		stauanlage = new Stauanlage("useless placeholder Name");//FIXME
+		stauanlage = new Stauanlage();//FIXME
 	}
 
 	public void updateStauanlage(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,

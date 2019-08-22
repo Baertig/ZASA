@@ -133,12 +133,6 @@ public class Stauanlage {
     public Answer fehlstellenImMauerwerk;
 
 
-    //FIXME Georg: ist erstmal nur zum testen
-
-
-    public Stauanlage(String nameDerAnlage) {
-        this.nameDerAnlage = nameDerAnlage;
-    }
 
     //public Stauanlage(){}
 
@@ -201,7 +195,7 @@ public class Stauanlage {
         this.grabendeTiere = grabendeTiere;
         this.risseMassivbau = risseMassivbau;
         this.sichtbareSetzungenMassivbau = sichtbareSetzungenMassivbau;
-        SichtbareHorizontalverschiebungenMassivbau = sichtbareHorizontalverschiebungenMassivbau;
+        this.SichtbareHorizontalverschiebungenMassivbau = sichtbareHorizontalverschiebungenMassivbau;
         this.neigungsaenderungenOderKippungen = neigungsaenderungenOderKippungen;
         this.abplatzungen = abplatzungen;
         this.auswaschungenOderAusbluehungen = auswaschungenOderAusbluehungen;
