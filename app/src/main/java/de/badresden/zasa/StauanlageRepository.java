@@ -32,7 +32,7 @@ public class StauanlageRepository {
 	public void insert(Stauanlage stauanlage){
 		new insertAsyncTask(mStauanlageDao).execute(stauanlage);
 	}
-	//FIXME Georg: im Dao können mehrer Stauanlagen Objekte übergeben werden
+
 	public void update(Stauanlage stauanlage){
 		new updateAsyncTask(mStauanlageDao).execute(stauanlage);
 	}

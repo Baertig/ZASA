@@ -7,12 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import de.badresden.zasa.converters.AnswerTypeConverter;
+import de.badresden.zasa.converters.DateTypeConverter;
+
 @Database(entities = {Stauanlage.class},version = 3)
-@TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
+@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
 	public abstract StauanlageDao stauanlageDao();
@@ -59,8 +61,8 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
 			stauanlagen[0].nameDerAnlage = "Staudamm 1";
 			stauanlagen[1].nameDerAnlage = "Staudamm 2";
 			mStauanlageDao.deleteAll();
-			for(int i = 0; i < stauanlagen.length; i++){
-				mStauanlageDao.insert(stauanlagen[i]);
+			for (Stauanlage stauanlage : stauanlagen) {
+				mStauanlageDao.insert(stauanlage);
 			}
 			return null;
 		}

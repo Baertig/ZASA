@@ -73,5 +73,6 @@
     <string name="opt_yes">Ja</string>
     <string name="opt_yes_liegt_vor">Ja, liegt vor</string>
     <string name="opt_no_noch_zu_erstellen">Nein, noch zu erstellen</string>
+    <string name="keine_daten_zum_darstellen">Keine Daten zum darstellen</string>
 
 </resources>

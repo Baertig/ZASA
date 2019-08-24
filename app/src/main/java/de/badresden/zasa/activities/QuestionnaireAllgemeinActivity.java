@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -13,9 +13,13 @@ import android.widget.RadioGroup;
 import java.util.Calendar;
 import java.util.Date;
 
-public class QuestionnaireAllgemein extends AppCompatActivity {
+import de.badresden.zasa.Answer;
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageViewModel;
 
-    private static final String LOG_TAG = QuestionnaireAllgemein.class.getSimpleName();
+public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
 
     private StauanlageViewModel mStauanlageViewModel;
     //bilden zusammen den Schlüssel für die Datenbank
@@ -61,7 +65,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         //das Bearbeitungsdatum setzten
         currentDate = Calendar.getInstance().getTime();
         //falls ein man aus vorheriger Activity kommt
-        if (StauanlageViewModel.stauanlage != null && StauanlageViewModel.stauanlage.hoeheAbsperrwerkUeberGruendung != null){ //FIXME
+        if (StauanlageViewModel.stauanlage != null){
             loadStauanlageInUI();
         }
 
@@ -86,8 +90,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        //löschen der bisher gespeichert Daten (beim pressen des zurueckButtons (FIXME eigtl. geht das vllt auch besser -> nicht in OnPause()  ))
-        StauanlageViewModel.stauanlage = null; //FIXME is ganz großer quatsch  --> Bei Configuration Change werden Werte geloescht ... muss geaendert werden !!!
+        StauanlageViewModel.stauanlage = null; //FIXME muss Weg
     }
 
     //TODO Welche Events werden getriggered beim drehen des Handys --> da müssen die Daten genauso wie beim weiter Button gesichert werden
@@ -99,14 +102,14 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
-        mStauanlageViewModel.createStauanlage(); //FIXME
+        mStauanlageViewModel.createStauanlage();
         mStauanlageViewModel.updateAllgemein(
                 inputNameDerAnlage.getText().toString(),
                 inputGeoLage.getText().toString(),
                 inputGewaesser.getText().toString(),
                 inputEigentuemer.getText().toString(),
                 inputArtDesAbsperrbauwerkes.getText().toString(),
-                Integer.valueOf(inputHoehe.getText().toString()), //TODO was passiert wenn Feld leer ist
+                Integer.valueOf(inputHoehe.getText().toString()), //TODO pruefung auf leeren String
                 Integer.valueOf(inputStauinhalt.getText().toString()),
                 Integer.valueOf(inputbhq1.getText().toString()),
                 Integer.valueOf(inputbhq2.getText().toString()),
@@ -116,7 +119,7 @@ public class QuestionnaireAllgemein extends AppCompatActivity {
         //mStauanlageViewModel.insert();
         nameDerAnlage = inputNameDerAnlage.getText().toString();
         //nächste Activity oeffnen
-        Intent openQuestionnaireKlassifizierungIntent = new Intent(this, QuestionnaireTragfaehigkeit.class);
+        Intent openQuestionnaireKlassifizierungIntent = new Intent(this, QuestionnaireTragfaehigkeitActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         //openQuestionnaireKlassifizierungIntent.putExtra(); // Optional parameters
         startActivity(openQuestionnaireKlassifizierungIntent);

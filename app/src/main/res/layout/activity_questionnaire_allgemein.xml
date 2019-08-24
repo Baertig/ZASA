@@ -163,7 +163,6 @@
                 style="@style/question_textview"
                 android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
 
-            <!-- TODO Horizontale Anordgnung? (optional) -->
             <RadioGroup
                 android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
                 style="@style/question_radiogroup"

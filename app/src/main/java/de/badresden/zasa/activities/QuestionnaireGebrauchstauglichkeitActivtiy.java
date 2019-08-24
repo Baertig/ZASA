@@ -1,17 +1,21 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
-public class QuestionnaireGebrauchstauglichkeit extends AppCompatActivity {
+import de.badresden.zasa.Answer;
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageViewModel;
+
+//Autor: Georg
+public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivity {
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
     private EditText inputQHWE1;
@@ -33,9 +37,11 @@ public class QuestionnaireGebrauchstauglichkeit extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Autor: Felix
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_gebrauchstauglichkeit);
         setTitle("Gebrauchstauglichkeit");
+        //Autor: Georg
         inputQHWE1 = findViewById(R.id.answer_qhwe1);
         inputQHWE2 = findViewById(R.id.answer_qhwe2);
         inputFreibordUK = findViewById(R.id.answer_freibord_uk); //TODO welche Namen fuer die Variablen sollen verwendet werden, vllt gleich Abkuerzugen von Felix in Stauanlagen uebernehmen ?
@@ -96,9 +102,8 @@ public class QuestionnaireGebrauchstauglichkeit extends AppCompatActivity {
                 schwergaengigkeiteVerchluss,
                 messeinrichtungenfunktionsfaehig
         );
-
-
-        Intent openQuestionnaireDauerhaftigkeitIntent = new Intent(this, QuestionnaireDauerhaftigkeit.class);
+        //Autor: Felix
+        Intent openQuestionnaireDauerhaftigkeitIntent = new Intent(this, QuestionnaireDauerhaftigkeitActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(openQuestionnaireDauerhaftigkeitIntent);
     }

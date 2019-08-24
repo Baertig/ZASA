@@ -13,7 +13,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 
 	public static Stauanlage stauanlage = null;
 	private StauanlageRepository mRepository;
-	private LiveData <List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //TODO: aktualisiert sich irgendwie nicht richtig
+	private LiveData <List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied;
 
 
 	public StauanlageViewModel(@NonNull Application application) {
@@ -38,7 +38,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	}
 
 	public void createStauanlage(){
-		stauanlage = new Stauanlage();//FIXME
+		stauanlage = new Stauanlage();
 	}
 
 	public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
@@ -91,7 +91,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 		}else if(radioIdAnswer == radioIdNein){
 			return Answer.NEIN;
 		}else {
-			return null; //FIXME sollte eigentlich nicht eintreten ... vllt sollte ein Exception geworfen werden ?
+			return null;
 		}
 
 	}

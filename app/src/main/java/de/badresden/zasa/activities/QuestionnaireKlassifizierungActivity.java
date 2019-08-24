@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class QuestionnaireKlassifizierung extends AppCompatActivity {
+import de.badresden.zasa.R;
+
+public class QuestionnaireKlassifizierungActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Klassifizierung";
 
@@ -20,15 +22,9 @@ public class QuestionnaireKlassifizierung extends AppCompatActivity {
         // TODO Gespeicherte Inputs laden
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // TODO Inputs speichern
-
-    }
 
     public void openQuestionnaireTragfaehigkeit(View view) {
-        Intent openQuestionnaireTragaehigkeitIntent = new Intent(this, QuestionnaireTragfaehigkeit.class);
+        Intent openQuestionnaireTragaehigkeitIntent = new Intent(this, QuestionnaireTragfaehigkeitActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(openQuestionnaireTragaehigkeitIntent);
     }

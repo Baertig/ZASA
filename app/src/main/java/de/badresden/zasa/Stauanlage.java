@@ -48,7 +48,7 @@ public class Stauanlage {
 
     //Gebrauchstauglichkeit
     @ColumnInfo(name = "QHWE_von_BHW1_groesser_gleich_BHQ1")
-    public Answer qHWEVonBHW1GoesserGleichBHQ1; //FIXME doppel W
+    public Answer qHWEVonBHW1GoesserGleichBHQ1;
     @ColumnInfo(name = "QHWE_von_BHW2_groesser_gleich_BHQ2")
     public Answer qHWEVonBHW2GroesserGleichBHQ2;
     @ColumnInfo(name = "freibord_zur_UK_von_bruecken_oder_stegen_groesser_gleich_halb_meter")

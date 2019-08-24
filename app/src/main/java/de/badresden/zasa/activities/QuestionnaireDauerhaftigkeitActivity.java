@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -9,7 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 
-public class QuestionnaireDauerhaftigkeit extends AppCompatActivity {
+import de.badresden.zasa.Answer;
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageViewModel;
+
+public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Dauerhaftigkeit";
     private StauanlageViewModel stauanlageViewModel;

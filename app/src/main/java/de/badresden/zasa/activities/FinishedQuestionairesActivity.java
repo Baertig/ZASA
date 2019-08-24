@@ -1,9 +1,8 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +11,11 @@ import android.os.Bundle;
 
 import java.util.List;
 
-public class FinishedQuestionaires extends AppCompatActivity {
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageSimplyfied;
+import de.badresden.zasa.StauanlageViewModel;
+
+public class FinishedQuestionairesActivity extends AppCompatActivity {
 	private StauanlageViewModel mStauanlageViewModel;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.converters;
 
 import androidx.room.TypeConverter;
 

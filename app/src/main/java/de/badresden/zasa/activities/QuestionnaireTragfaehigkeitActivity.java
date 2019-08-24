@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -9,7 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 
-public class QuestionnaireTragfaehigkeit extends AppCompatActivity {
+import de.badresden.zasa.Answer;
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageViewModel;
+
+public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Tragfaehigkeit";
     private StauanlageViewModel stauanlageViewModel;
@@ -37,7 +41,7 @@ public class QuestionnaireTragfaehigkeit extends AppCompatActivity {
 
         stauanlageViewModel.updateTragfaehigkeit(boeschungsneigungVerhaeltnis,statischeBerechnungLiegtVor);
 
-        Intent openQuestionnaireGebrauchstauglichkeitIntent = new Intent(this, QuestionnaireGebrauchstauglichkeit.class);
+        Intent openQuestionnaireGebrauchstauglichkeitIntent = new Intent(this, QuestionnaireGebrauchstauglichkeitActivtiy.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(openQuestionnaireGebrauchstauglichkeitIntent);
     }

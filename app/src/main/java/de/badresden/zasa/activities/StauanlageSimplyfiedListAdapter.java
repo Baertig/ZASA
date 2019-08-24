@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageSimplyfied;
 
 public class StauanlageSimplyfiedListAdapter extends
 		RecyclerView.Adapter<StauanlageSimplyfiedListAdapter.StauanlageSimplyfiedViewHolder> {
@@ -35,7 +38,7 @@ public class StauanlageSimplyfiedListAdapter extends
 			holder.StauanlageSimpyfiedItemView.setText(current.namederAnlage);
 		}else{
 			//Falls die Daten noch nicht bereit sind
-			holder.StauanlageSimpyfiedItemView.setText("Keine Daten zum darstellen");
+			holder.StauanlageSimpyfiedItemView.setText(R.string.keine_daten_zum_darstellen);
 		}
 	}
 

@@ -1,5 +1,4 @@
-package de.badresden.zasa;
-//TODO Felix und Georg: Java-Klassen mit Packages neu organisieren (Package für Activities z.B.)
+package de.badresden.zasa.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +8,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import java.util.List;
+
+import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageSimplyfied;
+import de.badresden.zasa.StauanlageViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openQuestionnaireAllgemein(View view) {
-        Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemein.class);
+        Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
         openQuestionnaireAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
         startActivity(openQuestionnaireAllgemeinIntent);
     }
 
 	public void openFinishedQuestionairesAcitivity(View view) {
         Intent openActivityFinishedQuestionaires =
-                new Intent(this,FinishedQuestionaires.class);
+                new Intent(this, FinishedQuestionairesActivity.class);
         startActivity(openActivityFinishedQuestionaires);
     }
 }
