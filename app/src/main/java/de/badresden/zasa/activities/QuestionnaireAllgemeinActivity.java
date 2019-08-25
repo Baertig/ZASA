@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -39,6 +40,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
     private EditText inputbhq2Abschaetzung;
     private RadioGroup inputBetriebsvorschriftNormalbetrieb;
     private RadioGroup inputBetriebsvorschriftHochwasserfall;
+    private View.OnClickListener onClickListener;
 
 
     @Override
@@ -59,16 +61,15 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         inputbhq2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
         inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
         inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
-
+        inputbhq2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //das Bearbeitungsdatum setzten
         currentDate = Calendar.getInstance().getTime();
-        //falls ein man aus vorheriger Activity kommt
+        //falls ein man aus nachfolgenden Activity(Fragebogenkategorie) kommt
         if (StauanlageViewModel.stauanlage != null){
             loadStauanlageInUI();
         }
-
     }
 
 
@@ -87,13 +88,6 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        StauanlageViewModel.stauanlage = null; //FIXME muss Weg
-    }
-
-    //TODO Welche Events werden getriggered beim drehen des Handys --> da müssen die Daten genauso wie beim weiter Button gesichert werden
 
     public void openQuestionnaireKlassifizierung(View view) {
         // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
@@ -123,5 +117,11 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         //openQuestionnaireKlassifizierungIntent.putExtra(); // Optional parameters
         startActivity(openQuestionnaireKlassifizierungIntent);
+    }
+
+
+    public void chooseLocationByGps(View view) { //btn_location
+        Toast toast = Toast.makeText(this, "Button ist noch nicht mit Funktionn hinterlegt",Toast.LENGTH_LONG);
+        toast.show();
     }
 }

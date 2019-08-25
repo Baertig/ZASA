@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -33,5 +35,20 @@ public class FinishedQuestionairesActivity extends AppCompatActivity {
 						adapter.setStauanlageSimplyfiedList(stauanlageSimplyfiedList);
 					}
 				});
+	}
+
+	public void editClick(View view) {
+		Toast toast = Toast.makeText(this,"Edit Button hat noch keine Funktion",Toast.LENGTH_LONG);
+		toast.show();
+	}
+
+	public void deleteClick(View view) {
+		Toast toast = Toast.makeText(this,"Delete Button hat noch keine Funktion",Toast.LENGTH_LONG);
+		toast.show();
+	}
+
+	public void exportClick(View view) {
+		Toast toast = Toast.makeText(this,"Export Button hat noch keine Funktion",Toast.LENGTH_LONG);
+		toast.show();
 	}
 }

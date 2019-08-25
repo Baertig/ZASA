@@ -2,6 +2,7 @@ package de.badresden.zasa.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(List<StauanlageSimplyfied> stauanlageSimplyfieds) {
             }
         });
+        StauanlageViewModel.stauanlage = null; // sicherstellen das keine Daten im Zwischenspeicher vorhanden sind
     }
 
     public void openQuestionnaireAllgemein(View view) {
@@ -41,5 +43,12 @@ public class MainActivity extends AppCompatActivity {
         Intent openActivityFinishedQuestionaires =
                 new Intent(this, FinishedQuestionairesActivity.class);
         startActivity(openActivityFinishedQuestionaires);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast toast = Toast.makeText(this, "Funktion ist ausgeschaltet, führt sonst zu einem Error beim zurück Drücken" +
+                " nach Speichern eines Fragebogens ",Toast.LENGTH_LONG );
+        toast.show();
     }
 }
