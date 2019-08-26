@@ -1,4 +1,5 @@
 package de.badresden.zasa.activities;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
+//Autor: Felix
 public class MainActivity extends AppCompatActivity {
 
     StauanlageViewModel mStauanlageViewModel;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Autor: Georg
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //Observer der dafür sorgt das die LiveData weiß, dass sie beobachtet wird
@@ -32,14 +35,14 @@ public class MainActivity extends AppCompatActivity {
         });
         StauanlageViewModel.stauanlage = null; // sicherstellen das keine Daten im Zwischenspeicher vorhanden sind
     }
-
+    //Autor: Felix
     public void openQuestionnaireAllgemein(View view) {
         Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
         openQuestionnaireAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
         startActivity(openQuestionnaireAllgemeinIntent);
     }
-
-	public void openFinishedQuestionairesAcitivity(View view) {
+    //Autor: Georg
+    public void openFinishedQuestionairesAcitivity(View view) {
         Intent openActivityFinishedQuestionaires =
                 new Intent(this, FinishedQuestionairesActivity.class);
         startActivity(openActivityFinishedQuestionaires);
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast toast = Toast.makeText(this, "Funktion ist ausgeschaltet, führt sonst zu einem Error beim zurück Drücken" +
-                " nach Speichern eines Fragebogens ",Toast.LENGTH_LONG );
+                " nach Speichern eines Fragebogens ", Toast.LENGTH_LONG);
         toast.show();
     }
 }

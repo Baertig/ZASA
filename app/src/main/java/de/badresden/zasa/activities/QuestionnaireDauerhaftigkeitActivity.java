@@ -13,6 +13,7 @@ import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
+//Autor: Georg
 public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Dauerhaftigkeit";
@@ -39,12 +40,13 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
     private RadioGroup inputWasseraustritteMassiv;
     private RadioGroup inputFehlstellenMauerwerk;
 
+    //Autor: Felix
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_dauerhaftigkeit);
         setTitle("Dauerhaftigkeit");
-
+        //Autor: Georg
         inputUferveraenderungen = findViewById(R.id.radio_uferveraenderungen);
         inputRutschungen = findViewById(R.id.radio_rutschungen);
         inputRisseErd = findViewById(R.id.radio_risse_erd);
@@ -140,6 +142,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 fehlstellenMauerwerk
         );
         stauanlageViewModel.insert();
+        //Autor: Felix
         Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(goBackToMainPageIntent);

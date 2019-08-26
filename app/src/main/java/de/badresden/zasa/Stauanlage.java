@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
+//Autor: Georg
 @Entity(tableName = "stauanlage_table")
 public class Stauanlage {
 
@@ -32,9 +33,9 @@ public class Stauanlage {
     @ColumnInfo(name = "stauinhalt_in_cbm")
     public Double stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
-    public Double bhq1InCbmProSekunde;
+    public Double bHQ1InCbmProSekunde;
     @ColumnInfo(name = "bhq2_in_cbm_pro_sekunde")
-    public Double bhq2InCbmProSekunde;
+    public Double bHQ2InCbmProSekunde;
     @ColumnInfo(name = "betriebsvorschrift_normalfall_liegt_vor")
     public Answer BetriebsvorschriftNormalfallLiegtVor;
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
@@ -133,11 +134,10 @@ public class Stauanlage {
     public Answer fehlstellenImMauerwerk;
 
 
-
     //public Stauanlage(){}
 
     public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
-                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bhq1InCbmProSekunde, Double bhq2InCbmProSekunde,
+                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde,
                                 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
         this.datumUndUhrzeitLetzteBearbeitung = datumUndUhrzeitLetzteBearbeitung;
@@ -147,8 +147,8 @@ public class Stauanlage {
         this.artDesAbsperrauwerkes = artDesAbsperrauwerkes;
         this.hoeheAbsperrwerkUeberGruendung = hoeheAbsperrwerkUeberGruendung;
         this.stauinhaltInCbm = stauinhaltInCbm;
-        this.bhq1InCbmProSekunde = bhq1InCbmProSekunde;
-        this.bhq2InCbmProSekunde = bhq2InCbmProSekunde;
+        this.bHQ1InCbmProSekunde = bHQ1InCbmProSekunde;
+        this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
         this.BetriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
         this.BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
     }
@@ -181,10 +181,10 @@ public class Stauanlage {
     }
 
     public void updateDauerhaftigkeit(Answer uferveraenderungenDesStausees, Answer rutschungen, Answer risseErdbau, Answer sichtbareSetzungenErdbaubau, Answer sichtbareHebungen, Answer sichtbareHorizontalverschiebungenErdbau,
-                      Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
-                      Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,
-                      Answer sichtbareSetzungenMassivbau, Answer sichtbareHorizontalverschiebungenMassivbau, Answer neigungsaenderungenOderKippungen, Answer abplatzungen, Answer auswaschungenOderAusbluehungen,
-                      Answer luftseitigeWasseraustritteMassivbau, Answer fehlstellenImMauerwerk) {
+                                      Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
+                                      Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,
+                                      Answer sichtbareSetzungenMassivbau, Answer sichtbareHorizontalverschiebungenMassivbau, Answer neigungsaenderungenOderKippungen, Answer abplatzungen, Answer auswaschungenOderAusbluehungen,
+                                      Answer luftseitigeWasseraustritteMassivbau, Answer fehlstellenImMauerwerk) {
         this.uferveraenderungenDesStausees = uferveraenderungenDesStausees;
         this.rutschungen = rutschungen;
         this.risseErdbau = risseErdbau;

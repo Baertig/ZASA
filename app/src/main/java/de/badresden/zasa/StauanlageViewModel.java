@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.Date;
 import java.util.List;
 
+//Autor: Georg
 public class StauanlageViewModel extends AndroidViewModel {
 
     public static Stauanlage stauanlage = null;
@@ -80,9 +81,6 @@ public class StauanlageViewModel extends AndroidViewModel {
                 luftseitigeWasseraustritteMassivbau, fehlstellenImMauerwerk);
     }
 
-    public void loadStauanlageWith(String nameDerAnlage, Date datumUndUhrzeitLetzteBearbeitung) {
-        stauanlage = mRepository.getStauanlageWith(nameDerAnlage, datumUndUhrzeitLetzteBearbeitung).get(0); //FIXME fuer OOP Abgabe loeschen
-    }
 
     public Answer decideRadioAnswer(int radioIdAnswer, int radioIdJa, int radioIdUnbekannt, int radioIdNein) {
         if (radioIdAnswer == radioIdJa) {
@@ -96,9 +94,9 @@ public class StauanlageViewModel extends AndroidViewModel {
         }
     }
 
-    public Answer decideQHEW1GreaterEqualBHQ1(Double qhwe1) {
-        if (!Double.isNaN(qhwe1) && !Double.isNaN(stauanlage.bhq1InCbmProSekunde)) {
-            if (qhwe1 >= stauanlage.bhq1InCbmProSekunde) {
+    public Answer decideQHEW1GreaterEqualBHQ1(Double qHWE1) {
+        if (!Double.isNaN(qHWE1) && !Double.isNaN(stauanlage.bHQ1InCbmProSekunde)) {
+            if (qHWE1 >= stauanlage.bHQ1InCbmProSekunde) {
                 return Answer.JA;
             } else {
                 return Answer.NEIN;
@@ -108,9 +106,9 @@ public class StauanlageViewModel extends AndroidViewModel {
         }
     }
 
-    public Answer decideQHEW2GreaterEqualBHQ2(Double qhwe2) {
-        if (!Double.isNaN(qhwe2) && !Double.isNaN(stauanlage.bhq2InCbmProSekunde)) {
-            if (qhwe2 >= stauanlage.bhq1InCbmProSekunde) {
+    public Answer decideQHEW2GreaterEqualBHQ2(Double qHWE2) {
+        if (!Double.isNaN(qHWE2) && !Double.isNaN(stauanlage.bHQ2InCbmProSekunde)) {
+            if (qHWE2 >= stauanlage.bHQ1InCbmProSekunde) {
                 return Answer.JA;
             } else {
                 return Answer.NEIN;

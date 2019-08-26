@@ -28,20 +28,12 @@
                 android:value=".activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.QuestionnaireKlassifizierungActivity"
+            android:name=".activities.QuestionnaireTragfaehigkeitActivity"
             android:label="QuestionnaireKlassifizierung"
             android:parentActivityName=".activities.QuestionnaireAllgemeinActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.QuestionnaireAllgemeinActivity" />
-        </activity>
-        <activity
-            android:name=".activities.QuestionnaireTragfaehigkeitActivity"
-            android:label="QuestionnaireKlassifizierung"
-            android:parentActivityName=".activities.QuestionnaireKlassifizierungActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.QuestionnaireKlassifizierungActivity" />
         </activity>
         <activity
             android:name=".activities.QuestionnaireGebrauchstauglichkeitActivtiy"

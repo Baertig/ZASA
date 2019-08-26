@@ -18,14 +18,13 @@ import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
+//Autor: Georg
 public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
 
     private StauanlageViewModel mStauanlageViewModel;
-    //bilden zusammen den Schlüssel für die Datenbank
-    //sie werden also benötigt in der nächsten Activity das Stauanlagen Objekt zu laden
-    private Date currentDate;
+    private Date currentDate;//Bearbeitungsdatum
     // relevante GUI-Elemente:
     private EditText inputNameDerAnlage;
     private EditText inputGeoLage;
@@ -34,19 +33,19 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
     private EditText inputArtDesAbsperrbauwerkes;
     private EditText inputHoehe;
     private EditText inputStauinhalt;
-    private EditText inputbhq1;
-    private EditText inputbhq2;
-    private EditText inputbhq2Abschaetzung;
+    private EditText inputBHQ1;
+    private EditText inputBHQ2;
+    private EditText inputBHQ2Abschaetzung; // wird noch nicht ausgewertet
     private RadioGroup inputBetriebsvorschriftNormalbetrieb;
     private RadioGroup inputBetriebsvorschriftHochwasserfall;
 
-
+    //Autor: Felix
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_allgemein);
         setTitle("Allgemein");
-
+        //Autor: Georg
         inputNameDerAnlage = findViewById(R.id.answer_name_der_anlage);
         inputGeoLage = findViewById(R.id.answer_lage);
         inputGewaesser = findViewById(R.id.answer_gewaesser);
@@ -54,12 +53,12 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         inputArtDesAbsperrbauwerkes = findViewById(R.id.answer_art_des_absperrbauwerkes);
         inputHoehe = findViewById(R.id.answer_hoehe);
         inputStauinhalt = findViewById(R.id.answer_stauinhalt);
-        inputbhq1 = findViewById(R.id.answer_bhq1);
-        inputbhq2 = findViewById(R.id.answer_bhq2);
-        inputbhq2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
+        inputBHQ1 = findViewById(R.id.answer_bhq1);
+        inputBHQ2 = findViewById(R.id.answer_bhq2);
+        inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
         inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
         inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
-        inputbhq2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
+        inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //das Bearbeitungsdatum setzten
@@ -79,8 +78,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         inputArtDesAbsperrbauwerkes.setText(StauanlageViewModel.stauanlage.artDesAbsperrauwerkes);
         inputHoehe.setText(String.valueOf(StauanlageViewModel.stauanlage.hoeheAbsperrwerkUeberGruendung));
         inputStauinhalt.setText(String.valueOf(StauanlageViewModel.stauanlage.stauinhaltInCbm));
-        inputbhq1.setText(String.valueOf(StauanlageViewModel.stauanlage.bhq1InCbmProSekunde));
-        inputbhq2.setText(String.valueOf(StauanlageViewModel.stauanlage.bhq2InCbmProSekunde));
+        inputBHQ1.setText(String.valueOf(StauanlageViewModel.stauanlage.bHQ1InCbmProSekunde));
+        inputBHQ2.setText(String.valueOf(StauanlageViewModel.stauanlage.bHQ2InCbmProSekunde));
         //inputBetriebsvorschriftNormalbetrieb; FIXME: Methode um Answer wieder in RadioButton zu konvertieren
         //inputBetriebsvorschriftHochwasserfall;
 
@@ -94,10 +93,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
-        Double hoehe = (inputHoehe.getText().toString().equals("") || inputHoehe.getText().toString().equals(".") ) ? Double.NaN : Double.valueOf(inputHoehe.getText().toString());
+        Double hoehe = (inputHoehe.getText().toString().equals("") || inputHoehe.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputHoehe.getText().toString());
         Double Stauinhalt = (inputStauinhalt.getText().toString().equals("") || inputStauinhalt.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
-        Double bhq1 = (inputbhq1.getText().toString().equals("") || inputbhq1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
-        Double bhq2 = (inputbhq2.getText().toString().equals("") || inputbhq2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
+        Double bHQ1 = (inputBHQ1.getText().toString().equals("") || inputBHQ1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
+        Double bHQ2 = (inputBHQ2.getText().toString().equals("") || inputBHQ2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
 
         mStauanlageViewModel.createStauanlage();
         mStauanlageViewModel.updateAllgemein(
@@ -108,12 +107,13 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
                 inputArtDesAbsperrbauwerkes.getText().toString(),
                 hoehe,
                 Stauinhalt,
-                bhq1,
-                bhq2,
+                bHQ1,
+                bHQ2,
                 BetriebsvorschriftNormalfall,
                 BetriebsvorschriftHochwasserfall,
                 currentDate);
         //mStauanlageViewModel.insert()
+        //Autor: Felix
         //nächste Activity oeffnen
         Intent openQuestionnaireKlassifizierungIntent = new Intent(this, QuestionnaireTragfaehigkeitActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");

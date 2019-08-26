@@ -13,58 +13,62 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import de.badresden.zasa.converters.AnswerTypeConverter;
 import de.badresden.zasa.converters.DateTypeConverter;
 
-@Database(entities = {Stauanlage.class},version = 4)
+//Autor: Georg
+@Database(entities = {Stauanlage.class}, version = 4)
 @TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
-	public abstract StauanlageDao stauanlageDao();
-	private static StauanlageRoomDatabase INSTANCE;
-	//Instance der Datenbank wird nur dann erzeugt wenn keine andere existiert
-	public static StauanlageRoomDatabase getDatabase(final Context context){
-		if (INSTANCE == null){
-			synchronized (StauanlageRoomDatabase.class){
-				if (INSTANCE == null){
-					//create Database here
-					INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-							StauanlageRoomDatabase.class,"stauanlage_database")
-							// Migration is not nessacary yet
-							.fallbackToDestructiveMigration()
-							.addCallback(sRoomDataBaseCallback)
-							.build();
-				}
-			}
-		}
-		return INSTANCE;
-	}
-	//FIXME Georg: nur zum Testen
-	private static RoomDatabase.Callback sRoomDataBaseCallback =
-			new RoomDatabase.Callback(){
-				@Override
-				public void onOpen(@NonNull SupportSQLiteDatabase db) {
-					super.onOpen(db);
-					new PopulateDbAsync(INSTANCE).execute();
-				}
-			};
+    public abstract StauanlageDao stauanlageDao();
 
-	private static class PopulateDbAsync extends AsyncTask<Void,Void,Void>{
-		private final StauanlageDao mStauanlageDao;
-		private Stauanlage stauanlageEins = new Stauanlage();
-		private Stauanlage stauanlageZwei = new Stauanlage();
-		Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
+    private static StauanlageRoomDatabase INSTANCE;
 
-		PopulateDbAsync(StauanlageRoomDatabase db){
-			mStauanlageDao = db.stauanlageDao();
-		}
+    //Instance der Datenbank wird nur dann erzeugt wenn keine andere existiert
+    public static StauanlageRoomDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (StauanlageRoomDatabase.class) {
+                if (INSTANCE == null) {
+                    //Erzeugen der Datenbank
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            StauanlageRoomDatabase.class, "stauanlage_database")
+                            .fallbackToDestructiveMigration() //FIXME für Abgabe löschen
+                            .addCallback(sRoomDataBaseCallback)
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
 
-		@Override
-		protected Void doInBackground(Void... voids) {
-			stauanlagen[0].nameDerAnlage = "Staudamm 1";
-			stauanlagen[1].nameDerAnlage = "Staudamm 2";
-			mStauanlageDao.deleteAll();
-			for (Stauanlage stauanlage : stauanlagen) {
-				mStauanlageDao.insert(stauanlage);
-			}
-			return null;
-		}
-	}
+    //FIXME für Abgabe löschen
+    //Zum Testen der Datenbank: Callback mit dem zwei Elemente angelegt werden
+    private static RoomDatabase.Callback sRoomDataBaseCallback =
+            new RoomDatabase.Callback() {
+                @Override
+                public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                    super.onOpen(db);
+                    new PopulateDbAsync(INSTANCE).execute();
+                }
+            };
+
+    private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+        private final StauanlageDao mStauanlageDao;
+        private Stauanlage stauanlageEins = new Stauanlage();
+        private Stauanlage stauanlageZwei = new Stauanlage();
+        Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
+
+        PopulateDbAsync(StauanlageRoomDatabase db) {
+            mStauanlageDao = db.stauanlageDao();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            stauanlagen[0].nameDerAnlage = "Staudamm 1";
+            stauanlagen[1].nameDerAnlage = "Staudamm 2";
+            mStauanlageDao.deleteAll();
+            for (Stauanlage stauanlage : stauanlagen) {
+                mStauanlageDao.insert(stauanlage);
+            }
+            return null;
+        }
+    }
 }
