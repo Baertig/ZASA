@@ -28,13 +28,13 @@ public class Stauanlage {
     @ColumnInfo(name = "art_des_absperrbauwerkes")
     public String artDesAbsperrauwerkes;
     @ColumnInfo(name = "hoehe_absperrwerk_ueber_gruendung")
-    public Integer hoeheAbsperrwerkUeberGruendung;
+    public Double hoeheAbsperrwerkUeberGruendung;
     @ColumnInfo(name = "stauinhalt_in_cbm")
-    public Integer stauinhaltInCbm;
+    public Double stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
-    public Integer bhq1InCbmProSekunde;
+    public Double bhq1InCbmProSekunde;
     @ColumnInfo(name = "bhq2_in_cbm_pro_sekunde")
-    public Integer bhq2InCbmProSekunde;
+    public Double bhq2InCbmProSekunde;
     @ColumnInfo(name = "betriebsvorschrift_normalfall_liegt_vor")
     public Answer BetriebsvorschriftNormalfallLiegtVor;
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
@@ -137,8 +137,8 @@ public class Stauanlage {
     //public Stauanlage(){}
 
     public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
-								String artDesAbsperrauwerkes, Integer hoeheAbsperrwerkUeberGruendung, int stauinhaltInCbm, int bhq1InCbmProSekunde, int bhq2InCbmProSekunde,
-								Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
+                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bhq1InCbmProSekunde, Double bhq2InCbmProSekunde,
+                                Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
         this.datumUndUhrzeitLetzteBearbeitung = datumUndUhrzeitLetzteBearbeitung;
         this.geographischeLage = geographischeLage;

@@ -61,8 +61,11 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     }
 
     public void openQuestionnaireDauerhaftigkeit(View view) {
-        Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(Integer.valueOf(inputQHWE1.getText().toString()));
-        Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(Integer.valueOf(inputQHWE2.getText().toString()));
+        Double qHWE1 = (inputQHWE1.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputQHWE1.getText().toString());
+        Double qHWE2 = (inputQHWE2.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputQHWE2.getText().toString());
+
+        Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(qHWE1);
+        Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(qHWE2);
         // Answer FreibordUK
         Answer nachweisDvwk = stauanlageViewModel.decideRadioAnswer(inputNachweisDvwk.getCheckedRadioButtonId(), R.id.opt_yes_nachweis_dvwk,
                 R.id.opt_unknown_nachweis_dvwk, R.id.opt_no_nachweis_dvwk);

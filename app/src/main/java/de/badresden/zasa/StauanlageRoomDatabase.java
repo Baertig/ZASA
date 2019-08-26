@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import de.badresden.zasa.converters.AnswerTypeConverter;
 import de.badresden.zasa.converters.DateTypeConverter;
 
-@Database(entities = {Stauanlage.class},version = 3)
+@Database(entities = {Stauanlage.class},version = 4)
 @TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
