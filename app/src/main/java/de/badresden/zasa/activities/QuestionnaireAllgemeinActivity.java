@@ -94,10 +94,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
         Answer BetriebsvorschriftHochwasserfall = mStauanlageViewModel.decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
                 R.id.opt_no_betriebsvorschrift_hochwasserfall);
 
-        Double hoehe = (inputHoehe.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputHoehe.getText().toString());
-        Double Stauinhalt = (inputStauinhalt.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
-        Double bhq1 = (inputbhq1.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
-        Double bhq2 = (inputbhq2.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
+        Double hoehe = (inputHoehe.getText().toString().equals("") || inputHoehe.getText().toString().equals(".") ) ? Double.NaN : Double.valueOf(inputHoehe.getText().toString());
+        Double Stauinhalt = (inputStauinhalt.getText().toString().equals("") || inputStauinhalt.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
+        Double bhq1 = (inputbhq1.getText().toString().equals("") || inputbhq1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
+        Double bhq2 = (inputbhq2.getText().toString().equals("") || inputbhq2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputStauinhalt.getText().toString());
 
         mStauanlageViewModel.createStauanlage();
         mStauanlageViewModel.updateAllgemein(

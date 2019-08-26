@@ -61,8 +61,8 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     }
 
     public void openQuestionnaireDauerhaftigkeit(View view) {
-        Double qHWE1 = (inputQHWE1.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputQHWE1.getText().toString());
-        Double qHWE2 = (inputQHWE2.getText().toString().equals("")) ? Double.NaN : Double.valueOf(inputQHWE2.getText().toString());
+        Double qHWE1 = (inputQHWE1.getText().toString().equals("") || inputQHWE1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE1.getText().toString());
+        Double qHWE2 = (inputQHWE2.getText().toString().equals("") ||inputQHWE2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE2.getText().toString());
 
         Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(qHWE1);
         Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(qHWE2);
