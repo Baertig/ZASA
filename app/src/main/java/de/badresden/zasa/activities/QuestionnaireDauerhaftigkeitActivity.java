@@ -83,7 +83,6 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
      * Button "Fertig"
      * --> Werte aus der GUI auslesen und speichern
      * --> die zwischengespeicherten Daten in die Datenbank einfügen
-     * @param view
      */
     public void submitData(View view) {
         //Au

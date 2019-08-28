@@ -19,6 +19,7 @@ import de.badresden.zasa.StauanlageViewModel;
 /**
  * Activity in der die Fragen der Kategorie Gebrauchstauglichkeit beanwortet werden
  */
+@SuppressWarnings("ALL")
 public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivity {
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
@@ -70,7 +71,6 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     /**
      * Button "Weiter"
      * --> auslesen und zwischenspeichern der Daten
-     * @param view
      */
     public void openQuestionnaireDauerhaftigkeit(View view) {
         //prüfen auf nicht zulässige Werte, daraufhin wird der entsprechende Wert gespeichert

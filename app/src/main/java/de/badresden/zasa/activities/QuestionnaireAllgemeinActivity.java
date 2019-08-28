@@ -23,6 +23,7 @@ import de.badresden.zasa.StauanlageViewModel;
 /**
  * Activity in der die Fragen der Kategorie Allgemein beantwortet werden
  */
+@SuppressWarnings("ALL")
 public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
@@ -39,7 +40,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
     private EditText inputStauinhalt;
     private EditText inputBHQ1;
     private EditText inputBHQ2;
-    private EditText inputBHQ2Abschaetzung; // wird noch nicht ausgewertet
+    private EditText inputBHQ2Abschaetzung; // siehe Beschreibunt in der GUI (wird noch nicht ausgewertet )
     private RadioGroup inputBetriebsvorschriftNormalbetrieb;
     private RadioGroup inputBetriebsvorschriftHochwasserfall;
 
@@ -95,7 +96,6 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     /**
      * Button "Weiter"
-     * @param view
      */
     public void openQuestionnaireKlassifizierung(View view) {
         // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
@@ -134,7 +134,6 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
      * Button "Standort"
      * --> noch keine Funktion hinterlegt
      * (Soll später GPS - Koordinaten des Handys liefern)
-     * @param view
      */
     public void chooseLocationByGps(View view) { //btn_location
         Toast toast = Toast.makeText(this, "Button ist noch nicht mit Funktionn hinterlegt", Toast.LENGTH_LONG);
