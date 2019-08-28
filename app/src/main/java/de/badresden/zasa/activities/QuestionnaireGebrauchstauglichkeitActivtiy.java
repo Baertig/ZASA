@@ -15,9 +15,14 @@ import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
 //Autor: Georg
+
+/**
+ * Activity in der die Fragen der Kategorie Gebrauchstauglichkeit beanwortet werden
+ */
 public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivity {
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
+    //relevante GUI Elemente
     private EditText inputQHWE1;
     private EditText inputQHWE2;
     private EditText inputFreibordUK;
@@ -42,9 +47,10 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         setContentView(R.layout.activity_questionnaire_gebrauchstauglichkeit);
         setTitle("Gebrauchstauglichkeit");
         //Autor: Georg
+        //setzen der GUI Elemente
         inputQHWE1 = findViewById(R.id.answer_qhwe1);
         inputQHWE2 = findViewById(R.id.answer_qhwe2);
-        inputFreibordUK = findViewById(R.id.answer_freibord_uk); //TODO welche Namen fuer die Variablen sollen verwendet werden, vllt gleich Abkuerzugen von Felix in Stauanlagen uebernehmen ?
+        inputFreibordUK = findViewById(R.id.answer_freibord_uk);
         inputFreibordDammkrone = findViewById(R.id.answer_freibord_dammkrone);
         inputNachweisDvwk = findViewById(R.id.radio_nachweis_dvwk);
         inputBetriebsauffaelligkeiten = findViewById(R.id.answer_betriebsauffaelligkeiten);
@@ -61,13 +67,20 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
     }
 
+    /**
+     * Button "Weiter"
+     * --> auslesen und zwischenspeichern der Daten
+     * @param view
+     */
     public void openQuestionnaireDauerhaftigkeit(View view) {
+        //prüfen auf nicht zulässige Werte, daraufhin wird der entsprechende Wert gespeichert
         Double qHWE1 = (inputQHWE1.getText().toString().equals("") || inputQHWE1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE1.getText().toString());
         Double qHWE2 = (inputQHWE2.getText().toString().equals("") || inputQHWE2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE2.getText().toString());
 
         Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(qHWE1);
         Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(qHWE2);
         // Answer FreibordUK
+        // Answer FreibordDammkrone --> Logik um die Werte der Varibeln aus der Eingabe zu bestimmen wurde noch nicht implementiert
         Answer nachweisDvwk = stauanlageViewModel.decideRadioAnswer(inputNachweisDvwk.getCheckedRadioButtonId(), R.id.opt_yes_nachweis_dvwk,
                 R.id.opt_unknown_nachweis_dvwk, R.id.opt_no_nachweis_dvwk);
         Answer querschnittsreduktionHWE = stauanlageViewModel.decideRadioAnswer(inputQuerschnittsreduktionHWE.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_hwe,
@@ -92,8 +105,8 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         stauanlageViewModel.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,
                 qHWEVonBHW2GroesserGleichBHQ2,
-                Answer.UNBEKANNT, //TODO siehe unten
-                Answer.UNBEKANNT,//TODO ganz dickes TODO muss noch Logik implementieren, aber vorher halt verstehen !!!!!
+                Answer.UNBEKANNT, //FreibordUK
+                Answer.UNBEKANNT,//FreibordDammkrone --> siehe oben (erstmal wird nur UNBEKANNT übergeben)
                 nachweisDvwk,
                 inputBetriebsauffaelligkeiten.getText().toString(),
                 querschnittsreduktionHWE,

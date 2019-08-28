@@ -16,6 +16,9 @@ import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
 //Autor: Felix
+/**
+ * Activity für Startbildschirm der App
+ */
 public class MainActivity extends AppCompatActivity {
 
     StauanlageViewModel mStauanlageViewModel;
@@ -27,27 +30,45 @@ public class MainActivity extends AppCompatActivity {
         //Autor: Georg
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
-        //Observer der dafür sorgt das die LiveData weiß, dass sie beobachtet wird
+        //Hier wird ein Observer gesetzt der selbst keine Logik ausführt wenn er die Nachricht der LiveData bekommt, dass
+        // sich etwas geändert hat. Ist ein Bugfix für den wir bis jetzt keine bessere Lösung finden konnten
+        // vorher gingen Änderungen verloren,die gemacht wurden bevor der Observer in FinishedQuestionnairesActivity auf die LiveData gesetzt wurde
+        // jetzt wird einer von Anfang an gesetzt
         mStauanlageViewModel.getAllStauanlagenSimplyfied().observe(this, new Observer<List<StauanlageSimplyfied>>() {
             @Override
             public void onChanged(List<StauanlageSimplyfied> stauanlageSimplyfieds) {
             }
         });
-        StauanlageViewModel.stauanlage = null; // sicherstellen das keine Daten im Zwischenspeicher vorhanden sind
+        //Sicherstellen das dass statische Feld der StauanlageViewModel null´ist, sich also keine Daten im Zwischenspeicher befinden
+        mStauanlageViewModel.clear();
     }
     //Autor: Felix
+
+    /**
+     * Button "Neuer Fragebogen"
+     * --> Leitet weiter zu Activity QuestionnaireAllgemeinActivity
+     * @param view
+     */
     public void openQuestionnaireAllgemein(View view) {
         Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
-        openQuestionnaireAllgemeinIntent.putExtra("key", "testValue"); // Optional parameters
         startActivity(openQuestionnaireAllgemeinIntent);
     }
     //Autor: Georg
+
+    /**
+     * Button "Ausgefüllte Fragebögen"
+     * --> Leitet weiter zu Activity FinishedQuestionnairesActivity
+     * @param view
+     */
     public void openFinishedQuestionairesAcitivity(View view) {
-        Intent openActivityFinishedQuestionaires =
-                new Intent(this, FinishedQuestionairesActivity.class);
+        Intent openActivityFinishedQuestionaires = new Intent(this, FinishedQuestionnairesActivity.class);
         startActivity(openActivityFinishedQuestionaires);
     }
 
+    /**
+     * wenn der Zurück Button des Handys (unten Rechts) gedrückt wird, passiert nichts. Außgenommen einer Meldung die eben das erklärt.
+     * Es kam sonst zu einer NullPointerException in einem bestimmten Anwendungsfall.
+     */
     @Override
     public void onBackPressed() {
         Toast toast = Toast.makeText(this, "Funktion ist ausgeschaltet, führt sonst zu einem Error beim zurück Drücken" +

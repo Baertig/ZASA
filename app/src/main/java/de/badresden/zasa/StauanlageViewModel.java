@@ -117,4 +117,8 @@ public class StauanlageViewModel extends AndroidViewModel {
             return Answer.UNBEKANNT;
         }
     }
+
+    public void clear(){
+        stauanlage = null;
+    }
 }

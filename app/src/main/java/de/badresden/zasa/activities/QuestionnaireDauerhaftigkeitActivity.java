@@ -14,9 +14,14 @@ import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
 //Autor: Georg
+
+/**
+ * Es Werden die Fragen der Kategorie Dauerhaftigkeit beantwortet
+ */
 public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Dauerhaftigkeit";
+    //relevante GUI Elemente
     private StauanlageViewModel stauanlageViewModel;
     private RadioGroup inputUferveraenderungen;
     private RadioGroup inputRutschungen;
@@ -47,6 +52,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questionnaire_dauerhaftigkeit);
         setTitle("Dauerhaftigkeit");
         //Autor: Georg
+        //setzten der GUI Elemente
         inputUferveraenderungen = findViewById(R.id.radio_uferveraenderungen);
         inputRutschungen = findViewById(R.id.radio_rutschungen);
         inputRisseErd = findViewById(R.id.radio_risse_erd);
@@ -73,7 +79,14 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Button "Fertig"
+     * --> Werte aus der GUI auslesen und speichern
+     * --> die zwischengespeicherten Daten in die Datenbank einfügen
+     * @param view
+     */
     public void submitData(View view) {
+        //Au
         Answer uferveraenderungen = stauanlageViewModel.decideRadioAnswer(inputUferveraenderungen.getCheckedRadioButtonId(),R.id.opt_yes_uferveraenderungen,
                 R.id.opt_unknown_uferveraenderungen,R.id.opt_no_uferveraenderungen);
         Answer rutschungen = stauanlageViewModel.decideRadioAnswer(inputRutschungen.getCheckedRadioButtonId(),R.id.opt_yes_rutschungen,
@@ -141,7 +154,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 wasseraustritteMassiv,
                 fehlstellenMauerwerk
         );
-        stauanlageViewModel.insert();
+        stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
         //Autor: Felix
         Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
