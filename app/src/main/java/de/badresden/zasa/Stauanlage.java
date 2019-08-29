@@ -7,8 +7,17 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 
 //Autor: Georg
+
+/**
+ * Die Antworten eines Fragebogens (Die Fragen in allen Activities einmal durchgegangen) werden in einem Objekt von Typ Stauanlage gespeichert
+ * Das Objekt ist gleichzeitig einen Entity der RoomDatabase, durch sie wird auch eine Tabelle, mit Spalten und deren Datentypen beschrieben
+ * In der Datenbank in der Tabelle "stauanlage_table" wird ein Stauanlagen Objekt dann gespeichert
+ */
+@SuppressWarnings("WeakerAccess")
 @Entity(tableName = "stauanlage_table")
-public class Stauanlage {
+public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb der Name der Klasse
+//Die Namen der Variablen orientieren sich stark an der Vorlage um sie später eindeutig wiederzuerkennen, deshalb sind sie so lang
+//In den Activities wurden Abkürzungen verwendet, damit der Code übersichtlich bleibt.
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "primary_key")
@@ -17,6 +26,8 @@ public class Stauanlage {
     @ColumnInfo(name = "datum_und_uhrzeit_letzte_bebearbeitung")
     public Date datumUndUhrzeitLetzteBearbeitung;
 
+    //Eigenschaften unterteilt in die einzelnen Kategorien
+    // " -- " = steht für Unterkategorie
     //Allgemeine Angaben
     @ColumnInfo(name = "name_der_Anlage")
     public String nameDerAnlage;
@@ -41,7 +52,7 @@ public class Stauanlage {
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
     public Answer BetriebsvorschriftHochwasserLiegtVor;
 
-    //Tragfähigkeit(Erdbauwerke)
+    //Tragfähigkeit
     @ColumnInfo(name = "wasserseitige_boeschungsneigung_zu_luftseitige_boeschungsneigung_kleiner_1_zu_3")
     public Answer wasserseitigZuLuftseitigKleinerEinszuDrei;
     @ColumnInfo(name = "statische_berechnung_liegt_vor")
@@ -61,7 +72,7 @@ public class Stauanlage {
     @ColumnInfo(name = "bisherige_betriebsauffaelligkeiten")
     public String bisherigeBetriebsauffaelligkeiten;
 
-    //Hochwasserentlastung(HWE)
+    // -- Hochwasserentlastung(HWE)
     @ColumnInfo(name = "querschnittsreduktion_der_wasserwege")
     public Answer querschnittsreduktionDerWasserwege;
     @ColumnInfo(name = "fehlstellen_oder_beschaedigungen_an_wasserwegen")
@@ -71,7 +82,7 @@ public class Stauanlage {
     @ColumnInfo(name = "treibgutsperre_und_grobrechen_und_palisadenrechen_frei_und_funktionstuechtig")
     public Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig;
 
-    //Grundablass (GA)
+    // -- Grundablass (GA)
     @ColumnInfo(name = "querschnittsreduktion_im_GA")
     public Answer querschnittsreduktionImGA;
     @ColumnInfo(name = "fehlstellen_oder_beschaedigungen_oder_undichtigkeiten_GA")
@@ -81,7 +92,7 @@ public class Stauanlage {
     @ColumnInfo(name = "schwergaengigkeit_oder_blockieren_des_verschlusses")
     public Answer schwergaengigkeitOderBlockierenDesVerschlusses;
 
-    //Messeinrichtungen
+    // -- Messeinrichtungen
     @ColumnInfo(name = "messeinrichtung_funktionsfaehig")
     public Answer messeinrichtungFunktionsfaehig;
 
@@ -89,7 +100,7 @@ public class Stauanlage {
     @ColumnInfo(name = "uferveraenderungen_des_stausees")
     public Answer uferveraenderungenDesStausees;
 
-    //Veränderungen an Erdbauwerken
+    // -- Veränderungen an Erdbauwerken
     @ColumnInfo(name = "rutschungen")
     public Answer rutschungen;
     @ColumnInfo(name = "risse_erdbau")
@@ -115,7 +126,7 @@ public class Stauanlage {
     @ColumnInfo(name = "grabende_tiere")
     public Answer grabendeTiere;
 
-    //Veränderungen an Massivbauswerken
+    // -- Veränderungen an Massivbauswerken
     @ColumnInfo(name = "risse_massivbau")
     public Answer risseMassivbau;
     @ColumnInfo(name = "sichtbare_setzungen_massivbau")
@@ -136,6 +147,9 @@ public class Stauanlage {
 
     //public Stauanlage(){}
 
+    /**
+     * Methode um die Eigenschaften der Kategorie "Allgemein" zu setzten
+     */
     public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
                                 String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde,
                                 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
@@ -153,11 +167,17 @@ public class Stauanlage {
         this.BetriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
     }
 
+    /**
+     * Methode um die Eigenschaften der Kategorie "Tragfähigkeit" zu setzten
+     */
     public void updateTragfaehigkeit(Answer wasserseitigZuLuftseitigKleinerEinszuDrei, Answer statischeBerechnungLiegtVor) {
         this.wasserseitigZuLuftseitigKleinerEinszuDrei = wasserseitigZuLuftseitigKleinerEinszuDrei;
         this.statischeBerechnungLiegtVor = statischeBerechnungLiegtVor;
     }
 
+    /**
+     * Methode um die Eigenschaften der Kategorie "Gebrauchstauglichkeit" zu setzten
+     */
     public void updateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
                                             Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
                                             Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
@@ -180,6 +200,9 @@ public class Stauanlage {
         this.messeinrichtungFunktionsfaehig = messeinrichtungFunktionsfaehig;
     }
 
+    /**
+     *Methode um die Eigenschaften der Kategorie "Dauerhaftigkeit" zu setzten
+     */
     public void updateDauerhaftigkeit(Answer uferveraenderungenDesStausees, Answer rutschungen, Answer risseErdbau, Answer sichtbareSetzungenErdbaubau, Answer sichtbareHebungen, Answer sichtbareHorizontalverschiebungenErdbau,
                                       Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
                                       Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,

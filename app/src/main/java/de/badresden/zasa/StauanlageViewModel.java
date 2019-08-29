@@ -10,12 +10,25 @@ import java.util.Date;
 import java.util.List;
 
 //Autor: Georg
+
+/**
+ * ViewModel ist der Controller der Activties. Es stellt für sie die Datenbereit und verarbeitet sie entsprechend der Interaktionen des Nutzers
+ */
+@SuppressWarnings("unused")
 public class StauanlageViewModel extends AndroidViewModel {
 
-    public static Stauanlage stauanlage = null;
+    /**
+     * Die Statische Variable ist der Zwischenspeicher.
+     * In ihr werden die Antworten aus den einzelnen Fragebägen zwischen gespeichert
+     * Ist der Nutzer mit Bearbeiten fertig wird das Objekt in die Datenbank geschrieben, dannach  wird die Variable in der OnCreate Methode
+     * der MainActivity null gesetzt
+     */
+    public static Stauanlage stauanlage = null; // Wir haben uns für eine statische Variable entschieden, damit jede Instanz des ViewModel zugriff auf sie hat
+                                                //(Sollte kein Problem darstellen da die Momentant Nutzerführung (siehe Diagramm)
+                                                // nur das Laden eines Fragebogens (Bearbeiten,Erstellen oder Hochladen) zu gleicher Zeit vorsieht
     private StauanlageRepository mRepository;
-    private LiveData<List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied;
-
+    private LiveData<List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //Liste mit "vereinfachten" Stauanlagen Objekten: reicht um sie in der RecyclerView darzustellen ...
+                                                                            //hält nicht soviele Daten unütz im Speicher
 
     public StauanlageViewModel(@NonNull Application application) {
         super(application);
@@ -30,12 +43,18 @@ public class StauanlageViewModel extends AndroidViewModel {
     // das private Feld wird gespeichert
     public void insert() {
         mRepository.insert(stauanlage);
-        stauanlage = null; // leeren des Zwischenspeichers, damit neue stauanlage gespeichert werden kann
         //mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
     }
-
+    //soll später benutzt werden um eine geladen Stauanlage zu bearbeiten und in der Datenbank zu aktualisieren
+    //wird momentan nicht benutzt
     public void update(Stauanlage stauanlage) {
         mRepository.update(stauanlage);
+    }
+
+    //soll später benutzt werden um die Möglichkeit zu bieten alle gespeicherten Stauanlagen zu löschen
+    //wird momentan noch nicht benutzt
+    public void deleteAll(){
+        mRepository.deleteAll();
     }
 
     public void createStauanlage() {
@@ -46,7 +65,7 @@ public class StauanlageViewModel extends AndroidViewModel {
                                 String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bhq1InCbmProSekunde, Double bhq2InCbmProSekunde,
                                 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
 
-        stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber, //TODO beim renaming beachten !!!
+        stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber,
                 artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde,
                 bhq2InCbmProSekunde, betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor, datumUndUhrzeitLetzteBearbeitung);
     }
@@ -82,6 +101,9 @@ public class StauanlageViewModel extends AndroidViewModel {
     }
 
 
+    /**
+     * Wertet die Ausgewählte Antwort einer RadioGroup aus und gibt dem entsprechend JA/NEIN/UNBEKANNT zurück
+     */
     public Answer decideRadioAnswer(int radioIdAnswer, int radioIdJa, int radioIdUnbekannt, int radioIdNein) {
         if (radioIdAnswer == radioIdJa) {
             return Answer.JA;
@@ -94,6 +116,7 @@ public class StauanlageViewModel extends AndroidViewModel {
         }
     }
 
+    //auswerten der Eingabe qHWE1 aus der Activity
     public Answer decideQHEW1GreaterEqualBHQ1(Double qHWE1) {
         if (!Double.isNaN(qHWE1) && !Double.isNaN(stauanlage.bHQ1InCbmProSekunde)) {
             if (qHWE1 >= stauanlage.bHQ1InCbmProSekunde) {
@@ -105,7 +128,7 @@ public class StauanlageViewModel extends AndroidViewModel {
             return Answer.UNBEKANNT;
         }
     }
-
+    //auswerten der Eingabe qHWE2 aus der Activity
     public Answer decideQHEW2GreaterEqualBHQ2(Double qHWE2) {
         if (!Double.isNaN(qHWE2) && !Double.isNaN(stauanlage.bHQ2InCbmProSekunde)) {
             if (qHWE2 >= stauanlage.bHQ1InCbmProSekunde) {
@@ -117,7 +140,7 @@ public class StauanlageViewModel extends AndroidViewModel {
             return Answer.UNBEKANNT;
         }
     }
-
+    //leert den Zwischenspeicher
     public void clear(){
         stauanlage = null;
     }

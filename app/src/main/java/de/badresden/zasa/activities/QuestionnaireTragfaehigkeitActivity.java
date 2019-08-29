@@ -14,10 +14,15 @@ import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
 //Autor: Georg
+
+/**
+ * Activity in der die Fragen der Kategorie Tragfähigkeit beanwortet werden
+ */
 public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Tragfaehigkeit";
     private StauanlageViewModel stauanlageViewModel;
+    //relevante GUI Elemente
     private RadioGroup inputBoeschungsneigungVerhaeltnis;
     private RadioGroup inputStatischeBerechnungLiegtVor;
 
@@ -29,12 +34,18 @@ public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
         setTitle("Tragfähigkeit");
 
         //Autor: Georg
+        //setzten der GUI Elemente
         inputBoeschungsneigungVerhaeltnis = findViewById(R.id.radio_boeschungsneigung_verhaeltnis);
         inputStatischeBerechnungLiegtVor = findViewById(R.id.radio_statische_berechnung_liegt_vor);
 
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
     }
 
+    /**
+     *Button "Weiter"
+     * --> auslesen und zwischenspeichern der Daten
+     * + wechseln zu Activity QuestionnaireGebrauchstauglichkeitActivtiy
+     */
     public void openQuestionnaireGebrauchstauglichkeit(View view) {
 
         Answer boeschungsneigungVerhaeltnis = stauanlageViewModel.decideRadioAnswer(inputBoeschungsneigungVerhaeltnis.getCheckedRadioButtonId(), R.id.opt_yes_boeschungsneigung_verhaeltnis,

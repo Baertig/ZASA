@@ -48,7 +48,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     /**
      * Button Bearbeiten (Stift Icon)
      * --> Momentan mit keiner Logik verknüpft
-     * @param view
      */
     public void editClick(View view) {
         Toast toast = Toast.makeText(this, "Edit Button hat noch keine Funktion", Toast.LENGTH_LONG);
@@ -58,7 +57,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     /**
      * Button Löschen (Mülltonne Icon)
      * --> Momentan mit keiner Logik verknüpft
-     * @param view
      */
     public void deleteClick(View view) {
         Toast toast = Toast.makeText(this, "Delete Button hat noch keine Funktion", Toast.LENGTH_LONG);
@@ -68,7 +66,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     /**
      * Button Hochladen (Feil nach oben Icon)
      * --> Momentan mit keiner Logik verknüpft
-     * @param view
      */
     public void exportClick(View view) {
         Toast toast = Toast.makeText(this, "Export Button hat noch keine Funktion", Toast.LENGTH_LONG);

@@ -5,24 +5,23 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import java.util.Date;
 import java.util.List;
 
 //Autor: Georg
+
+/**
+ * Das Repository regelt die Datenbank Interaktion der App
+ * Dafür werden die SQL - Befehle des StauanlagenDaos in einem anderen neu erzeugten Thread(AsyncTask) ausgeführt
+ */
+@SuppressWarnings("WeakerAccess")
 public class StauanlageRepository {
     private StauanlageDao mStauanlageDao;
-    private LiveData<List<Stauanlage>> mAllStauanlagen;
     private LiveData<List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied;
 
     public StauanlageRepository(Application application) {
         StauanlageRoomDatabase db = StauanlageRoomDatabase.getDatabase(application);
         mStauanlageDao = db.stauanlageDao();
-        mAllStauanlagen = mStauanlageDao.getAllStauanlagen();
         mAllStauanlagenSimplyfied = mStauanlageDao.getAllStauanlagenSimplyfied();
-    }
-
-    LiveData<List<Stauanlage>> getAllStauanlagen() {
-        return mAllStauanlagen;
     }
 
     LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied() {
@@ -37,8 +36,11 @@ public class StauanlageRepository {
         new updateAsyncTask(mStauanlageDao).execute(stauanlage);
     }
 
+    public void deleteAll(){
+        new deleteAllAsyncTask(mStauanlageDao).execute();
+    }
 
-    //AsyncTask to insert Object in Database
+    //AsyncTask um ein Stauanlagen Objekt(Antworten eines Fragebogens) in der Datenbank zu speichern
     private static class insertAsyncTask extends AsyncTask<Stauanlage, Void, Void> {
         private StauanlageDao mAsyncTaskDao;
 
@@ -53,8 +55,9 @@ public class StauanlageRepository {
         }
     }
 
-    //AsyncTask to Update Objects in Database
-    //it is only possible to update one Object simultaneously ... should be enough
+    //AsyncTask um eine Stauanlage in der Datenbank zu updaten
+    //Soll ausgeführt werden wenn der Nutzer eine Stauanlage bearbeitet
+    // --> Die Funktion zum Bearbeiten ist momentan noch nicht vollständig implementiert
     private static class updateAsyncTask extends AsyncTask<Stauanlage, Void, Void> {
         private StauanlageDao mAsyncTaskDao;
 
@@ -65,6 +68,21 @@ public class StauanlageRepository {
         @Override
         protected Void doInBackground(Stauanlage... stauanlagen) {
             mAsyncTaskDao.update(stauanlagen[0]);
+            return null;
+        }
+    }
+
+    private static class deleteAllAsyncTask extends AsyncTask<Void, Void, Void> {
+        private StauanlageDao mAsyncTaskDao;
+
+        deleteAllAsyncTask(StauanlageDao dao) {
+            this.mAsyncTaskDao = dao;
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mAsyncTaskDao.deleteAll();
             return null;
         }
     }

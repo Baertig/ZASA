@@ -1,19 +1,23 @@
 package de.badresden.zasa;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import de.badresden.zasa.converters.AnswerTypeConverter;
 import de.badresden.zasa.converters.DateTypeConverter;
 
 //Autor: Georg
+
+/**
+ * RoomDatabase der App
+ * mit einer statischen Methode die sicherstellt das eine Instance der RoomDatabase nur dann erzeugt wird,
+ * wenn es noch keine gibt, ansonsten wird immer die vorhandene zurückgegeben
+ */
+@SuppressWarnings("WeakerAccess")
 @Database(entities = {Stauanlage.class}, version = 4)
 @TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
@@ -30,8 +34,6 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
                     //Erzeugen der Datenbank
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             StauanlageRoomDatabase.class, "stauanlage_database")
-                            .fallbackToDestructiveMigration() //FIXME für Abgabe löschen
-                            .addCallback(sRoomDataBaseCallback)
                             .build();
                 }
             }
@@ -39,36 +41,5 @@ public abstract class StauanlageRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    //FIXME für Abgabe löschen
-    //Zum Testen der Datenbank: Callback mit dem zwei Elemente angelegt werden
-    private static RoomDatabase.Callback sRoomDataBaseCallback =
-            new RoomDatabase.Callback() {
-                @Override
-                public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                    super.onOpen(db);
-                    new PopulateDbAsync(INSTANCE).execute();
-                }
-            };
 
-    private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
-        private final StauanlageDao mStauanlageDao;
-        private Stauanlage stauanlageEins = new Stauanlage();
-        private Stauanlage stauanlageZwei = new Stauanlage();
-        Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
-
-        PopulateDbAsync(StauanlageRoomDatabase db) {
-            mStauanlageDao = db.stauanlageDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            stauanlagen[0].nameDerAnlage = "Staudamm 1";
-            stauanlagen[1].nameDerAnlage = "Staudamm 2";
-            mStauanlageDao.deleteAll();
-            for (Stauanlage stauanlage : stauanlagen) {
-                mStauanlageDao.insert(stauanlage);
-            }
-            return null;
-        }
-    }
 }

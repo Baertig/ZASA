@@ -15,8 +15,11 @@ import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageSimplyfied;
 
 //Autor: Georg
-public class StauanlageSimplyfiedListAdapter extends
-        RecyclerView.Adapter<StauanlageSimplyfiedListAdapter.StauanlageSimplyfiedViewHolder> {
+
+/**
+ * Adapter Klasse für die Recyclerview (definiert wie die unterelemente(Views) der Recyclerview erzeugt werden)
+ */
+public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<StauanlageSimplyfiedListAdapter.StauanlageSimplyfiedViewHolder> {
 
     private final LayoutInflater mInflater;
     private List<StauanlageSimplyfied> stauanlageSimplyfiedList; //gecachte Kopie
@@ -28,6 +31,7 @@ public class StauanlageSimplyfiedListAdapter extends
     @NonNull
     @Override
     public StauanlageSimplyfiedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //item Layout wird geladen
         View itemView = mInflater.inflate(R.layout.finished_questionaires_recyclerview_item, parent, false);
         return new StauanlageSimplyfiedViewHolder(itemView);
     }
@@ -36,10 +40,11 @@ public class StauanlageSimplyfiedListAdapter extends
     public void onBindViewHolder(@NonNull StauanlageSimplyfiedViewHolder holder, int position) {
         if (stauanlageSimplyfiedList != null) {
             StauanlageSimplyfied current = stauanlageSimplyfiedList.get(position);
-            holder.StauanlageSimpyfiedItemView.setText(current.namederAnlage);
+            //Name der Anlage wir als Text in Item geschrieben
+            holder.StauanlageSimpyfiedItemTextView.setText(current.namederAnlage);
         } else {
             //Falls noch keine Daten zum Darstellen vorhanden sind
-            holder.StauanlageSimpyfiedItemView.setText(R.string.keine_daten_zum_darstellen);
+            holder.StauanlageSimpyfiedItemTextView.setText(R.string.keine_daten_zum_darstellen);
         }
     }
 
@@ -58,11 +63,11 @@ public class StauanlageSimplyfiedListAdapter extends
     }
 
     class StauanlageSimplyfiedViewHolder extends RecyclerView.ViewHolder {
-        private final TextView StauanlageSimpyfiedItemView;
+        private final TextView StauanlageSimpyfiedItemTextView;
 
         private StauanlageSimplyfiedViewHolder(@NonNull View itemView) {
             super(itemView);
-            StauanlageSimpyfiedItemView = itemView.findViewById(R.id.questionaireNameTestView);
+            StauanlageSimpyfiedItemTextView = itemView.findViewById(R.id.questionaireNameTestView);
         }
     }
 }

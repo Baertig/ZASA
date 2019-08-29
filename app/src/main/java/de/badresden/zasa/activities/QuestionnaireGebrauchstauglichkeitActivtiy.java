@@ -19,7 +19,7 @@ import de.badresden.zasa.StauanlageViewModel;
 /**
  * Activity in der die Fragen der Kategorie Gebrauchstauglichkeit beanwortet werden
  */
-@SuppressWarnings("ALL")
+@SuppressWarnings("unused")
 public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivity {
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
@@ -71,6 +71,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     /**
      * Button "Weiter"
      * --> auslesen und zwischenspeichern der Daten
+     *  +  wechseln zu Activity QuestionnaireDauerhaftigkeitActivity
      */
     public void openQuestionnaireDauerhaftigkeit(View view) {
         //prüfen auf nicht zulässige Werte, daraufhin wird der entsprechende Wert gespeichert
@@ -80,7 +81,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(qHWE1);
         Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(qHWE2);
         // Answer FreibordUK
-        // Answer FreibordDammkrone --> Logik um die Werte der Varibeln aus der Eingabe zu bestimmen wurde noch nicht implementiert
+        // Answer FreibordDammkrone --> Logik um die Werte der Varibeln aus den eingegebenen Zahlen zu bestimmen wurde noch nicht implementiert
         Answer nachweisDvwk = stauanlageViewModel.decideRadioAnswer(inputNachweisDvwk.getCheckedRadioButtonId(), R.id.opt_yes_nachweis_dvwk,
                 R.id.opt_unknown_nachweis_dvwk, R.id.opt_no_nachweis_dvwk);
         Answer querschnittsreduktionHWE = stauanlageViewModel.decideRadioAnswer(inputQuerschnittsreduktionHWE.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_hwe,

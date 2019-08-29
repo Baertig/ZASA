@@ -23,7 +23,8 @@ import de.badresden.zasa.StauanlageViewModel;
 /**
  * Activity in der die Fragen der Kategorie Allgemein beantwortet werden
  */
-@SuppressWarnings("ALL")
+
+@SuppressWarnings("unused")
 public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
@@ -96,6 +97,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
     /**
      * Button "Weiter"
+     * --> auslesen und zwischenspeichern der Daten
+     * --> Wechseln zu Activity QuestionnaireTragfaehigkeitActivity
      */
     public void openQuestionnaireKlassifizierung(View view) {
         // Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.

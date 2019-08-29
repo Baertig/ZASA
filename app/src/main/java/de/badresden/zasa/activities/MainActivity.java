@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Button "Neuer Fragebogen"
      * --> Leitet weiter zu Activity QuestionnaireAllgemeinActivity
-     * @param view
      */
     public void openQuestionnaireAllgemein(View view) {
         Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Button "Ausgefüllte Fragebögen"
      * --> Leitet weiter zu Activity FinishedQuestionnairesActivity
-     * @param view
      */
     public void openFinishedQuestionairesAcitivity(View view) {
         Intent openActivityFinishedQuestionaires = new Intent(this, FinishedQuestionnairesActivity.class);
