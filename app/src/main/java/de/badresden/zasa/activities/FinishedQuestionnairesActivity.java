@@ -7,8 +7,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
@@ -23,16 +24,19 @@ import de.badresden.zasa.StauanlageViewModel;
  */
 @SuppressWarnings("FieldCanBeLocal")
 public class FinishedQuestionnairesActivity extends AppCompatActivity {
+    private final String TAG = FinishedQuestionnairesActivity.class.getSimpleName();
     private StauanlageViewModel mStauanlageViewModel;
+    private RecyclerView recyclerView;
+    private StauanlageSimplyfiedListAdapter adapter ; //war mal final...weiß nicht warum ??
+    private Context context; // ist used in the OnClickListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_questionaires); //Layout datei wird geladen
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final StauanlageSimplyfiedListAdapter adapter = new StauanlageSimplyfiedListAdapter(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        buildRecyclerView();
+        context = this;
+
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //Observer gesetzt, sobald es eine Änderung gibt aktualisiert der Adapter seine Daten, somit ändern sich die
         //angezeigten Daten in der Recyclerview
@@ -46,29 +50,42 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     }
 
     /**
-     * Button Bearbeiten (Stift Icon)
-     * --> Momentan mit keiner Logik verknüpft
+     * enthält die Logik um die RecyclerView zusammenzudönern
      */
-    public void editClick(View view) {
-        Toast toast = Toast.makeText(this, "Edit Button hat noch keine Funktion", Toast.LENGTH_LONG);
-        toast.show();
+    private void buildRecyclerView() {
+        recyclerView = findViewById(R.id.recyclerview);
+        adapter = new StauanlageSimplyfiedListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter.setOnItemClickListener(new StauanlageSimplyfiedListAdapter.OnClickListener() {
+            @Override
+            //TODO vllt mal nutzen um mehr Informationen zu Datensatz darzustellen
+            public void onItemClick(int position) {
+                StauanlageSimplyfied testStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
+                Log.d(TAG, "onItemClick: Name" + testStauanlage.namederAnlage );
+
+            }
+
+            @Override
+            public void onDeleteClick(int position) {
+                //TODO Tutorial fürs Löschen von Datensätzen zu ende machen
+            }
+
+            @Override
+            public void onExportClick(int position) {
+                //irgendwann später implementieren
+            }
+
+            @Override
+            public void onEditClick(int position) {
+                StauanlageSimplyfied currentStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
+                Toast test = Toast.makeText(context,"You can someday edit the Stauanlage" + currentStauanlage.namederAnlage + "here",Toast.LENGTH_LONG);
+                test.show();
+                //TODO Implementieren einer Select Anweisung DAO,Repository,ViewModel und hier dann Fragebogen ausfüllen Triggern
+            }
+        });
     }
 
-    /**
-     * Button Löschen (Mülltonne Icon)
-     * --> Momentan mit keiner Logik verknüpft
-     */
-    public void deleteClick(View view) {
-        Toast toast = Toast.makeText(this, "Delete Button hat noch keine Funktion", Toast.LENGTH_LONG);
-        toast.show();
-    }
 
-    /**
-     * Button Hochladen (Feil nach oben Icon)
-     * --> Momentan mit keiner Logik verknüpft
-     */
-    public void exportClick(View view) {
-        Toast toast = Toast.makeText(this, "Export Button hat noch keine Funktion", Toast.LENGTH_LONG);
-        toast.show();
-    }
 }

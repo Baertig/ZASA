@@ -75,5 +75,8 @@
     <string name="opt_no_noch_zu_erstellen">Nein, noch zu erstellen</string>
     <string name="keine_daten_zum_darstellen">Keine Daten zum darstellen</string>
     <string name="wird_momentan_nicht_beachtet">Soll später automatisch berechnet werden, wird momentan nicht beachtet</string>
+    <string name="export_button_description">Export-Button</string>
+    <string name="delete_button_description">Delete-Button</string>
+    <string name="edit_button">Edit-Button</string>
 
 </resources>
