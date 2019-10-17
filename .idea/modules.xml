@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/zasa.iml" filepath="$PROJECT_DIR$/zasa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zasa.iml" filepath="$PROJECT_DIR$/zasa.iml" group="zasa" />
     </modules>
   </component>
 </project>
