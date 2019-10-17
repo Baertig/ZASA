@@ -149,13 +149,16 @@
             <TextView
                 android:id="@+id/question_bhq2_abschaetzung"
                 style="@style/question_textview"
-                android:text="@string/lbl_question_bhq2_abschaetzung" />
+                android:text="@string/lbl_question_bhq2_abschaetzung"
+                />
 
             <EditText
                 android:id="@+id/answer_bhq2_abschaetzung"
                 style="@style/question_edittext"
                 android:imeOptions="actionDone"
-                android:inputType="numberDecimal" />
+                android:inputType="textMultiLine"
+                android:autofillHints="@string/wird_momentan_nicht_beachtet"
+                android:hint="@string/wird_momentan_nicht_beachtet"/>
 
 
             <TextView
@@ -163,7 +166,6 @@
                 style="@style/question_textview"
                 android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
 
-            <!-- TODO Horizontale Anordgnung? (optional) -->
             <RadioGroup
                 android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
                 style="@style/question_radiogroup"

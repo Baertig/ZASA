@@ -17,20 +17,22 @@
         tools:text="placeholder Text" />
 
     <ImageButton
-        android:id="@+id/showButton"
+        android:id="@+id/exportButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_show" />
+        android:src="@drawable/ic_file_upload_white_24dp"
+        android:onClick="exportClick"/>
 
     <ImageButton
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/showButton"
+        android:layout_alignRight="@+id/exportButton"
         android:layout_marginRight="50dp"
-        android:src="@drawable/ic_delete_white_24dp"/>
+        android:src="@drawable/ic_delete_white_24dp"
+        android:onClick="deleteClick"/>
 
     <ImageButton
         android:id="@+id/editButton"
@@ -39,12 +41,14 @@
         android:layout_alignRight="@+id/deleteButton"
         android:layout_marginRight="50dp"
         android:src="@drawable/ic_edit_white_24dp"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:onClick="editClick"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_alignTop="@+id/showButton"
+        android:layout_alignTop="@+id/exportButton"
         android:layout_marginTop="40dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        />
 </RelativeLayout>

@@ -59,7 +59,7 @@
     <string name="lbl_question_freibord_uk">Freibord zur UK von Brücken/Stegen (falls vorhanden)</string>
     <string name="lbl_question_freibord_dammkrone">Freibord zur Dammkrone pauschal </string><string name="lbl_question_nachweis_dvwk">Nachweis nach DVWK-Mbl. 246 mit im BF2 um 15% reduzierter Windgeschwindigkeit</string>
     <string name="lbl_question_betriebsauffaelligkeiten">Bisherige Betriebsauffälligkeiten, welche? (z.B. Überströmung, Erdbeben, Versagen von Bauteilen, schnelle Stauspiegelsenkung, ...)</string>
-    <string name="lbl_question_boeschungsneigung_verhaeltnis"><![CDATA[Wasserseitigie Böschungsneigung und luftseitige Böschungsneigung < 1:3]]></string>
+    <string name="lbl_question_boeschungsneigung_verhaeltnis"><![CDATA[Wasserseitige Böschungsneigung zu luftseitige Böschungsneigung < 1:3]]></string>
 
     <string name="main_title">ZASA - ZustandsAnalyse \n StauAnlagen</string>
 
@@ -73,5 +73,7 @@
     <string name="opt_yes">Ja</string>
     <string name="opt_yes_liegt_vor">Ja, liegt vor</string>
     <string name="opt_no_noch_zu_erstellen">Nein, noch zu erstellen</string>
+    <string name="keine_daten_zum_darstellen">Keine Daten zum darstellen</string>
+    <string name="wird_momentan_nicht_beachtet">Soll später automatisch berechnet werden, wird momentan nicht beachtet</string>
 
 </resources>

@@ -1,66 +1,45 @@
 package de.badresden.zasa;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
-import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Stauanlage.class},version = 3)
-@TypeConverters({DateTypeConverter.class,AnswerTypeConverter.class})
+import de.badresden.zasa.converters.AnswerTypeConverter;
+import de.badresden.zasa.converters.DateTypeConverter;
+
+//Autor: Georg
+
+/**
+ * RoomDatabase der App
+ * mit einer statischen Methode die sicherstellt das eine Instance der RoomDatabase nur dann erzeugt wird,
+ * wenn es noch keine gibt, ansonsten wird immer die vorhandene zurückgegeben
+ */
+@SuppressWarnings("WeakerAccess")
+@Database(entities = {Stauanlage.class}, version = 4)
+@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
-	public abstract StauanlageDao stauanlageDao();
-	private static StauanlageRoomDatabase INSTANCE;
-	//Instance der Datenbank wird nur dann erzeugt wenn keine andere existiert
-	public static StauanlageRoomDatabase getDatabase(final Context context){
-		if (INSTANCE == null){
-			synchronized (StauanlageRoomDatabase.class){
-				if (INSTANCE == null){
-					//create Database here
-					INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-							StauanlageRoomDatabase.class,"stauanlage_database")
-							// Migration is not nessacary yet
-							.fallbackToDestructiveMigration()
-							.addCallback(sRoomDataBaseCallback)
-							.build();
-				}
-			}
-		}
-		return INSTANCE;
-	}
-	//FIXME Georg: nur zum Testen
-	private static RoomDatabase.Callback sRoomDataBaseCallback =
-			new RoomDatabase.Callback(){
-				@Override
-				public void onOpen(@NonNull SupportSQLiteDatabase db) {
-					super.onOpen(db);
-					new PopulateDbAsync(INSTANCE).execute();
-				}
-			};
+    public abstract StauanlageDao stauanlageDao();
 
-	private static class PopulateDbAsync extends AsyncTask<Void,Void,Void>{
-		private final StauanlageDao mStauanlageDao;
-		private Stauanlage stauanlageEins = new Stauanlage("Ernst");
-		private Stauanlage stauanlageZwei = new Stauanlage("Fridolin");
-		Stauanlage[] stauanlagen = {stauanlageEins, stauanlageZwei};
+    private static StauanlageRoomDatabase INSTANCE;
 
-		PopulateDbAsync(StauanlageRoomDatabase db){
-			mStauanlageDao = db.stauanlageDao();
-		}
+    //Instance der Datenbank wird nur dann erzeugt wenn keine andere existiert
+    public static StauanlageRoomDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (StauanlageRoomDatabase.class) {
+                if (INSTANCE == null) {
+                    //Erzeugen der Datenbank
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            StauanlageRoomDatabase.class, "stauanlage_database")
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
 
-		@Override
-		protected Void doInBackground(Void... voids) {
-			mStauanlageDao.deleteAll();
-			for(int i = 0; i < stauanlagen.length; i++){
-				mStauanlageDao.insert(stauanlagen[i]);
-			}
-			return null;
-		}
-	}
+
 }

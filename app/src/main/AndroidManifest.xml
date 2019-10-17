@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FinishedQuestionaires"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".MainActivity">
+            android:name=".activities.FinishedQuestionnairesActivity"
+            android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,44 +20,36 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QuestionnaireAllgemein"
+            android:name=".activities.QuestionnaireAllgemeinActivity"
             android:label="QuestionnaireAllgemein"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activities.MainActivity" />
         </activity>
         <activity
-            android:name=".QuestionnaireKlassifizierung"
+            android:name=".activities.QuestionnaireTragfaehigkeitActivity"
             android:label="QuestionnaireKlassifizierung"
-            android:parentActivityName=".QuestionnaireAllgemein">
+            android:parentActivityName=".activities.QuestionnaireAllgemeinActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".QuestionnaireAllgemein" />
+                android:value=".activities.QuestionnaireAllgemeinActivity" />
         </activity>
         <activity
-            android:name=".QuestionnaireTragfaehigkeit"
+            android:name=".activities.QuestionnaireGebrauchstauglichkeitActivtiy"
             android:label="QuestionnaireKlassifizierung"
-            android:parentActivityName=".QuestionnaireKlassifizierung">
+            android:parentActivityName=".activities.QuestionnaireTragfaehigkeitActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".QuestionnaireKlassifizierung" />
+                android:value=".activities.QuestionnaireTragfaehigkeitActivity" />
         </activity>
         <activity
-            android:name=".QuestionnaireGebrauchstauglichkeit"
+            android:name=".activities.QuestionnaireDauerhaftigkeitActivity"
             android:label="QuestionnaireKlassifizierung"
-            android:parentActivityName=".QuestionnaireTragfaehigkeit">
+            android:parentActivityName=".activities.QuestionnaireGebrauchstauglichkeitActivtiy">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".QuestionnaireTragfaehigkeit" />
-        </activity>
-        <activity
-            android:name=".QuestionnaireDauerhaftigkeit"
-            android:label="QuestionnaireKlassifizierung"
-            android:parentActivityName=".QuestionnaireGebrauchstauglichkeit">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".QuestionnaireGebrauchstauglichkeit" />
+                android:value=".activities.QuestionnaireGebrauchstauglichkeitActivtiy" />
         </activity>
 
 
