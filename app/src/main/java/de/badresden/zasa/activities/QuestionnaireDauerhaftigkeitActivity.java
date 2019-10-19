@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
+
+import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
 
 //Autor: Georg
 
@@ -87,47 +90,47 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
      */
     public void submitData(View view) {
         //Au
-        Answer uferveraenderungen = stauanlageViewModel.decideRadioAnswer(inputUferveraenderungen.getCheckedRadioButtonId(),R.id.opt_yes_uferveraenderungen,
+        Answer uferveraenderungen = decideRadioAnswer(inputUferveraenderungen.getCheckedRadioButtonId(),R.id.opt_yes_uferveraenderungen,
                 R.id.opt_unknown_uferveraenderungen,R.id.opt_no_uferveraenderungen);
-        Answer rutschungen = stauanlageViewModel.decideRadioAnswer(inputRutschungen.getCheckedRadioButtonId(),R.id.opt_yes_rutschungen,
+        Answer rutschungen = decideRadioAnswer(inputRutschungen.getCheckedRadioButtonId(),R.id.opt_yes_rutschungen,
                 R.id.opt_unknown_rutschungen,R.id.opt_no_rutschungen);
-        Answer risseErd = stauanlageViewModel.decideRadioAnswer(inputRisseErd.getCheckedRadioButtonId(),R.id.opt_yes_risse_erd,
+        Answer risseErd = decideRadioAnswer(inputRisseErd.getCheckedRadioButtonId(),R.id.opt_yes_risse_erd,
                 R.id.opt_unknown_risse_erd,R.id.opt_no_risse_erd);
-        Answer setzungen = stauanlageViewModel.decideRadioAnswer(inputSetzungen.getCheckedRadioButtonId(),R.id.opt_yes_setzungen,
+        Answer setzungen = decideRadioAnswer(inputSetzungen.getCheckedRadioButtonId(),R.id.opt_yes_setzungen,
                 R.id.opt_unknown_setzungen,R.id.opt_no_setzungen);
-        Answer hebungenErd = stauanlageViewModel.decideRadioAnswer(inputHebungenErd.getCheckedRadioButtonId(),R.id.opt_yes_hebungen_erd,
+        Answer hebungenErd = decideRadioAnswer(inputHebungenErd.getCheckedRadioButtonId(),R.id.opt_yes_hebungen_erd,
                 R.id.opt_unknown_hebungen_erd,R.id.opt_no_hebungen_erd);
-        Answer verschiebungenErd = stauanlageViewModel.decideRadioAnswer(inputVerschiebungenErd.getCheckedRadioButtonId(),R.id.opt_yes_verschiebungen_erd,
+        Answer verschiebungenErd = decideRadioAnswer(inputVerschiebungenErd.getCheckedRadioButtonId(),R.id.opt_yes_verschiebungen_erd,
                 R.id.opt_unknown_verschiebungen_erd,R.id.opt_no_verschiebungen_erd);
-        Answer wasseraustritteErd = stauanlageViewModel.decideRadioAnswer(inputWasseraustritteErd.getCheckedRadioButtonId(),R.id.opt_yes_wasseraustritte_erd,
+        Answer wasseraustritteErd = decideRadioAnswer(inputWasseraustritteErd.getCheckedRadioButtonId(),R.id.opt_yes_wasseraustritte_erd,
                 R.id.opt_unknown_wasseraustritte_erd,R.id.opt_no_wasseraustritte_erd);
-        Answer materialaustragErd = stauanlageViewModel.decideRadioAnswer(inputMaterialaustragErd.getCheckedRadioButtonId(),R.id.opt_yes_materialaustritt_erd,
+        Answer materialaustragErd = decideRadioAnswer(inputMaterialaustragErd.getCheckedRadioButtonId(),R.id.opt_yes_materialaustritt_erd,
                 R.id.opt_unknown_materialaustritt_erd,R.id.opt_no_materialaustritt_erd);
-        Answer erosion = stauanlageViewModel.decideRadioAnswer(inputErosion.getCheckedRadioButtonId(),R.id.opt_yes_erosion,
+        Answer erosion = decideRadioAnswer(inputErosion.getCheckedRadioButtonId(),R.id.opt_yes_erosion,
                 R.id.opt_unknown_erosion,R.id.opt_no_erosion);
-        Answer fehlstellenGrasnarbe = stauanlageViewModel.decideRadioAnswer(inputFehlstellenGrasnarbe.getCheckedRadioButtonId(),R.id.opt_yes_fehlstellen_grasnarbe,
+        Answer fehlstellenGrasnarbe = decideRadioAnswer(inputFehlstellenGrasnarbe.getCheckedRadioButtonId(),R.id.opt_yes_fehlstellen_grasnarbe,
                 R.id.opt_unknown_fehlstellen_grasnarbe,R.id.opt_no_fehlstellen_grasnarbe);
-        Answer gehoelzbewuchs = stauanlageViewModel.decideRadioAnswer(inputGehoelzbewuchs.getCheckedRadioButtonId(),R.id.opt_yes_gehoelzbewuchs,
+        Answer gehoelzbewuchs = decideRadioAnswer(inputGehoelzbewuchs.getCheckedRadioButtonId(),R.id.opt_yes_gehoelzbewuchs,
                 R.id.opt_unknown_gehoelzbewuchs,R.id.opt_no_gehoelzbewuchs);
-        Answer visuelleEinschraenkungen = stauanlageViewModel.decideRadioAnswer(inputVisuelleEinschraenkung.getCheckedRadioButtonId(),R.id.opt_yes_visuelle_einschraenkung,
+        Answer visuelleEinschraenkungen = decideRadioAnswer(inputVisuelleEinschraenkung.getCheckedRadioButtonId(),R.id.opt_yes_visuelle_einschraenkung,
                 R.id.opt_unknown_visuelle_einschraenkung,R.id.opt_no_visuelle_einschraenkung);
-        Answer grabendeTiere = stauanlageViewModel.decideRadioAnswer(inputGrabendeTiere.getCheckedRadioButtonId(),R.id.opt_yes_grabende_tiere,
+        Answer grabendeTiere = decideRadioAnswer(inputGrabendeTiere.getCheckedRadioButtonId(),R.id.opt_yes_grabende_tiere,
                 R.id.opt_unknown_grabende_tiere,R.id.opt_no_grabende_tiere);
-        Answer risseMassiv = stauanlageViewModel.decideRadioAnswer(inputRisseMassiv.getCheckedRadioButtonId(),R.id.opt_yes_risse_massiv,
+        Answer risseMassiv = decideRadioAnswer(inputRisseMassiv.getCheckedRadioButtonId(),R.id.opt_yes_risse_massiv,
                 R.id.opt_unknown_risse_massiv,R.id.opt_no_risse_massiv);
-        Answer setzungenMassiv = stauanlageViewModel.decideRadioAnswer(inputSetzungenMassiv.getCheckedRadioButtonId(),R.id.opt_yes_setzungen_massiv,
+        Answer setzungenMassiv = decideRadioAnswer(inputSetzungenMassiv.getCheckedRadioButtonId(),R.id.opt_yes_setzungen_massiv,
                 R.id.opt_unknown_setzungen_massiv,R.id.opt_no_setzungen_massiv);
-        Answer verschiebungenMassiv = stauanlageViewModel.decideRadioAnswer(inputVerschiebungenMassiv.getCheckedRadioButtonId(),R.id.opt_yes_verschiebungen_massiv,
+        Answer verschiebungenMassiv = decideRadioAnswer(inputVerschiebungenMassiv.getCheckedRadioButtonId(),R.id.opt_yes_verschiebungen_massiv,
                 R.id.opt_unknown_verschiebungen_massiv,R.id.opt_no_verschiebungen_massiv);
-        Answer kippungen = stauanlageViewModel.decideRadioAnswer(inputKippungen.getCheckedRadioButtonId(),R.id.opt_yes_kippungen,
+        Answer kippungen = decideRadioAnswer(inputKippungen.getCheckedRadioButtonId(),R.id.opt_yes_kippungen,
                 R.id.opt_unknown_kippungen,R.id.opt_no_kippungen);
-        Answer abplatzungen = stauanlageViewModel.decideRadioAnswer(inputAbplatzungen.getCheckedRadioButtonId(),R.id.opt_yes_abplatzungen,
+        Answer abplatzungen = decideRadioAnswer(inputAbplatzungen.getCheckedRadioButtonId(),R.id.opt_yes_abplatzungen,
                 R.id.opt_unknown_abplatzungen,R.id.opt_no_abplatzungen);
-        Answer auswaschungen = stauanlageViewModel.decideRadioAnswer(inputAuswaschungen.getCheckedRadioButtonId(),R.id.opt_yes_auswaschungen,
+        Answer auswaschungen = decideRadioAnswer(inputAuswaschungen.getCheckedRadioButtonId(),R.id.opt_yes_auswaschungen,
                 R.id.opt_unknown_auswaschungen,R.id.opt_no_auswaschungen);
-        Answer wasseraustritteMassiv = stauanlageViewModel.decideRadioAnswer(inputWasseraustritteMassiv.getCheckedRadioButtonId(),R.id.opt_yes_wasseraustritte_massiv,
+        Answer wasseraustritteMassiv = decideRadioAnswer(inputWasseraustritteMassiv.getCheckedRadioButtonId(),R.id.opt_yes_wasseraustritte_massiv,
                 R.id.opt_unknown_wasseraustritte_massiv,R.id.opt_no_wasseraustritte_massiv);
-        Answer fehlstellenMauerwerk = stauanlageViewModel.decideRadioAnswer(inputFehlstellenMauerwerk.getCheckedRadioButtonId(),R.id.opt_yes_fehlstellen_mauerwerk,
+        Answer fehlstellenMauerwerk = decideRadioAnswer(inputFehlstellenMauerwerk.getCheckedRadioButtonId(),R.id.opt_yes_fehlstellen_mauerwerk,
                 R.id.opt_unknown_fehlstellen_mauerwerk,R.id.opt_no_fehlstellen_mauerwerk);
 
 
@@ -154,8 +157,19 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 wasseraustritteMassiv,
                 fehlstellenMauerwerk
         );
-        stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
-        //Autor: Felix
+
+
+        if (StauanlageViewModel.stauanlageIsLoadedFromDB != null && StauanlageViewModel.stauanlage != null) {
+            if(StauanlageViewModel.stauanlageIsLoadedFromDB){
+                stauanlageViewModel.update(); //SQL Befehl update triggern
+            }else{
+                stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
+            }
+        }else{
+            Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);
+            errorMsg.show();
+        }
+
         Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
         startActivity(goBackToMainPageIntent);

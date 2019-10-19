@@ -12,7 +12,13 @@ import android.widget.RadioGroup;
 
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
+import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageViewModel;
+
+import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
+import static de.badresden.zasa.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
+import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
+import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
 
 //Autor: Georg
 
@@ -75,32 +81,33 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
      */
     public void openQuestionnaireDauerhaftigkeit(View view) {
         //prüfen auf nicht zulässige Werte, daraufhin wird der entsprechende Wert gespeichert
-        Double qHWE1 = (inputQHWE1.getText().toString().equals("") || inputQHWE1.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE1.getText().toString());
-        Double qHWE2 = (inputQHWE2.getText().toString().equals("") || inputQHWE2.getText().toString().equals(".")) ? Double.NaN : Double.valueOf(inputQHWE2.getText().toString());
+        Double qHWE1 = safeParseStringToDouble(inputQHWE1.getText().toString());
+        Double qHWE2 = safeParseStringToDouble(inputQHWE2.getText().toString());
 
-        Answer qHWWEVonBHW1GoesserGleichBHQ1 = stauanlageViewModel.decideQHEW1GreaterEqualBHQ1(qHWE1);
-        Answer qHWEVonBHW2GroesserGleichBHQ2 = stauanlageViewModel.decideQHEW2GreaterEqualBHQ2(qHWE2);
+        Answer qHWWEVonBHW1GoesserGleichBHQ1 = decideQHEW1GreaterEqualBHQ1(qHWE1, StauanlageViewModel.stauanlage);
+        Answer qHWEVonBHW2GroesserGleichBHQ2 = decideQHEW2GreaterEqualBHQ2(qHWE2, StauanlageViewModel.stauanlage);
+
         // Answer FreibordUK
         // Answer FreibordDammkrone --> Logik um die Werte der Varibeln aus den eingegebenen Zahlen zu bestimmen wurde noch nicht implementiert
-        Answer nachweisDvwk = stauanlageViewModel.decideRadioAnswer(inputNachweisDvwk.getCheckedRadioButtonId(), R.id.opt_yes_nachweis_dvwk,
+        Answer nachweisDvwk = decideRadioAnswer(inputNachweisDvwk.getCheckedRadioButtonId(), R.id.opt_yes_nachweis_dvwk,
                 R.id.opt_unknown_nachweis_dvwk, R.id.opt_no_nachweis_dvwk);
-        Answer querschnittsreduktionHWE = stauanlageViewModel.decideRadioAnswer(inputQuerschnittsreduktionHWE.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_hwe,
+        Answer querschnittsreduktionHWE = decideRadioAnswer(inputQuerschnittsreduktionHWE.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_hwe,
                 R.id.opt_unknown_querschnittsreduktion_hwe, R.id.opt_no_querschnittsreduktion_hwe);
-        Answer beschaedigungenWasserwege = stauanlageViewModel.decideRadioAnswer(inputBeschaedigungenWasserwege.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_wasserwege,
+        Answer beschaedigungenWasserwege = decideRadioAnswer(inputBeschaedigungenWasserwege.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_wasserwege,
                 R.id.opt_unknown_beschaedigungen_wasserwege, R.id.opt_no_beschaedigungen_wasserwege);
-        Answer beschaedigungenTosbeckenHWE = stauanlageViewModel.decideRadioAnswer(inputBeschaedigungenTosbeckenHWE.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_tosbecken_hwe,
+        Answer beschaedigungenTosbeckenHWE = decideRadioAnswer(inputBeschaedigungenTosbeckenHWE.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_tosbecken_hwe,
                 R.id.opt_unknown_beschaedigungen_tosbecken_hwe, R.id.opt_no_beschaedigungen_tosbecken_hwe);
-        Answer freiUndFunktionstuechtig = stauanlageViewModel.decideRadioAnswer(inputFreiUndFunktionstuechtig.getCheckedRadioButtonId(), R.id.opt_yes_frei_und_funktionstuechtig,
+        Answer freiUndFunktionstuechtig = decideRadioAnswer(inputFreiUndFunktionstuechtig.getCheckedRadioButtonId(), R.id.opt_yes_frei_und_funktionstuechtig,
                 R.id.opt_unknown_frei_und_funktionstuechtig, R.id.opt_no_frei_und_funktionstuechtig);
-        Answer querschnittsreduktionGA = stauanlageViewModel.decideRadioAnswer(inputQuerschnittsreduktionGA.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_ga,
+        Answer querschnittsreduktionGA = decideRadioAnswer(inputQuerschnittsreduktionGA.getCheckedRadioButtonId(), R.id.opt_yes_querschnittsreduktion_ga,
                 R.id.opt_unknown_querschnittsreduktion_ga, R.id.opt_no_querschnittsreduktion_ga);
-        Answer beschaedigungenGA = stauanlageViewModel.decideRadioAnswer(inputBeschaedigungenGA.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_ga,
+        Answer beschaedigungenGA = decideRadioAnswer(inputBeschaedigungenGA.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_ga,
                 R.id.opt_unknown_beschaedigungen_ga, R.id.opt_no_beschaedigungen_ga);
-        Answer beschaedigungenTosbeckenGA = stauanlageViewModel.decideRadioAnswer(inputBeschaedigungenTosbeckenGA.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_tosbecken_ga,
+        Answer beschaedigungenTosbeckenGA = decideRadioAnswer(inputBeschaedigungenTosbeckenGA.getCheckedRadioButtonId(), R.id.opt_yes_beschaedigungen_tosbecken_ga,
                 R.id.opt_unknown_beschaedigungen_tosbecken_ga, R.id.opt_no_beschaedigungen_tosbecken_ga);
-        Answer schwergaengigkeiteVerchluss = stauanlageViewModel.decideRadioAnswer(inputSchwergaengigkeitVerschluss.getCheckedRadioButtonId(), R.id.opt_yes_schwergaengigkeit_verschluss,
+        Answer schwergaengigkeiteVerchluss = decideRadioAnswer(inputSchwergaengigkeitVerschluss.getCheckedRadioButtonId(), R.id.opt_yes_schwergaengigkeit_verschluss,
                 R.id.opt_unknown_schwergaengigkeit_verschluss, R.id.opt_no_schwergaengigkeit_verschluss);
-        Answer messeinrichtungenfunktionsfaehig = stauanlageViewModel.decideRadioAnswer(inputMesseinrichtungenFunktionsfaehig.getCheckedRadioButtonId(), R.id.opt_yes_messeinrichtungen_funktionsfaehig,
+        Answer messeinrichtungenfunktionsfaehig = decideRadioAnswer(inputMesseinrichtungenFunktionsfaehig.getCheckedRadioButtonId(), R.id.opt_yes_messeinrichtungen_funktionsfaehig,
                 R.id.opt_unknown_messeinrichtungen_funktionsfaehig, R.id.opt_no_messeinrichtungen_funktionsfaehig);
 
         stauanlageViewModel.uptdateGebrauchstauglichkeit(

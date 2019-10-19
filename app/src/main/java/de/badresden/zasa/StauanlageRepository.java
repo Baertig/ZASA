@@ -24,8 +24,12 @@ public class StauanlageRepository {
         mAllStauanlagenSimplyfied = mStauanlageDao.getAllStauanlagenSimplyfied();
     }
 
-    LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied() {
+    public LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied() {
         return mAllStauanlagenSimplyfied;
+    }
+
+    public Stauanlage getStauanlagewith(int primaryKey){
+       return mStauanlageDao.selectStauanlageWith(primaryKey);
     }
 
     public void insert(Stauanlage stauanlage) {

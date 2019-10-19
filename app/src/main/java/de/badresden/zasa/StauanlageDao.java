@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * Im DAO werden die SQL - Befehle definiert
  */
-@SuppressWarnings("unused")
 @Dao
 public interface StauanlageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -23,10 +22,13 @@ public interface StauanlageDao {
     @Query("SELECT primary_key,name_der_Anlage,datum_und_uhrzeit_letzte_bebearbeitung FROM stauanlage_table")
     LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied();
 
-    @Update
+    @Update()
     void update(Stauanlage... stauanlagen);
 
     @Query("DELETE FROM stauanlage_table")
     void deleteAll();
+
+    @Query("SELECT * FROM  stauanlage_table WHERE primary_key = :primaryKey")
+    Stauanlage selectStauanlageWith(int primaryKey);
 
 }

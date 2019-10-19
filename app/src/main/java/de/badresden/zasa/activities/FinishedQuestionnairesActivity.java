@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -28,15 +30,14 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     private StauanlageViewModel mStauanlageViewModel;
     private RecyclerView recyclerView;
     private StauanlageSimplyfiedListAdapter adapter ; //war mal final...weiß nicht warum ??
-    private Context context; // ist used in the OnClickListener
+    private Activity currentActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_questionaires); //Layout datei wird geladen
         buildRecyclerView();
-        context = this;
-
+        currentActivity = this;
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //Observer gesetzt, sobald es eine Änderung gibt aktualisiert der Adapter seine Daten, somit ändern sich die
         //angezeigten Daten in der Recyclerview
@@ -47,6 +48,10 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
                         adapter.setStauanlageSimplyfiedList(stauanlageSimplyfiedList);
                     }
                 });
+        if(StauanlageViewModel.stauanlage != null){
+            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty. shouldn't be");
+            mStauanlageViewModel.clear(); //set stauanlage null
+        }
     }
 
     /**
@@ -80,9 +85,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
             @Override
             public void onEditClick(int position) {
                 StauanlageSimplyfied currentStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
-                Toast test = Toast.makeText(context,"You can someday edit the Stauanlage" + currentStauanlage.namederAnlage + "here",Toast.LENGTH_LONG);
-                test.show();
-                //TODO Implementieren einer Select Anweisung DAO,Repository,ViewModel und hier dann Fragebogen ausfüllen Triggern
+                mStauanlageViewModel.loadStauanlageWith(currentActivity, currentStauanlage.primaryKey);
             }
         });
     }

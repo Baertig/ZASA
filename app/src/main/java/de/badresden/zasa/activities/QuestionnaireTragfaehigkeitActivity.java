@@ -13,6 +13,8 @@ import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageViewModel;
 
+import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
+
 //Autor: Georg
 
 /**
@@ -48,9 +50,9 @@ public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
      */
     public void openQuestionnaireGebrauchstauglichkeit(View view) {
 
-        Answer boeschungsneigungVerhaeltnis = stauanlageViewModel.decideRadioAnswer(inputBoeschungsneigungVerhaeltnis.getCheckedRadioButtonId(), R.id.opt_yes_boeschungsneigung_verhaeltnis,
+        Answer boeschungsneigungVerhaeltnis = decideRadioAnswer(inputBoeschungsneigungVerhaeltnis.getCheckedRadioButtonId(), R.id.opt_yes_boeschungsneigung_verhaeltnis,
                 R.id.opt_unknown_boeschungsneigung_verhaeltnis, R.id.opt_no_boeschungsneigung_verhaeltnis);
-        Answer statischeBerechnungLiegtVor = stauanlageViewModel.decideRadioAnswer(inputStatischeBerechnungLiegtVor.getCheckedRadioButtonId(), R.id.opt_yes_statische_berechnung_liegt_vor,
+        Answer statischeBerechnungLiegtVor = decideRadioAnswer(inputStatischeBerechnungLiegtVor.getCheckedRadioButtonId(), R.id.opt_yes_statische_berechnung_liegt_vor,
                 R.id.opt_unknown_statische_berechnung_liegt_vor, R.id.opt_no_statische_berechnung_liegt_vor);
 
         stauanlageViewModel.updateTragfaehigkeit(boeschungsneigungVerhaeltnis, statischeBerechnungLiegtVor);
