@@ -70,6 +70,13 @@ public class HelpFunctions {
 	}
 
 	public static void loadAnswerInRadioGroup(Answer answer , RadioButton btnJa, RadioButton btnNein, RadioButton btnUnbekannt){
+		if(answer == null){ //FIXME sollte eigtl nicht auftreten, wenn dann mit unbekannt initialisieren (
+			// In dem Konstruktor )
+			btnUnbekannt.setChecked(true);
+			btnNein.setChecked(false);
+			btnJa.setChecked(false);
+			return;
+		}
 		switch (answer){
 			case JA:
 				btnJa.setChecked(true);
@@ -85,6 +92,8 @@ public class HelpFunctions {
 				btnUnbekannt.setChecked(true);
 				btnNein.setChecked(false);
 				btnJa.setChecked(false);
+				break;
 		}
+		return;
 	}
 }

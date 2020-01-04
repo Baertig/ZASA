@@ -118,7 +118,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double bHQ1 = safeParseStringToDouble(inputBHQ1.getText().toString());
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
 		//TODO Was soll passieren, wenn Eingabe in das Nummern Feld nicht gedeutet werden kann
-		if (StauanlageViewModel.stauanlage == null && !StauanlageViewModel.stauanlageIsLoadedFromDB) {
+		//FIXME StauanlageViewModel muss default False sein (soll nur Frage beantworten ob stauanlge aus DB ist
+		if (StauanlageViewModel.stauanlage == null && StauanlageViewModel.stauanlageIsLoadedFromDB == null) {
 			mStauanlageViewModel.createStauanlage();
 		}
 

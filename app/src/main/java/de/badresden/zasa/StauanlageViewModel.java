@@ -33,7 +33,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	public static Stauanlage stauanlage = null; // Wir haben uns für eine statische Variable entschieden, damit jede Instanz des ViewModel zugriff auf sie hat
 	//(Sollte kein Problem darstellen da die Momentant Nutzerführung (siehe Diagramm)
 	// nur das Laden eines Fragebogens (Bearbeiten,Erstellen oder Hochladen) zu gleicher Zeit vorsieht
-	public static Boolean stauanlageIsLoadedFromDB = null;
+	public static Boolean stauanlageIsLoadedFromDB = Boolean.FALSE;
 	private StauanlageRepository mRepository;
 	private LiveData<List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //Liste mit "vereinfachten" Stauanlagen Objekten: reicht um sie in der RecyclerView darzustellen ...
 	//hält nicht soviele Daten unütz im Speicher
