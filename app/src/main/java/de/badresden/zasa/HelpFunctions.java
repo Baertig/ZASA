@@ -1,5 +1,29 @@
 package de.badresden.zasa;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import de.badresden.zasa.Answer;
+import de.badresden.zasa.R;
+import de.badresden.zasa.Stauanlage;
+import de.badresden.zasa.StauanlageViewModel;
+
+import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
+import static de.badresden.zasa.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
+import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
+import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
+
+//Autor: Georg
+
+
 import android.widget.RadioButton;
 
 /**
@@ -70,14 +94,13 @@ public class HelpFunctions {
 	}
 
 	public static void loadAnswerInRadioGroup(Answer answer , RadioButton btnJa, RadioButton btnNein, RadioButton btnUnbekannt){
-		if(answer == null){ //FIXME sollte eigtl nicht auftreten, wenn dann mit unbekannt initialisieren (
-			// In dem Konstruktor )
-			btnUnbekannt.setChecked(true);
-			btnNein.setChecked(false);
-			btnJa.setChecked(false);
-			return;
+		if(answer == null){ //FIXME geht vllt auch besser wenn felder im Constructor vorbelegt werden
+            btnUnbekannt.setChecked(true);
+            btnNein.setChecked(false);
+            btnJa.setChecked(false);
+            return;
 		}
-		switch (answer){
+	    switch (answer){
 			case JA:
 				btnJa.setChecked(true);
 				btnNein.setChecked(false);

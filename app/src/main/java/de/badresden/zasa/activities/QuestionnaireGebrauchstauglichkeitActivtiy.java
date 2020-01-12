@@ -8,17 +8,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
-import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageViewModel;
 
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
 import static de.badresden.zasa.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
 import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
 import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
+import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 
 //Autor: Georg
 
@@ -36,6 +37,8 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     private EditText inputFreibordDammkrone;
     private RadioGroup inputNachweisDvwk;
     private EditText inputBetriebsauffaelligkeiten;
+    private StauanlageViewModel stauanlageViewModel;
+
     private RadioGroup inputQuerschnittsreduktionHWE;
     private RadioGroup inputBeschaedigungenWasserwege;
     private RadioGroup inputBeschaedigungenTosbeckenHWE;
@@ -45,8 +48,46 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     private RadioGroup inputBeschaedigungenTosbeckenGA;
     private RadioGroup inputSchwergaengigkeitVerschluss;
     private RadioGroup inputMesseinrichtungenFunktionsfaehig;
-    private StauanlageViewModel stauanlageViewModel;
 
+    private RadioButton inputNachweisDvwk_JA;
+    private RadioButton inputNachweisDvwk_NEIN;
+    private RadioButton inputNachweisDvwk_UNBEKANNT;
+
+    private RadioButton inputQuerschnittsreduktionHWE_JA;
+    private RadioButton inputQuerschnittsreduktionHWE_NEIN;
+    private RadioButton inputQuerschnittsreduktionHWE_UNBEKANNT;
+
+    private RadioButton inputBeschaedigungenWasserwege_JA;
+    private RadioButton inputBeschaedigungenWasserwege_NEIN;
+    private RadioButton inputBeschaedigungenWasserwege_UNBEKANNT;
+
+    private RadioButton inputBeschaedigungenTosbeckenHWE_JA;
+    private RadioButton inputBeschaedigungenTosbeckenHWE_NEIN;
+    private RadioButton inputBeschaedigungenTosbeckenHWE_UNBEKANNT;
+
+    private RadioButton inputFreiUndFunktionstuechtig_JA;
+    private RadioButton inputFreiUndFunktionstuechtig_NEIN;
+    private RadioButton inputFreiUndFunktionstuechtig_UNBEKANNT;
+
+    private RadioButton inputQuerschnittsreduktionGA_JA;
+    private RadioButton inputQuerschnittsreduktionGA_NEIN;
+    private RadioButton inputQuerschnittsreduktionGA_UNBEKANNT;
+
+    private RadioButton inputBeschaedigungenGA_JA;
+    private RadioButton inputBeschaedigungenGA_NEIN;
+    private RadioButton inputBeschaedigungenGA_UNBEKANNT;
+
+    private RadioButton inputBeschaedigungenTosbeckenGA_JA;
+    private RadioButton inputBeschaedigungenTosbeckenGA_NEIN;
+    private RadioButton inputBeschaedigungenTosbeckenGA_UNBEKANNT;
+
+    private RadioButton inputSchwergaengigkeitVerschluss_JA;
+    private RadioButton inputSchwergaengigkeitVerschluss_NEIN;
+    private RadioButton inputSchwergaengigkeitVerschluss_UNBEKANNT;
+
+    private RadioButton inputMesseinrichtungenFunktionsfaehig_JA;
+    private RadioButton inputMesseinrichtungenFunktionsfaehig_NEIN;
+    private RadioButton inputMesseinrichtungenFunktionsfaehig_UNBEKANNT;
     //Autor: Felix
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +96,81 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         setTitle("Gebrauchstauglichkeit");
         //Autor: Georg
         //setzen der GUI Elemente
+        setGuiElements();
+        setRadioButtons();
+        stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+        if(StauanlageViewModel.stauanlage != null){
+            loadStauanlageInUI();
+        }
+    }
+
+    private void loadStauanlageInUI() {
+        //inputQHWE1
+        //inputQHWE2 TODO: werte in Stauanlage aufnehmen und später verhältnis zuw BHW1/BHW2 auswerten
+        //inputFreiboardUK
+        //inputFreiboardDammkrone
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit,
+                inputNachweisDvwk_JA, inputNachweisDvwk_NEIN, inputNachweisDvwk_UNBEKANNT);
+        inputBetriebsauffaelligkeiten.setText(StauanlageViewModel.stauanlage.bisherigeBetriebsauffaelligkeiten);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.querschnittsreduktionDerWasserwege,
+                inputQuerschnittsreduktionHWE_JA, inputQuerschnittsreduktionHWE_NEIN, inputQuerschnittsreduktionHWE_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenAnWasserwegen,
+                inputBeschaedigungenWasserwege_JA,inputBeschaedigungenWasserwege_NEIN,inputBeschaedigungenWasserwege_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenImTosbeckenHWE,
+                inputBeschaedigungenTosbeckenHWE_JA,inputBeschaedigungenTosbeckenHWE_NEIN,inputBeschaedigungenTosbeckenHWE_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+                inputFreiUndFunktionstuechtig_JA,inputFreiUndFunktionstuechtig_NEIN,inputFreiUndFunktionstuechtig_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.querschnittsreduktionImGA,
+                inputQuerschnittsreduktionGA_JA,inputQuerschnittsreduktionGA_NEIN,inputQuerschnittsreduktionGA_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA,
+                inputBeschaedigungenGA_JA,inputBeschaedigungenGA_NEIN,inputBeschaedigungenGA_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenImTosbeckenGA,
+                inputBeschaedigungenTosbeckenGA_JA,inputBeschaedigungenTosbeckenGA_NEIN,inputBeschaedigungenTosbeckenGA_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.schwergaengigkeitOderBlockierenDesVerschlusses,
+                inputSchwergaengigkeitVerschluss_JA,inputSchwergaengigkeitVerschluss_NEIN,inputSchwergaengigkeitVerschluss_UNBEKANNT);
+        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.messeinrichtungFunktionsfaehig,
+                inputMesseinrichtungenFunktionsfaehig_JA,inputMesseinrichtungenFunktionsfaehig_NEIN,inputMesseinrichtungenFunktionsfaehig_UNBEKANNT);
+    }
+
+    private void setRadioButtons() {
+        inputQuerschnittsreduktionHWE_JA = findViewById(R.id.opt_yes_querschnittsreduktion_hwe);
+        inputQuerschnittsreduktionHWE_NEIN = findViewById(R.id.opt_no_querschnittsreduktion_hwe);
+        inputQuerschnittsreduktionHWE_UNBEKANNT = findViewById(R.id.opt_unknown_querschnittsreduktion_hwe);
+
+        inputBeschaedigungenWasserwege_JA =findViewById(R.id.opt_yes_beschaedigungen_wasserwege);
+        inputBeschaedigungenWasserwege_NEIN = findViewById(R.id.opt_no_beschaedigungen_wasserwege);
+        inputBeschaedigungenWasserwege_UNBEKANNT = findViewById(R.id.opt_unknown_beschaedigungen_wasserwege);
+
+        inputBeschaedigungenTosbeckenHWE_JA = findViewById(R.id.opt_yes_beschaedigungen_tosbecken_hwe);
+        inputBeschaedigungenTosbeckenHWE_NEIN = findViewById(R.id.opt_no_beschaedigungen_tosbecken_hwe);
+        inputBeschaedigungenTosbeckenHWE_UNBEKANNT = findViewById(R.id.opt_unknown_beschaedigungen_tosbecken_hwe);
+
+        inputFreiUndFunktionstuechtig_JA = findViewById(R.id.opt_yes_frei_und_funktionstuechtig);
+        inputFreiUndFunktionstuechtig_NEIN = findViewById(R.id.opt_no_frei_und_funktionstuechtig);
+        inputFreiUndFunktionstuechtig_UNBEKANNT = findViewById(R.id.opt_unknown_frei_und_funktionstuechtig);
+
+        inputQuerschnittsreduktionGA_JA = findViewById(R.id.opt_yes_querschnittsreduktion_ga);
+        inputQuerschnittsreduktionGA_NEIN = findViewById(R.id.opt_no_querschnittsreduktion_ga);
+        inputQuerschnittsreduktionGA_UNBEKANNT = findViewById(R.id.opt_unknown_querschnittsreduktion_ga);
+
+        inputBeschaedigungenGA_JA = findViewById(R.id.opt_yes_beschaedigungen_ga);
+        inputBeschaedigungenGA_NEIN = findViewById(R.id.opt_no_beschaedigungen_ga);
+        inputBeschaedigungenGA_UNBEKANNT = findViewById(R.id.opt_unknown_beschaedigungen_ga);
+
+        inputBeschaedigungenTosbeckenGA_JA = findViewById(R.id.opt_yes_beschaedigungen_tosbecken_ga);
+        inputBeschaedigungenTosbeckenGA_NEIN = findViewById(R.id.opt_no_beschaedigungen_tosbecken_ga);
+        inputBeschaedigungenTosbeckenGA_UNBEKANNT = findViewById(R.id.opt_unknown_beschaedigungen_tosbecken_ga);
+
+        inputSchwergaengigkeitVerschluss_JA = findViewById(R.id.opt_yes_schwergaengigkeit_verschluss);
+        inputSchwergaengigkeitVerschluss_NEIN = findViewById(R.id.opt_no_schwergaengigkeit_verschluss);
+        inputSchwergaengigkeitVerschluss_UNBEKANNT = findViewById(R.id.opt_unknown_schwergaengigkeit_verschluss);
+
+        inputMesseinrichtungenFunktionsfaehig_JA = findViewById(R.id.opt_yes_messeinrichtungen_funktionsfaehig);
+        inputMesseinrichtungenFunktionsfaehig_NEIN = findViewById(R.id.opt_no_messeinrichtungen_funktionsfaehig);
+        inputMesseinrichtungenFunktionsfaehig_UNBEKANNT = findViewById(R.id.opt_unknown_messeinrichtungen_funktionsfaehig);
+    }
+
+    private void setGuiElements() {
         inputQHWE1 = findViewById(R.id.answer_qhwe1);
         inputQHWE2 = findViewById(R.id.answer_qhwe2);
         inputFreibordUK = findViewById(R.id.answer_freibord_uk);
@@ -70,8 +186,6 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         inputBeschaedigungenTosbeckenGA = findViewById(R.id.radio_beschaedigungen_tosbecken_ga);
         inputSchwergaengigkeitVerschluss = findViewById(R.id.radio_schwergaengigkeit_verschluss);
         inputMesseinrichtungenFunktionsfaehig = findViewById(R.id.radio_messeinrichtungen_funktionsfaehig);
-
-        stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
     }
 
     /**

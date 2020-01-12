@@ -88,7 +88,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     @ColumnInfo(name = "fehlstellen_oder_beschaedigungen_oder_undichtigkeiten_GA")
     public Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA;
     @ColumnInfo(name = "fehlstellen_oder_beschaedigungen_im_tosbecken_GA")
-    public Answer FehlstellenOderBeschaedigungenImTosbeckenGA;
+    public Answer fehlstellenOderBeschaedigungenImTosbeckenGA;
     @ColumnInfo(name = "schwergaengigkeit_oder_blockieren_des_verschlusses")
     public Answer schwergaengigkeitOderBlockierenDesVerschlusses;
 
@@ -132,7 +132,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     @ColumnInfo(name = "sichtbare_setzungen_massivbau")
     public Answer sichtbareSetzungenMassivbau;
     @ColumnInfo(name = "sichtbare_horizontalverschiebungen_massivbau")
-    public Answer SichtbareHorizontalverschiebungenMassivbau;
+    public Answer sichtbareHorizontalverschiebungenMassivbau;
     @ColumnInfo(name = "neigungsaenderungen_oder_kippungen")
     public Answer neigungsaenderungenOderKippungen;
     @ColumnInfo(name = "abplatzungen")
@@ -195,7 +195,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig = treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig;
         this.querschnittsreduktionImGA = querschnittsreduktionImGA;
         this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA = fehlstellenOderBeschaedigungenOderUndichtigkeitenGA;
-        this.FehlstellenOderBeschaedigungenImTosbeckenGA = fehlstellenOderBeschaedigungenImTosbeckenGA;
+        this.fehlstellenOderBeschaedigungenImTosbeckenGA = fehlstellenOderBeschaedigungenImTosbeckenGA;
         this.schwergaengigkeitOderBlockierenDesVerschlusses = schwergaengigkeitOderBlockierenDesVerschlusses;
         this.messeinrichtungFunktionsfaehig = messeinrichtungFunktionsfaehig;
     }
@@ -223,7 +223,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.grabendeTiere = grabendeTiere;
         this.risseMassivbau = risseMassivbau;
         this.sichtbareSetzungenMassivbau = sichtbareSetzungenMassivbau;
-        this.SichtbareHorizontalverschiebungenMassivbau = sichtbareHorizontalverschiebungenMassivbau;
+        this.sichtbareHorizontalverschiebungenMassivbau = sichtbareHorizontalverschiebungenMassivbau;
         this.neigungsaenderungenOderKippungen = neigungsaenderungenOderKippungen;
         this.abplatzungen = abplatzungen;
         this.auswaschungenOderAusbluehungen = auswaschungenOderAusbluehungen;
