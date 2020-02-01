@@ -26,7 +26,6 @@ import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 /**
  * Activity in der die Fragen der Kategorie Gebrauchstauglichkeit beanwortet werden
  */
-@SuppressWarnings("unused")
 public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivity {
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
@@ -88,13 +87,11 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     private RadioButton inputMesseinrichtungenFunktionsfaehig_JA;
     private RadioButton inputMesseinrichtungenFunktionsfaehig_NEIN;
     private RadioButton inputMesseinrichtungenFunktionsfaehig_UNBEKANNT;
-    //Autor: Felix
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_gebrauchstauglichkeit);
         setTitle("Gebrauchstauglichkeit");
-        //Autor: Georg
         //setzen der GUI Elemente
         setGuiElements();
         setRadioButtons();
@@ -133,6 +130,10 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     }
 
     private void setRadioButtons() {
+        inputNachweisDvwk_JA = findViewById(R.id.opt_yes_nachweis_dvwk);
+        inputNachweisDvwk_NEIN = findViewById(R.id.opt_no_nachweis_dvwk);
+        inputNachweisDvwk_UNBEKANNT = findViewById(R.id.opt_unknown_nachweis_dvwk);
+
         inputQuerschnittsreduktionHWE_JA = findViewById(R.id.opt_yes_querschnittsreduktion_hwe);
         inputQuerschnittsreduktionHWE_NEIN = findViewById(R.id.opt_no_querschnittsreduktion_hwe);
         inputQuerschnittsreduktionHWE_UNBEKANNT = findViewById(R.id.opt_unknown_querschnittsreduktion_hwe);
