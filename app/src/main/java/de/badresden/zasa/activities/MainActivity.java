@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders;
 import java.util.List;
 
 import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Autor: Georg
         //setzen des ViewModels
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //Hier wird ein Observer gesetzt der selbst keine Logik ausführt wenn er die Nachricht der LiveData bekommt, dass
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         });
         //Sicherstellen das dass statische Feld der StauanlageViewModel null´ist, sich also keine Daten im Zwischenspeicher befinden
         mStauanlageViewModel.clear();
+        StauanlageHolder.clear();
     }
     //Autor: Felix
 

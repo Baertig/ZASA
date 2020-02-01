@@ -18,6 +18,7 @@ import java.util.Date;
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
+import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageViewModel;
 
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
@@ -75,27 +76,30 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		//wenn man aus einer vorherigen Activity kommt sollen die Daten der letzen Bearbeitung geladen werden
 		//kommt man von der MainActivity ist die variable null, da sie dort in der OnCreate Methode null gesetzt wird
 		if (StauanlageViewModel.stauanlage != null) {
-			loadStauanlageInUI();
+			loadStauanlageInUI(StauanlageViewModel.stauanlage);
+		}
+		if(StauanlageHolder.getStauanlage() != null){
+			loadStauanlageInUI(StauanlageHolder.getStauanlage());
 		}
 	}
 
 
-	private void loadStauanlageInUI() {
-		inputNameDerAnlage.setText(StauanlageViewModel.stauanlage.nameDerAnlage);
-		inputGeoLage.setText(StauanlageViewModel.stauanlage.geographischeLage);
-		inputGewaesser.setText(StauanlageViewModel.stauanlage.gestautesGewaesser);
-		inputEigentuemer.setText(StauanlageViewModel.stauanlage.eigentuemerBetreiber);
-		inputArtDesAbsperrbauwerkes.setText(StauanlageViewModel.stauanlage.artDesAbsperrauwerkes);
-		inputHoehe.setText(String.valueOf(StauanlageViewModel.stauanlage.hoeheAbsperrwerkUeberGruendung));
-		inputStauinhalt.setText(String.valueOf(StauanlageViewModel.stauanlage.stauinhaltInCbm));
-		inputBHQ1.setText(String.valueOf(StauanlageViewModel.stauanlage.bHQ1InCbmProSekunde));
-		inputBHQ2.setText(String.valueOf(StauanlageViewModel.stauanlage.bHQ2InCbmProSekunde));
+	private void loadStauanlageInUI(Stauanlage stauanlage) {
+		inputNameDerAnlage.setText(stauanlage.nameDerAnlage);
+		inputGeoLage.setText(stauanlage.geographischeLage);
+		inputGewaesser.setText(stauanlage.gestautesGewaesser);
+		inputEigentuemer.setText(stauanlage.eigentuemerBetreiber);
+		inputArtDesAbsperrbauwerkes.setText(stauanlage.artDesAbsperrauwerkes);
+		inputHoehe.setText(String.valueOf(stauanlage.hoeheAbsperrwerkUeberGruendung));
+		inputStauinhalt.setText(String.valueOf(stauanlage.stauinhaltInCbm));
+		inputBHQ1.setText(String.valueOf(stauanlage.bHQ1InCbmProSekunde));
+		inputBHQ2.setText(String.valueOf(stauanlage.bHQ2InCbmProSekunde));
 		//TODO festlegen was passiert wenn in Double Feld null drinsteht
-		loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.BetriebsvorschriftNormalfallLiegtVor,
+		loadAnswerInRadioGroup(stauanlage.BetriebsvorschriftNormalfallLiegtVor,
 				BetriebsvorschriftNormalbetrieb_JA,
 				BetriebsvorschriftNormalbetrieb_NEIN,
 				BetriebsvorschriftNormalbetrieb_UNBEKANNT);
-		loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.BetriebsvorschriftHochwasserLiegtVor,
+		loadAnswerInRadioGroup(stauanlage.BetriebsvorschriftHochwasserLiegtVor,
 				BetriebsvorschriftHochwasserfall_JA,
 				BetriebsvorschriftHochwasserfall_NEIN,
 				BetriebsvorschriftHochwasserfall_UNBEKANNT);
@@ -106,7 +110,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	 * --> auslesen und zwischenspeichern der Daten
 	 * --> Wechseln zu Activity QuestionnaireTragfaehigkeitActivity
 	 */
-	public void openQuestionnaireKlassifizierung(View view) {
+	public void openQuestionnaireTragfaehigkeit(View view) {
 		// Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
 		Answer BetriebsvorschriftNormalfall = decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_normalbetrieb, R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
 				R.id.opt_no_betriebsvorschrift_normalbetrieb);
@@ -119,8 +123,13 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
 		//TODO Was soll passieren, wenn Eingabe in das Nummern Feld nicht gedeutet werden kann
 		//FIXME StauanlageViewModel muss default False sein (soll nur Frage beantworten ob stauanlge aus DB ist
-		if (StauanlageViewModel.stauanlage == null && StauanlageViewModel.stauanlageIsLoadedFromDB == null) {
-			mStauanlageViewModel.createStauanlage();
+		if (StauanlageViewModel.stauanlage == null ) {
+			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
+			return;
+		}
+		if (StauanlageHolder.getStauanlage() == null ) {
+			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
+			return;
 		}
 
 		mStauanlageViewModel.updateAllgemein(
@@ -136,7 +145,21 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				BetriebsvorschriftNormalfall,
 				BetriebsvorschriftHochwasserfall,
 				currentDate);
-		//Autor: Felix
+
+		StauanlageHolder.updateAllgemein(
+				inputNameDerAnlage.getText().toString(),
+				inputGeoLage.getText().toString(),
+				inputGewaesser.getText().toString(),
+				inputEigentuemer.getText().toString(),
+				inputArtDesAbsperrbauwerkes.getText().toString(),
+				hoehe,
+				Stauinhalt,
+				bHQ1,
+				bHQ2,
+				BetriebsvorschriftNormalfall,
+				BetriebsvorschriftHochwasserfall,
+				currentDate
+		);
 		//nächste Activity oeffnen
 		Intent openQuestionnaireTragfaehigkeitIntent = new Intent(this, QuestionnaireTragfaehigkeitActivity.class);
 		Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");

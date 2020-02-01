@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import de.badresden.zasa.R;
+import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
@@ -52,6 +53,10 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty. shouldn't be");
             mStauanlageViewModel.clear(); //set stauanlage null
         }
+        if(StauanlageHolder.getStauanlage() != null){
+            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty. shouldn't be");
+            mStauanlageViewModel.clear(); //set stauanlage null
+        }
     }
 
     /**
@@ -65,7 +70,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new StauanlageSimplyfiedListAdapter.OnClickListener() {
             @Override
-            //TODO vllt mal nutzen um mehr Informationen zu Datensatz darzustellen
+            //TODO vllt mal nutzen um mehr Informationen zu Datensatz darzustellen und gegen NullPointerException absichern
             public void onItemClick(int position) {
                 StauanlageSimplyfied testStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
                 Log.d(TAG, "onItemClick: Name" + testStauanlage.namederAnlage );

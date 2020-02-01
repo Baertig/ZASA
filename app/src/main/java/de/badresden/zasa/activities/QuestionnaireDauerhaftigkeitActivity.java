@@ -14,6 +14,7 @@ import android.widget.Toast;
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
+import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageViewModel;
 
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
@@ -148,52 +149,55 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
         setRadioButtons();
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         if(StauanlageViewModel.stauanlage != null){
-            loadStauanlageInUI();
+            loadStauanlageInUI(StauanlageViewModel.stauanlage);
+        }
+        if(StauanlageHolder.getStauanlage() != null){
+            loadStauanlageInUI(StauanlageHolder.getStauanlage());
         }
     }
 
-    private void loadStauanlageInUI() {
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.uferveraenderungenDesStausees,
+    private void loadStauanlageInUI(Stauanlage stauanlage) {
+        loadAnswerInRadioGroup(stauanlage.uferveraenderungenDesStausees,
                 inputUferveraenderungen_JA,inputUferveraenderungen_NEIN,inputUferveraenderungen_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.rutschungen,
+        loadAnswerInRadioGroup(stauanlage.rutschungen,
                 inputRutschungen_JA,inputRutschungen_NEIN,inputRutschungen_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.risseErdbau,
+        loadAnswerInRadioGroup(stauanlage.risseErdbau,
                 inputRisseErd_JA,inputRisseErd_NEIN,inputRisseErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.sichtbareSetzungenErdbaubau,
+        loadAnswerInRadioGroup(stauanlage.sichtbareSetzungenErdbaubau,
                 inputSetzungenErd_JA,inputSetzungenErd_NEIN,inputSetzungenErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.sichtbareHebungen,
+        loadAnswerInRadioGroup(stauanlage.sichtbareHebungen,
                 inputHebungenErd_JA,inputHebungenErd_NEIN,inputHebungenErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.sichtbareHorizontalverschiebungenErdbau,
+        loadAnswerInRadioGroup(stauanlage.sichtbareHorizontalverschiebungenErdbau,
                 inputVerschiebungenErd_JA,inputVerschiebungenErd_NEIN,inputVerschiebungenErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.luftseitigeWasseraustritteErdbau,
+        loadAnswerInRadioGroup(stauanlage.luftseitigeWasseraustritteErdbau,
                 inputWasseraustritteErd_JA,inputWasseraustritteErd_NEIN,inputWasseraustritteErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.materialaustragDurchSickerwasser,
+        loadAnswerInRadioGroup(stauanlage.materialaustragDurchSickerwasser,
                 inputMaterialaustragErd_JA,inputMaterialaustragErd_NEIN,inputMaterialaustragErd_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.erosionDerWasserseitigenSchutzschicht,
+        loadAnswerInRadioGroup(stauanlage.erosionDerWasserseitigenSchutzschicht,
                 inputErosion_JA,inputErosion_NEIN,inputErosion_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenInDerGrasnarbeAufDemDamm,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenInDerGrasnarbeAufDemDamm,
                 inputFehlstellenGrasnarbe_JA,inputFehlstellenGrasnarbe_NEIN,inputFehlstellenGrasnarbe_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.gehoelzbewuchsOhneZusatzquerschnitt,
+        loadAnswerInRadioGroup(stauanlage.gehoelzbewuchsOhneZusatzquerschnitt,
                 inputGehoelzbewuchs_JA,inputGehoelzbewuchs_NEIN,inputGehoelzbewuchs_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung,
+        loadAnswerInRadioGroup(stauanlage.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung,
                 inputVisuelleEinschraenkung_JA,inputVisuelleEinschraenkung_NEIN,inputVisuelleEinschraenkung_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.grabendeTiere,
+        loadAnswerInRadioGroup(stauanlage.grabendeTiere,
                 inputGrabendeTiere_JA,inputGrabendeTiere_NEIN,inputGrabendeTiere_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.risseMassivbau,
+        loadAnswerInRadioGroup(stauanlage.risseMassivbau,
                 inputRisseMassiv_JA,inputRisseMassiv_NEIN,inputRisseMassiv_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.sichtbareSetzungenMassivbau,
+        loadAnswerInRadioGroup(stauanlage.sichtbareSetzungenMassivbau,
                 inputSetzungenMassiv_JA,inputSetzungenMassiv_NEIN,inputSetzungenMassiv_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.sichtbareHorizontalverschiebungenMassivbau,
+        loadAnswerInRadioGroup(stauanlage.sichtbareHorizontalverschiebungenMassivbau,
                 inputVerschiebungenMassiv_JA,inputVerschiebungenMassiv_NEIN,inputVerschiebungenMassiv_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.neigungsaenderungenOderKippungen,
+        loadAnswerInRadioGroup(stauanlage.neigungsaenderungenOderKippungen,
                 inputKippungen_JA,inputKippungen_NEIN,inputKippungen_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.abplatzungen,
+        loadAnswerInRadioGroup(stauanlage.abplatzungen,
                 inputAbplatzungen_JA,inputAbplatzungen_NEIN,inputAbplatzungen_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.auswaschungenOderAusbluehungen,
+        loadAnswerInRadioGroup(stauanlage.auswaschungenOderAusbluehungen,
                 inputAuswaschungen_JA,inputAuswaschungen_NEIN,inputAuswaschungen_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.luftseitigeWasseraustritteMassivbau,
+        loadAnswerInRadioGroup(stauanlage.luftseitigeWasseraustritteMassivbau,
                 inputWasseraustritteMassiv_JA,inputWasseraustritteMassiv_NEIN,inputWasseraustritteMassiv_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenImMauerwerk,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenImMauerwerk,
                 inputFehlstellenMauerwerk_JA,inputFehlstellenMauerwerk_NEIN,inputFehlstellenMauerwerk_UNBEKANNT);
     }
 
@@ -383,6 +387,30 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 fehlstellenMauerwerk
         );
 
+        StauanlageHolder.updateDauerhaftigkeit(
+                uferveraenderungen,
+                rutschungen,
+                risseErd,
+                setzungen,
+                hebungenErd,
+                verschiebungenErd,
+                wasseraustritteErd,
+                materialaustragErd,
+                erosion,
+                fehlstellenGrasnarbe,
+                gehoelzbewuchs,
+                visuelleEinschraenkungen,
+                grabendeTiere,
+                risseMassiv,
+                setzungenMassiv,
+                verschiebungenMassiv,
+                kippungen,
+                abplatzungen,
+                auswaschungen,
+                wasseraustritteMassiv,
+                fehlstellenMauerwerk
+        );
+
 
         if (StauanlageViewModel.stauanlageIsLoadedFromDB != null && StauanlageViewModel.stauanlage != null) {
             if(StauanlageViewModel.stauanlageIsLoadedFromDB){
@@ -394,6 +422,18 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
             Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);
             errorMsg.show();
         }
+
+        if (StauanlageHolder.getStauanlage() != null) {
+            if(StauanlageHolder.isStauanlageLoadedFromDB ){
+                stauanlageViewModel.update(); //SQL Befehl update triggern
+            }else{
+                stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
+            }
+        }else{
+            Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);
+            errorMsg.show();
+        }
+
 
         Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");

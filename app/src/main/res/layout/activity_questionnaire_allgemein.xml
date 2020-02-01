@@ -284,7 +284,7 @@
             <Button
                 android:id="@+id/btn_allgemein_continue"
                 style="@style/continue_button"
-                android:onClick="openQuestionnaireKlassifizierung"
+                android:onClick="openQuestionnaireTragfaehigkeit"
                 android:text="@string/btn_continue" />
         </LinearLayout>
     </ScrollView>

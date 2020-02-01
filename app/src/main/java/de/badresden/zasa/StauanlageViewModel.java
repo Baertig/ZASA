@@ -114,7 +114,9 @@ public class StauanlageViewModel extends AndroidViewModel {
 				luftseitigeWasseraustritteMassivbau, fehlstellenImMauerwerk);
 	}
 
-	//leert den Zwischenspeicher
+	/**
+	 * leert den Zwischenspeicher
+	 */
 	public void clear() {
 		stauanlage = null;
 		StauanlageViewModel.stauanlageIsLoadedFromDB = null;
@@ -143,7 +145,9 @@ public class StauanlageViewModel extends AndroidViewModel {
 		protected void onPostExecute(Stauanlage stauanlage) {
 			super.onPostExecute(stauanlage);
 			StauanlageViewModel.stauanlage = stauanlage;
+			StauanlageHolder.setStauanlage(stauanlage);
 			StauanlageViewModel.stauanlageIsLoadedFromDB = Boolean.TRUE;
+			StauanlageHolder.isStauanlageLoadedFromDB = Boolean.TRUE;
 			Intent openQuestionnaireAllgemeinActivity = new Intent(mActivity.get(), QuestionnaireAllgemeinActivity.class);
 			mActivity.get().startActivity(openQuestionnaireAllgemeinActivity);
 		}

@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
+import de.badresden.zasa.Stauanlage;
+import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageViewModel;
 
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
@@ -97,35 +99,38 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         setRadioButtons();
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         if(StauanlageViewModel.stauanlage != null){
-            loadStauanlageInUI();
+            loadStauanlageInUI(StauanlageViewModel.stauanlage);
         }
+        if(StauanlageHolder.getStauanlage() != null){
+        	loadStauanlageInUI(StauanlageHolder.getStauanlage());
+		}
     }
 
-    private void loadStauanlageInUI() {
+    private void loadStauanlageInUI(Stauanlage stauanlage) {
         //inputQHWE1
         //inputQHWE2 TODO: werte in Stauanlage aufnehmen und später verhältnis zuw BHW1/BHW2 auswerten
         //inputFreiboardUK
         //inputFreiboardDammkrone
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit,
+        loadAnswerInRadioGroup(stauanlage.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit,
                 inputNachweisDvwk_JA, inputNachweisDvwk_NEIN, inputNachweisDvwk_UNBEKANNT);
-        inputBetriebsauffaelligkeiten.setText(StauanlageViewModel.stauanlage.bisherigeBetriebsauffaelligkeiten);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.querschnittsreduktionDerWasserwege,
+        inputBetriebsauffaelligkeiten.setText(stauanlage.bisherigeBetriebsauffaelligkeiten);
+        loadAnswerInRadioGroup(stauanlage.querschnittsreduktionDerWasserwege,
                 inputQuerschnittsreduktionHWE_JA, inputQuerschnittsreduktionHWE_NEIN, inputQuerschnittsreduktionHWE_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenAnWasserwegen,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenOderBeschaedigungenAnWasserwegen,
                 inputBeschaedigungenWasserwege_JA,inputBeschaedigungenWasserwege_NEIN,inputBeschaedigungenWasserwege_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenImTosbeckenHWE,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenOderBeschaedigungenImTosbeckenHWE,
                 inputBeschaedigungenTosbeckenHWE_JA,inputBeschaedigungenTosbeckenHWE_NEIN,inputBeschaedigungenTosbeckenHWE_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
+        loadAnswerInRadioGroup(stauanlage.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
                 inputFreiUndFunktionstuechtig_JA,inputFreiUndFunktionstuechtig_NEIN,inputFreiUndFunktionstuechtig_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.querschnittsreduktionImGA,
+        loadAnswerInRadioGroup(stauanlage.querschnittsreduktionImGA,
                 inputQuerschnittsreduktionGA_JA,inputQuerschnittsreduktionGA_NEIN,inputQuerschnittsreduktionGA_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA,
                 inputBeschaedigungenGA_JA,inputBeschaedigungenGA_NEIN,inputBeschaedigungenGA_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.fehlstellenOderBeschaedigungenImTosbeckenGA,
+        loadAnswerInRadioGroup(stauanlage.fehlstellenOderBeschaedigungenImTosbeckenGA,
                 inputBeschaedigungenTosbeckenGA_JA,inputBeschaedigungenTosbeckenGA_NEIN,inputBeschaedigungenTosbeckenGA_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.schwergaengigkeitOderBlockierenDesVerschlusses,
+        loadAnswerInRadioGroup(stauanlage.schwergaengigkeitOderBlockierenDesVerschlusses,
                 inputSchwergaengigkeitVerschluss_JA,inputSchwergaengigkeitVerschluss_NEIN,inputSchwergaengigkeitVerschluss_UNBEKANNT);
-        loadAnswerInRadioGroup(StauanlageViewModel.stauanlage.messeinrichtungFunktionsfaehig,
+        loadAnswerInRadioGroup(stauanlage.messeinrichtungFunktionsfaehig,
                 inputMesseinrichtungenFunktionsfaehig_JA,inputMesseinrichtungenFunktionsfaehig_NEIN,inputMesseinrichtungenFunktionsfaehig_UNBEKANNT);
     }
 
@@ -226,6 +231,24 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
                 R.id.opt_unknown_messeinrichtungen_funktionsfaehig, R.id.opt_no_messeinrichtungen_funktionsfaehig);
 
         stauanlageViewModel.uptdateGebrauchstauglichkeit(
+                qHWWEVonBHW1GoesserGleichBHQ1,
+                qHWEVonBHW2GroesserGleichBHQ2,
+                Answer.UNBEKANNT, //FreibordUK
+                Answer.UNBEKANNT,//FreibordDammkrone --> siehe oben (erstmal wird nur UNBEKANNT übergeben)
+                nachweisDvwk,
+                inputBetriebsauffaelligkeiten.getText().toString(),
+                querschnittsreduktionHWE,
+                beschaedigungenWasserwege,
+                beschaedigungenTosbeckenHWE,
+                freiUndFunktionstuechtig,
+                querschnittsreduktionGA,
+                beschaedigungenGA,
+                beschaedigungenTosbeckenGA,
+                schwergaengigkeiteVerchluss,
+                messeinrichtungenfunktionsfaehig
+        );
+
+        StauanlageHolder.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,
                 qHWEVonBHW2GroesserGleichBHQ2,
                 Answer.UNBEKANNT, //FreibordUK
