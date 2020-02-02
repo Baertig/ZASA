@@ -18,7 +18,7 @@ public class StauanlageHolder {
 	public static Stauanlage getStauanlage() {
 		return stauanlage;
 	}
-	public void createStauanlage() {
+	public static void createStauanlage() {
 		stauanlage = new Stauanlage();
 		isStauanlageLoadedFromDB = Boolean.FALSE;
 	}

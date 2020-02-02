@@ -27,7 +27,7 @@ import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "Fragebn_Tragfaehigkeit";
-    private StauanlageViewModel stauanlageViewModel;
+    //private StauanlageViewModel stauanlageViewModel;
     //relevante GUI Elemente
     private RadioGroup inputBoeschungsneigungVerhaeltnis;
     private RadioGroup inputStatischeBerechnungLiegtVor;
@@ -54,7 +54,7 @@ public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
         if(StauanlageHolder.getStauanlage() != null){
             loadStauanlageInUI(StauanlageHolder.getStauanlage());
         }
-        stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+        //stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
     }
 
     private void loadStauanlageInUI(Stauanlage stauanlage) {
@@ -90,7 +90,7 @@ public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
         Answer statischeBerechnungLiegtVor = decideRadioAnswer(inputStatischeBerechnungLiegtVor.getCheckedRadioButtonId(), R.id.opt_yes_statische_berechnung_liegt_vor,
                 R.id.opt_unknown_statische_berechnung_liegt_vor, R.id.opt_no_statische_berechnung_liegt_vor);
 
-        stauanlageViewModel.updateTragfaehigkeit(boeschungsneigungVerhaeltnis, statischeBerechnungLiegtVor);
+        //stauanlageViewModel.updateTragfaehigkeit(boeschungsneigungVerhaeltnis, statischeBerechnungLiegtVor);
         StauanlageHolder.updateTragfaehigkeit(boeschungsneigungVerhaeltnis,statischeBerechnungLiegtVor);
 
         Intent openQuestionnaireGebrauchstauglichkeitIntent = new Intent(this, QuestionnaireGebrauchstauglichkeitActivtiy.class);

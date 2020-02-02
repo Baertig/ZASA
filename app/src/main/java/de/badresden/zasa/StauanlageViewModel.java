@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.SymbolTable;
 import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
@@ -49,7 +50,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 	}
 
 	// das private Feld wird gespeichert
-	public void insert() {
+	public void insert(Stauanlage stauanlage) {
 		mRepository.insert(stauanlage);
 		//mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
 	}
@@ -60,8 +61,8 @@ public class StauanlageViewModel extends AndroidViewModel {
 
 	//soll später benutzt werden um eine geladen Stauanlage zu bearbeiten und in der Datenbank zu aktualisieren
 	//wird momentan nicht benutzt
-	public void update() {
-		mRepository.update(StauanlageViewModel.stauanlage);
+	public void update(Stauanlage stauanlage) {
+		mRepository.update(stauanlage);
 	}
 
 	//soll später benutzt werden um die Möglichkeit zu bieten alle gespeicherten Stauanlagen zu löschen

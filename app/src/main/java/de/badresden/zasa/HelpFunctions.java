@@ -48,9 +48,9 @@ public class HelpFunctions {
 	/**
 	 * auswerten der Eingabe qHWE1 aus der Activity
 	 */
-	public static Answer decideQHEW1GreaterEqualBHQ1(Double qHWE1, Stauanlage stauanlage) {
-		if (!Double.isNaN(qHWE1) && !Double.isNaN(stauanlage.bHQ1InCbmProSekunde)) {
-			if (qHWE1 >= stauanlage.bHQ1InCbmProSekunde) {
+	public static Answer decideQHEW1GreaterEqualBHQ1(Double qHWE1, Double bHQ1InCbmProSekunde) {
+		if (!Double.isNaN(qHWE1) && !Double.isNaN(bHQ1InCbmProSekunde)) {
+			if (qHWE1 >= bHQ1InCbmProSekunde) {
 				return Answer.JA;
 			} else {
 				return Answer.NEIN;
@@ -63,9 +63,9 @@ public class HelpFunctions {
 	/**
 	 * auswerten der Eingabe qHWE2 aus der Activity
 	 */
-	public static Answer decideQHEW2GreaterEqualBHQ2(Double qHWE2, Stauanlage stauanlage) {
-		if (!Double.isNaN(qHWE2) && !Double.isNaN(stauanlage.bHQ2InCbmProSekunde)) {
-			if (qHWE2 >= stauanlage.bHQ1InCbmProSekunde) {
+	public static Answer decideQHEW2GreaterEqualBHQ2(Double qHWE2, Double bHQ2InCbmProSekunde) {
+		if (!Double.isNaN(qHWE2) && !Double.isNaN(bHQ2InCbmProSekunde)) {
+			if (qHWE2 >= bHQ2InCbmProSekunde) {
 				return Answer.JA;
 			} else {
 				return Answer.NEIN;
@@ -118,5 +118,15 @@ public class HelpFunctions {
 				break;
 		}
 		return;
+	}
+
+	public static String doubleToString(Double number){
+		String output = String.valueOf(number);
+		if(output.equals("null")){
+			output = "";
+		}else if(output.equals("NaN")){
+			output = "";
+		}
+		return output;
 	}
 }

@@ -148,9 +148,9 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
         SetGuiElements();
         setRadioButtons();
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
-        if(StauanlageViewModel.stauanlage != null){
+        /*if(StauanlageViewModel.stauanlage != null){
             loadStauanlageInUI(StauanlageViewModel.stauanlage);
-        }
+        }*/
         if(StauanlageHolder.getStauanlage() != null){
             loadStauanlageInUI(StauanlageHolder.getStauanlage());
         }
@@ -363,7 +363,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 R.id.opt_unknown_fehlstellen_mauerwerk,R.id.opt_no_fehlstellen_mauerwerk);
 
 
-        stauanlageViewModel.updateDauerhaftigkeit(
+        /*stauanlageViewModel.updateDauerhaftigkeit(
                 uferveraenderungen,
                 rutschungen,
                 risseErd,
@@ -385,7 +385,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 auswaschungen,
                 wasseraustritteMassiv,
                 fehlstellenMauerwerk
-        );
+        );*/
 
         StauanlageHolder.updateDauerhaftigkeit(
                 uferveraenderungen,
@@ -412,22 +412,22 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
         );
 
 
-        if (StauanlageViewModel.stauanlageIsLoadedFromDB != null && StauanlageViewModel.stauanlage != null) {
+        /*if (StauanlageViewModel.stauanlageIsLoadedFromDB != null && StauanlageViewModel.stauanlage != null) {
             if(StauanlageViewModel.stauanlageIsLoadedFromDB){
-                stauanlageViewModel.update(); //SQL Befehl update triggern
+                stauanlageViewModel.update(StauanlageViewModel.stauanlage); //SQL Befehl update triggern
             }else{
-                stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
+                stauanlageViewModel.insert(StauanlageViewModel.stauanlage); //SQL Befehl INSERT triggern
             }
         }else{
             Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);
             errorMsg.show();
-        }
+        }*/
 
         if (StauanlageHolder.getStauanlage() != null) {
             if(StauanlageHolder.isStauanlageLoadedFromDB ){
-                stauanlageViewModel.update(); //SQL Befehl update triggern
+                stauanlageViewModel.update(StauanlageHolder.getStauanlage()); //SQL Befehl update triggern
             }else{
-                stauanlageViewModel.insert(); //SQL Befehl INSERT triggern
+                stauanlageViewModel.insert(StauanlageHolder.getStauanlage()); //SQL Befehl INSERT triggern
             }
         }else{
             Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);

@@ -16,7 +16,6 @@ import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
-//Autor: Felix
 /**
  * Activity für Startbildschirm der App
  */
@@ -40,16 +39,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Sicherstellen das dass statische Feld der StauanlageViewModel null´ist, sich also keine Daten im Zwischenspeicher befinden
-        mStauanlageViewModel.clear();
+        //mStauanlageViewModel.clear();
         StauanlageHolder.clear();
     }
     //Autor: Felix
 
     /**
      * Button "Neuer Fragebogen"
-     * --> Leitet weiter zu Activity QuestionnaireAllgemeinActivity
+     * Leitet weiter zu Activity QuestionnaireAllgemeinActivity
+     * Erzeugt ein neues leeres Stauanlagen Objekt
      */
     public void openQuestionnaireAllgemein(View view) {
+        StauanlageHolder.createStauanlage();
         Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
         startActivity(openQuestionnaireAllgemeinIntent);
     }

@@ -38,7 +38,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
     private EditText inputFreibordDammkrone;
     private RadioGroup inputNachweisDvwk;
     private EditText inputBetriebsauffaelligkeiten;
-    private StauanlageViewModel stauanlageViewModel;
+    //private StauanlageViewModel stauanlageViewModel;
 
     private RadioGroup inputQuerschnittsreduktionHWE;
     private RadioGroup inputBeschaedigungenWasserwege;
@@ -97,10 +97,10 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         //setzen der GUI Elemente
         setGuiElements();
         setRadioButtons();
-        stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
-        if(StauanlageViewModel.stauanlage != null){
+        //stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
+        /*if(StauanlageViewModel.stauanlage != null){
             loadStauanlageInUI(StauanlageViewModel.stauanlage);
-        }
+        }*/
         if(StauanlageHolder.getStauanlage() != null){
         	loadStauanlageInUI(StauanlageHolder.getStauanlage());
 		}
@@ -204,8 +204,8 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         Double qHWE1 = safeParseStringToDouble(inputQHWE1.getText().toString());
         Double qHWE2 = safeParseStringToDouble(inputQHWE2.getText().toString());
 
-        Answer qHWWEVonBHW1GoesserGleichBHQ1 = decideQHEW1GreaterEqualBHQ1(qHWE1, StauanlageViewModel.stauanlage);
-        Answer qHWEVonBHW2GroesserGleichBHQ2 = decideQHEW2GreaterEqualBHQ2(qHWE2, StauanlageViewModel.stauanlage);
+        Answer qHWWEVonBHW1GoesserGleichBHQ1 = decideQHEW1GreaterEqualBHQ1(qHWE1, StauanlageHolder.getStauanlage().bHQ1InCbmProSekunde);
+        Answer qHWEVonBHW2GroesserGleichBHQ2 = decideQHEW2GreaterEqualBHQ2(qHWE2, StauanlageHolder.getStauanlage().bHQ2InCbmProSekunde);
 
         // Answer FreibordUK
         // Answer FreibordDammkrone --> Logik um die Werte der Varibeln aus den eingegebenen Zahlen zu bestimmen wurde noch nicht implementiert
@@ -230,7 +230,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         Answer messeinrichtungenfunktionsfaehig = decideRadioAnswer(inputMesseinrichtungenFunktionsfaehig.getCheckedRadioButtonId(), R.id.opt_yes_messeinrichtungen_funktionsfaehig,
                 R.id.opt_unknown_messeinrichtungen_funktionsfaehig, R.id.opt_no_messeinrichtungen_funktionsfaehig);
 
-        stauanlageViewModel.uptdateGebrauchstauglichkeit(
+        /*stauanlageViewModel.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,
                 qHWEVonBHW2GroesserGleichBHQ2,
                 Answer.UNBEKANNT, //FreibordUK
@@ -246,7 +246,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
                 beschaedigungenTosbeckenGA,
                 schwergaengigkeiteVerchluss,
                 messeinrichtungenfunktionsfaehig
-        );
+        );*/
 
         StauanlageHolder.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,

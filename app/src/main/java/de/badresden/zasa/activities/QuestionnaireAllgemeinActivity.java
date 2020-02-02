@@ -24,6 +24,7 @@ import de.badresden.zasa.StauanlageViewModel;
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
 import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
+import static de.badresden.zasa.HelpFunctions.doubleToString;
 
 //Autor: Georg
 
@@ -48,7 +49,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private EditText inputStauinhalt;
 	private EditText inputBHQ1;
 	private EditText inputBHQ2;
-	private EditText inputBHQ2Abschaetzung; // siehe Beschreibunt in der GUI (wird noch nicht ausgewertet )
+	private EditText inputBHQ2Abschaetzung;
 	private RadioGroup inputBetriebsvorschriftNormalbetrieb;
 	private RadioGroup inputBetriebsvorschriftHochwasserfall;
 
@@ -60,13 +61,11 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private RadioButton BetriebsvorschriftHochwasserfall_NEIN;
 	private RadioButton BetriebsvorschriftHochwasserfall_UNBEKANNT;
 
-	//Autor: Felix
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_questionnaire_allgemein);
 		setTitle("Allgemein");
-		//setzen der relevanten Gui Elemente
 		SetGuiElements();
 		SetRadioButtons();
 		//setzen des ViewModels
@@ -74,10 +73,9 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		//das Bearbeitungsdatum setzten
 		currentDate = Calendar.getInstance().getTime();
 		//wenn man aus einer vorherigen Activity kommt sollen die Daten der letzen Bearbeitung geladen werden
-		//kommt man von der MainActivity ist die variable null, da sie dort in der OnCreate Methode null gesetzt wird
-		if (StauanlageViewModel.stauanlage != null) {
+		/*if (StauanlageViewModel.stauanlage != null) {
 			loadStauanlageInUI(StauanlageViewModel.stauanlage);
-		}
+		}*/
 		if(StauanlageHolder.getStauanlage() != null){
 			loadStauanlageInUI(StauanlageHolder.getStauanlage());
 		}
@@ -90,10 +88,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputGewaesser.setText(stauanlage.gestautesGewaesser);
 		inputEigentuemer.setText(stauanlage.eigentuemerBetreiber);
 		inputArtDesAbsperrbauwerkes.setText(stauanlage.artDesAbsperrauwerkes);
-		inputHoehe.setText(String.valueOf(stauanlage.hoeheAbsperrwerkUeberGruendung));
-		inputStauinhalt.setText(String.valueOf(stauanlage.stauinhaltInCbm));
-		inputBHQ1.setText(String.valueOf(stauanlage.bHQ1InCbmProSekunde));
-		inputBHQ2.setText(String.valueOf(stauanlage.bHQ2InCbmProSekunde));
+		inputHoehe.setText(doubleToString(stauanlage.hoeheAbsperrwerkUeberGruendung));
+		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
+		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
+		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
 		//TODO festlegen was passiert wenn in Double Feld null drinsteht
 		loadAnswerInRadioGroup(stauanlage.BetriebsvorschriftNormalfallLiegtVor,
 				BetriebsvorschriftNormalbetrieb_JA,
@@ -122,29 +120,14 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double bHQ1 = safeParseStringToDouble(inputBHQ1.getText().toString());
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
 		//TODO Was soll passieren, wenn Eingabe in das Nummern Feld nicht gedeutet werden kann
-		//FIXME StauanlageViewModel muss default False sein (soll nur Frage beantworten ob stauanlge aus DB ist
-		if (StauanlageViewModel.stauanlage == null ) {
+		/*if (StauanlageViewModel.stauanlage == null ) {
 			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
 			return;
-		}
+		}*/
 		if (StauanlageHolder.getStauanlage() == null ) {
 			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
 			return;
 		}
-
-		mStauanlageViewModel.updateAllgemein(
-				inputNameDerAnlage.getText().toString(),
-				inputGeoLage.getText().toString(),
-				inputGewaesser.getText().toString(),
-				inputEigentuemer.getText().toString(),
-				inputArtDesAbsperrbauwerkes.getText().toString(),
-				hoehe,
-				Stauinhalt,
-				bHQ1,
-				bHQ2,
-				BetriebsvorschriftNormalfall,
-				BetriebsvorschriftHochwasserfall,
-				currentDate);
 
 		StauanlageHolder.updateAllgemein(
 				inputNameDerAnlage.getText().toString(),
