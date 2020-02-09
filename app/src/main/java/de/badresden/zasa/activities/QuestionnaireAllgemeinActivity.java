@@ -72,10 +72,6 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
 		//das Bearbeitungsdatum setzten
 		currentDate = Calendar.getInstance().getTime();
-		//wenn man aus einer vorherigen Activity kommt sollen die Daten der letzen Bearbeitung geladen werden
-		/*if (StauanlageViewModel.stauanlage != null) {
-			loadStauanlageInUI(StauanlageViewModel.stauanlage);
-		}*/
 		if(StauanlageHolder.getStauanlage() != null){
 			loadStauanlageInUI(StauanlageHolder.getStauanlage());
 		}
@@ -120,10 +116,6 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double bHQ1 = safeParseStringToDouble(inputBHQ1.getText().toString());
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
 		//TODO Was soll passieren, wenn Eingabe in das Nummern Feld nicht gedeutet werden kann
-		/*if (StauanlageViewModel.stauanlage == null ) {
-			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
-			return;
-		}*/
 		if (StauanlageHolder.getStauanlage() == null ) {
 			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
 			return;

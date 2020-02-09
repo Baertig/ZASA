@@ -23,7 +23,6 @@ import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
 import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
 import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 
-//Autor: Georg
 
 /**
  * Activity in der die Fragen der Kategorie Gebrauchstauglichkeit beanwortet werden
@@ -97,10 +96,6 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         //setzen der GUI Elemente
         setGuiElements();
         setRadioButtons();
-        //stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
-        /*if(StauanlageViewModel.stauanlage != null){
-            loadStauanlageInUI(StauanlageViewModel.stauanlage);
-        }*/
         if(StauanlageHolder.getStauanlage() != null){
         	loadStauanlageInUI(StauanlageHolder.getStauanlage());
 		}
@@ -230,23 +225,6 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
         Answer messeinrichtungenfunktionsfaehig = decideRadioAnswer(inputMesseinrichtungenFunktionsfaehig.getCheckedRadioButtonId(), R.id.opt_yes_messeinrichtungen_funktionsfaehig,
                 R.id.opt_unknown_messeinrichtungen_funktionsfaehig, R.id.opt_no_messeinrichtungen_funktionsfaehig);
 
-        /*stauanlageViewModel.uptdateGebrauchstauglichkeit(
-                qHWWEVonBHW1GoesserGleichBHQ1,
-                qHWEVonBHW2GroesserGleichBHQ2,
-                Answer.UNBEKANNT, //FreibordUK
-                Answer.UNBEKANNT,//FreibordDammkrone --> siehe oben (erstmal wird nur UNBEKANNT übergeben)
-                nachweisDvwk,
-                inputBetriebsauffaelligkeiten.getText().toString(),
-                querschnittsreduktionHWE,
-                beschaedigungenWasserwege,
-                beschaedigungenTosbeckenHWE,
-                freiUndFunktionstuechtig,
-                querschnittsreduktionGA,
-                beschaedigungenGA,
-                beschaedigungenTosbeckenGA,
-                schwergaengigkeiteVerchluss,
-                messeinrichtungenfunktionsfaehig
-        );*/
 
         StauanlageHolder.uptdateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,

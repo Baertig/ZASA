@@ -20,7 +20,6 @@ import de.badresden.zasa.StauanlageViewModel;
 import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
 import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
 
-//Autor: Georg
 
 /**
  * Es Werden die Fragen der Kategorie Dauerhaftigkeit beantwortet
@@ -138,19 +137,14 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
     private RadioButton inputFehlstellenMauerwerk_UNBEKANNT;
 
 
-    //Autor: Felix
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire_dauerhaftigkeit);
         setTitle("Dauerhaftigkeit");
-        //Autor: Georg
         SetGuiElements();
         setRadioButtons();
         stauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
-        /*if(StauanlageViewModel.stauanlage != null){
-            loadStauanlageInUI(StauanlageViewModel.stauanlage);
-        }*/
         if(StauanlageHolder.getStauanlage() != null){
             loadStauanlageInUI(StauanlageHolder.getStauanlage());
         }
@@ -318,7 +312,6 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
      * --> Wechseln zu Activity MainActivity
      */
     public void submitData(View view) {
-        //Au
         Answer uferveraenderungen = decideRadioAnswer(inputUferveraenderungen.getCheckedRadioButtonId(),R.id.opt_yes_uferveraenderungen,
                 R.id.opt_unknown_uferveraenderungen,R.id.opt_no_uferveraenderungen);
         Answer rutschungen = decideRadioAnswer(inputRutschungen.getCheckedRadioButtonId(),R.id.opt_yes_rutschungen,
@@ -363,30 +356,6 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 R.id.opt_unknown_fehlstellen_mauerwerk,R.id.opt_no_fehlstellen_mauerwerk);
 
 
-        /*stauanlageViewModel.updateDauerhaftigkeit(
-                uferveraenderungen,
-                rutschungen,
-                risseErd,
-                setzungen,
-                hebungenErd,
-                verschiebungenErd,
-                wasseraustritteErd,
-                materialaustragErd,
-                erosion,
-                fehlstellenGrasnarbe,
-                gehoelzbewuchs,
-                visuelleEinschraenkungen,
-                grabendeTiere,
-                risseMassiv,
-                setzungenMassiv,
-                verschiebungenMassiv,
-                kippungen,
-                abplatzungen,
-                auswaschungen,
-                wasseraustritteMassiv,
-                fehlstellenMauerwerk
-        );*/
-
         StauanlageHolder.updateDauerhaftigkeit(
                 uferveraenderungen,
                 rutschungen,
@@ -411,17 +380,6 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 fehlstellenMauerwerk
         );
 
-
-        /*if (StauanlageViewModel.stauanlageIsLoadedFromDB != null && StauanlageViewModel.stauanlage != null) {
-            if(StauanlageViewModel.stauanlageIsLoadedFromDB){
-                stauanlageViewModel.update(StauanlageViewModel.stauanlage); //SQL Befehl update triggern
-            }else{
-                stauanlageViewModel.insert(StauanlageViewModel.stauanlage); //SQL Befehl INSERT triggern
-            }
-        }else{
-            Toast errorMsg = Toast.makeText(this,"konnte nicht gespeichert werden",Toast.LENGTH_LONG);
-            errorMsg.show();
-        }*/
 
         if (StauanlageHolder.getStauanlage() != null) {
             if(StauanlageHolder.isStauanlageLoadedFromDB ){
