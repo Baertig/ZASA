@@ -21,28 +21,25 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_file_upload_black_24dp"
-        android:onClick="exportClick"
         android:contentDescription="@string/export_button_description" />
 
     <ImageView
-        android:id="@+id/deleteButton"
+        android:id="@+id/printButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/exportButton"
         android:layout_marginRight="50dp"
-        android:src="@drawable/ic_delete_black_24dp"
-        android:onClick="deleteClick"
+        android:src="@drawable/ic_print_black_24dp"
         android:contentDescription="@string/delete_button_description" />
 
     <ImageView
         android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/deleteButton"
+        android:layout_alignRight="@+id/printButton"
         android:layout_marginRight="50dp"
         android:src="@drawable/ic_edit_black_24dp"
         android:clickable="true"
-        android:onClick="editClick"
         android:contentDescription="@string/edit_button" />
 
     <View

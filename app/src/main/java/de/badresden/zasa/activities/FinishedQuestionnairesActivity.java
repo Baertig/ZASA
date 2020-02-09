@@ -98,8 +98,8 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onDeleteClick(int position) {
-                //TODO Tutorial fürs Löschen von Datensätzen zu ende machen
+            public void onPrintClick(int position) {
+                //TODO Tutorial fürs Erzeugen einer PDF
             }
 
             @Override

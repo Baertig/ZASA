@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.badresden.zasa.R;
-import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageSimplyfied;
 
 //Autor: Georg
@@ -71,7 +70,7 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
 
     public interface OnClickListener {
         void onItemClick(int position);
-        void onDeleteClick(int position);
+        void onPrintClick(int position);
         void onExportClick(int position);
         void onEditClick(int position);
     }
@@ -81,7 +80,7 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
 
     class StauanlageSimplyfiedViewHolder extends RecyclerView.ViewHolder {
         private final TextView StauanlageSimpyfiedItemTextView;
-        private ImageView deleteImage;
+        private ImageView printImage;
         private ImageView exportImage;
         private ImageView editImage;
         /**
@@ -91,7 +90,7 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
         private StauanlageSimplyfiedViewHolder(@NonNull View itemView, final OnClickListener listener) {
             super(itemView);
             StauanlageSimpyfiedItemTextView = itemView.findViewById(R.id.questionaireNameTestView);
-            deleteImage = itemView.findViewById(R.id.deleteButton);
+            printImage = itemView.findViewById(R.id.printButton);
             exportImage = itemView.findViewById(R.id.exportButton);
             editImage = itemView.findViewById(R.id.editButton);
 
@@ -107,13 +106,13 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
                 }
             });
 
-            deleteImage.setOnClickListener(new View.OnClickListener() {
+            printImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
                         int position = getAdapterPosition(); //index mit dem auf die Liste zugegriffe werden kann
                         if(position != RecyclerView.NO_POSITION ){
-                            listener.onDeleteClick(position); //jetzt kann die Position in der Recyclerview Activity abgefragt werden
+                            listener.onPrintClick(position); //jetzt kann die Position in der Recyclerview Activity abgefragt werden
                         }
                     }
                 }
