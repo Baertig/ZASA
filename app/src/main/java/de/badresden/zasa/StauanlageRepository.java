@@ -28,8 +28,8 @@ public class StauanlageRepository {
         return mAllStauanlagenSimplyfied;
     }
 
-    public Stauanlage getStauanlagewith(int primaryKey){
-       return mStauanlageDao.selectStauanlageWith(primaryKey);
+    public Stauanlage getStauanlagewith(int primaryKey) {
+        return mStauanlageDao.selectStauanlageWith(primaryKey);
     }
 
     public void insert(Stauanlage stauanlage) {
@@ -40,7 +40,7 @@ public class StauanlageRepository {
         new updateAsyncTask(mStauanlageDao).execute(stauanlage);
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         new deleteAllAsyncTask(mStauanlageDao).execute();
     }
 
@@ -87,6 +87,20 @@ public class StauanlageRepository {
         @Override
         protected Void doInBackground(Void... voids) {
             mAsyncTaskDao.deleteAll();
+            return null;
+        }
+    }
+
+    private static class deleteStauanlageAsyncTask extends AsyncTask<Stauanlage, Void, Void> {
+        private StauanlageDao mAsyncTaskDao;
+
+        deleteStauanlageAsyncTask(StauanlageDao dao) {
+            this.mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Stauanlage... stauanlagen) {
+            mAsyncTaskDao.delete(stauanlagen[0]);
             return null;
         }
     }

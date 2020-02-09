@@ -49,13 +49,9 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
                         adapter.setStauanlageSimplyfiedList(stauanlageSimplyfiedList);
                     }
                 });
-        if(StauanlageViewModel.stauanlage != null){
-            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty. shouldn't be");
-            mStauanlageViewModel.clear(); //set stauanlage null
-        }
         if(StauanlageHolder.getStauanlage() != null){
-            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty. shouldn't be");
-            mStauanlageViewModel.clear(); //set stauanlage null
+            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty, but should be");
+            StauanlageHolder.clear(); //set stauanlage null
         }
     }
 

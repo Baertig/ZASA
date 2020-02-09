@@ -2,6 +2,7 @@ package de.badresden.zasa;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -31,4 +32,6 @@ public interface StauanlageDao {
     @Query("SELECT * FROM  stauanlage_table WHERE primary_key = :primaryKey")
     Stauanlage selectStauanlageWith(int primaryKey);
 
+    @Delete
+    void delete(Stauanlage stauanlage);
 }

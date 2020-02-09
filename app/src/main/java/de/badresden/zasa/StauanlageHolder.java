@@ -66,6 +66,6 @@ public class StauanlageHolder {
 	 */
 	public static void clear() {
 		stauanlage = null;
-		StauanlageViewModel.stauanlageIsLoadedFromDB = Boolean.FALSE;
+		isStauanlageLoadedFromDB = Boolean.FALSE;
 	}
 }

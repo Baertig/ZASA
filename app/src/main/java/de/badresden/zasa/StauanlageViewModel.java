@@ -25,15 +25,7 @@ import de.badresden.zasa.activities.QuestionnaireAllgemeinActivity;
 @SuppressWarnings("unused")
 public class StauanlageViewModel extends AndroidViewModel {
 
-	/**
-	 * Die Statische Variable ist der Zwischenspeicher.
-	 * In ihr werden die Antworten aus den einzelnen Fragebägen zwischen gespeichert
-	 * Ist der Nutzer mit Bearbeiten fertig wird das Objekt in die Datenbank geschrieben, dannach  wird die Variable in der OnCreate Methode
-	 * der MainActivity null gesetzt
-	 */
-	public static Stauanlage stauanlage = null; // Wir haben uns für eine statische Variable entschieden, damit jede Instanz des ViewModel zugriff auf sie hat
-	//(Sollte kein Problem darstellen da die Momentant Nutzerführung (siehe Diagramm)
-	// nur das Laden eines Fragebogens (Bearbeiten,Erstellen oder Hochladen) zu gleicher Zeit vorsieht
+
 	public static Boolean stauanlageIsLoadedFromDB = Boolean.FALSE;
 	private StauanlageRepository mRepository;
 	private LiveData<List<StauanlageSimplyfied>> mAllStauanlagenSimplyfied; //Liste mit "vereinfachten" Stauanlagen Objekten: reicht um sie in der RecyclerView darzustellen ...
@@ -71,57 +63,8 @@ public class StauanlageViewModel extends AndroidViewModel {
 		mRepository.deleteAll();
 	}
 
-	public void createStauanlage() {
-		stauanlage = new Stauanlage();
-		StauanlageViewModel.stauanlageIsLoadedFromDB = Boolean.FALSE;
-	}
 
-	public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
-								String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bhq1InCbmProSekunde, Double bhq2InCbmProSekunde,
-								Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
 
-		stauanlage.updateAllgemein(nameDerAnlage, geographischeLage, gestautesGewaesser, eigentuemerBetreiber,
-				artDesAbsperrauwerkes, hoeheAbsperrwerkUeberGruendung, stauinhaltInCbm, bhq1InCbmProSekunde,
-				bhq2InCbmProSekunde, betriebsvorschriftNormalfallLiegtVor, betriebsvorschriftHochwasserLiegtVor, datumUndUhrzeitLetzteBearbeitung);
-	}
-
-	public void updateTragfaehigkeit(Answer wasserseitigZuLuftseitigKleinerEinszuDrei, Answer statischeBerechnungLiegtVor) {
-
-		stauanlage.updateTragfaehigkeit(wasserseitigZuLuftseitigKleinerEinszuDrei, statischeBerechnungLiegtVor);
-	}
-
-	public void uptdateGebrauchstauglichkeit(Answer qHWWEVonBHW1GoesserGleichBHQ1, Answer qHWEVonBHW2GroesserGleichBHQ2, Answer freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
-											 Answer freibordZurDammkronePauschal, Answer nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, String bisherigeBetriebsauffaelligkeiten,
-											 Answer querschnittsreduktionDerWasserwege, Answer fehlstellenOderBeschaedigungenAnWasserwegen, Answer fehlstellenOderBeschaedigungenImTosbeckenHWE, Answer treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
-											 Answer querschnittsreduktionImGA, Answer fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, Answer fehlstellenOderBeschaedigungenImTosbeckenGA,
-											 Answer schwergaengigkeitOderBlockierenDesVerschlusses, Answer messeinrichtungFunktionsfaehig) {
-
-		stauanlage.updateGebrauchstauglichkeit(qHWWEVonBHW1GoesserGleichBHQ1, qHWEVonBHW2GroesserGleichBHQ2, freiboardZurUKVonBrueckenOderStegenGroesserGleichHalbMeter,
-				freibordZurDammkronePauschal, nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit, bisherigeBetriebsauffaelligkeiten,
-				querschnittsreduktionDerWasserwege, fehlstellenOderBeschaedigungenAnWasserwegen, fehlstellenOderBeschaedigungenImTosbeckenHWE, treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig,
-				querschnittsreduktionImGA, fehlstellenOderBeschaedigungenOderUndichtigkeitenGA, fehlstellenOderBeschaedigungenImTosbeckenGA,
-				schwergaengigkeitOderBlockierenDesVerschlusses, messeinrichtungFunktionsfaehig);
-	}
-
-	public void updateDauerhaftigkeit(Answer uferveraenderungenDesStausees, Answer rutschungen, Answer risseErdbau, Answer sichtbareSetzungenErdbaubau, Answer sichtbareHebungen, Answer sichtbareHorizontalverschiebungenErdbau,
-									  Answer luftseitigeWasseraustritteErdbau, Answer materialaustragDurchSickerwasser, Answer erosionDerWasserseitigenSchutzschicht, Answer fehlstellenInDerGrasnarbeAufDemDamm,
-									  Answer gehoelzbewuchsOhneZusatzquerschnitt, Answer einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, Answer grabendeTiere, Answer risseMassivbau,
-									  Answer sichtbareSetzungenMassivbau, Answer sichtbareHorizontalverschiebungenMassivbau, Answer neigungsaenderungenOderKippungen, Answer abplatzungen, Answer auswaschungenOderAusbluehungen,
-									  Answer luftseitigeWasseraustritteMassivbau, Answer fehlstellenImMauerwerk) {
-		stauanlage.updateDauerhaftigkeit(uferveraenderungenDesStausees, rutschungen, risseErdbau, sichtbareSetzungenErdbaubau, sichtbareHebungen, sichtbareHorizontalverschiebungenErdbau,
-				luftseitigeWasseraustritteErdbau, materialaustragDurchSickerwasser, erosionDerWasserseitigenSchutzschicht, fehlstellenInDerGrasnarbeAufDemDamm,
-				gehoelzbewuchsOhneZusatzquerschnitt, einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung, grabendeTiere, risseMassivbau,
-				sichtbareSetzungenMassivbau, sichtbareHorizontalverschiebungenMassivbau, neigungsaenderungenOderKippungen, abplatzungen, auswaschungenOderAusbluehungen,
-				luftseitigeWasseraustritteMassivbau, fehlstellenImMauerwerk);
-	}
-
-	/**
-	 * leert den Zwischenspeicher
-	 */
-	public void clear() {
-		stauanlage = null;
-		StauanlageViewModel.stauanlageIsLoadedFromDB = null;
-	}
 
 	/**
 	 * Lädt eine Stauanlage aus der Datenbank und öffnet anschließend die AllgemeinActivity
@@ -145,9 +88,7 @@ public class StauanlageViewModel extends AndroidViewModel {
 		@Override
 		protected void onPostExecute(Stauanlage stauanlage) {
 			super.onPostExecute(stauanlage);
-			StauanlageViewModel.stauanlage = stauanlage;
 			StauanlageHolder.setStauanlage(stauanlage);
-			StauanlageViewModel.stauanlageIsLoadedFromDB = Boolean.TRUE;
 			StauanlageHolder.isStauanlageLoadedFromDB = Boolean.TRUE;
 			Intent openQuestionnaireAllgemeinActivity = new Intent(mActivity.get(), QuestionnaireAllgemeinActivity.class);
 			mActivity.get().startActivity(openQuestionnaireAllgemeinActivity);
