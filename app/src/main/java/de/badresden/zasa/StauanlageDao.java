@@ -32,6 +32,6 @@ public interface StauanlageDao {
     @Query("SELECT * FROM  stauanlage_table WHERE primary_key = :primaryKey")
     Stauanlage selectStauanlageWith(int primaryKey);
 
-    @Delete
-    void delete(Stauanlage stauanlage);
+    @Query("DELETE FROM stauanlage_table WHERE primary_key = :primaryKey")
+    void delete(int primaryKey);
 }

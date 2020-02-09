@@ -63,6 +63,14 @@ public class StauanlageViewModel extends AndroidViewModel {
 		mRepository.deleteAll();
 	}
 
+	public void deleteStauanlage(Stauanlage stauanlage){
+		mRepository.deleteStauanlage(stauanlage);
+	}
+	public void deleteStauanlage(StauanlageSimplyfied stauanlageSimple){
+		mRepository.deleteStauanlage(stauanlageSimple);
+	}
+
+
 
 
 

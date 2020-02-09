@@ -44,6 +44,13 @@ public class StauanlageRepository {
         new deleteAllAsyncTask(mStauanlageDao).execute();
     }
 
+    public void deleteStauanlage(Stauanlage stauanlage){
+        new deleteStauanlageAsyncTask(mStauanlageDao).execute(stauanlage.primaryKey);
+    }
+    public void deleteStauanlage(StauanlageSimplyfied stauanlageSimple){
+        new deleteStauanlageAsyncTask(mStauanlageDao).execute(stauanlageSimple.primaryKey);
+    }
+
     //AsyncTask um ein Stauanlagen Objekt(Antworten eines Fragebogens) in der Datenbank zu speichern
     private static class insertAsyncTask extends AsyncTask<Stauanlage, Void, Void> {
         private StauanlageDao mAsyncTaskDao;
@@ -91,7 +98,7 @@ public class StauanlageRepository {
         }
     }
 
-    private static class deleteStauanlageAsyncTask extends AsyncTask<Stauanlage, Void, Void> {
+    private static class deleteStauanlageAsyncTask extends AsyncTask<Integer, Void, Void> {
         private StauanlageDao mAsyncTaskDao;
 
         deleteStauanlageAsyncTask(StauanlageDao dao) {
@@ -99,8 +106,8 @@ public class StauanlageRepository {
         }
 
         @Override
-        protected Void doInBackground(Stauanlage... stauanlagen) {
-            mAsyncTaskDao.delete(stauanlagen[0]);
+        protected Void doInBackground(Integer... primaryKeys) {
+            mAsyncTaskDao.delete(primaryKeys[0]);
             return null;
         }
     }

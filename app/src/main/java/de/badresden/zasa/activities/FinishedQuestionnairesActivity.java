@@ -1,9 +1,11 @@
 package de.badresden.zasa.activities;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import de.badresden.zasa.R;
+import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
@@ -25,7 +28,7 @@ import de.badresden.zasa.StauanlageViewModel;
 /**
  * Activity in der die bereits bearbeiteten Fragebögen dargestellt werden
  */
-@SuppressWarnings("FieldCanBeLocal")
+
 public class FinishedQuestionnairesActivity extends AppCompatActivity {
     private final String TAG = FinishedQuestionnairesActivity.class.getSimpleName();
     private StauanlageViewModel mStauanlageViewModel;
@@ -37,7 +40,10 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_questionaires); //Layout datei wird geladen
+        adapter = new StauanlageSimplyfiedListAdapter(this);
         buildRecyclerView();
+        ItemTouchHelper helper = makeHelper();
+        helper.attachToRecyclerView(recyclerView);
         currentActivity = this;
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
         //Observer gesetzt, sobald es eine Änderung gibt aktualisiert der Adapter seine Daten, somit ändern sich die
@@ -55,12 +61,30 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
         }
     }
 
+    private ItemTouchHelper makeHelper() {
+        return new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                        int position = viewHolder.getAdapterPosition();
+                        StauanlageSimplyfied swipedStauanlageSimple = adapter.getStauanlageSimplyfiedAtPosition(position);
+                        mStauanlageViewModel.deleteStauanlage(swipedStauanlageSimple);
+                    }
+                }
+        );
+    }
+
     /**
      * enthält die Logik um die RecyclerView zusammenzudönern
      */
     private void buildRecyclerView() {
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new StauanlageSimplyfiedListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.badresden.zasa.R;
+import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageSimplyfied;
 
 //Autor: Georg
@@ -53,6 +54,10 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
     void setStauanlageSimplyfiedList(List<StauanlageSimplyfied> stauanlageSimplyfiedList) {
         this.stauanlageSimplyfiedList = stauanlageSimplyfiedList;
         notifyDataSetChanged(); // aktualisiert die View
+    }
+
+    public StauanlageSimplyfied getStauanlageSimplyfiedAtPosition(int position){
+        return this.stauanlageSimplyfiedList.get(position);
     }
 
     // getItemCount() wird häufig aufgerufen und wenn es das erstemal aufgerufen wird
