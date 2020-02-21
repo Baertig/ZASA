@@ -31,7 +31,6 @@ import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
-import de.badresden.zasa.SwipeToDeleteCallback;
 
 //Autor: Georg
 /**
@@ -56,7 +55,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
         adapter = new StauanlageSimplyfiedListAdapter(this);
         buildRecyclerView();
         ItemTouchHelper helper = makeHelper();
-        //ItemTouchHelper helper = new ItemTouchHelper(new SwipeToDeleteCallback(adapter));
         helper.attachToRecyclerView(recyclerView);
         currentActivity = this;
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
@@ -107,8 +105,8 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
                         int iconBottom = iconTop + icon.getIntrinsicHeight();
 
                         if (dX > 0) { // Swiping to the right
-                            int iconLeft = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
-                            int iconRight = itemView.getLeft() + iconMargin;
+                            int iconLeft = ((int) dX) - iconMargin - icon.getIntrinsicWidth();
+                            int iconRight = ((int) dX) - iconMargin;
                             icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
 
                             background.setBounds(itemView.getLeft(), itemView.getTop(),
@@ -116,11 +114,9 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
                                     itemView.getBottom());
 
                         } else if (dX < 0) { // Swiping to the left
-                            if (dX < -1* (iconMargin - icon.getIntrinsicWidth())) {
-                                int iconLeft = itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
-                                int iconRight = itemView.getRight() - iconMargin;
-                                icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
-                            }
+                            int iconLeft = ((int) dX) + iconMargin + itemView.getRight();
+                            int iconRight = ((int) dX) + iconMargin + icon.getIntrinsicWidth() + itemView.getRight();
+                            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
 
                             background.setBounds(itemView.getRight() + ((int) dX) - backgroundCornerOffset,
                                     itemView.getTop(), itemView.getRight(), itemView.getBottom());
