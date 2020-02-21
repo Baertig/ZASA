@@ -27,10 +27,11 @@ public class StauanlageRepository {
     public LiveData<List<StauanlageSimplyfied>> getAllStauanlagenSimplyfied() {
         return mAllStauanlagenSimplyfied;
     }
-
+    //TODO Async Task muss in Repository gestartet werden und nicht im ViewModel
     public Stauanlage getStauanlagewith(int primaryKey) {
         return mStauanlageDao.selectStauanlageWith(primaryKey);
     }
+
 
     public void insert(Stauanlage stauanlage) {
         new insertAsyncTask(mStauanlageDao).execute(stauanlage);

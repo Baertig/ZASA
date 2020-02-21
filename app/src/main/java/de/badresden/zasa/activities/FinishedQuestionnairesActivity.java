@@ -3,6 +3,8 @@ package de.badresden.zasa.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -12,29 +14,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.List;
 
+import de.badresden.zasa.Fragments.deleteStauanlageDialogFragment;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
+import de.badresden.zasa.SwipeToDeleteCallback;
 
 //Autor: Georg
 /**
  * Activity in der die bereits bearbeiteten Fragebögen dargestellt werden
  */
 
-public class FinishedQuestionnairesActivity extends AppCompatActivity {
+public class FinishedQuestionnairesActivity extends AppCompatActivity implements deleteStauanlageDialogFragment.deleteStauanlageListener {
     private final String TAG = FinishedQuestionnairesActivity.class.getSimpleName();
     private StauanlageViewModel mStauanlageViewModel;
     private RecyclerView recyclerView;
     private StauanlageSimplyfiedListAdapter adapter ; //war mal final...weiß nicht warum ??
     private Activity currentActivity;
+    /**
+     * is set by the Methods of deleteStauanlageListener
+     */
+    private boolean shouldDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +56,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
         adapter = new StauanlageSimplyfiedListAdapter(this);
         buildRecyclerView();
         ItemTouchHelper helper = makeHelper();
+        //ItemTouchHelper helper = new ItemTouchHelper(new SwipeToDeleteCallback(adapter));
         helper.attachToRecyclerView(recyclerView);
         currentActivity = this;
         mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
@@ -65,6 +79,9 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
         return new ItemTouchHelper(
                 new ItemTouchHelper.SimpleCallback(0,
                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                    private final ColorDrawable background = new ColorDrawable(Color.RED);
+                    private Drawable icon = ContextCompat.getDrawable(adapter.getContext(),
+                            R.drawable.ic_delete_white_24dp);;
                     @Override
                     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                         return false;
@@ -73,8 +90,45 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
-                        StauanlageSimplyfied swipedStauanlageSimple = adapter.getStauanlageSimplyfiedAtPosition(position);
-                        mStauanlageViewModel.deleteStauanlage(swipedStauanlageSimple);
+                        DialogFragment deleteDialog = new deleteStauanlageDialogFragment(position);
+                        deleteDialog.show(getSupportFragmentManager(), "DeleteDialogFragment");
+                    }
+
+                    //Animation für roten Hintergrund und icon
+                    @Override
+                    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
+                                            @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY,
+                                            int actionState, boolean isCurrentlyActive) {
+                        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+                        View itemView = viewHolder.itemView;
+                        int backgroundCornerOffset = 20;
+                        int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
+                        int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
+                        int iconBottom = iconTop + icon.getIntrinsicHeight();
+
+                        if (dX > 0) { // Swiping to the right
+                            int iconLeft = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
+                            int iconRight = itemView.getLeft() + iconMargin;
+                            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+
+                            background.setBounds(itemView.getLeft(), itemView.getTop(),
+                                    itemView.getLeft() + ((int) dX) + backgroundCornerOffset,
+                                    itemView.getBottom());
+
+                        } else if (dX < 0) { // Swiping to the left
+                            if (dX < -1* (iconMargin - icon.getIntrinsicWidth())) {
+                                int iconLeft = itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
+                                int iconRight = itemView.getRight() - iconMargin;
+                                icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+                            }
+
+                            background.setBounds(itemView.getRight() + ((int) dX) - backgroundCornerOffset,
+                                    itemView.getTop(), itemView.getRight(), itemView.getBottom());
+                        } else { // view is unSwiped
+                            background.setBounds(0, 0, 0, 0);
+                        }
+                        background.draw(c);
+                        icon.draw(c);
                     }
                 }
         );
@@ -116,4 +170,16 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onDialogDeleteClick(DialogFragment dialog, int position) {
+        StauanlageSimplyfied swipedStauanlageSimple = adapter.getStauanlageSimplyfiedAtPosition(position);
+        mStauanlageViewModel.deleteStauanlage(swipedStauanlageSimple);
+    }
+
+    @Override
+    public void onDialogCancelClick(DialogFragment dialog, int position) {
+        Toast cancelMessage = Toast.makeText(currentActivity,"Vorgang abgebrochen", Toast.LENGTH_LONG);
+        cancelMessage.show();
+        adapter.notifyDataSetChanged();
+    }
 }

@@ -25,9 +25,11 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
     private final LayoutInflater mInflater;
     private List<StauanlageSimplyfied> stauanlageSimplyfiedList; //gecachte Kopie
     private OnClickListener mListener;
+    private final Context context;
 
     StauanlageSimplyfiedListAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
+        this.context = context;
     }
 
     @NonNull
@@ -76,6 +78,10 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
     }
     public void setOnItemClickListener(OnClickListener listener){
         mListener = listener;
+    }
+
+    public Context getContext(){
+        return this.context;
     }
 
     class StauanlageSimplyfiedViewHolder extends RecyclerView.ViewHolder {
