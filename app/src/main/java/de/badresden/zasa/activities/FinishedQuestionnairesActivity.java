@@ -43,10 +43,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
     private RecyclerView recyclerView;
     private StauanlageSimplyfiedListAdapter adapter ; //war mal final...weiß nicht warum ??
     private Activity currentActivity;
-    /**
-     * is set by the Methods of deleteStauanlageListener
-     */
-    private boolean shouldDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
