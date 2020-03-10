@@ -1,11 +1,20 @@
 package de.badresden.zasa;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
+
+import de.badresden.zasa.activities.QuestionnaireAllgemeinActivity;
+
+import static de.badresden.zasa.PrintStauanlagePDFFunctions.CREATE_FILE;
+import static de.badresden.zasa.PrintStauanlagePDFFunctions.createOpenFileIntent;
 
 //Autor: Georg
 
@@ -28,8 +37,8 @@ public class StauanlageRepository {
         return mAllStauanlagenSimplyfied;
     }
     //TODO Async Task muss in Repository gestartet werden und nicht im ViewModel
-    public Stauanlage getStauanlagewith(int primaryKey) {
-        return mStauanlageDao.selectStauanlageWith(primaryKey);
+    public void loadStauanlageForEdit(Activity currentActivity, int primaryKey) {
+        new LoadStauanlageFromDBForEditAsyncTask(mStauanlageDao,currentActivity).execute(primaryKey);
     }
 
 
@@ -50,6 +59,10 @@ public class StauanlageRepository {
     }
     public void deleteStauanlage(StauanlageSimplyfied stauanlageSimple){
         new deleteStauanlageAsyncTask(mStauanlageDao).execute(stauanlageSimple.primaryKey);
+    }
+
+    public void loadStauanlageForPrint(Activity activity, int primaryKey){
+        new LoadStauanlageForPrintAsyncTask(mStauanlageDao,activity).execute(primaryKey);
     }
 
     //AsyncTask um ein Stauanlagen Objekt(Antworten eines Fragebogens) in der Datenbank zu speichern
@@ -110,6 +123,63 @@ public class StauanlageRepository {
         protected Void doInBackground(Integer... primaryKeys) {
             mAsyncTaskDao.delete(primaryKeys[0]);
             return null;
+        }
+    }
+
+    //TODO LoadStauanlageAsyncTask anlgegen von dem die anderen ableiten und nur was anderes in onPostExecute ausführen
+    /**
+     * Lädt eine Stauanlage aus der Datenbank und öffnet anschließend die AllgemeinActivity
+     */
+    private static class LoadStauanlageFromDBForEditAsyncTask extends AsyncTask<Integer,Void,Stauanlage> {
+        private StauanlageDao mAsyncTaskDao;
+        private WeakReference<Activity> mActivity;
+
+        public LoadStauanlageFromDBForEditAsyncTask(StauanlageDao dao, Activity activity) {
+            super();
+            mAsyncTaskDao = dao;
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        protected Stauanlage doInBackground(Integer... integers) {
+            int primaryKey = integers[0];
+            return mAsyncTaskDao.selectStauanlageWith(primaryKey); //Database Querry Execution
+        }
+
+        @Override
+        protected void onPostExecute(Stauanlage stauanlage) {
+            super.onPostExecute(stauanlage);
+            StauanlageHolder.setStauanlage(stauanlage);
+            StauanlageHolder.isStauanlageLoadedFromDB = Boolean.TRUE;
+            Intent openQuestionnaireAllgemeinActivity = new Intent(mActivity.get(), QuestionnaireAllgemeinActivity.class);
+            mActivity.get().startActivity(openQuestionnaireAllgemeinActivity);
+        }
+    }
+
+    private static class LoadStauanlageForPrintAsyncTask extends AsyncTask<Integer,Void,Stauanlage>{
+        private StauanlageDao mAsyncTaskDao;
+        private WeakReference<Activity> mActivity;
+
+        public LoadStauanlageForPrintAsyncTask(StauanlageDao dao, Activity activity){
+            super();
+            mAsyncTaskDao = dao;
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        protected Stauanlage doInBackground(Integer... integers) {
+            int primaryKey = integers[0];
+            return mAsyncTaskDao.selectStauanlageWith(primaryKey); //Database Querry Execution
+        }
+
+        @Override
+        protected void onPostExecute(Stauanlage stauanlage) {
+            super.onPostExecute(stauanlage);
+            StauanlageHolder.setStauanlage(stauanlage);
+            StauanlageHolder.isStauanlageLoadedFromDB = Boolean.TRUE;
+            Uri uri = Uri.parse("file:///");
+            Intent intent = createOpenFileIntent(uri, stauanlage.nameDerAnlage, stauanlage.datumUndUhrzeitLetzteBearbeitung);
+            mActivity.get().startActivityForResult(intent, CREATE_FILE);
         }
     }
 }

@@ -2,20 +2,12 @@ package de.badresden.zasa;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
-import android.icu.text.SymbolTable;
-import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import java.lang.ref.WeakReference;
-import java.util.Date;
 import java.util.List;
-
-import de.badresden.zasa.activities.QuestionnaireAllgemeinActivity;
 
 //Autor: Georg
 
@@ -47,8 +39,22 @@ public class StauanlageViewModel extends AndroidViewModel {
 		//mAllStauanlagenSimplyfied = mRepository.getAllStauanlagenSimplyfied();
 	}
 
-	public void loadStauanlageWith(Activity currentActivity,int primaryKey) {
-        new LoadStauanlageFromDBAsyncTask(mRepository,currentActivity).execute(primaryKey);
+	/**
+	 *
+	 * @param currentActivity is used to start an intend to the Allgemein-Page
+	 * @param primaryKey Primary Key of Stauanlage Object
+	 */
+	public void loadStauanlageForEdit(Activity currentActivity, int primaryKey) {
+        mRepository.loadStauanlageForEdit(currentActivity, primaryKey);
+	}
+
+	/**
+	 *
+	 * @param currentActivity is used to Start an Activity, where the users chooses a destination for the file. It triggers startActivityForResult()
+	 * @param primaryKey Primary Key of Stauanlage Object
+	 */
+	public void loadStauanlageForPrint(Activity currentActivity, int primaryKey){
+		mRepository.loadStauanlageForPrint(currentActivity,primaryKey);
 	}
 
 	//soll später benutzt werden um eine geladen Stauanlage zu bearbeiten und in der Datenbank zu aktualisieren
@@ -70,36 +76,4 @@ public class StauanlageViewModel extends AndroidViewModel {
 		mRepository.deleteStauanlage(stauanlageSimple);
 	}
 
-
-
-
-
-	/**
-	 * Lädt eine Stauanlage aus der Datenbank und öffnet anschließend die AllgemeinActivity
-	 */
-	private static class LoadStauanlageFromDBAsyncTask extends AsyncTask<Integer,Void,Stauanlage> {
-		private StauanlageRepository mAsyncTaskRepository;
-		private WeakReference<Activity> mActivity;
-
-		public LoadStauanlageFromDBAsyncTask(StauanlageRepository repository, Activity activity) {
-			super();
-			mAsyncTaskRepository = repository;
-			mActivity = new WeakReference<>(activity);
-		}
-
-		@Override
-		protected Stauanlage doInBackground(Integer... integers) {
-			int primaryKey = integers[0];
-			return mAsyncTaskRepository.getStauanlagewith(primaryKey); //Database Querry Execution
-		}
-
-		@Override
-		protected void onPostExecute(Stauanlage stauanlage) {
-			super.onPostExecute(stauanlage);
-			StauanlageHolder.setStauanlage(stauanlage);
-			StauanlageHolder.isStauanlageLoadedFromDB = Boolean.TRUE;
-			Intent openQuestionnaireAllgemeinActivity = new Intent(mActivity.get(), QuestionnaireAllgemeinActivity.class);
-			mActivity.get().startActivity(openQuestionnaireAllgemeinActivity);
-		}
-	}
 }

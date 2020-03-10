@@ -1,10 +1,13 @@
 package de.badresden.zasa;
 
+import android.content.res.Resources;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
+import java.util.HashMap;
 
 //Autor: Georg
 
@@ -229,5 +232,12 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.auswaschungenOderAusbluehungen = auswaschungenOderAusbluehungen;
         this.luftseitigeWasseraustritteMassivbau = luftseitigeWasseraustritteMassivbau;
         this.fehlstellenImMauerwerk = fehlstellenImMauerwerk;
+    }
+
+    public HashMap<String, Object> getDescriptonwithValueHashMap(){
+        HashMap<String, Object> descriptionAndValue = new HashMap<>();
+        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_name_der_anlage), this.nameDerAnlage);
+        // ... more to come
+        return descriptionAndValue;
     }
 }

@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,10 +27,11 @@ import java.util.List;
 
 import de.badresden.zasa.Fragments.deleteStauanlageDialogFragment;
 import de.badresden.zasa.R;
-import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
+
+import static de.badresden.zasa.PrintStauanlagePDFFunctions.*;
 
 //Autor: Georg
 /**
@@ -133,7 +134,6 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         adapter.setOnItemClickListener(new StauanlageSimplyfiedListAdapter.OnClickListener() {
             @Override
             //TODO vllt mal nutzen um mehr Informationen zu Datensatz darzustellen und gegen NullPointerException absichern
@@ -145,7 +145,8 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
 
             @Override
             public void onPrintClick(int position) {
-                //TODO Tutorial fürs Erzeugen einer PDF
+                StauanlageSimplyfied currentStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
+                mStauanlageViewModel.loadStauanlageForPrint(currentActivity, currentStauanlage.primaryKey);
             }
 
             @Override
@@ -156,7 +157,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
             @Override
             public void onEditClick(int position) {
                 StauanlageSimplyfied currentStauanlage = mStauanlageViewModel.getAllStauanlagenSimplyfied().getValue().get(position);
-                mStauanlageViewModel.loadStauanlageWith(currentActivity, currentStauanlage.primaryKey);
+                mStauanlageViewModel.loadStauanlageForEdit(currentActivity, currentStauanlage.primaryKey);
             }
         });
     }
@@ -173,5 +174,20 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
         Toast cancelMessage = Toast.makeText(currentActivity,"Vorgang abgebrochen", Toast.LENGTH_LONG);
         cancelMessage.show();
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CREATE_FILE && resultCode == Activity.RESULT_OK) {
+            // The result data contains a URI for the document or directory that
+            //  the user selected.
+            Uri uri = null;
+            if (data != null) {
+                uri = data.getData();
+                printStauanlage(StauanlageHolder.getStauanlage(), currentActivity, uri);
+                StauanlageHolder.clear(); //Stauanlage aus zwischenspeicher löschen
+            }
+        }
     }
 }
