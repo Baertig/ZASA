@@ -241,7 +241,7 @@
             <TextView
                 android:id="@+id/question_erosion"
                 style="@style/question_textview"
-                android:text="@string/lbl_question_erosion" />
+                android:text="@string/lbl_question_erosion_erd" />
 
             <RadioGroup
                 android:id="@+id/radio_erosion"
@@ -436,7 +436,7 @@
             <TextView
                 android:id="@+id/question_verschiebungen_massiv"
                 style="@style/question_textview"
-                android:text="@string/lbl_question_verschiebungen" />
+                android:text="@string/lbl_question_verschiebungen_massiv" />
 
             <RadioGroup
                 android:id="@+id/radio_verschiebungen_massiv"

@@ -14,7 +14,7 @@
     <string name="heading_veraenderungen_massivbauwerke">Veränderungen an Massivbauwerken</string>
 
     <string name="lbl_question_abplatzungen">Abplatzungen</string>
-    <string name="lbl_question_art_des_absperrbauwerkes">Art des Absperrbauwerkes:</string>
+    <string name="lbl_question_art_des_absperrbauwerkes">Art des Absperrbauwerkes</string>
     <string name="lbl_question_auswaschungen">Auswaschungen, Ausblühungen</string>
     <string name="lbl_question_beschaedigungen_ga">Fehlstellen, Beschädigungen, Undichtigkeiten</string>
     <string name="lbl_question_beschaedigungen_tosbecken_ga">Fehlstellen, Beschädigungen im Tosbecken</string>
@@ -22,24 +22,24 @@
     <string name="lbl_question_beschaedigungen_wasserwege">Fehlstellen, Beschädigungen an Wasserwegen</string>
     <string name="lbl_question_betriebsvorschrift_hochwasserfall">Betriebsvorschrift Hochwasserfall liegt vor</string>
     <string name="lbl_question_betriebsvorschrift_normalbetrieb">Betriebsvorschrift Normalbetrieb liegt vor</string>
-    <string name="lbl_question_bhq1">BHQ₁ (m³/s):</string>
-    <string name="lbl_question_bhq2">BHQ₂ (m³/s):</string>
+    <string name="lbl_question_bhq1">BHQ₁ (m³/s)</string>
+    <string name="lbl_question_bhq2">BHQ₂ (m³/s)</string>
     <string name="lbl_question_bhq2_abschaetzung">Falls BHQ unbekannt, Abschätzung BHQ₂ aus Bild 3 DWA-M522, BHQ₁ ≈ 0,7 ⋅ BHQ₂</string>
-    <string name="lbl_question_eigentuemer">Eigentümer/Betreiber:</string>
-    <string name="lbl_question_erosion">Erosion der wasserseitigen Schutzschicht</string>
+    <string name="lbl_question_eigentuemer">Eigentümer/Betreiber</string>
+    <string name="lbl_question_erosion_erd">Erosion der wasserseitigen Schutzschicht</string>
     <string name="lbl_question_fehlstellen_grasnarbe">Fehlstellen in der Grasnarbe auf dem Damm</string>
     <string name="lbl_question_fehlstellen_mauerwerk">Fehlstellen im Mauerwerk</string>
     <string name="lbl_question_frei_und_funktionstuechtig">Treibgutsperre/Grobrechen/Palisadenrechen frei und funktionstüchtig</string>
     <string name="lbl_question_gehoelzbewuchs">Gehölzbewuchs ohne Zusatzquerschnitt</string>
-    <string name="lbl_question_gewaesser">gestautes Gewässer:</string>
+    <string name="lbl_question_gewaesser">gestautes Gewässer</string>
     <string name="lbl_question_grabende_tiere">Grabende Tiere</string>
     <string name="lbl_question_hebungen_erd">sichtbare Hebungen</string>
-    <string name="lbl_question_hoehe">Höhe Absperrbauwerk über Gründung (m):</string>
+    <string name="lbl_question_hoehe">Höhe Absperrbauwerk über Gründung (m)</string>
     <string name="lbl_question_kippungen">Neigungsänderungen, Kippungen</string>
-    <string name="lbl_question_lage">Geographische Lage:</string>
+    <string name="lbl_question_lage">Geographische Lage</string>
     <string name="lbl_question_materialaustritt_erd">Materialaustrag durch Sickerwasser</string>
     <string name="lbl_question_messeinrichtungen_funktionsfaehig">Messeinrichtungen funktionsfähig</string>
-    <string name="lbl_question_name_der_anlage">Name der Anlage:</string>
+    <string name="lbl_question_name_der_anlage">Name der Anlage</string>
     <string name="lbl_question_querschnittsreduktion_ga">Querschnittsreduktion im GA (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
     <string name="lbl_question_querschnittsreduktion_hwe">Querschnittsreduktion der Wasserwege (z.B. durch Bewuchs, Sedimente, Einsturz, ...)</string>
     <string name="lbl_question_risse_erd">Risse</string>
@@ -49,7 +49,7 @@
     <string name="lbl_question_setzungen_erd">sichtbare Setzungen</string>
     <string name="lbl_question_setzungen_massiv">sichtbare Setzungen</string>
     <string name="lbl_question_uferveraenderungen">Uferveränderungen des Stausees</string>
-    <string name="lbl_question_verschiebungen">sichtbare Horizontalverschiebungen</string>
+    <string name="lbl_question_verschiebungen_massiv">sichtbare Horizontalverschiebungen</string>
     <string name="lbl_question_verschiebungen_erd">sichtbare Horizontalverschiebungen</string>
     <string name="lbl_question_visuelle_einschraenkung">Einschränkung der visuellen Inspektionsmöglichkeiten durch Bewuchs auf der luftseitigen Böschung</string>
     <string name="lbl_question_wasseraustritte_erd">Luftseitige Wasseraustritte</string>
@@ -81,5 +81,7 @@
     <string name="delete_stauanlage_message">Wollen Sie den Fragebogen wirklich löschen</string>
     <string name="delete_stauanlage_delete">Löschen</string>
     <string name="delete_Stauanlage_cancel">Abbrechen</string>
+    <string name="lbl_question_stauinhalt">Stauinhalt (m³):</string>
+    <string name="lbl_question_statische_berechnung">Statische Berechnung liegt vor</string>
 
 </resources>

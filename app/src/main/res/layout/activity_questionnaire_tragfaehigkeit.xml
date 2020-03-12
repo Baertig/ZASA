@@ -48,7 +48,7 @@
             <TextView
                 android:id="@+id/question_statische_berechnung_liegt_vor"
                 style="@style/question_textview"
-                android:text="Statische Berechnung liegt vor" />
+                android:text="@string/lbl_question_statische_berechnung" />
 
             <RadioGroup
                 android:id="@+id/radio_statische_berechnung_liegt_vor"

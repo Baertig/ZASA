@@ -114,7 +114,7 @@
             <TextView
                 android:id="@+id/question_stauinhalt"
                 style="@style/question_textview"
-                android:text="Stauinhalt (m³):" />
+                android:text="@string/lbl_question_stauinhalt" />
 
             <EditText
                 android:id="@+id/answer_stauinhalt"

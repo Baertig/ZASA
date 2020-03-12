@@ -89,11 +89,11 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
 		//TODO festlegen was passiert wenn in Double Feld null drinsteht
-		loadAnswerInRadioGroup(stauanlage.BetriebsvorschriftNormalfallLiegtVor,
+		loadAnswerInRadioGroup(stauanlage.betriebsvorschriftNormalfallLiegtVor,
 				BetriebsvorschriftNormalbetrieb_JA,
 				BetriebsvorschriftNormalbetrieb_NEIN,
 				BetriebsvorschriftNormalbetrieb_UNBEKANNT);
-		loadAnswerInRadioGroup(stauanlage.BetriebsvorschriftHochwasserLiegtVor,
+		loadAnswerInRadioGroup(stauanlage.betriebsvorschriftHochwasserLiegtVor,
 				BetriebsvorschriftHochwasserfall_JA,
 				BetriebsvorschriftHochwasserfall_NEIN,
 				BetriebsvorschriftHochwasserfall_UNBEKANNT);
