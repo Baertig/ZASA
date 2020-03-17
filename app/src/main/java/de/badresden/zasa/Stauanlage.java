@@ -1,11 +1,14 @@
 package de.badresden.zasa;
 
+import android.app.Activity;
 import android.content.res.Resources;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -16,7 +19,7 @@ import java.util.HashMap;
  * Das Objekt ist gleichzeitig einen Entity der RoomDatabase, durch sie wird auch eine Tabelle, mit Spalten und deren Datentypen beschrieben
  * In der Datenbank in der Tabelle "stauanlage_table" wird ein Stauanlagen Objekt dann gespeichert
  */
-@SuppressWarnings("WeakerAccess")
+
 @Entity(tableName = "stauanlage_table")
 public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb der Name der Klasse
 //Die Namen der Variablen orientieren sich stark an der Vorlage um sie später eindeutig wiederzuerkennen, deshalb sind sie so lang
@@ -54,8 +57,11 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public Answer betriebsvorschriftNormalfallLiegtVor;
     @ColumnInfo(name = "betriebsvorschrift_hochwasser_liegt_vor")
     public Answer betriebsvorschriftHochwasserLiegtVor;
+    //TODO Klassifizierung der Stauanlage
+
 
     //Tragfähigkeit
+    //TODO wasserseitige Neigung und luftseitige Neigung abfragen
     @ColumnInfo(name = "wasserseitige_boeschungsneigung_zu_luftseitige_boeschungsneigung_kleiner_1_zu_3")
     public Answer wasserseitigZuLuftseitigKleinerEinszuDrei;
     @ColumnInfo(name = "statische_berechnung_liegt_vor")
@@ -236,70 +242,73 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
 
     /**
      * Is made to make printing easier
+     * @param activity is used to retriev String Resources
      * @return returns HashMap representing the Stauanlage with a description of every field as the key and its value. Should only be used with foreach loops. Don't try to get something with a Key.
      *
      */
-    public HashMap<String, Object> getDescriptonwithValueHashMap(){
-        HashMap<String, Object> descriptionAndValue = new HashMap<>();
+    public ArrayList<AttributeDetailed> getAttributesDetailed(Activity activity){
+        ArrayList<AttributeDetailed> attributesDetailed = new ArrayList<>();
         //Allgemeine Angaben
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_name_der_anlage), this.nameDerAnlage);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_lage), this.geographischeLage);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_hoehe),this.hoeheAbsperrwerkUeberGruendung);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_betriebsvorschrift_normalbetrieb), this.betriebsvorschriftNormalfallLiegtVor);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_betriebsvorschrift_hochwasserfall), this.betriebsvorschriftHochwasserLiegtVor);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_name_der_anlage), this.nameDerAnlage));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.geographischeLage));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe),this.hoeheAbsperrwerkUeberGruendung));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_normalbetrieb), this.betriebsvorschriftNormalfallLiegtVor));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_hochwasserfall), this.betriebsvorschriftHochwasserLiegtVor));
         //Tragfähigkeit
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_boeschungsneigung_verhaeltnis), this.wasserseitigZuLuftseitigKleinerEinszuDrei);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_statische_berechnung), this.statischeBerechnungLiegtVor);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_verhaeltnis),
+                this.wasserseitigZuLuftseitigKleinerEinszuDrei));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_statische_berechnung), this.statischeBerechnungLiegtVor));
         //Gebrauchstauglichkeit
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_qhwe1), this.qHWEVonBHW1GoesserGleichBHQ1); //FIXME vllt sollte eher QHWE angezeigt werden
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_qhwe2), this.qHWEVonBHW2GroesserGleichBHQ2); //FIXME und das ein Hinweis kommen das es nicht größer gleich ist...
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_nachweis_dvwk),
-            this.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_betriebsauffaelligkeiten), this.bisherigeBetriebsauffaelligkeiten);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe1), this.qHWEVonBHW1GoesserGleichBHQ1)); //FIXME vllt sollte eher QHWE angezeigt werden
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe2), this.qHWEVonBHW2GroesserGleichBHQ2)); //FIXME und das ein Hinweis kommen das es nicht größer gleich ist...
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_nachweis_dvwk),
+            this.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsauffaelligkeiten),
+                this.bisherigeBetriebsauffaelligkeiten));
         // -- Hochwasserentlastung(HWE)
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_querschnittsreduktion_hwe), this.querschnittsreduktionDerWasserwege);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_beschaedigungen_wasserwege), this.fehlstellenOderBeschaedigungenAnWasserwegen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_beschaedigungen_tosbecken_hwe), this.fehlstellenOderBeschaedigungenImTosbeckenHWE);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_frei_und_funktionstuechtig),
-                this.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_hwe), this.querschnittsreduktionDerWasserwege));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_wasserwege), this.fehlstellenOderBeschaedigungenAnWasserwegen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_hwe), this.fehlstellenOderBeschaedigungenImTosbeckenHWE));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_frei_und_funktionstuechtig),
+                this.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig));
         // -- Grundablass
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_querschnittsreduktion_ga), this.querschnittsreduktionImGA);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_beschaedigungen_ga), this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_beschaedigungen_tosbecken_ga), this.fehlstellenOderBeschaedigungenImTosbeckenGA);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_schwergaengigkeit_verschluss), this.schwergaengigkeitOderBlockierenDesVerschlusses);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_ga), this.querschnittsreduktionImGA));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_ga), this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_ga), this.fehlstellenOderBeschaedigungenImTosbeckenGA));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_schwergaengigkeit_verschluss), this.schwergaengigkeitOderBlockierenDesVerschlusses));
         // -- Messeinrichtungen
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_messeinrichtungen_funktionsfaehig), this.messeinrichtungFunktionsfaehig);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_messeinrichtungen_funktionsfaehig), this.messeinrichtungFunktionsfaehig));
         //Dauerhaftigkeit
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_uferveraenderungen), this.uferveraenderungenDesStausees);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_uferveraenderungen), this.uferveraenderungenDesStausees));
         // -- Veränderungen an Erdbauwerken
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_rutschungen), this.rutschungen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_risse_erd), this.risseErdbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_setzungen_erd), this.sichtbareSetzungenErdbaubau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_hebungen_erd), this.sichtbareHebungen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_verschiebungen_erd), this.sichtbareHorizontalverschiebungenErdbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_wasseraustritte_erd), this.luftseitigeWasseraustritteErdbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_materialaustritt_erd), this.materialaustragDurchSickerwasser);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_erosion_erd), this.erosionDerWasserseitigenSchutzschicht);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_fehlstellen_grasnarbe), this.fehlstellenInDerGrasnarbeAufDemDamm);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_gehoelzbewuchs), this.gehoelzbewuchsOhneZusatzquerschnitt);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_visuelle_einschraenkung),
-                this.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_grabende_tiere), this.grabendeTiere);
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_rutschungen), this.rutschungen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_erd), this.risseErdbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_erd), this.sichtbareSetzungenErdbaubau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hebungen_erd), this.sichtbareHebungen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_erd), this.sichtbareHorizontalverschiebungenErdbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_erd), this.luftseitigeWasseraustritteErdbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_materialaustritt_erd), this.materialaustragDurchSickerwasser));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_erosion_erd), this.erosionDerWasserseitigenSchutzschicht));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_grasnarbe), this.fehlstellenInDerGrasnarbeAufDemDamm));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gehoelzbewuchs), this.gehoelzbewuchsOhneZusatzquerschnitt));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_visuelle_einschraenkung),
+                this.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_grabende_tiere), this.grabendeTiere));
         // -- Veränderungen an Massivbauwerken
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_risse_massiv), this.risseMassivbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_setzungen_massiv), this.sichtbareSetzungenMassivbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_verschiebungen_massiv), this.sichtbareHorizontalverschiebungenMassivbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_kippungen), this.neigungsaenderungenOderKippungen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_abplatzungen), this.abplatzungen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_auswaschungen), this.auswaschungenOderAusbluehungen);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_wasseraustritte_massiv), this.luftseitigeWasseraustritteMassivbau);
-        descriptionAndValue.put(Resources.getSystem().getString(R.string.lbl_question_fehlstellen_mauerwerk), this.fehlstellenImMauerwerk);
-        return descriptionAndValue;
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_massiv), this.risseMassivbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_massiv), this.sichtbareSetzungenMassivbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_massiv), this.sichtbareHorizontalverschiebungenMassivbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_kippungen), this.neigungsaenderungenOderKippungen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_abplatzungen), this.abplatzungen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_auswaschungen), this.auswaschungenOderAusbluehungen));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_massiv), this.luftseitigeWasseraustritteMassivbau));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_mauerwerk), this.fehlstellenImMauerwerk));
+        return attributesDetailed;
     }
 }

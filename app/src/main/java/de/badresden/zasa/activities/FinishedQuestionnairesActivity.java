@@ -185,7 +185,8 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
             Uri uri = null;
             if (data != null) {
                 uri = data.getData();
-                printStauanlage(StauanlageHolder.getStauanlage(), currentActivity, uri);
+                printStauanlage(StauanlageHolder.getStauanlage().getAttributesDetailed(currentActivity),
+                        currentActivity, uri);
                 StauanlageHolder.clear(); //Stauanlage aus zwischenspeicher löschen
             }
         }
