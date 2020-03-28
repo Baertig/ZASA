@@ -64,10 +64,8 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
                         adapter.setStauanlageSimplyfiedList(stauanlageSimplyfiedList);
                     }
                 });
-        if(StauanlageHolder.getStauanlage() != null){
-            Log.d(TAG, "onCreate: stauanlage in ViewModel-class was not empty, but should be");
-            StauanlageHolder.clear(); //set stauanlage null
-        }
+        //Sicherstellen das dass statische Feld der StauanlageViewModel null´ist, sich also keine Daten im Zwischenspeicher befinden
+        StauanlageHolder.clear();
     }
 
     private ItemTouchHelper makeHelper() {
@@ -186,9 +184,34 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
             if (data != null) {
                 uri = data.getData();
                 printStauanlage(StauanlageHolder.getStauanlage().getAttributesDetailed(currentActivity),
-                        currentActivity, uri);
+                        currentActivity, uri); //FIXME maybe a AsyncTask should be used here
                 StauanlageHolder.clear(); //Stauanlage aus zwischenspeicher löschen
             }
         }
+    }
+
+    /**
+     * Button "Neuer Fragebogen"
+     * Leitet weiter zu Activity QuestionnaireAllgemeinActivity
+     * Erzeugt ein neues leeres Stauanlagen Objekt
+     */
+    public void openQuestionnaireAllgemein(View view) {
+        StauanlageHolder.createStauanlage();
+        Intent openQuestionnaireAllgemeinIntent = new Intent(this, QuestionnaireAllgemeinActivity.class);
+        startActivity(openQuestionnaireAllgemeinIntent);
+    }
+
+    /**
+     * wenn der Zurück Button des Handys (unten Rechts) gedrückt wird, passiert nichts.
+     * Außgenommen einer Meldung die eben das erklärt.
+     * Es kam sonst zu einer NullPointerException in einem bestimmten Anwendungsfall.
+     * Wenn ein Frageborgen gespeichert wurde und dann auf zurück gecklickt wird, versucht die Actvity
+     * aus dem zwischenspeicher die Felder zu füllen ... der ist allerdings Leer.
+     */
+    @Override
+    public void onBackPressed() {
+        Toast toast = Toast.makeText(this, "Funktion ist ausgeschaltet, führt sonst zu einem Error beim zurück Drücken" +
+                " nach Speichern eines Fragebogens ", Toast.LENGTH_LONG);
+        toast.show();
     }
 }

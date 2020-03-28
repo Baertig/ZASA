@@ -1,291 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:layout_marginLeft="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginRight="8dp"
-    android:orientation="vertical">
+    android:layout_width="match_parent">
 
-    <ScrollView
-        android:id="@+id/scroll_allgemein"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scroll_allgemein"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fillViewport="true">
 
-            <TextView
-                android:id="@+id/question_name_der_anlage"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_name_der_anlage" />
-
-            <EditText
-                android:id="@+id/answer_name_der_anlage"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
-
-
-            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/container_zoom_image"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/question_name_der_anlage"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_name_der_anlage" />
+
+                <EditText
+                    android:id="@+id/answer_name_der_anlage"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/container_zoom_image"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/question_lage"
-                        style="@style/question_textview"
-                        android:layout_weight="1"
-                        android:text="@string/lbl_question_lage" />
-
-                    <Button
-                        android:id="@+id/btn_location"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/question_margin_top"
-                        android:onClick="chooseLocationByGps"
-                        android:text="@string/btn_location" />
-                </LinearLayout>
-            </FrameLayout>
+                        android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/answer_lage"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
+                        <TextView
+                            android:id="@+id/question_lage"
+                            style="@style/question_textview"
+                            android:layout_weight="1"
+                            android:text="@string/lbl_question_lage" />
 
+                        <Button
+                            android:id="@+id/btn_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/question_margin_top"
+                            android:onClick="chooseLocationByGps"
+                            android:text="@string/btn_location" />
+                    </LinearLayout>
+                </FrameLayout>
 
-            <TextView
-                android:id="@+id/question_gewaesser"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_gewaesser" />
-
-            <EditText
-                android:id="@+id/answer_gewaesser"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
-
-
-            <TextView
-                android:id="@+id/question_eigentuemer"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_eigentuemer" />
-
-            <EditText
-                android:id="@+id/answer_eigentuemer"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
+                <EditText
+                    android:id="@+id/answer_lage"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
 
-            <TextView
-                android:id="@+id/question_art_des_absperrbauwerkes"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_art_des_absperrbauwerkes" />
+                <TextView
+                    android:id="@+id/question_gewaesser"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_gewaesser" />
 
-            <EditText
-                android:id="@+id/answer_art_des_absperrbauwerkes"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
-
-
-            <TextView
-                android:id="@+id/question_hoehe"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_hoehe" />
-
-            <EditText
-                android:id="@+id/answer_hoehe"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal" />
+                <EditText
+                    android:id="@+id/answer_gewaesser"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
 
-            <TextView
-                android:id="@+id/question_stauinhalt"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_stauinhalt" />
+                <TextView
+                    android:id="@+id/question_eigentuemer"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_eigentuemer" />
 
-            <EditText
-                android:id="@+id/answer_stauinhalt"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal" />
-
-
-            <TextView
-                android:id="@+id/question_bhq1"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_bhq1" />
-
-            <EditText
-                android:id="@+id/answer_bhq1"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal" />
+                <EditText
+                    android:id="@+id/answer_eigentuemer"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
 
-            <TextView
-                android:id="@+id/question_bhq2"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_bhq2" />
+                <TextView
+                    android:id="@+id/question_art_des_absperrbauwerkes"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_art_des_absperrbauwerkes" />
 
-            <EditText
-                android:id="@+id/answer_bhq2"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal" />
-
-            <TextView
-                android:id="@+id/question_bhq2_abschaetzung"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_bhq2_abschaetzung"
-                />
-
-            <EditText
-                android:id="@+id/answer_bhq2_abschaetzung"
-                style="@style/question_edittext"
-                android:imeOptions="actionDone"
-                android:inputType="textMultiLine"
-                android:autofillHints="@string/wird_momentan_nicht_beachtet"
-                android:hint="@string/wird_momentan_nicht_beachtet"/>
+                <EditText
+                    android:id="@+id/answer_art_des_absperrbauwerkes"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
 
-            <TextView
-                android:id="@+id/question_betriebsvorschrift_normalbetrieb"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
+                <TextView
+                    android:id="@+id/question_hoehe"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_hoehe" />
 
-            <RadioGroup
-                android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
-                style="@style/question_radiogroup"
-                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_normalbetrieb">
-
-                <RadioButton
-                    android:id="@+id/opt_yes_betriebsvorschrift_normalbetrieb"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_yes" />
-
-                <RadioButton
-                    android:id="@+id/opt_no_betriebsvorschrift_normalbetrieb"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_no" />
-
-                <RadioButton
-                    android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_unknown" />
-            </RadioGroup>
+                <EditText
+                    android:id="@+id/answer_hoehe"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
 
-            <TextView
-                android:id="@+id/question_betriebsvorschtift_hochwasserfall"
-                style="@style/question_textview"
-                android:text="@string/lbl_question_betriebsvorschrift_hochwasserfall" />
+                <TextView
+                    android:id="@+id/question_stauinhalt"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_stauinhalt" />
 
-            <RadioGroup
-                android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
-                style="@style/question_radiogroup"
-                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_hochwasserfall">
-
-                <RadioButton
-                    android:id="@+id/opt_yes_betriebsvorschrift_hochwasserfall"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_yes" />
-
-                <RadioButton
-                    android:id="@+id/opt_no_betriebsvorschrift_hochwasserfall"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_no" />
-
-                <RadioButton
-                    android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_unknown" />
-            </RadioGroup>
-
-            <!-- TODO Vorlagen - bitte vor Abgabe entfernen -->
-            <!--
-
-            Text-Frage:
-
-            <TextView
-                android:id="@+id/question_"
-                style="@style/question_textview"
-                android:text="" />
-
-            <EditText
-                android:id="@+id/answer_"
-                style="@style/question_edittext" />
+                <EditText
+                    android:id="@+id/answer_stauinhalt"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
 
-            Ja/Nein/Unbekannt-Frage
+                <TextView
+                    android:id="@+id/question_bhq1"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_bhq1" />
 
-            <TextView
-                android:id="@+id/question_"
-                style="@style/question_textview"
-                android:text="" />
-
-            <RadioGroup
-                android:id="@+id/radio_"
-                style="@style/question_radiogroup"
-                android:checkedButton="@+id/opt_unknown_">
-
-                <RadioButton
-                    android:id="@+id/opt_yes_"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_yes" />
-
-                <RadioButton
-                    android:id="@+id/opt_no_"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_no" />
-
-                <RadioButton
-                    android:id="@+id/opt_unknown_"
-                    style="@style/question_radiobutton"
-                    android:text="@string/opt_unknown" />
-            </RadioGroup>
+                <EditText
+                    android:id="@+id/answer_bhq1"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
 
-            Section Heading:
+                <TextView
+                    android:id="@+id/question_bhq2"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_bhq2" />
 
-            <TextView
-                android:id="@+id/heading_"
-                style="@style/question_section_heading"
-                android:text="" />
+                <EditText
+                    android:id="@+id/answer_bhq2"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/question_bhq2_abschaetzung"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_bhq2_abschaetzung"
+                    />
+
+                <EditText
+                    android:id="@+id/answer_bhq2_abschaetzung"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:autofillHints="@string/wird_momentan_nicht_beachtet"
+                    android:hint="@string/wird_momentan_nicht_beachtet"/>
+
+
+                <TextView
+                    android:id="@+id/question_betriebsvorschrift_normalbetrieb"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
+
+                <RadioGroup
+                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
+                    style="@style/question_radiogroup"
+                    android:checkedButton="@+id/opt_unknown_betriebsvorschrift_normalbetrieb">
+
+                    <RadioButton
+                        android:id="@+id/opt_yes_betriebsvorschrift_normalbetrieb"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_yes" />
+
+                    <RadioButton
+                        android:id="@+id/opt_no_betriebsvorschrift_normalbetrieb"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_no" />
+
+                    <RadioButton
+                        android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_unknown" />
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/question_betriebsvorschtift_hochwasserfall"
+                    style="@style/question_textview"
+                    android:text="@string/lbl_question_betriebsvorschrift_hochwasserfall" />
+
+                <RadioGroup
+                    android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
+                    style="@style/question_radiogroup"
+                    android:checkedButton="@+id/opt_unknown_betriebsvorschrift_hochwasserfall">
+
+                    <RadioButton
+                        android:id="@+id/opt_yes_betriebsvorschrift_hochwasserfall"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_yes" />
+
+                    <RadioButton
+                        android:id="@+id/opt_no_betriebsvorschrift_hochwasserfall"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_no" />
+
+                    <RadioButton
+                        android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_unknown" />
+                </RadioGroup>
+
+                <!-- TODO Vorlagen - bitte vor Abgabe entfernen -->
+                <!--
+
+                Text-Frage:
+
+                <TextView
+                    android:id="@+id/question_"
+                    style="@style/question_textview"
+                    android:text="" />
+
+                <EditText
+                    android:id="@+id/answer_"
+                    style="@style/question_edittext" />
+
+
+                Ja/Nein/Unbekannt-Frage
+
+                <TextView
+                    android:id="@+id/question_"
+                    style="@style/question_textview"
+                    android:text="" />
+
+                <RadioGroup
+                    android:id="@+id/radio_"
+                    style="@style/question_radiogroup"
+                    android:checkedButton="@+id/opt_unknown_">
+
+                    <RadioButton
+                        android:id="@+id/opt_yes_"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_yes" />
+
+                    <RadioButton
+                        android:id="@+id/opt_no_"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_no" />
+
+                    <RadioButton
+                        android:id="@+id/opt_unknown_"
+                        style="@style/question_radiobutton"
+                        android:text="@string/opt_unknown" />
+                </RadioGroup>
+
+
+                Section Heading:
+
+                <TextView
+                    android:id="@+id/heading_"
+                    style="@style/question_section_heading"
+                    android:text="" />
 
 
 
-            Number Input:
+                Number Input:
 
-            <TextView
-                android:id="@+id/question_"
-                style="@style/question_textview"
-                android:text="" />
+                <TextView
+                    android:id="@+id/question_"
+                    style="@style/question_textview"
+                    android:text="" />
 
-            <EditText
-                android:id="@+id/answer_"
-                style="@style/question_edittext"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal" />
-            -->
+                <EditText
+                    android:id="@+id/answer_"
+                    style="@style/question_edittext"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
+                -->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:onClick="openQuestionnaireTragfaehigkeit"
+        app:srcCompat="@drawable/ic_done_white_24dp"/>
 
-            <Button
-                android:id="@+id/btn_allgemein_continue"
-                style="@style/continue_button"
-                android:onClick="openQuestionnaireTragfaehigkeit"
-                android:text="@string/btn_continue" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

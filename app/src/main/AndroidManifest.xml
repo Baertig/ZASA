@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.FinishedQuestionnairesActivity"
-            android:parentActivityName=".activities.MainActivity"/>
-        <activity android:name=".activities.MainActivity">
+            android:name=".activities.FinishedQuestionnairesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--        <activity android:name=".activities.MainActivity">-->
+<!--            -->
+<!--        </activity>-->
         <activity
             android:name=".activities.QuestionnaireAllgemeinActivity"
             android:label="QuestionnaireAllgemein"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.FinishedQuestionnairesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
+                android:value=".activities.FinishedQuestionnairesActivity" />
         </activity>
         <activity
             android:name=".activities.QuestionnaireTragfaehigkeitActivity"

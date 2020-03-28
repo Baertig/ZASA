@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-ZASA.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-ZASA.iml" group="ZASA" />
       <module fileurl="file://$PROJECT_DIR$/ZASA.iml" filepath="$PROJECT_DIR$/ZASA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ZASA/app" />
     </modules>
   </component>
 </project>

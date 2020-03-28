@@ -393,8 +393,8 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
         }
 
 
-        Intent goBackToMainPageIntent = new Intent(this, MainActivity.class);
+        Intent goBackToFinishedQuestionnaires = new Intent(this, FinishedQuestionnairesActivity.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
-        startActivity(goBackToMainPageIntent);
+        startActivity(goBackToFinishedQuestionnaires);
     }
 }
