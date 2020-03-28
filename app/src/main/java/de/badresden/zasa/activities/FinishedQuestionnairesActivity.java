@@ -71,7 +71,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
     private ItemTouchHelper makeHelper() {
         return new ItemTouchHelper(
                 new ItemTouchHelper.SimpleCallback(0,
-                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                        ItemTouchHelper.LEFT) {
                     private final ColorDrawable background = new ColorDrawable(Color.RED);
                     private Drawable icon = ContextCompat.getDrawable(adapter.getContext(),
                             R.drawable.ic_delete_white_24dp);;
@@ -99,16 +99,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
                         int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
                         int iconBottom = iconTop + icon.getIntrinsicHeight();
 
-                        if (dX > 0) { // Swiping to the right
-                            int iconLeft = ((int) dX) - iconMargin - icon.getIntrinsicWidth();
-                            int iconRight = ((int) dX) - iconMargin;
-                            icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
-
-                            background.setBounds(itemView.getLeft(), itemView.getTop(),
-                                    itemView.getLeft() + ((int) dX) + backgroundCornerOffset,
-                                    itemView.getBottom());
-
-                        } else if (dX < 0) { // Swiping to the left
+                         if (dX < 0) { // Swiping to the left
                             int iconLeft = ((int) dX) + iconMargin + itemView.getRight();
                             int iconRight = ((int) dX) + iconMargin + icon.getIntrinsicWidth() + itemView.getRight();
                             icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);

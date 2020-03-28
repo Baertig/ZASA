@@ -1,16 +1,13 @@
 package de.badresden.zasa;
 
 import android.app.Activity;
-import android.content.res.Resources;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 //Autor: Georg
 
@@ -249,7 +246,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public ArrayList<AttributeDetailed> getAttributesDetailed(Activity activity){
         ArrayList<AttributeDetailed> attributesDetailed = new ArrayList<>();
         //Allgemeine Angaben
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_name_der_anlage), this.nameDerAnlage));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.questionnaire_table_title), this.nameDerAnlage));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.geographischeLage));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));

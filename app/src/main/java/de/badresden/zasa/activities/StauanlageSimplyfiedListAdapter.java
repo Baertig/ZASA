@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import de.badresden.zasa.R;
@@ -44,8 +46,9 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
     public void onBindViewHolder(@NonNull StauanlageSimplyfiedViewHolder holder, int position) {
         if (stauanlageSimplyfiedList != null) {
             StauanlageSimplyfied current = stauanlageSimplyfiedList.get(position);
-            //Name der Anlage wir als Text in Item geschrieben
             holder.StauanlageSimpyfiedItemTextView.setText(current.namederAnlage);
+            String date = DateFormat.getDateInstance(DateFormat.DEFAULT).format(current.datumUndUhrzeitLetzteBearbeitung);
+            holder.dateTextView.setText(date);
         } else {
             //Falls noch keine Daten zum Darstellen vorhanden sind
             holder.StauanlageSimpyfiedItemTextView.setText(R.string.keine_daten_zum_darstellen);
@@ -86,6 +89,7 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
 
     class StauanlageSimplyfiedViewHolder extends RecyclerView.ViewHolder {
         private final TextView StauanlageSimpyfiedItemTextView;
+        private final TextView dateTextView;
         private ImageView printImage;
         private ImageView exportImage;
         private ImageView editImage;
@@ -99,6 +103,7 @@ public class StauanlageSimplyfiedListAdapter extends RecyclerView.Adapter<Stauan
             printImage = itemView.findViewById(R.id.printButton);
             exportImage = itemView.findViewById(R.id.exportButton);
             editImage = itemView.findViewById(R.id.editButton);
+            dateTextView = itemView.findViewById(R.id.date_text_view);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -40,6 +40,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private StauanlageViewModel mStauanlageViewModel;
 	private Date currentDate;//Bearbeitungsdatum
 	// relevante GUI-Elemente:
+	//TODO EDIT to TextInputEditText
+	//TODO change id to be inside of TextInputEditText
 	private EditText inputNameDerAnlage;
 	private EditText inputGeoLage;
 	private EditText inputGewaesser;
