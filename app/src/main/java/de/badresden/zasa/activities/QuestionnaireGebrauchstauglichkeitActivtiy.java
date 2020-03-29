@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
@@ -31,12 +33,12 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
 
     private static final String LOG_TAG = "F_Gebrauchstauglichkeit";
     //relevante GUI Elemente
-    private EditText inputQHWE1;
-    private EditText inputQHWE2;
-    private EditText inputFreibordUK;
-    private EditText inputFreibordDammkrone;
+    private TextInputEditText inputQHWE1;
+    private TextInputEditText inputQHWE2;
+    private TextInputEditText inputFreibordUK;
+    private TextInputEditText inputFreibordDammkrone;
     private RadioGroup inputNachweisDvwk;
-    private EditText inputBetriebsauffaelligkeiten;
+    private TextInputEditText inputBetriebsauffaelligkeiten;
     //private StauanlageViewModel stauanlageViewModel;
 
     private RadioGroup inputQuerschnittsreduktionHWE;

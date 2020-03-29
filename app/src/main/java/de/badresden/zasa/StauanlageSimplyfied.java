@@ -9,7 +9,7 @@ import java.util.Date;
  * Eine Vereinfachung der Klasse Stauanlage:
  * Wird benutzt um die Recyclerview Liste zu füllen mit den entsprechenden Daten
  */
-@SuppressWarnings("WeakerAccess")
+
 public class StauanlageSimplyfied {
     @ColumnInfo(name = "primary_key")
     public int primaryKey;

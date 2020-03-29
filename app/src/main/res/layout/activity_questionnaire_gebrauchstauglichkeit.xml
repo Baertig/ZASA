@@ -3,14 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:orientation="vertical">
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,60 +10,72 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/question_qhwe1"
-                    style="@style/question_textview"
-                    android:layout_height="@dimen/question_lbl_height_with_subscript"
-                    android:text="@string/lbl_question_qhwe1" />
 
-                <EditText
-                    android:id="@+id/answer_qhwe1"
-                    style="@style/question_edittext"
-                    android:imeOptions="actionNext"
-                    android:inputType="numberDecimal" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_qhwe1">
 
-                <!-- TODO Anzeige, ob BHQ größer oder kleiner ist als QHWE -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_qhwe1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
 
-                <TextView
-                    android:id="@+id/question_qhwe2"
-                    style="@style/question_textview"
-                    android:layout_height="@dimen/question_lbl_height_with_subscript"
-                    android:text="@string/lbl_question_qhwe2" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/answer_qhwe2"
-                    style="@style/question_edittext"
-                    android:imeOptions="actionNext"
-                    android:inputType="numberDecimal" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_qhwe2">
 
-                <!-- TODO Anzeige, ob BHQ größer oder kleiner ist als QHWE -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_qhwe2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
 
-                <TextView
-                    android:id="@+id/question_freibord_uk"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_freibord_uk" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/answer_freibord_uk"
-                    style="@style/question_edittext"
-                    android:imeOptions="actionNext"
-                    android:inputType="numberDecimal" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_freibord_uk">
 
-                <!-- TODO Anzeige, ob Freiboard zur UK >= 0,50 m eingehalten wird -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_freibord_uk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
 
-                <TextView
-                    android:id="@+id/question_freibord_dammkrone"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_freibord_dammkrone" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/answer_freibord_dammkrone"
-                    style="@style/question_edittext"
-                    android:imeOptions="actionDone"
-                    android:inputType="numberDecimal" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_freibord_dammkrone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_freibord_dammkrone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/question_nachweis_dvwk"
@@ -94,7 +98,6 @@
                         style="@style/question_radiobutton"
                         android:text="@string/opt_no_noch_zu_erstellen" />
 
-                    <!--TODO Unbekannt weg?-->
                     <RadioButton
                         android:id="@+id/opt_unknown_nachweis_dvwk"
                         style="@style/question_radiobutton"
@@ -102,15 +105,21 @@
                 </RadioGroup>
 
 
-                <TextView
-                    android:id="@+id/question_betriebsauffaelligkeiten"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_betriebsauffaelligkeiten" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_betriebsauffaelligkeiten"
+                    app:helperText="@string/helper_text_betriebsauffaelligkeiten">
 
-                <EditText
-                    android:id="@+id/answer_betriebsauffaelligkeiten"
-                    style="@style/question_edittext" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_betriebsauffaelligkeiten"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        />
 
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/heading_hochwasserentlastung"
@@ -364,7 +373,6 @@
 
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"

@@ -19,23 +19,21 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_name_der_anlage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/name_der_anlage">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_name_der_anlage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_lage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_lage"
@@ -43,6 +41,7 @@
                     app:endIconDrawable="@drawable/ic_location_on_black_24dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_lage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -53,12 +52,12 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_gewaesser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_gewaesser">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_gewaesser"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -68,12 +67,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_eigentuemer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_eigentuemer">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_eigentuemer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -84,12 +83,12 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_art_des_absperrbauwerkes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_art_des_absperrbauwerkes">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_art_des_absperrbauwerkes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -100,12 +99,12 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_hoehe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_hoehe">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_hoehe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -115,12 +114,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_stauinhalt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_stauinhalt">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_stauinhalt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -130,12 +129,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_bhq1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_bhq1">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_bhq1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -146,12 +145,12 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/answer_bhq2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_bhq2">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_bhq2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
@@ -161,19 +160,19 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <TextView
-                    android:id="@+id/question_bhq2_abschaetzung"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_bhq2_abschaetzung"
-                    />
+<!--                <TextView-->
+<!--                android:id="@+id/question_bhq2_abschaetzung"-->
+<!--                style="@style/question_textview"-->
+<!--                android:text="@string/lbl_question_bhq2_abschaetzung"-->
+<!--                />-->
 
-                <EditText
-                    android:id="@+id/answer_bhq2_abschaetzung"
-                    style="@style/question_edittext"
-                    android:imeOptions="actionDone"
-                    android:inputType="textMultiLine"
-                    android:autofillHints="@string/wird_momentan_nicht_beachtet"
-                    android:hint="@string/wird_momentan_nicht_beachtet"/>
+<!--                <EditText-->
+<!--                    android:id="@+id/answer_bhq2_abschaetzung"-->
+<!--                    style="@style/question_edittext"-->
+<!--                    android:imeOptions="actionDone"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:autofillHints="@string/wird_momentan_nicht_beachtet"-->
+<!--                    android:hint="@string/wird_momentan_nicht_beachtet"/>-->
 
 
                 <TextView

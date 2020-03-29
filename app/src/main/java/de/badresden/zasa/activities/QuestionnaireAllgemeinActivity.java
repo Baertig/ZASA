@@ -12,6 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -39,18 +41,16 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
 	private StauanlageViewModel mStauanlageViewModel;
 	private Date currentDate;//Bearbeitungsdatum
-	// relevante GUI-Elemente:
-	//TODO EDIT to TextInputEditText
-	//TODO change id to be inside of TextInputEditText
-	private EditText inputNameDerAnlage;
-	private EditText inputGeoLage;
-	private EditText inputGewaesser;
-	private EditText inputEigentuemer;
-	private EditText inputArtDesAbsperrbauwerkes;
-	private EditText inputHoehe;
-	private EditText inputStauinhalt;
-	private EditText inputBHQ1;
-	private EditText inputBHQ2;
+	// relevante GUI-Element
+	private TextInputEditText inputNameDerAnlage;
+	private TextInputEditText inputGeoLage;
+	private TextInputEditText inputGewaesser;
+	private TextInputEditText inputEigentuemer;
+	private TextInputEditText inputArtDesAbsperrbauwerkes;
+	private TextInputEditText inputHoehe;
+	private TextInputEditText inputStauinhalt;
+	private TextInputEditText inputBHQ1;
+	private TextInputEditText inputBHQ2;
 	private EditText inputBHQ2Abschaetzung;
 	private RadioGroup inputBetriebsvorschriftNormalbetrieb;
 	private RadioGroup inputBetriebsvorschriftHochwasserfall;
@@ -163,10 +163,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);
-		inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
 		inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
 		inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
-		inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
+		//
+		// inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
 	}
 
 	private void SetRadioButtons(){
