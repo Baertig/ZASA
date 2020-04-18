@@ -18,7 +18,7 @@ import de.badresden.zasa.converters.DateTypeConverter;
  * wenn es noch keine gibt, ansonsten wird immer die vorhandene zurückgegeben
  */
 @SuppressWarnings("WeakerAccess")
-@Database(entities = {Stauanlage.class}, version = 4)
+@Database(entities = {Stauanlage.class}, version = 1)
 @TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 

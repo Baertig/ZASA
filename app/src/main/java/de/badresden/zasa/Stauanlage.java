@@ -34,8 +34,16 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     //Allgemeine Angaben
     @ColumnInfo(name = "name_der_Anlage")
     public String nameDerAnlage;
-    @ColumnInfo(name = "geographische_lage")//TODO Split in Longditue and Latitue
-    public String geographischeLage;
+    @ColumnInfo(name = "longitude")
+    public Double longitude;
+    @ColumnInfo(name = "latitude")
+    public Double latitude;
+    @ColumnInfo(name = "postleitzahl")
+    public String plz;
+    @ColumnInfo(name = "stadt")
+    public String stadt;
+    @ColumnInfo(name = "straße_nummer")
+    public String straßeNr;
     @ColumnInfo(name = "gestautes_gewaesser")
     public String gestautesGewaesser;
     @ColumnInfo(name = "eigentuemer_betreiber")
@@ -161,7 +169,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
                                 Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
         this.datumUndUhrzeitLetzteBearbeitung = datumUndUhrzeitLetzteBearbeitung;
-        this.geographischeLage = geographischeLage;
+        this.plz = geographischeLage;//FIXME
         this.gestautesGewaesser = gestautesGewaesser;
         this.eigentuemerBetreiber = eigentuemerBetreiber;
         this.artDesAbsperrauwerkes = artDesAbsperrauwerkes;
@@ -247,7 +255,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         ArrayList<AttributeDetailed> attributesDetailed = new ArrayList<>();
         //Allgemeine Angaben
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.questionnaire_table_title), this.nameDerAnlage));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.geographischeLage));
+        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.plz));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));
         attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes));

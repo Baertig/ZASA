@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -42,6 +45,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private StauanlageViewModel mStauanlageViewModel;
 	private Date currentDate;//Bearbeitungsdatum
 	// relevante GUI-Element
+	private TextInputLayout layoutNameDerAnlage;
 	private TextInputEditText inputNameDerAnlage;
 	private TextInputEditText inputGeoLage;
 	private TextInputEditText inputGewaesser;
@@ -68,21 +72,26 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_questionnaire_allgemein);
 		setTitle("Allgemein");
-		SetGuiElements();
+		ConfigureGuiElements();
 		SetRadioButtons();
 		//setzen des ViewModels
 		mStauanlageViewModel = ViewModelProviders.of(this).get(StauanlageViewModel.class);
 		//das Bearbeitungsdatum setzten
 		currentDate = Calendar.getInstance().getTime();
+		//It shouldn't be null ... but who knows ?
 		if(StauanlageHolder.getStauanlage() != null){
 			loadStauanlageInUI(StauanlageHolder.getStauanlage());
+		}else{
+			//TODO ERROR MSG
 		}
 	}
 
 
 	private void loadStauanlageInUI(Stauanlage stauanlage) {
-		inputNameDerAnlage.setText(stauanlage.nameDerAnlage);
-		inputGeoLage.setText(stauanlage.geographischeLage);
+		if (stauanlage.nameDerAnlage != null) { //So the TextWatcher isn't called right at the beginning
+			inputNameDerAnlage.setText(stauanlage.nameDerAnlage);
+		}
+		inputGeoLage.setText(stauanlage.plz);
 		inputGewaesser.setText(stauanlage.gestautesGewaesser);
 		inputEigentuemer.setText(stauanlage.eigentuemerBetreiber);
 		inputArtDesAbsperrbauwerkes.setText(stauanlage.artDesAbsperrauwerkes);
@@ -107,7 +116,13 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	 * --> Wechseln zu Activity QuestionnaireTragfaehigkeitActivity
 	 */
 	public void openQuestionnaireTragfaehigkeit(View view) {
-		// Werte aus der GUI an Stauanlagen-Objekt an ViewModelKlasse übergeben.
+		if (inputNameDerAnlage.getText().toString().length() == 0){
+			layoutNameDerAnlage.setError(getString(R.string.name_der_anlage_error_text));
+			inputNameDerAnlage.requestFocus();
+
+			return;
+		}
+		// Werte aus der GUI an Stauanlagen-Objekt übergeben.
 		Answer BetriebsvorschriftNormalfall = decideRadioAnswer(inputBetriebsvorschriftNormalbetrieb.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_normalbetrieb, R.id.opt_unknown_betriebsvorschrift_normalbetrieb,
 				R.id.opt_no_betriebsvorschrift_normalbetrieb);
 		Answer BetriebsvorschriftHochwasserfall = decideRadioAnswer(inputBetriebsvorschriftHochwasserfall.getCheckedRadioButtonId(), R.id.opt_yes_betriebsvorschrift_hochwasserfall, R.id.opt_unknown_betriebsvorschrift_hochwasserfall,
@@ -153,8 +168,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		toast.show();
 	}
 
-	private void SetGuiElements() {
+	private void ConfigureGuiElements() {
+		layoutNameDerAnlage = findViewById(R.id.layout_name_der_anlage);
 		inputNameDerAnlage = findViewById(R.id.answer_name_der_anlage);
+		inputNameDerAnlage.addTextChangedListener(createTextWatcherForEmptyText());
 		inputGeoLage = findViewById(R.id.answer_lage);
 		inputGewaesser = findViewById(R.id.answer_gewaesser);
 		inputEigentuemer = findViewById(R.id.answer_eigentuemer);
@@ -177,5 +194,33 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		BetriebsvorschriftHochwasserfall_JA = findViewById(R.id.opt_yes_betriebsvorschrift_hochwasserfall);
 		BetriebsvorschriftHochwasserfall_NEIN = findViewById(R.id.opt_no_betriebsvorschrift_hochwasserfall);
 		BetriebsvorschriftHochwasserfall_UNBEKANNT = findViewById(R.id.opt_unknown_betriebsvorschrift_hochwasserfall);
+	}
+
+	/**
+	 *
+	 * @return TextWatcher der die Anzeige eines Errors Triggerd falls nichts im Input Feld steht
+	 */
+	private TextWatcher createTextWatcherForEmptyText(){
+		return new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				if(s.length() == 0){
+					layoutNameDerAnlage.setError(getString(R.string.name_der_anlage_error_text));
+				}else{
+					if (layoutNameDerAnlage.getError() != null) {
+						layoutNameDerAnlage.setError(null);
+					}
+				}
+			}
+		};
 	}
 }

@@ -85,5 +85,7 @@
     <string name="lbl_question_stauinhalt">Stauinhalt (m³):</string>
     <string name="lbl_question_statische_berechnung">Statische Berechnung liegt vor</string>
     <string name="name_der_anlage">Name der Anlage</string>
+    <string name="name_der_anlage_helper_text">Die Eingabe einer Arbeitsbezeichnung oder einer lfd. Nr. ist auch möglich</string>
+    <string name="name_der_anlage_error_text">Feld muss ausgefüllt sein</string>
 
 </resources>
