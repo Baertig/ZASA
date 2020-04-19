@@ -26,7 +26,7 @@ public class deleteStauanlageDialogFragment extends DialogFragment {
 		public void onDialogDeleteClick(DialogFragment dialog, int position);
 		public void onDialogCancelClick(DialogFragment dialog, int position);
 	}
-
+	//TODO den Namen der Stauanlage übergeben ...
 	public deleteStauanlageDialogFragment(int position) {
 		super();
 		this.position = position;

@@ -51,7 +51,7 @@
                 <TextView
                     android:id="@+id/heading_veraenderungen_erdbauwerke"
                     style="@style/question_section_heading"
-                    android:text="Veränderungen an Erdbauwerken" />
+                    android:text="@string/heading_veraenderungen_erdbauwerke" />
 
 
                 <TextView

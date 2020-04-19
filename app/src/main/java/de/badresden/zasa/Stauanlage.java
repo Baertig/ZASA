@@ -34,6 +34,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     //Allgemeine Angaben
     @ColumnInfo(name = "name_der_Anlage")
     public String nameDerAnlage;
+    //geographische Lage
     @ColumnInfo(name = "longitude")
     public Double longitude;
     @ColumnInfo(name = "latitude")
@@ -41,9 +42,10 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     @ColumnInfo(name = "postleitzahl")
     public String plz;
     @ColumnInfo(name = "stadt")
-    public String stadt;
+    public String ort;
     @ColumnInfo(name = "straße_nummer")
-    public String straßeNr;
+    public String strasseNr;
+
     @ColumnInfo(name = "gestautes_gewaesser")
     public String gestautesGewaesser;
     @ColumnInfo(name = "eigentuemer_betreiber")
@@ -164,12 +166,18 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     /**
      * Methode um die Eigenschaften der Kategorie "Allgemein" zu setzten
      */
-    public void updateAllgemein(String nameDerAnlage, String geographischeLage, String gestautesGewaesser, String eigentuemerBetreiber,
-                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm, Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde,
-                                Answer betriebsvorschriftNormalfallLiegtVor, Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
+    public void updateAllgemein(String nameDerAnlage, Double longitude, Double latitude, String plz, String stadt, String strasseeNr,
+                                String gestautesGewaesser, String eigentuemerBetreiber,
+                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm,
+                                Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde, Answer betriebsvorschriftNormalfallLiegtVor,
+                                Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
         this.datumUndUhrzeitLetzteBearbeitung = datumUndUhrzeitLetzteBearbeitung;
-        this.plz = geographischeLage;//FIXME
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.plz = plz;
+        this.ort = stadt;
+        this.strasseNr = strasseeNr;
         this.gestautesGewaesser = gestautesGewaesser;
         this.eigentuemerBetreiber = eigentuemerBetreiber;
         this.artDesAbsperrauwerkes = artDesAbsperrauwerkes;

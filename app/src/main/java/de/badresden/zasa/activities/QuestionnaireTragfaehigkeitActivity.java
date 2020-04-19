@@ -1,7 +1,6 @@
 package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +13,9 @@ import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
-import de.badresden.zasa.StauanlageViewModel;
 
-import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
-import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
+import static de.badresden.zasa.functions.HelpFunctions.decideRadioAnswer;
+import static de.badresden.zasa.functions.HelpFunctions.loadAnswerInRadioGroup;
 
 //Autor: Georg
 
@@ -89,7 +87,7 @@ public class QuestionnaireTragfaehigkeitActivity extends AppCompatActivity {
         Answer statischeBerechnungLiegtVor = decideRadioAnswer(inputStatischeBerechnungLiegtVor.getCheckedRadioButtonId(), R.id.opt_yes_statische_berechnung_liegt_vor,
                 R.id.opt_unknown_statische_berechnung_liegt_vor, R.id.opt_no_statische_berechnung_liegt_vor);
 
-        StauanlageHolder.updateTragfaehigkeit(boeschungsneigungVerhaeltnis,statischeBerechnungLiegtVor);
+        StauanlageHolder.getStauanlage().updateTragfaehigkeit(boeschungsneigungVerhaeltnis,statischeBerechnungLiegtVor);
 
         Intent openQuestionnaireGebrauchstauglichkeitIntent = new Intent(this, QuestionnaireGebrauchstauglichkeitActivtiy.class);
         Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");

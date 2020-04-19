@@ -31,7 +31,7 @@ import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
 import de.badresden.zasa.StauanlageViewModel;
 
-import static de.badresden.zasa.PrintStauanlagePDFFunctions.*;
+import static de.badresden.zasa.functions.PrintStauanlagePDFFunctions.*;
 
 //Autor: Georg
 /**

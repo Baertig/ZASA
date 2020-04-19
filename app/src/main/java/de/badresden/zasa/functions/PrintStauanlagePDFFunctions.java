@@ -1,4 +1,4 @@
-package de.badresden.zasa;
+package de.badresden.zasa.functions;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +18,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import de.badresden.zasa.AttributeDetailed;
 
 public class PrintStauanlagePDFFunctions {
 	/**

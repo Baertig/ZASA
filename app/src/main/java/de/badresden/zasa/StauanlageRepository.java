@@ -13,8 +13,8 @@ import java.util.List;
 
 import de.badresden.zasa.activities.QuestionnaireAllgemeinActivity;
 
-import static de.badresden.zasa.PrintStauanlagePDFFunctions.CREATE_FILE;
-import static de.badresden.zasa.PrintStauanlagePDFFunctions.createOpenFileIntent;
+import static de.badresden.zasa.functions.PrintStauanlagePDFFunctions.CREATE_FILE;
+import static de.badresden.zasa.functions.PrintStauanlagePDFFunctions.createOpenFileIntent;
 
 //Autor: Georg
 

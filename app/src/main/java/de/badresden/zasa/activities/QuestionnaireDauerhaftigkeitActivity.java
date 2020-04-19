@@ -17,8 +17,8 @@ import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageViewModel;
 
-import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
-import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
+import static de.badresden.zasa.functions.HelpFunctions.decideRadioAnswer;
+import static de.badresden.zasa.functions.HelpFunctions.loadAnswerInRadioGroup;
 
 
 /**
@@ -356,7 +356,7 @@ public class QuestionnaireDauerhaftigkeitActivity extends AppCompatActivity {
                 R.id.opt_unknown_fehlstellen_mauerwerk,R.id.opt_no_fehlstellen_mauerwerk);
 
 
-        StauanlageHolder.updateDauerhaftigkeit(
+        StauanlageHolder.getStauanlage().updateDauerhaftigkeit(
                 uferveraenderungen,
                 rutschungen,
                 risseErd,

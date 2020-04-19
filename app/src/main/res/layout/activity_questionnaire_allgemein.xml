@@ -35,24 +35,92 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/heading_lage"
+                    style="@style/question_section_heading"
+                    android:text="@string/lbl_question_lage" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_longitude"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_lage"
+                    android:hint="@string/longitude"
                     app:endIconMode="custom"
                     app:endIconDrawable="@drawable/ic_location_on_black_24dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_lage"
+                        android:id="@+id/answer_longitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/latitude"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_location_on_black_24dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_latitude"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_plz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/postalcode">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_plz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPostalAddress"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_stadt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ort">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_stadt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         />
-
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_strasseNr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/strasseNr">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_strasseNr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -68,6 +136,11 @@
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/heading_Bauwerk"
+                    style="@style/question_section_heading"
+                    android:text="@string/heading_bauwerk" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

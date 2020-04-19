@@ -1,13 +1,11 @@
 package de.badresden.zasa.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -17,13 +15,12 @@ import de.badresden.zasa.Answer;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
-import de.badresden.zasa.StauanlageViewModel;
 
-import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
-import static de.badresden.zasa.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
-import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
-import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
-import static de.badresden.zasa.HelpFunctions.loadAnswerInRadioGroup;
+import static de.badresden.zasa.functions.HelpFunctions.decideRadioAnswer;
+import static de.badresden.zasa.functions.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
+import static de.badresden.zasa.functions.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
+import static de.badresden.zasa.functions.HelpFunctions.safeParseStringToDouble;
+import static de.badresden.zasa.functions.HelpFunctions.loadAnswerInRadioGroup;
 
 
 /**
@@ -228,7 +225,7 @@ public class QuestionnaireGebrauchstauglichkeitActivtiy extends AppCompatActivit
                 R.id.opt_unknown_messeinrichtungen_funktionsfaehig, R.id.opt_no_messeinrichtungen_funktionsfaehig);
 
 
-        StauanlageHolder.uptdateGebrauchstauglichkeit(
+        StauanlageHolder.getStauanlage().updateGebrauchstauglichkeit(
                 qHWWEVonBHW1GoesserGleichBHQ1,
                 qHWEVonBHW2GroesserGleichBHQ2,
                 Answer.UNBEKANNT, //FreibordUK

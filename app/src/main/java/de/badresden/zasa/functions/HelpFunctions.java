@@ -1,30 +1,11 @@
-package de.badresden.zasa;
+package de.badresden.zasa.functions;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import de.badresden.zasa.Answer;
-import de.badresden.zasa.R;
-import de.badresden.zasa.Stauanlage;
-import de.badresden.zasa.StauanlageViewModel;
-
-import static de.badresden.zasa.HelpFunctions.decideRadioAnswer;
-import static de.badresden.zasa.HelpFunctions.decideQHEW1GreaterEqualBHQ1;
-import static de.badresden.zasa.HelpFunctions.decideQHEW2GreaterEqualBHQ2;
-import static de.badresden.zasa.HelpFunctions.safeParseStringToDouble;
 
 //Autor: Georg
 
-
-import android.widget.RadioButton;
 
 /**
  * Klasse die statische Hiflsfunktionen enthält
@@ -80,6 +61,7 @@ public class HelpFunctions {
 	 * @param number String der von einem EditText mit inputOption NumberDecimal kommt
 	 * @return String number in Double, gibt Double.NaN zurück bei unzulässigem String
 	 */
+	//TODO Was soll passieren, wenn Eingabe in das Nummern Feld nicht gedeutet werden kann
 	public static Double safeParseStringToDouble(String number){
 		Double convertetNumb;
 		// regex: ziffern 0 bis 9 bliebig oft(auch kein mal)[*]
