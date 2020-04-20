@@ -1,14 +1,17 @@
 package de.badresden.zasa.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -23,8 +26,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -55,6 +64,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
 	private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
 	private static final int REQUEST_PERMISSION_ACCESS_FINE_LOCATION = 69;
+	private static final int REQUEST_CHECK_SETTINGS = 420;
 
 	private LocationManager locationManager;
 	private LocationProvider gpsProvider;
@@ -112,6 +122,26 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		} else {
 			//TODO ERROR MSG
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == REQUEST_CHECK_SETTINGS && resultCode == Activity.RESULT_OK){
+			//Settings are satisfied ... i hope
+			// ... passing view because it is needed
+			onGpsIconClickListener.onClick(layoutLatidtude);
+		}else if(requestCode == REQUEST_CHECK_SETTINGS){
+			//Required Settings were not applied
+			Toast.makeText(activity, "ohne die Benötigten Einstellungen können die GPS-Daten nicht ausgelesen werden",
+					Toast.LENGTH_LONG).show();
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		activity = this;
 	}
 
 	@Override
@@ -281,19 +311,12 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
 	/**
 	 * Button "Standort"
-	 * --> noch keine Funktion hinterlegt
-	 * (Soll später GPS - Koordinaten des Handys liefern)
 	 */
 	private View.OnClickListener createOnGpsIconClickListener() {
 		return new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//TODO activate Play Services or something... it only works when i have opend Google Maps
-				//TODO Request High Accuracy with LocationSettings
-				//TODO delete locationManager and locationProvider
-				locationProviderClient = LocationServices.getFusedLocationProviderClient(activity);
-				locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
-				final boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+				//Check Permissions
 				if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)
 						!= PackageManager.PERMISSION_GRANTED) {
 					ActivityCompat.requestPermissions(activity,
@@ -301,23 +324,48 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 							REQUEST_PERMISSION_ACCESS_FINE_LOCATION);
 					return;
 				}
-				if (gpsEnabled) {
-					locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-						@Override
-						public void onSuccess(Location location) {
-							if (location != null) {
-								inputLongitude.setText(doubleToString(location.getLongitude()));
-								inputLatitude.setText(doubleToString(location.getLatitude()));
-							}else{
-								Toast.makeText(activity,"GPS Koordinaten konnten nicht ermittelt werden",
-										Toast.LENGTH_LONG).show();
+
+				final LocationRequest locationRequest = LocationRequest.create();
+				locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); //Request GPS - Data
+				LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+						.addLocationRequest(locationRequest);
+				SettingsClient client = LocationServices.getSettingsClient(activity);
+				client.checkLocationSettings(builder.build()).addOnSuccessListener(new OnSuccessListener<LocationSettingsResponse>() {
+					@Override
+					public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
+						locationProviderClient = LocationServices.getFusedLocationProviderClient(activity);
+						locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+							@Override
+							public void onSuccess(Location location) {
+								if (location != null) {
+									inputLongitude.setText(doubleToString(location.getLongitude()));
+									inputLatitude.setText(doubleToString(location.getLatitude()));
+								} else {
+									Toast.makeText(activity, "GPS Koordinaten konnten nicht ermittelt werden",
+											Toast.LENGTH_LONG).show();
+								}
+							}
+						});
+					}
+				}).addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception e) {
+						if (e instanceof ResolvableApiException) {
+							// Location settings are not satisfied, but this can be fixed
+							// by showing the user a dialog.
+							try {
+								// Show the dialog by calling startResolutionForResult(),
+								// and check the result in onActivityResult().
+								ResolvableApiException resolvable = (ResolvableApiException) e;
+								resolvable.startResolutionForResult(QuestionnaireAllgemeinActivity.this,
+										REQUEST_CHECK_SETTINGS);
+							} catch (IntentSender.SendIntentException sendEx) {
+								// Ignore the error.
 							}
 						}
-					});
-				}else{
-					DialogFragment gpsDisabledDialog = new gpsDisabledDialog();
-					gpsDisabledDialog.show(getSupportFragmentManager(),"gpsDisabledDialog");
-				}
+					}
+				});
+
 			}
 		};
 	}
