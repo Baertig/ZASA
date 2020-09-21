@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import de.badresden.zasa.Fragments.deleteStauanlageDialogFragment;
+import de.badresden.zasa.fragments.deleteStauanlageDialogFragment;
 import de.badresden.zasa.R;
 import de.badresden.zasa.StauanlageHolder;
 import de.badresden.zasa.StauanlageSimplyfied;
@@ -174,7 +174,7 @@ public class FinishedQuestionnairesActivity extends AppCompatActivity implements
             Uri uri = null;
             if (data != null) {
                 uri = data.getData();
-                printStauanlage(StauanlageHolder.getStauanlage().getAttributesDetailed(currentActivity),
+                printStauanlage(StauanlageHolder.getStauanlage().getAttributeDetailedList(currentActivity),
                         currentActivity, uri); //FIXME maybe a AsyncTask should be used here
                 StauanlageHolder.clear(); //Stauanlage aus zwischenspeicher löschen
             }

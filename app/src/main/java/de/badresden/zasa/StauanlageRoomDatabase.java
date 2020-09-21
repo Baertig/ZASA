@@ -9,6 +9,7 @@ import androidx.room.TypeConverters;
 
 import de.badresden.zasa.converters.AnswerTypeConverter;
 import de.badresden.zasa.converters.DateTypeConverter;
+import de.badresden.zasa.converters.HoehenbezugssystemeTypeConverter;
 
 //Autor: Georg
 
@@ -19,7 +20,7 @@ import de.badresden.zasa.converters.DateTypeConverter;
  */
 @SuppressWarnings("WeakerAccess")
 @Database(entities = {Stauanlage.class}, version = 1)
-@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class})
+@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class, HoehenbezugssystemeTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
     public abstract StauanlageDao stauanlageDao();

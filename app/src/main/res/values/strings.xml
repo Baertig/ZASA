@@ -34,7 +34,11 @@
     <string name="lbl_question_gewaesser">gestautes Gewässer</string>
     <string name="lbl_question_grabende_tiere">Grabende Tiere</string>
     <string name="lbl_question_hebungen_erd">sichtbare Hebungen</string>
-    <string name="lbl_question_hoehe">Höhe Absperrbauwerk über Gründung (m)</string>
+    <string name="lbl_question_hoehe_ueber_gruendung">Höhe über Gründung [m]</string>
+    <string name="lbl_question_hoehe_ueber_gelaende">Höhe über Gelände [m]</string>
+    <string name="lbl_question_hoehe_oberkante_krone">Höhe Oberkante Krone [m]</string>
+    <string name="lbl_question_hoehe_tiefster_punkt">tiefster Punkt im Gelände [m]</string>
+    <string name="helper_text_question_hoehe_tiefster_punkt">auf der Luftseite</string>
     <string name="lbl_question_kippungen">Neigungsänderungen, Kippungen</string>
     <string name="lbl_question_lage">Geographische Lage</string>
     <string name="lbl_question_materialaustritt_erd">Materialaustrag durch Sickerwasser</string>
@@ -94,5 +98,7 @@
     <string name="ort">Ort</string>
     <string name="strasseNr">Straße Hausnummer</string>
     <string name="heading_bauwerk">Bauwerk</string>
+    <string name="einzugsgebiet_der_anlage">Einzugsgebiet der Anlage [km²]</string>
+    <string name="hoehenbezugssystem">Höhenbezugssystem</string>
 
 </resources>

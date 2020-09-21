@@ -48,12 +48,28 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
 
     @ColumnInfo(name = "gestautes_gewaesser")
     public String gestautesGewaesser;
+    @ColumnInfo(name = "einzugsgebiet_der_anlage_in_sqkm")
+    public Double einzugsgebietDerAnlageInsqkm; 
     @ColumnInfo(name = "eigentuemer_betreiber")
     public String eigentuemerBetreiber;
     @ColumnInfo(name = "art_des_absperrbauwerkes")
     public String artDesAbsperrauwerkes;
     @ColumnInfo(name = "hoehe_absperrwerk_ueber_gruendung")
     public Double hoeheAbsperrwerkUeberGruendung;
+    @ColumnInfo(name = "hohe_absperrwerk_ueber_gruendung_hoehenbezugssystem")
+    public Hoehenbezugssysteme hoeheAbsperrwerkUeberGruendungHoehenbezugssystem;
+    @ColumnInfo(name = "hoehe_absperrwerk_ueber_gelaende")
+    public Double hoeheAbsperrwerkUeberGelaende;
+    @ColumnInfo(name = "hoehe_absperrwerk_ueber_gelaende_hoehenbezugssystem")
+    public Hoehenbezugssysteme hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem;
+    @ColumnInfo(name = "hoehe_absperrwerk_oberkante_krone")
+    public Double hoeheAbsperrwerkOberkanteKrone;
+    @ColumnInfo(name = "hoehe_absperrwerk_oberkante_krone_hoehenbezugssystem")
+    public Hoehenbezugssysteme hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem;
+    @ColumnInfo(name = "hoehe_tiefster_punkt_im_gelaende_luftseite")
+    public Double hoeheTiefsterPunktImGelaendeLuftseite;
+    @ColumnInfo(name = "hoehe_tiefster_punkt_im_gelaende_luftseite_hoehenbezugssystem")
+    public Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem;
     @ColumnInfo(name = "stauinhalt_in_cbm")
     public Double stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
@@ -161,14 +177,24 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public Answer fehlstellenImMauerwerk;
 
 
-    //public Stauanlage(){}
+    public Stauanlage(){
+        this.hoeheAbsperrwerkUeberGruendungHoehenbezugssystem = Hoehenbezugssysteme.HN;
+        this.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem = Hoehenbezugssysteme.HN;
+        this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem = Hoehenbezugssysteme.HN;
+        this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem = Hoehenbezugssysteme.HN;
+    }
 
     /**
      * Methode um die Eigenschaften der Kategorie "Allgemein" zu setzten
      */
     public void updateAllgemein(String nameDerAnlage, Double longitude, Double latitude, String plz, String stadt, String strasseeNr,
-                                String gestautesGewaesser, String eigentuemerBetreiber,
-                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung, Double stauinhaltInCbm,
+                                String gestautesGewaesser, Double einzugsgebietDerAnlageInsqkm, String eigentuemerBetreiber,
+                                String artDesAbsperrauwerkes, Double hoeheAbsperrwerkUeberGruendung,
+                                Hoehenbezugssysteme hoeheAbsperrwerkUeberGruendungHoehenbezugssystem,
+                                Double hoeheAbsperrwerkUeberGelaende, Hoehenbezugssysteme hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem,
+                                Double hoeheAbsperrwerkOberkanteKrone, Hoehenbezugssysteme hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem,
+                                Double hoeheTiefsterPunktImGelaendeLuftseite, Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem,
+                                Double stauinhaltInCbm,
                                 Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde, Answer betriebsvorschriftNormalfallLiegtVor,
                                 Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
@@ -179,9 +205,17 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.ort = stadt;
         this.strasseNr = strasseeNr;
         this.gestautesGewaesser = gestautesGewaesser;
+        this.einzugsgebietDerAnlageInsqkm = einzugsgebietDerAnlageInsqkm; 
         this.eigentuemerBetreiber = eigentuemerBetreiber;
         this.artDesAbsperrauwerkes = artDesAbsperrauwerkes;
         this.hoeheAbsperrwerkUeberGruendung = hoeheAbsperrwerkUeberGruendung;
+        this.hoeheAbsperrwerkUeberGruendungHoehenbezugssystem = hoeheAbsperrwerkUeberGruendungHoehenbezugssystem;
+        this.hoeheAbsperrwerkUeberGelaende = hoeheAbsperrwerkUeberGelaende;
+        this.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem = hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem;
+        this.hoeheAbsperrwerkOberkanteKrone = hoeheAbsperrwerkOberkanteKrone;
+        this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem = hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem;
+        this.hoeheTiefsterPunktImGelaendeLuftseite = hoeheTiefsterPunktImGelaendeLuftseite;
+        this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem = hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem;
         this.stauinhaltInCbm = stauinhaltInCbm;
         this.bHQ1InCbmProSekunde = bHQ1InCbmProSekunde;
         this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
@@ -259,69 +293,78 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
      * @return returns HashMap representing the Stauanlage with a description of every field as the key and its value. Should only be used with foreach loops. Don't try to get something with a Key.
      *
      */
-    public ArrayList<AttributeDetailed> getAttributesDetailed(Activity activity){
-        ArrayList<AttributeDetailed> attributesDetailed = new ArrayList<>();
+    public ArrayList<AttributeDetailed> getAttributeDetailedList(Activity activity){
+        ArrayList<AttributeDetailed> attributeDetailedList = new ArrayList<>();
         //Allgemeine Angaben
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.questionnaire_table_title), this.nameDerAnlage));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.plz));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe),this.hoeheAbsperrwerkUeberGruendung));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_normalbetrieb), this.betriebsvorschriftNormalfallLiegtVor));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_hochwasserfall), this.betriebsvorschriftHochwasserLiegtVor));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.questionnaire_table_title), this.nameDerAnlage));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_lage), this.plz));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gewaesser), this.gestautesGewaesser));
+        attributeDetailedList.add(new AttributeDetailed(activity.getString(R.string.einzugsgebiet_der_anlage), this.einzugsgebietDerAnlageInsqkm)); 
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes));
+        //TODO think about how to add the Hoehenbezugssystem Information to the list
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gruendung),this.hoeheAbsperrwerkUeberGruendung.toString()
+                + " (" + this.hoeheAbsperrwerkUeberGruendungHoehenbezugssystem.toString() + ")"));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gelaende), this.hoeheAbsperrwerkUeberGruendung.toString()
+                + " (" + this.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem.toString() + ")"));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_oberkante_krone), this.hoeheAbsperrwerkOberkanteKrone.toString()
+                + " (" + this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem.toString() + ")"));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_tiefster_punkt), this.hoeheTiefsterPunktImGelaendeLuftseite.toString()
+                + " (" + this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem.toString() + ")"));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_normalbetrieb), this.betriebsvorschriftNormalfallLiegtVor));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_hochwasserfall), this.betriebsvorschriftHochwasserLiegtVor));
         //Tragfähigkeit
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_verhaeltnis),
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_verhaeltnis),
                 this.wasserseitigZuLuftseitigKleinerEinszuDrei));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_statische_berechnung), this.statischeBerechnungLiegtVor));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_statische_berechnung), this.statischeBerechnungLiegtVor));
         //Gebrauchstauglichkeit
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe1), this.qHWEVonBHW1GoesserGleichBHQ1)); //FIXME vllt sollte eher QHWE angezeigt werden
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe2), this.qHWEVonBHW2GroesserGleichBHQ2)); //FIXME und das ein Hinweis kommen das es nicht größer gleich ist...
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_nachweis_dvwk),
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe1), this.qHWEVonBHW1GoesserGleichBHQ1)); //FIXME vllt sollte eher QHWE angezeigt werden
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe2), this.qHWEVonBHW2GroesserGleichBHQ2)); //FIXME und das ein Hinweis kommen das es nicht größer gleich ist...
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_nachweis_dvwk),
             this.nachweisNachDVWKMbl246MitImBF2Um15ProzentReduzierterWindgeschwindigkeit));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsauffaelligkeiten),
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsauffaelligkeiten),
                 this.bisherigeBetriebsauffaelligkeiten));
         // -- Hochwasserentlastung(HWE)
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_hwe), this.querschnittsreduktionDerWasserwege));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_wasserwege), this.fehlstellenOderBeschaedigungenAnWasserwegen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_hwe), this.fehlstellenOderBeschaedigungenImTosbeckenHWE));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_frei_und_funktionstuechtig),
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_hwe), this.querschnittsreduktionDerWasserwege));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_wasserwege), this.fehlstellenOderBeschaedigungenAnWasserwegen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_hwe), this.fehlstellenOderBeschaedigungenImTosbeckenHWE));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_frei_und_funktionstuechtig),
                 this.treibgutsperreUndGrobrechenUndPalisadenrechenFreiUndFunktionstuechtig));
         // -- Grundablass
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_ga), this.querschnittsreduktionImGA));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_ga), this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_ga), this.fehlstellenOderBeschaedigungenImTosbeckenGA));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_schwergaengigkeit_verschluss), this.schwergaengigkeitOderBlockierenDesVerschlusses));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_querschnittsreduktion_ga), this.querschnittsreduktionImGA));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_ga), this.fehlstellenOderBeschaedigungenOderUndichtigkeitenGA));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_beschaedigungen_tosbecken_ga), this.fehlstellenOderBeschaedigungenImTosbeckenGA));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_schwergaengigkeit_verschluss), this.schwergaengigkeitOderBlockierenDesVerschlusses));
         // -- Messeinrichtungen
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_messeinrichtungen_funktionsfaehig), this.messeinrichtungFunktionsfaehig));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_messeinrichtungen_funktionsfaehig), this.messeinrichtungFunktionsfaehig));
         //Dauerhaftigkeit
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_uferveraenderungen), this.uferveraenderungenDesStausees));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_uferveraenderungen), this.uferveraenderungenDesStausees));
         // -- Veränderungen an Erdbauwerken
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_rutschungen), this.rutschungen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_erd), this.risseErdbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_erd), this.sichtbareSetzungenErdbaubau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hebungen_erd), this.sichtbareHebungen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_erd), this.sichtbareHorizontalverschiebungenErdbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_erd), this.luftseitigeWasseraustritteErdbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_materialaustritt_erd), this.materialaustragDurchSickerwasser));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_erosion_erd), this.erosionDerWasserseitigenSchutzschicht));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_grasnarbe), this.fehlstellenInDerGrasnarbeAufDemDamm));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gehoelzbewuchs), this.gehoelzbewuchsOhneZusatzquerschnitt));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_visuelle_einschraenkung),
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_rutschungen), this.rutschungen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_erd), this.risseErdbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_erd), this.sichtbareSetzungenErdbaubau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hebungen_erd), this.sichtbareHebungen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_erd), this.sichtbareHorizontalverschiebungenErdbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_erd), this.luftseitigeWasseraustritteErdbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_materialaustritt_erd), this.materialaustragDurchSickerwasser));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_erosion_erd), this.erosionDerWasserseitigenSchutzschicht));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_grasnarbe), this.fehlstellenInDerGrasnarbeAufDemDamm));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_gehoelzbewuchs), this.gehoelzbewuchsOhneZusatzquerschnitt));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_visuelle_einschraenkung),
                 this.einschraenkungVisuelleInspektionsmoeglichkeitenBewuchsLuftseitigenBoeschung));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_grabende_tiere), this.grabendeTiere));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_grabende_tiere), this.grabendeTiere));
         // -- Veränderungen an Massivbauwerken
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_massiv), this.risseMassivbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_massiv), this.sichtbareSetzungenMassivbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_massiv), this.sichtbareHorizontalverschiebungenMassivbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_kippungen), this.neigungsaenderungenOderKippungen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_abplatzungen), this.abplatzungen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_auswaschungen), this.auswaschungenOderAusbluehungen));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_massiv), this.luftseitigeWasseraustritteMassivbau));
-        attributesDetailed.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_mauerwerk), this.fehlstellenImMauerwerk));
-        return attributesDetailed;
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_risse_massiv), this.risseMassivbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_setzungen_massiv), this.sichtbareSetzungenMassivbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_verschiebungen_massiv), this.sichtbareHorizontalverschiebungenMassivbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_kippungen), this.neigungsaenderungenOderKippungen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_abplatzungen), this.abplatzungen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_auswaschungen), this.auswaschungenOderAusbluehungen));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_massiv), this.luftseitigeWasseraustritteMassivbau));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_mauerwerk), this.fehlstellenImMauerwerk));
+        return attributeDetailedList;
     }
 }

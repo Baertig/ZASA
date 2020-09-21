@@ -1,4 +1,4 @@
-package de.badresden.zasa.Fragments;
+package de.badresden.zasa.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

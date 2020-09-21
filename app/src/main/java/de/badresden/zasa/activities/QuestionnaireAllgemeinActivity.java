@@ -4,12 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -21,9 +19,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -38,11 +39,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import de.badresden.zasa.Answer;
-import de.badresden.zasa.Fragments.gpsDisabledDialog;
+import de.badresden.zasa.Hoehenbezugssysteme;
 import de.badresden.zasa.R;
 import de.badresden.zasa.Stauanlage;
 import de.badresden.zasa.StauanlageHolder;
@@ -63,8 +66,16 @@ import static de.badresden.zasa.functions.HelpFunctions.doubleToString;
 public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
 	private static final String LOG_TAG = QuestionnaireAllgemeinActivity.class.getSimpleName();
-	private static final int REQUEST_PERMISSION_ACCESS_FINE_LOCATION = 69;
+	private static final int REQUEST_PERMISSION_ACCESS_LOCATION = 69;
 	private static final int REQUEST_CHECK_SETTINGS = 420;
+	private static final ArrayList<String> HOEHENBEZUGSSYSTEME = new ArrayList<String>(){
+		{
+			add(String.valueOf(Hoehenbezugssysteme.HN));
+			add(String.valueOf(Hoehenbezugssysteme.NHN92));
+			add(String.valueOf(Hoehenbezugssysteme.NHN2016));
+			add(String.valueOf(Hoehenbezugssysteme.NHN2016));
+		}
+	};
 
 	private LocationManager locationManager;
 	private LocationProvider gpsProvider;
@@ -85,9 +96,17 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private TextInputEditText inputOrt;
 	private TextInputEditText inputStrasseNr;
 	private TextInputEditText inputGewaesser;
+	private TextInputEditText inputEinzugsgebiet;
 	private TextInputEditText inputEigentuemer;
 	private TextInputEditText inputArtDesAbsperrbauwerkes;
-	private TextInputEditText inputHoehe;
+	private TextInputEditText inputHoeheGruendung;
+	private Spinner inputHoehenbezugssystemHoheGruendung;
+	private TextInputEditText inputHoeheGelaende;
+	private Spinner inputHoehenbezugssystemHoheGelaende;
+	private TextInputEditText inputHoeheOberkanteKrone;
+	private Spinner inputHoehenbezugssystemOberkanteKrone;
+	private TextInputEditText inputTiefsterPunktGelaende;
+	private Spinner inputHoehenbezugssystemTiefsterPunktGelaende;
 	private TextInputEditText inputStauinhalt;
 	private TextInputEditText inputBHQ1;
 	private TextInputEditText inputBHQ2;
@@ -147,7 +166,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		if(requestCode == REQUEST_PERMISSION_ACCESS_FINE_LOCATION){
+		if(requestCode == REQUEST_PERMISSION_ACCESS_LOCATION){
 			// If request is cancelled, the result arrays are empty.
 			if (grantResults.length > 0
 					&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -173,9 +192,21 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputOrt.setText(stauanlage.ort);
 		inputStrasseNr.setText(stauanlage.strasseNr);
 		inputGewaesser.setText(stauanlage.gestautesGewaesser);
+		inputEinzugsgebiet.setText(doubleToString(stauanlage.einzugsgebietDerAnlageInsqkm));
 		inputEigentuemer.setText(stauanlage.eigentuemerBetreiber);
 		inputArtDesAbsperrbauwerkes.setText(stauanlage.artDesAbsperrauwerkes);
-		inputHoehe.setText(doubleToString(stauanlage.hoeheAbsperrwerkUeberGruendung));
+		inputHoeheGruendung.setText(doubleToString(stauanlage.hoeheAbsperrwerkUeberGruendung));
+		inputHoehenbezugssystemHoheGruendung.setSelection(HOEHENBEZUGSSYSTEME.indexOf(
+				stauanlage.hoeheAbsperrwerkUeberGruendungHoehenbezugssystem.toString()));
+		inputHoeheGelaende.setText(doubleToString(stauanlage.hoeheAbsperrwerkUeberGelaende));
+		inputHoehenbezugssystemHoheGelaende.setSelection(HOEHENBEZUGSSYSTEME.indexOf(
+				stauanlage.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem.toString()));
+		inputHoeheOberkanteKrone.setText(doubleToString(stauanlage.hoeheAbsperrwerkOberkanteKrone));
+		inputHoehenbezugssystemOberkanteKrone.setSelection(HOEHENBEZUGSSYSTEME.indexOf(
+				stauanlage.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem.toString()));
+		inputTiefsterPunktGelaende.setText(doubleToString(stauanlage.hoeheTiefsterPunktImGelaendeLuftseite));
+		inputHoehenbezugssystemTiefsterPunktGelaende.setSelection(HOEHENBEZUGSSYSTEME.indexOf(
+				stauanlage.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem.toString()));
 		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
@@ -209,14 +240,27 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		//es wird auf nicht zulässige Werte im Feld geprüft dementsprechend wird die Variable gesetzt
 		Double longitude = safeParseStringToDouble(inputLongitude.getText().toString());
 		Double latitude = safeParseStringToDouble(inputLatitude.getText().toString());
-		Double hoehe = safeParseStringToDouble(inputHoehe.getText().toString());
+		Double einzugsgebiet = safeParseStringToDouble(inputEinzugsgebiet.getText().toString());
+		Double hoeheGruendung = safeParseStringToDouble(inputHoeheGruendung.getText().toString());
+		Double hoeheGelaende = safeParseStringToDouble(inputHoeheGelaende.getText().toString());
+		Double hoeheOberkanteKrone = safeParseStringToDouble(inputHoeheOberkanteKrone.getText().toString());
+		Double hoeheTiefsterPunkt = safeParseStringToDouble(inputTiefsterPunktGelaende.getText().toString());
 		Double Stauinhalt = safeParseStringToDouble(inputStauinhalt.getText().toString());
 		Double bHQ1 = safeParseStringToDouble(inputBHQ1.getText().toString());
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
+		Hoehenbezugssysteme hoehenbezugssystemeHoheGruendung = Hoehenbezugssysteme.valueOf(
+				inputHoehenbezugssystemHoheGruendung.getSelectedItem().toString());
+		Hoehenbezugssysteme hoehenbezugssystemHoeheGelaende = Hoehenbezugssysteme.valueOf(
+				inputHoehenbezugssystemHoheGruendung.getSelectedItem().toString());
+		Hoehenbezugssysteme hoehenbezugssystemHoeheOberkanteKrone = Hoehenbezugssysteme.valueOf(
+				inputHoehenbezugssystemOberkanteKrone.getSelectedItem().toString());
+		Hoehenbezugssysteme hoehenbezugssystemHoeheTiefsterPunkt = Hoehenbezugssysteme.valueOf(
+				inputHoehenbezugssystemTiefsterPunktGelaende.getSelectedItem().toString());
 		if (StauanlageHolder.getStauanlage() == null) {
 			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
 			return;
 		}
+
 
 		StauanlageHolder.getStauanlage().updateAllgemein(
 				inputNameDerAnlage.getText().toString(),
@@ -226,9 +270,17 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				inputOrt.getText().toString(),
 				inputStrasseNr.getText().toString(),
 				inputGewaesser.getText().toString(),
+				einzugsgebiet,
 				inputEigentuemer.getText().toString(),
 				inputArtDesAbsperrbauwerkes.getText().toString(),
-				hoehe,
+				hoeheGruendung,
+				hoehenbezugssystemeHoheGruendung,
+				hoeheGelaende,
+				hoehenbezugssystemHoeheGelaende,
+				hoeheOberkanteKrone,
+				hoehenbezugssystemHoeheOberkanteKrone,
+				hoeheTiefsterPunkt,
+				hoehenbezugssystemHoeheTiefsterPunkt,
 				Stauinhalt,
 				bHQ1,
 				bHQ2,
@@ -259,15 +311,32 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputOrt = findViewById(R.id.answer_stadt);
 		inputStrasseNr = findViewById(R.id.answer_strasseNr);
 		inputGewaesser = findViewById(R.id.answer_gewaesser);
+		inputEinzugsgebiet = findViewById(R.id.answer_einzugsgebiet);
 		inputEigentuemer = findViewById(R.id.answer_eigentuemer);
 		inputArtDesAbsperrbauwerkes = findViewById(R.id.answer_art_des_absperrbauwerkes);
-		inputHoehe = findViewById(R.id.answer_hoehe);
+		inputHoeheGruendung = findViewById(R.id.answer_hoehe_ueber_gruendung);
+		inputHoehenbezugssystemHoheGruendung = findViewById(R.id.bezugssystem_hoehe_ueber_gruendung);
+		inputHoeheGelaende = findViewById(R.id.answer_hoehe_ueber_gelaende);
+		inputHoehenbezugssystemHoheGelaende = findViewById(R.id.bezugssystem_hoehe_ueber_gelaende);
+		inputHoeheOberkanteKrone = findViewById(R.id.answer_hoehe_oberkante_krone);
+		inputHoehenbezugssystemOberkanteKrone = findViewById(R.id.bezugssystem_hoehe_oberkante_krone);
+		inputTiefsterPunktGelaende = findViewById(R.id.answer_hoehe_tiefster_punkt);
+		inputHoehenbezugssystemTiefsterPunktGelaende = findViewById(R.id.bezugssystem_hoehe_tiefster_punkt);
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);
 		inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
 		inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
+		//TODO set List with possible answers for hohenbezugssystem ...
 		//
+		ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+				android.R.layout.simple_spinner_item, HOEHENBEZUGSSYSTEME);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		inputHoehenbezugssystemHoheGruendung.setAdapter(adapter);
+		inputHoehenbezugssystemHoheGelaende.setAdapter(adapter);
+		inputHoehenbezugssystemOberkanteKrone.setAdapter(adapter);
+		inputHoehenbezugssystemTiefsterPunktGelaende.setAdapter(adapter);
+
 		// inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
 	}
 
@@ -321,7 +390,14 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 						!= PackageManager.PERMISSION_GRANTED) {
 					ActivityCompat.requestPermissions(activity,
 							new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-							REQUEST_PERMISSION_ACCESS_FINE_LOCATION);
+							REQUEST_PERMISSION_ACCESS_LOCATION);
+					return;
+				}
+				if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION)
+						!= PackageManager.PERMISSION_GRANTED) {
+					ActivityCompat.requestPermissions(activity,
+							new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+							REQUEST_PERMISSION_ACCESS_LOCATION);
 					return;
 				}
 
@@ -334,6 +410,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 					@Override
 					public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
 						locationProviderClient = LocationServices.getFusedLocationProviderClient(activity);
+						//persmission is checked already at begin of this method
 						locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
 							@Override
 							public void onSuccess(Location location) {

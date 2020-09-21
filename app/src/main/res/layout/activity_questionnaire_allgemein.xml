@@ -118,8 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -141,6 +140,21 @@
                     android:id="@+id/heading_Bauwerk"
                     style="@style/question_section_heading"
                     android:text="@string/heading_bauwerk" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/einzugsgebiet_der_anlage">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_einzugsgebiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -173,21 +187,146 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-                <com.google.android.material.textfield.TextInputLayout
+                <RelativeLayout
+                    android:id="@+id/constraintLayout_hohe_ueber_gruendung"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_hoehe">
+                    android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_hoehe"
-                        android:layout_width="match_parent"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_hohe_ueber_gruendung"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+                        android:hint="@string/lbl_question_hoehe_ueber_gruendung"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gruendung">
 
-                </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/answer_hoehe_ueber_gruendung"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:id="@+id/bezugssystem_hoehe_ueber_gruendung"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:dropDownWidth="match_parent"
+                        android:dropDownHeight="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:tooltipText="@string/hoehenbezugssystem" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_hohe_ueber_gelaende"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_hohe_ueber_gelaende"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_question_hoehe_ueber_gelaende"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gelaende">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/answer_hoehe_ueber_gelaende"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:id="@+id/bezugssystem_hoehe_ueber_gelaende"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:dropDownWidth="match_parent"
+                        android:dropDownHeight="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:tooltipText="@string/hoehenbezugssystem" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_hoehe_oberkante_krone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_hohe_oberkante_krone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_question_hoehe_oberkante_krone"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/bezugssystem_hoehe_oberkante_krone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/answer_hoehe_oberkante_krone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:id="@+id/bezugssystem_hoehe_oberkante_krone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:dropDownWidth="match_parent"
+                        android:dropDownHeight="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:tooltipText="@string/hoehenbezugssystem" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_hoehe_tiefster_punkt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_layout_hohe_tiefster_punkt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl_question_hoehe_tiefster_punkt"
+                        app:helperText="@string/helper_text_question_hoehe_tiefster_punkt"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/bezugssystem_hoehe_tiefster_punkt">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/answer_hoehe_tiefster_punkt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:id="@+id/bezugssystem_hoehe_tiefster_punkt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:dropDownWidth="match_parent"
+                        android:dropDownHeight="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:tooltipText="@string/hoehenbezugssystem" />
+
+                </RelativeLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
