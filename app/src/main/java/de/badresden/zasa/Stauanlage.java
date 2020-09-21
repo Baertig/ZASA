@@ -6,6 +6,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.BufferedOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -70,6 +71,14 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public Double hoeheTiefsterPunktImGelaendeLuftseite;
     @ColumnInfo(name = "hoehe_tiefster_punkt_im_gelaende_luftseite_hoehenbezugssystem")
     public Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem;
+    @ColumnInfo(name = "kronenbreite_in_m")
+    public Double kronenbreiteInm;
+    @ColumnInfo(name = "berme_vorhanden")
+    public Boolean bermeVorhanden;
+    @ColumnInfo(name = "berme_hoehe_in_m")
+    public Double bermeHoeheInm;
+    @ColumnInfo(name = "bermen_breite_in_m")
+    public Double bermeBreiteInm;
     @ColumnInfo(name = "stauinhalt_in_cbm")
     public Double stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
@@ -182,6 +191,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem = Hoehenbezugssysteme.HN;
         this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem = Hoehenbezugssysteme.HN;
         this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem = Hoehenbezugssysteme.HN;
+        this.bermeVorhanden = false;
     }
 
     /**
@@ -194,7 +204,8 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
                                 Double hoeheAbsperrwerkUeberGelaende, Hoehenbezugssysteme hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem,
                                 Double hoeheAbsperrwerkOberkanteKrone, Hoehenbezugssysteme hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem,
                                 Double hoeheTiefsterPunktImGelaendeLuftseite, Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem,
-                                Double stauinhaltInCbm,
+                                Double kronenbreiteInm, Boolean bermeVorhanden, Double bermeHoeheInm,
+                                Double bermeBreiteInm, Double stauinhaltInCbm,
                                 Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde, Answer betriebsvorschriftNormalfallLiegtVor,
                                 Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
@@ -216,6 +227,10 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem = hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem;
         this.hoeheTiefsterPunktImGelaendeLuftseite = hoeheTiefsterPunktImGelaendeLuftseite;
         this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem = hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem;
+        this.kronenbreiteInm = kronenbreiteInm;
+        this.bermeVorhanden = bermeVorhanden;
+        this.bermeHoeheInm = bermeHoeheInm;
+        this.bermeBreiteInm = bermeBreiteInm;
         this.stauinhaltInCbm = stauinhaltInCbm;
         this.bHQ1InCbmProSekunde = bHQ1InCbmProSekunde;
         this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
@@ -303,14 +318,20 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_eigentuemer),this.eigentuemerBetreiber));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_art_des_absperrbauwerkes), this.artDesAbsperrauwerkes));
         //TODO think about how to add the Hoehenbezugssystem Information to the list
-        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gruendung),this.hoeheAbsperrwerkUeberGruendung.toString()
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gruendung),this.hoeheAbsperrwerkUeberGruendung
                 + " (" + this.hoeheAbsperrwerkUeberGruendungHoehenbezugssystem.toString() + ")"));
-        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gelaende), this.hoeheAbsperrwerkUeberGruendung.toString()
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_ueber_gelaende), this.hoeheAbsperrwerkUeberGruendung
                 + " (" + this.hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem.toString() + ")"));
-        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_oberkante_krone), this.hoeheAbsperrwerkOberkanteKrone.toString()
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_oberkante_krone), this.hoeheAbsperrwerkOberkanteKrone
                 + " (" + this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem.toString() + ")"));
-        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_tiefster_punkt), this.hoeheTiefsterPunktImGelaendeLuftseite.toString()
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_hoehe_tiefster_punkt), this.hoeheTiefsterPunktImGelaendeLuftseite
                 + " (" + this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem.toString() + ")"));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_kronenbreite), this.kronenbreiteInm));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bermen_vorhanden), this.bermeVorhanden));
+        if(this.bermeVorhanden){
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_berme_hoehe), this.bermeHoeheInm));
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_berme_breite), this.bermeBreiteInm));
+        }
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));

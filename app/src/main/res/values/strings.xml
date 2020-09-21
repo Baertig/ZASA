@@ -87,6 +87,7 @@
     <string name="delete_stauanlage_delete">Löschen</string>
     <string name="delete_Stauanlage_cancel">Abbrechen</string>
     <string name="lbl_question_stauinhalt">Stauinhalt (m³):</string>
+    <string name="lbl_question_kronenbreite">Kronenbreite [m]</string>
     <string name="lbl_question_statische_berechnung">Statische Berechnung liegt vor</string>
     <string name="name_der_anlage">Name der Anlage</string>
     <string name="name_der_anlage_helper_text">Die Eingabe einer Arbeitsbezeichnung oder einer lfd. Nr. ist auch möglich</string>
@@ -100,5 +101,8 @@
     <string name="heading_bauwerk">Bauwerk</string>
     <string name="einzugsgebiet_der_anlage">Einzugsgebiet der Anlage [km²]</string>
     <string name="hoehenbezugssystem">Höhenbezugssystem</string>
+    <string name="lbl_question_bermen_vorhanden">Bermen vorhanden</string>
+    <string name="lbl_question_berme_hoehe">Hoehe der Berme [m]</string>
+    <string name="lbl_question_berme_breite">Breite der Berme [m]</string>
 
 </resources>

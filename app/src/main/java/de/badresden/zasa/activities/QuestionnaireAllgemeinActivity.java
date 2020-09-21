@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -107,6 +108,12 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private Spinner inputHoehenbezugssystemOberkanteKrone;
 	private TextInputEditText inputTiefsterPunktGelaende;
 	private Spinner inputHoehenbezugssystemTiefsterPunktGelaende;
+	private TextInputEditText inputKronenbreite;
+	private CheckBox inputBermeVorhanden;
+	private TextInputLayout layoutBermeHoehe;
+	private TextInputEditText inputBermeHoehe;
+	private TextInputLayout layoutBermeBreite;
+	private TextInputEditText inputBermeBreite;
 	private TextInputEditText inputStauinhalt;
 	private TextInputEditText inputBHQ1;
 	private TextInputEditText inputBHQ2;
@@ -122,6 +129,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private RadioButton BetriebsvorschriftHochwasserfall_NEIN;
 	private RadioButton BetriebsvorschriftHochwasserfall_UNBEKANNT;
 
+	//Checkbox variables
+	private Boolean bermeVorhanden;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -207,6 +216,13 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputTiefsterPunktGelaende.setText(doubleToString(stauanlage.hoeheTiefsterPunktImGelaendeLuftseite));
 		inputHoehenbezugssystemTiefsterPunktGelaende.setSelection(HOEHENBEZUGSSYSTEME.indexOf(
 				stauanlage.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem.toString()));
+		inputKronenbreite.setText(doubleToString(stauanlage.kronenbreiteInm));
+		inputBermeVorhanden.setChecked(stauanlage.bermeVorhanden);
+		setVisibilityOfBermeBreiteAndHoeheFields(stauanlage.bermeVorhanden);
+		if (stauanlage.bermeVorhanden) {
+			inputBermeHoehe.setText(doubleToString(stauanlage.bermeHoeheInm));
+			inputBermeBreite.setText(doubleToString(stauanlage.bermeBreiteInm));
+		}
 		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
@@ -248,6 +264,9 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double Stauinhalt = safeParseStringToDouble(inputStauinhalt.getText().toString());
 		Double bHQ1 = safeParseStringToDouble(inputBHQ1.getText().toString());
 		Double bHQ2 = safeParseStringToDouble(inputBHQ2.getText().toString());
+		Double kronenbreite =  safeParseStringToDouble(inputKronenbreite.getText().toString());
+		Double bermenHoehe = safeParseStringToDouble(inputBermeHoehe.getText().toString());
+		Double bermenBreite = safeParseStringToDouble(inputBermeBreite.getText().toString());
 		Hoehenbezugssysteme hoehenbezugssystemeHoheGruendung = Hoehenbezugssysteme.valueOf(
 				inputHoehenbezugssystemHoheGruendung.getSelectedItem().toString());
 		Hoehenbezugssysteme hoehenbezugssystemHoeheGelaende = Hoehenbezugssysteme.valueOf(
@@ -281,6 +300,10 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				hoehenbezugssystemHoeheOberkanteKrone,
 				hoeheTiefsterPunkt,
 				hoehenbezugssystemHoeheTiefsterPunkt,
+				kronenbreite,
+				this.inputBermeVorhanden.isChecked(),
+				bermenHoehe,
+				bermenBreite,
 				Stauinhalt,
 				bHQ1,
 				bHQ2,
@@ -322,6 +345,12 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputHoehenbezugssystemOberkanteKrone = findViewById(R.id.bezugssystem_hoehe_oberkante_krone);
 		inputTiefsterPunktGelaende = findViewById(R.id.answer_hoehe_tiefster_punkt);
 		inputHoehenbezugssystemTiefsterPunktGelaende = findViewById(R.id.bezugssystem_hoehe_tiefster_punkt);
+		inputKronenbreite = findViewById(R.id.answer_kronenbreite);
+		inputBermeVorhanden = findViewById(R.id.checkbox_berme_vorhanden);
+		layoutBermeHoehe = findViewById(R.id.layout_berme_hoehe);
+		inputBermeHoehe = findViewById(R.id.answer_berme_hoehe);
+		layoutBermeBreite = findViewById(R.id.layout_berme_breite);
+		inputBermeBreite = findViewById(R.id.answer_berme_breite);
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);
@@ -445,5 +474,31 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 
 			}
 		};
+	}
+
+	public void onCheckboxClicked(View view) {
+
+		boolean checked = ((CheckBox) view).isChecked();
+		//Check which checkbox was clicked
+		switch (view.getId()){
+			case R.id.checkbox_berme_vorhanden:
+				// handle bermen check box clicked an handle visiblility of the elements
+				this.setVisibilityOfBermeBreiteAndHoeheFields(checked);
+				if(!checked){
+					//if it isn't checked the fields should be empty 
+					this.inputBermeHoehe.setText("");
+					this.inputBermeBreite.setText("");
+				}
+				break;
+		}
+	}
+	private void setVisibilityOfBermeBreiteAndHoeheFields(Boolean bermeVorhanden){
+		if(bermeVorhanden){
+			this.layoutBermeHoehe.setVisibility(View.VISIBLE);
+			this.layoutBermeBreite.setVisibility(View.VISIBLE);
+		}else{
+			this.layoutBermeHoehe.setVisibility(View.GONE);
+			this.layoutBermeBreite.setVisibility(View.GONE);
+		}
 	}
 }

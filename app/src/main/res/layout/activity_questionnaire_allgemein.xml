@@ -331,6 +331,63 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_kronenbreite">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_kronenbreite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkbox_berme_vorhanden"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="@string/lbl_question_bermen_vorhanden"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_berme_hoehe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_berme_hoehe">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_berme_hoehe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_berme_breite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_berme_breite">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_berme_breite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_stauinhalt">
 
                     <com.google.android.material.textfield.TextInputEditText
