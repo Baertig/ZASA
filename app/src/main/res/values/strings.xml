@@ -64,7 +64,6 @@
     <string name="lbl_question_freibord_dammkrone">Freibord zur Dammkrone pauschal </string><string name="lbl_question_nachweis_dvwk">Nachweis nach DVWK-Mbl. 246 mit im BF2 um 15% reduzierter Windgeschwindigkeit</string>
     <string name="lbl_question_betriebsauffaelligkeiten">Bisherige Betriebsauffälligkeiten</string>
     <string name="helper_text_betriebsauffaelligkeiten">z.B. Überströmung, Erdbeben, Versagen von Bauteilen, schnelle Stauspiegelsenkung</string>
-    <string name="lbl_question_boeschungsneigung_verhaeltnis"><![CDATA[Wasserseitige Böschungsneigung zu luftseitige Böschungsneigung < 1:3]]></string>
 
     <string name="main_title">ZASA - ZustandsAnalyse \n StauAnlagen</string>
 
@@ -104,5 +103,7 @@
     <string name="lbl_question_bermen_vorhanden">Bermen vorhanden</string>
     <string name="lbl_question_berme_hoehe">Hoehe der Berme [m]</string>
     <string name="lbl_question_berme_breite">Breite der Berme [m]</string>
+    <string name="lbl_question_boeschungsneigung_luftseite">Böschungsneigung der Luftseite</string>
+    <string name="lbl_question_boeschungsneigung_wasserseite">Böschungsneigung der Wasserseite</string>
 
 </resources>

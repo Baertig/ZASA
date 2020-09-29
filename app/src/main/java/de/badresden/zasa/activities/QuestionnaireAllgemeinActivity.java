@@ -40,6 +40,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,9 +73,9 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private static final int REQUEST_CHECK_SETTINGS = 420;
 	private static final ArrayList<String> HOEHENBEZUGSSYSTEME = new ArrayList<String>(){
 		{
+			add(String.valueOf(Hoehenbezugssysteme.NN));
 			add(String.valueOf(Hoehenbezugssysteme.HN));
 			add(String.valueOf(Hoehenbezugssysteme.NHN92));
-			add(String.valueOf(Hoehenbezugssysteme.NHN2016));
 			add(String.valueOf(Hoehenbezugssysteme.NHN2016));
 		}
 	};
@@ -114,6 +116,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private TextInputEditText inputBermeHoehe;
 	private TextInputLayout layoutBermeBreite;
 	private TextInputEditText inputBermeBreite;
+	private TextInputEditText inputBoeschungsneigungLuftseite;
+	private TextInputEditText inputBoeschungsneigungWasserseite;
 	private TextInputEditText inputStauinhalt;
 	private TextInputEditText inputBHQ1;
 	private TextInputEditText inputBHQ2;
@@ -223,6 +227,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 			inputBermeHoehe.setText(doubleToString(stauanlage.bermeHoeheInm));
 			inputBermeBreite.setText(doubleToString(stauanlage.bermeBreiteInm));
 		}
+		inputBoeschungsneigungLuftseite.setText(doubleToString(stauanlage.boeschungsneigungLuftseite));
+		inputBoeschungsneigungWasserseite.setText(doubleToString(stauanlage.boeschungsneigungWasserseite));
 		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
@@ -267,6 +273,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		Double kronenbreite =  safeParseStringToDouble(inputKronenbreite.getText().toString());
 		Double bermenHoehe = safeParseStringToDouble(inputBermeHoehe.getText().toString());
 		Double bermenBreite = safeParseStringToDouble(inputBermeBreite.getText().toString());
+		Double boeschungsneigungLuftseite = safeParseStringToDouble(inputBoeschungsneigungLuftseite.getText().toString());
+		Double boeschungsneigungWasserseite = safeParseStringToDouble(inputBoeschungsneigungWasserseite.getText().toString());
 		Hoehenbezugssysteme hoehenbezugssystemeHoheGruendung = Hoehenbezugssysteme.valueOf(
 				inputHoehenbezugssystemHoheGruendung.getSelectedItem().toString());
 		Hoehenbezugssysteme hoehenbezugssystemHoeheGelaende = Hoehenbezugssysteme.valueOf(
@@ -304,6 +312,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				this.inputBermeVorhanden.isChecked(),
 				bermenHoehe,
 				bermenBreite,
+				boeschungsneigungLuftseite,
+				boeschungsneigungWasserseite,
 				Stauinhalt,
 				bHQ1,
 				bHQ2,
@@ -351,6 +361,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputBermeHoehe = findViewById(R.id.answer_berme_hoehe);
 		layoutBermeBreite = findViewById(R.id.layout_berme_breite);
 		inputBermeBreite = findViewById(R.id.answer_berme_breite);
+		inputBoeschungsneigungLuftseite = findViewById(R.id.answer_boeschungsneigung_luftseite);
+		inputBoeschungsneigungWasserseite = findViewById(R.id.answer_boeschungsneigung_wasserseite);
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);

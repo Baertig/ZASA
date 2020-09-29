@@ -388,6 +388,36 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_boeschungsneigung_luftseite">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_boeschungsneigung_luftseite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl_question_boeschungsneigung_wasserseite">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/answer_boeschungsneigung_wasserseite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="@string/lbl_question_stauinhalt">
 
                     <com.google.android.material.textfield.TextInputEditText

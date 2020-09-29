@@ -7,6 +7,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.BufferedOutputStream;
+import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -79,6 +80,10 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public Double bermeHoeheInm;
     @ColumnInfo(name = "bermen_breite_in_m")
     public Double bermeBreiteInm;
+    @ColumnInfo(name = "boeschungsneigung_luftseite")
+    public Double boeschungsneigungLuftseite;
+    @ColumnInfo(name = "boeschungsneigung_wasserseite")
+    public Double boeschungsneigungWasserseite;
     @ColumnInfo(name = "stauinhalt_in_cbm")
     public Double stauinhaltInCbm;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
@@ -94,8 +99,6 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
 
     //Tragfähigkeit
     //TODO wasserseitige Neigung und luftseitige Neigung abfragen
-    @ColumnInfo(name = "wasserseitige_boeschungsneigung_zu_luftseitige_boeschungsneigung_kleiner_1_zu_3")
-    public Answer wasserseitigZuLuftseitigKleinerEinszuDrei;
     @ColumnInfo(name = "statische_berechnung_liegt_vor")
     public Answer statischeBerechnungLiegtVor;
 
@@ -204,8 +207,8 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
                                 Double hoeheAbsperrwerkUeberGelaende, Hoehenbezugssysteme hoeheAbsperrwerkUeberGelaendeHoehenbezugssystem,
                                 Double hoeheAbsperrwerkOberkanteKrone, Hoehenbezugssysteme hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem,
                                 Double hoeheTiefsterPunktImGelaendeLuftseite, Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem,
-                                Double kronenbreiteInm, Boolean bermeVorhanden, Double bermeHoeheInm,
-                                Double bermeBreiteInm, Double stauinhaltInCbm,
+                                Double kronenbreiteInm, Boolean bermeVorhanden, Double bermeHoeheInm,Double bermeBreiteInm, Double boeschungsneigungLuftseite,
+                                Double boeschungsneigungWasserseite, Double stauinhaltInCbm,
                                 Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde, Answer betriebsvorschriftNormalfallLiegtVor,
                                 Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
@@ -231,6 +234,8 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.bermeVorhanden = bermeVorhanden;
         this.bermeHoeheInm = bermeHoeheInm;
         this.bermeBreiteInm = bermeBreiteInm;
+        this.boeschungsneigungLuftseite = boeschungsneigungLuftseite;
+        this.boeschungsneigungWasserseite = boeschungsneigungWasserseite;
         this.stauinhaltInCbm = stauinhaltInCbm;
         this.bHQ1InCbmProSekunde = bHQ1InCbmProSekunde;
         this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
@@ -241,8 +246,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     /**
      * Methode um die Eigenschaften der Kategorie "Tragfähigkeit" zu setzten
      */
-    public void updateTragfaehigkeit(Answer wasserseitigZuLuftseitigKleinerEinszuDrei, Answer statischeBerechnungLiegtVor) {
-        this.wasserseitigZuLuftseitigKleinerEinszuDrei = wasserseitigZuLuftseitigKleinerEinszuDrei;
+    public void updateTragfaehigkeit( Answer statischeBerechnungLiegtVor) {
         this.statischeBerechnungLiegtVor = statischeBerechnungLiegtVor;
     }
 
@@ -332,14 +336,14 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
             attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_berme_hoehe), this.bermeHoeheInm));
             attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_berme_breite), this.bermeBreiteInm));
         }
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_luftseite),this.boeschungsneigungLuftseite));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_wasserseite),this.boeschungsneigungWasserseite));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_normalbetrieb), this.betriebsvorschriftNormalfallLiegtVor));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_betriebsvorschrift_hochwasserfall), this.betriebsvorschriftHochwasserLiegtVor));
         //Tragfähigkeit
-        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_verhaeltnis),
-                this.wasserseitigZuLuftseitigKleinerEinszuDrei));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_statische_berechnung), this.statischeBerechnungLiegtVor));
         //Gebrauchstauglichkeit
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_qhwe1), this.qHWEVonBHW1GoesserGleichBHQ1)); //FIXME vllt sollte eher QHWE angezeigt werden
