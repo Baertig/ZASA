@@ -20,7 +20,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -40,12 +39,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import de.badresden.zasa.Answer;
 import de.badresden.zasa.Hoehenbezugssysteme;
@@ -118,6 +114,25 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private TextInputEditText inputBermeBreite;
 	private TextInputEditText inputBoeschungsneigungLuftseite;
 	private TextInputEditText inputBoeschungsneigungWasserseite;
+	//Material Dammoberflaeche
+	private CheckBox inputDammoberflaecheLuftseiteRasen;
+	private CheckBox inputDammoberflaecheLuftseiteSteinschuettung;
+	private CheckBox inputDammoberflaecheLuftseiteBuesche;
+	private CheckBox inputDammoberflaecheLuftseiteBaeume;
+	private TextInputEditText inputDammoberflaecheLuftseiteSonstige;
+
+	private CheckBox inputDammoberflaecheWasserseiteRasen;
+	private CheckBox inputDammoberflaecheWasserseiteSteinschuettung;
+	private CheckBox inputDammoberflaecheWasserseiteBuesche;
+	private CheckBox inputDammoberflaecheWasserseiteBaeume;
+	private TextInputEditText inputDammoberflaecheWasserseiteSonstige;
+
+	private CheckBox inputDammoberflaecheDammkroneRasen;
+	private CheckBox inputDammoberflaecheDammkroneSteinschuettung;
+	private CheckBox inputDammoberflaecheDammkroneBuesche;
+	private CheckBox inputDammoberflaecheDammkroneBaeume;
+	private TextInputEditText inputDammoberflaecheDammkroneSonstige;
+
 	private TextInputEditText inputStauinhalt;
 	private TextInputEditText inputBHQ1;
 	private TextInputEditText inputBHQ2;
@@ -229,6 +244,25 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		}
 		inputBoeschungsneigungLuftseite.setText(doubleToString(stauanlage.boeschungsneigungLuftseite));
 		inputBoeschungsneigungWasserseite.setText(doubleToString(stauanlage.boeschungsneigungWasserseite));
+
+		inputDammoberflaecheLuftseiteRasen.setChecked(stauanlage.dammoberflaecheLuftseiteRasen);
+		inputDammoberflaecheLuftseiteSteinschuettung.setChecked(stauanlage.dammoberflaecheLuftseiteSteinschuettung);
+		inputDammoberflaecheLuftseiteBuesche.setChecked(stauanlage.dammoberflaecheLuftseiteBuesche);
+		inputDammoberflaecheLuftseiteBaeume.setChecked(stauanlage.dammoberflaecheLuftseiteBaeume);
+		inputDammoberflaecheLuftseiteSonstige.setText(stauanlage.dammoberflaecheLuftseiteSonstige);
+
+		inputDammoberflaecheWasserseiteRasen.setChecked(stauanlage.dammoberflaecheWasserseiteRasen);
+		inputDammoberflaecheWasserseiteSteinschuettung.setChecked(stauanlage.dammoberflaecheWasserseiteSteinschuettung);
+		inputDammoberflaecheWasserseiteBuesche.setChecked(stauanlage.dammoberflaecheWasserseiteBuesche);
+		inputDammoberflaecheWasserseiteBaeume.setChecked(stauanlage.dammoberflaecheWasserseiteBaeume);
+		inputDammoberflaecheWasserseiteSonstige.setText(stauanlage.dammoberflaecheWasserseiteSonstige);
+
+		inputDammoberflaecheDammkroneRasen.setChecked(stauanlage.dammoberflaecheDammkroneRasen);
+		inputDammoberflaecheDammkroneSteinschuettung.setChecked(stauanlage.dammoberflaecheDammkroneSteinschuettung);
+		inputDammoberflaecheDammkroneBuesche.setChecked(stauanlage.dammoberflaecheDammkroneBuesche);
+		inputDammoberflaecheDammkroneBaeume.setChecked(stauanlage.dammoberflaecheDammkroneBaeume);
+		inputDammoberflaecheDammkroneSonstige.setText(stauanlage.dammoberflaecheDammkroneSonstige);
+
 		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
@@ -321,6 +355,30 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				BetriebsvorschriftHochwasserfall,
 				currentDate
 		);
+
+		StauanlageHolder.getStauanlage().setDammoberflaecheLuftseite(
+				inputDammoberflaecheLuftseiteRasen.isChecked(),
+				inputDammoberflaecheLuftseiteSteinschuettung.isChecked(),
+				inputDammoberflaecheLuftseiteBuesche.isChecked(),
+				inputDammoberflaecheLuftseiteBaeume.isChecked(),
+				inputDammoberflaecheLuftseiteSonstige.getText().toString()
+				);
+
+		StauanlageHolder.getStauanlage().setDammoberflaecheWasserseite(
+				inputDammoberflaecheWasserseiteRasen.isChecked(),
+				inputDammoberflaecheWasserseiteSteinschuettung.isChecked(),
+				inputDammoberflaecheWasserseiteBuesche.isChecked(),
+				inputDammoberflaecheWasserseiteBaeume.isChecked(),
+				inputDammoberflaecheWasserseiteSonstige.getText().toString()
+		);
+
+		StauanlageHolder.getStauanlage().setDammoberflaecheDammkrone(
+				inputDammoberflaecheDammkroneRasen.isChecked(),
+				inputDammoberflaecheDammkroneSteinschuettung.isChecked(),
+				inputDammoberflaecheDammkroneBuesche.isChecked(),
+				inputDammoberflaecheDammkroneBaeume.isChecked(),
+				inputDammoberflaecheDammkroneSonstige.getText().toString()
+		);
 		//nächste Activity oeffnen
 		Intent openQuestionnaireTragfaehigkeitIntent = new Intent(this, QuestionnaireTragfaehigkeitActivity.class);
 		Log.d(LOG_TAG, "Continue Button on page " + LOG_TAG + "clicked.");
@@ -363,6 +421,25 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputBermeBreite = findViewById(R.id.answer_berme_breite);
 		inputBoeschungsneigungLuftseite = findViewById(R.id.answer_boeschungsneigung_luftseite);
 		inputBoeschungsneigungWasserseite = findViewById(R.id.answer_boeschungsneigung_wasserseite);
+		//Material Dammoberflaeche:
+		inputDammoberflaecheLuftseiteRasen = findViewById(R.id.checkbox_dammoberflaeche_luftseite_rasen);
+		inputDammoberflaecheLuftseiteSteinschuettung = findViewById(R.id.checkbox_dammoberflaeche_luftseite_steinschuettung);
+		inputDammoberflaecheLuftseiteBuesche = findViewById(R.id.checkbox_dammoberflaeche_luftseite_buesche);
+		inputDammoberflaecheLuftseiteBaeume = findViewById(R.id.checkbox_dammoberflaeche_luftseite_baeume);
+		inputDammoberflaecheLuftseiteSonstige = findViewById(R.id.answer_dammoberflaeche_luftseite_sonstige);
+
+		inputDammoberflaecheWasserseiteRasen = findViewById(R.id.checkbox_dammoberflaeche_wasserseite_rasen);
+		inputDammoberflaecheWasserseiteSteinschuettung = findViewById(R.id.checkbox_dammoberflaeche_wasserseite_steinschuettung);
+		inputDammoberflaecheWasserseiteBuesche = findViewById(R.id.checkbox_dammoberflaeche_wasserseite_buesche);
+		inputDammoberflaecheWasserseiteBaeume = findViewById(R.id.checkbox_dammoberflaeche_wasserseite_baeume);
+		inputDammoberflaecheWasserseiteSonstige = findViewById(R.id.answer_dammoberflaeche_wasserseite_sonstige);
+
+		inputDammoberflaecheDammkroneRasen = findViewById(R.id.checkbox_dammoberflaeche_dammkrone_rasen);
+		inputDammoberflaecheDammkroneSteinschuettung = findViewById(R.id.checkbox_dammoberflaeche_dammkrone_steinschuettung);
+		inputDammoberflaecheDammkroneBuesche = findViewById(R.id.checkbox_dammoberflaeche_dammkrone_buesche);
+		inputDammoberflaecheDammkroneBaeume = findViewById(R.id.checkbox_dammoberflaeche_dammkrone_baeume);
+		inputDammoberflaecheDammkroneSonstige = findViewById(R.id.answer_dammoberflaeche_dammkrone_sonstige);
+
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);

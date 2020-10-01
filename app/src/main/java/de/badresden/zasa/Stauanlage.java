@@ -6,8 +6,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.io.BufferedOutputStream;
-import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,7 +21,6 @@ import java.util.Date;
 public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb der Name der Klasse
 //Die Namen der Variablen orientieren sich stark an der Vorlage um sie später eindeutig wiederzuerkennen, deshalb sind sie so lang
 //In den Activities wurden Abkürzungen verwendet, damit der Code übersichtlich bleibt.
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "primary_key")
     public int primaryKey;
@@ -84,8 +81,44 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
     public Double boeschungsneigungLuftseite;
     @ColumnInfo(name = "boeschungsneigung_wasserseite")
     public Double boeschungsneigungWasserseite;
+    //Material der Dammoberfläche - Luftseite
+    @ColumnInfo(name = "dammoberflaeche_luftseite_rasen")
+    public Boolean dammoberflaecheLuftseiteRasen;
+    @ColumnInfo(name = "dammoberlaeche_luftseite_steinschuettung")
+    public Boolean dammoberflaecheLuftseiteSteinschuettung;
+    @ColumnInfo(name = "dammoberlaeche_luftseite_buesche")
+    public Boolean dammoberflaecheLuftseiteBuesche;
+    @ColumnInfo(name = "dammoberlaeche_luftseite_baeume")
+    public Boolean dammoberflaecheLuftseiteBaeume;
+    @ColumnInfo(name = "dammoberlaeche_luftseite_sonstige")
+    public String dammoberflaecheLuftseiteSonstige;
+    //Material der Dammoberfläche - Wasserseite
+    @ColumnInfo(name = "dammoberflaeche_wasserseite_rasen")
+    public Boolean dammoberflaecheWasserseiteRasen;
+    @ColumnInfo(name = "dammoberlaeche_wasserseite_steinschuettung")
+    public Boolean dammoberflaecheWasserseiteSteinschuettung;
+    @ColumnInfo(name = "dammoberlaeche_wasserseite_buesche")
+    public Boolean dammoberflaecheWasserseiteBuesche;
+    @ColumnInfo(name = "dammoberlaeche_wasserseite_baeume")
+    public Boolean dammoberflaecheWasserseiteBaeume;
+    @ColumnInfo(name = "dammoberlaeche_wasserseite_sonstige")
+    public String dammoberflaecheWasserseiteSonstige;
+    //Material der Dammoberfläche - Dammkrone
+    @ColumnInfo(name = "dammoberflaeche_dammkrone_rasen")
+    public Boolean dammoberflaecheDammkroneRasen;
+    @ColumnInfo(name = "dammoberlaeche_dammkrone_steinschuettung")
+    public Boolean dammoberflaecheDammkroneSteinschuettung;
+    @ColumnInfo(name = "dammoberlaeche_dammkrone_buesche")
+    public Boolean dammoberflaecheDammkroneBuesche;
+    @ColumnInfo(name = "dammoberlaeche_dammkrone_baeume")
+    public Boolean dammoberflaecheDammkroneBaeume;
+    @ColumnInfo(name = "dammoberlaeche_dammkrone_sonstige")
+    public String dammoberflaecheDammkroneSonstige;
+
     @ColumnInfo(name = "stauinhalt_in_cbm")
     public Double stauinhaltInCbm;
+    @ColumnInfo(name = "klassifizierung")
+    public Klassifizierung klassifizierung;
     @ColumnInfo(name = "bhq1_in_cbm_pro_sekunde")
     public Double bHQ1InCbmProSekunde;
     @ColumnInfo(name = "bhq2_in_cbm_pro_sekunde")
@@ -195,6 +228,22 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem = Hoehenbezugssysteme.HN;
         this.hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem = Hoehenbezugssysteme.HN;
         this.bermeVorhanden = false;
+
+        this.dammoberflaecheLuftseiteRasen = false;
+        this.dammoberflaecheLuftseiteSteinschuettung = false;
+        this.dammoberflaecheLuftseiteBuesche = false;
+        this.dammoberflaecheLuftseiteBaeume = false;
+
+        this.dammoberflaecheWasserseiteRasen = false;
+        this.dammoberflaecheWasserseiteSteinschuettung = false;
+        this.dammoberflaecheWasserseiteBuesche = false;
+        this.dammoberflaecheWasserseiteBaeume = false;
+
+        this.dammoberflaecheDammkroneRasen = false;
+        this.dammoberflaecheDammkroneSteinschuettung = false;
+        this.dammoberflaecheDammkroneBuesche = false;
+        this.dammoberflaecheDammkroneBaeume = false;
+
     }
 
     /**
@@ -241,6 +290,30 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
         this.betriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
         this.betriebsvorschriftHochwasserLiegtVor = betriebsvorschriftHochwasserLiegtVor;
+    }
+
+    public void setDammoberflaecheLuftseite(Boolean rasen, Boolean steinschuettung, Boolean buesche, Boolean baeume, String sonstige){
+        this.dammoberflaecheLuftseiteRasen = rasen;
+        this.dammoberflaecheLuftseiteSteinschuettung = steinschuettung;
+        this.dammoberflaecheLuftseiteBuesche = buesche;
+        this.dammoberflaecheLuftseiteBaeume = baeume;
+        this.dammoberflaecheLuftseiteSonstige = sonstige;
+    }
+
+    public void setDammoberflaecheWasserseite(Boolean rasen, Boolean steinschuettung, Boolean buesche, Boolean baeume, String sonstige){
+        this.dammoberflaecheWasserseiteRasen = rasen;
+        this.dammoberflaecheWasserseiteSteinschuettung = steinschuettung;
+        this.dammoberflaecheWasserseiteBuesche = buesche;
+        this.dammoberflaecheWasserseiteBaeume = baeume;
+        this.dammoberflaecheWasserseiteSonstige = sonstige;
+    }
+
+    public void setDammoberflaecheDammkrone(Boolean rasen, Boolean steinschuettung, Boolean buesche, Boolean baeume, String sonstige){
+        this.dammoberflaecheDammkroneRasen = rasen;
+        this.dammoberflaecheDammkroneSteinschuettung = steinschuettung;
+        this.dammoberflaecheDammkroneBuesche = buesche;
+        this.dammoberflaecheDammkroneBaeume = baeume;
+        this.dammoberflaecheDammkroneSonstige = sonstige;
     }
 
     /**
@@ -338,6 +411,17 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         }
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_luftseite),this.boeschungsneigungLuftseite));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_boeschungsneigung_wasserseite),this.boeschungsneigungWasserseite));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_luftseite),this.getDammoberflaecheLuftseiteSummary(activity)));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_wasserseite),this.getDammoberflaecheWasserseiteSummary(activity)));
+        attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_dammkrone),this.getDammoberflaecheDammkroneSummary(activity)));
+        if(this.computeKlassifizierungwithHoeheAndStauinhalt() == null && this.klassifizierung != null){
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_only_manually_Klassifizierung),this.klassifizierung));
+        }else if(this.computeKlassifizierungwithHoeheAndStauinhalt() == this.klassifizierung){
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522),this.klassifizierung));
+        }else if(this.computeKlassifizierungwithHoeheAndStauinhalt() != this.klassifizierung){
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522),this.computeKlassifizierungwithHoeheAndStauinhalt()));
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_differing_manually_Klassifizierung), this.klassifizierung));
+        }
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq1), this.bHQ1InCbmProSekunde));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_bhq2), this.bHQ2InCbmProSekunde));
@@ -391,5 +475,109 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_wasseraustritte_massiv), this.luftseitigeWasseraustritteMassivbau));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_fehlstellen_mauerwerk), this.fehlstellenImMauerwerk));
         return attributeDetailedList;
+    }
+
+    public String getDammoberflaecheLuftseiteSummary(Activity activity){
+        String DammoberflaecheLuftseiteSummary = "";
+        if (this.dammoberflaecheLuftseiteRasen){
+            DammoberflaecheLuftseiteSummary += activity.getResources().getString(R.string.lbl_material_rasen) + ",";
+        }
+        if(this.dammoberflaecheLuftseiteSteinschuettung){
+            DammoberflaecheLuftseiteSummary += activity.getResources().getString(R.string.lbl_material_steinschuettung) + ",";
+        }
+        if(this.dammoberflaecheLuftseiteBuesche){
+            DammoberflaecheLuftseiteSummary += activity.getResources().getString(R.string.lbl_material_buesche) + ",";
+        }
+        if(this.dammoberflaecheLuftseiteBaeume){
+            DammoberflaecheLuftseiteSummary += activity.getResources().getString(R.string.lbl_material_baeume) + ",";
+        }
+        if(!this.dammoberflaecheLuftseiteSonstige.equals("")){
+            DammoberflaecheLuftseiteSummary += this.dammoberflaecheLuftseiteSonstige + ",";
+        }
+        return DammoberflaecheLuftseiteSummary.substring(0,DammoberflaecheLuftseiteSummary.length() -1); // strip last ","
+    }
+
+    public String getDammoberflaecheWasserseiteSummary(Activity activity){
+        String DammoberflaecheWasserseiteSummary = "";
+        if (this.dammoberflaecheWasserseiteRasen){
+            DammoberflaecheWasserseiteSummary += activity.getResources().getString(R.string.lbl_material_rasen) + ",";
+        }
+        if(this.dammoberflaecheWasserseiteSteinschuettung){
+            DammoberflaecheWasserseiteSummary += activity.getResources().getString(R.string.lbl_material_steinschuettung) + ",";
+        }
+        if(this.dammoberflaecheWasserseiteBuesche){
+            DammoberflaecheWasserseiteSummary += activity.getResources().getString(R.string.lbl_material_buesche) + ",";
+        }
+        if(this.dammoberflaecheWasserseiteBaeume){
+            DammoberflaecheWasserseiteSummary += activity.getResources().getString(R.string.lbl_material_baeume) + ",";
+        }
+        if(!this.dammoberflaecheWasserseiteSonstige.equals("")){
+            DammoberflaecheWasserseiteSummary += this.dammoberflaecheWasserseiteSonstige + ",";
+        }
+        return DammoberflaecheWasserseiteSummary.substring(0,DammoberflaecheWasserseiteSummary.length() -1); // strip last ","
+    }
+
+    public String getDammoberflaecheDammkroneSummary(Activity activity){
+        String DammoberflaecheDammkroneSummary = "";
+        if (this.dammoberflaecheDammkroneRasen){
+            DammoberflaecheDammkroneSummary += activity.getResources().getString(R.string.lbl_material_rasen) + ",";
+        }
+        if(this.dammoberflaecheDammkroneSteinschuettung){
+            DammoberflaecheDammkroneSummary += activity.getResources().getString(R.string.lbl_material_steinschuettung) + ",";
+        }
+        if(this.dammoberflaecheDammkroneBuesche){
+            DammoberflaecheDammkroneSummary += activity.getResources().getString(R.string.lbl_material_buesche) + ",";
+        }
+        if(this.dammoberflaecheDammkroneBaeume){
+            DammoberflaecheDammkroneSummary += activity.getResources().getString(R.string.lbl_material_baeume) + ",";
+        }
+        if(!this.dammoberflaecheDammkroneSonstige.equals("")){
+            DammoberflaecheDammkroneSummary += this.dammoberflaecheDammkroneSonstige + ",";
+        }
+        return DammoberflaecheDammkroneSummary.substring(0,DammoberflaecheDammkroneSummary.length() -1); // strip last ","
+    }
+
+    /**
+     *
+     * @return Gibt die Klassifizierung der Stauanlage basierend auf der hoehe und dem Stauinhalt zurück
+     */
+    public Klassifizierung computeKlassifizierungwithHoeheAndStauinhalt(){
+        if(this.hoeheAbsperrwerkUeberGruendung == null || this.stauinhaltInCbm == null){
+            return null;
+        }
+        if(this.hoeheAbsperrwerkUeberGruendung < 2 && this.stauinhaltInCbm < 10000){
+            return Klassifizierung.KLEINSTE_ANLAGE;
+        }else if(this.hoeheAbsperrwerkUeberGruendung < 4 && this.stauinhaltInCbm < 50000){
+            return Klassifizierung.SEHR_KLEINE_ANLAGE;
+        }else if(this.hoeheAbsperrwerkUeberGruendung < 6 && this.stauinhaltInCbm < 100000){
+            return Klassifizierung.KLEINE_ANLAGE;
+        }else {
+            return Klassifizierung.MITTLERE_ANLAGE; //FIXME just default value for now if it is too large
+        }
+    }
+
+
+    public enum Klassifizierung{
+        GROSSE_ANLAGE {
+            public String toString(){
+                return "große Anlage";
+            }
+        }, MITTLERE_ANLAGE{
+            public String toString(){
+                return "mittlere Anlage";
+            }
+        }, KLEINE_ANLAGE{
+            public String toString(){
+                return "kleine Anlage";
+            }
+        }, SEHR_KLEINE_ANLAGE{
+            public String toString(){
+                return "sehr kleine Anlage";
+            }
+        }, KLEINSTE_ANLAGE{
+            public String toString(){
+                return "kleinste Anlage";
+            }
+        }
     }
 }

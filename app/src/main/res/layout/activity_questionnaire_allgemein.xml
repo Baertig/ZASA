@@ -1,537 +1,651 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <ScrollView
-            android:id="@+id/scroll_allgemein"
+    <ScrollView
+        android:id="@+id/scroll_allgemein"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_name_der_anlage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:hint="@string/name_der_anlage"
+                app:errorEnabled="true"
+                app:helperText="@string/name_der_anlage_helper_text">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_name_der_anlage"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_name_der_anlage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/name_der_anlage"
-                    app:helperText="@string/name_der_anlage_helper_text"
-                    app:errorEnabled="true">
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/heading_lage"
+                style="@style/question_section_heading"
+                android:text="@string/lbl_question_lage" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/longitude"
+                app:endIconDrawable="@drawable/ic_location_on_black_24dp"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_longitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/latitude"
+                app:endIconDrawable="@drawable/ic_location_on_black_24dp"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_plz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/postalcode">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_plz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPostalAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_stadt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ort">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_stadt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_strasseNr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/strasseNr">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_strasseNr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_gewaesser">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_gewaesser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/heading_Bauwerk"
+                style="@style/question_section_heading"
+                android:text="@string/heading_bauwerk" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/einzugsgebiet_der_anlage">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_einzugsgebiet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_eigentuemer">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_eigentuemer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_art_des_absperrbauwerkes">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_art_des_absperrbauwerkes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:id="@+id/constraintLayout_hohe_ueber_gruendung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_hohe_ueber_gruendung"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gruendung"
+                    android:hint="@string/lbl_question_hoehe_ueber_gruendung">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_name_der_anlage"
+                        android:id="@+id/answer_hoehe_ueber_gruendung"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="text" />
+                        android:inputType="numberDecimal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/heading_lage"
-                    style="@style/question_section_heading"
-                    android:text="@string/lbl_question_lage" />
+                <Spinner
+                    android:id="@+id/bezugssystem_hoehe_ueber_gruendung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:dropDownWidth="match_parent"
+                    android:dropDownHeight="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:tooltipText="@string/hoehenbezugssystem" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_hohe_ueber_gelaende"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_longitude"
-                    android:layout_width="match_parent"
+                    android:id="@+id/input_layout_hohe_ueber_gelaende"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/longitude"
-                    app:endIconMode="custom"
-                    app:endIconDrawable="@drawable/ic_location_on_black_24dp">
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gelaende"
+                    android:hint="@string/lbl_question_hoehe_ueber_gelaende">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_longitude"
+                        android:id="@+id/answer_hoehe_ueber_gelaende"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+                        android:inputType="numberDecimal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_latitude"
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:id="@+id/bezugssystem_hoehe_ueber_gelaende"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/latitude"
-                    app:endIconMode="custom"
-                    app:endIconDrawable="@drawable/ic_location_on_black_24dp">
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:dropDownWidth="match_parent"
+                    android:dropDownHeight="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:tooltipText="@string/hoehenbezugssystem" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_hoehe_oberkante_krone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_hohe_oberkante_krone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/bezugssystem_hoehe_oberkante_krone"
+                    android:hint="@string/lbl_question_hoehe_oberkante_krone">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_latitude"
+                        android:id="@+id/answer_hoehe_oberkante_krone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+                        android:inputType="numberDecimal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_plz"
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:id="@+id/bezugssystem_hoehe_oberkante_krone"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/postalcode">
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:dropDownWidth="match_parent"
+                    android:dropDownHeight="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:tooltipText="@string/hoehenbezugssystem" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_hoehe_tiefster_punkt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_hohe_tiefster_punkt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/bezugssystem_hoehe_tiefster_punkt"
+                    android:hint="@string/lbl_question_hoehe_tiefster_punkt"
+                    app:helperText="@string/helper_text_question_hoehe_tiefster_punkt">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_plz"
+                        android:id="@+id/answer_hoehe_tiefster_punkt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
-                        android:inputType="textPostalAddress"
-                        />
+                        android:inputType="numberDecimal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_stadt"
+                <Spinner
+                    android:id="@+id/bezugssystem_hoehe_tiefster_punkt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:dropDownWidth="match_parent"
+                    android:dropDownHeight="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:tooltipText="@string/hoehenbezugssystem" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_kronenbreite">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_kronenbreite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/ort">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_stadt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_strasseNr"
+            <CheckBox
+                android:id="@+id/checkbox_berme_vorhanden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/lbl_question_bermen_vorhanden"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_berme_hoehe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_berme_hoehe">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_berme_hoehe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/strasseNr">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_strasseNr"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="text" />
-                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_berme_breite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_berme_breite">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_berme_breite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_gewaesser">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_gewaesser"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_boeschungsneigung_luftseite">
 
-                <TextView
-                    android:id="@+id/heading_Bauwerk"
-                    style="@style/question_section_heading"
-                    android:text="@string/heading_bauwerk" />
-
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_boeschungsneigung_luftseite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/einzugsgebiet_der_anlage">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_einzugsgebiet"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_boeschungsneigung_wasserseite">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_boeschungsneigung_wasserseite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_eigentuemer">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_eigentuemer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                style="@style/question_textview"
+                android:text="@string/lbl_question_dammoberflaeche_luftseite" />
 
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_luftseite_rasen"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_rasen" />
 
-                <com.google.android.material.textfield.TextInputLayout
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_luftseite_steinschuettung"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_steinschuettung" />
+
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_luftseite_buesche"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_buesche"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_luftseite_baeume"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_baeume"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_material_sonstige">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_dammoberflaeche_luftseite_sonstige"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_art_des_absperrbauwerkes">
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_art_des_absperrbauwerkes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <RelativeLayout
-                    android:id="@+id/constraintLayout_hohe_ueber_gruendung"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <TextView
+                style="@style/question_textview"
+                android:text="@string/lbl_question_dammoberflaeche_wasserseite" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_layout_hohe_ueber_gruendung"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/lbl_question_hoehe_ueber_gruendung"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gruendung">
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_wasserseite_rasen"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_rasen" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/answer_hoehe_ueber_gruendung"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="numberDecimal" />
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_wasserseite_steinschuettung"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_steinschuettung" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_wasserseite_buesche"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_buesche"/>
 
-                    <Spinner
-                        android:id="@+id/bezugssystem_hoehe_ueber_gruendung"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:dropDownWidth="match_parent"
-                        android:dropDownHeight="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:tooltipText="@string/hoehenbezugssystem" />
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_wasserseite_baeume"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_baeume"/>
 
-                </RelativeLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_material_sonstige">
 
-                <RelativeLayout
-                    android:id="@+id/relative_layout_hohe_ueber_gelaende"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_layout_hohe_ueber_gelaende"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/lbl_question_hoehe_ueber_gelaende"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@+id/bezugssystem_hoehe_ueber_gelaende">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/answer_hoehe_ueber_gelaende"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="numberDecimal" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <Spinner
-                        android:id="@+id/bezugssystem_hoehe_ueber_gelaende"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:dropDownWidth="match_parent"
-                        android:dropDownHeight="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:tooltipText="@string/hoehenbezugssystem" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/relative_layout_hoehe_oberkante_krone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_layout_hohe_oberkante_krone"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/lbl_question_hoehe_oberkante_krone"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@+id/bezugssystem_hoehe_oberkante_krone">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/answer_hoehe_oberkante_krone"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="numberDecimal" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <Spinner
-                        android:id="@+id/bezugssystem_hoehe_oberkante_krone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:dropDownWidth="match_parent"
-                        android:dropDownHeight="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:tooltipText="@string/hoehenbezugssystem" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/relative_layout_hoehe_tiefster_punkt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_layout_hohe_tiefster_punkt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/lbl_question_hoehe_tiefster_punkt"
-                        app:helperText="@string/helper_text_question_hoehe_tiefster_punkt"
-                        android:layout_alignParentStart="true"
-                        android:layout_toStartOf="@+id/bezugssystem_hoehe_tiefster_punkt">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/answer_hoehe_tiefster_punkt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="numberDecimal" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <Spinner
-                        android:id="@+id/bezugssystem_hoehe_tiefster_punkt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:dropDownWidth="match_parent"
-                        android:dropDownHeight="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:tooltipText="@string/hoehenbezugssystem" />
-
-                </RelativeLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_dammoberflaeche_wasserseite_sonstige"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_kronenbreite">
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_kronenbreite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                style="@style/question_textview"
+                android:text="@string/lbl_question_dammoberflaeche_dammkrone" />
 
-                <CheckBox
-                    android:id="@+id/checkbox_berme_vorhanden"
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_dammkrone_rasen"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_rasen" />
+
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_dammkrone_steinschuettung"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_steinschuettung" />
+
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_dammkrone_buesche"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_buesche"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_dammoberflaeche_dammkrone_baeume"
+                style="@style/checkbox"
+                android:text="@string/lbl_material_baeume"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_material_sonstige">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_dammoberflaeche_dammkrone_sonstige"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onCheckboxClicked"
-                    android:text="@string/lbl_question_bermen_vorhanden"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:button="@null"
-                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"/>
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_berme_hoehe"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_stauinhalt">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_stauinhalt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_berme_hoehe">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_berme_hoehe"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <!--  Text content is set programmaticly        -->
+            <TextView
+                android:id="@+id/text_klassifizierung_nach_dwa_m522"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/layout_berme_breite"
+            <TextView
+                android:id="@+id/question_klassifizierung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/answer_klassifizierung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_bhq1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_bhq1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_berme_breite">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_berme_breite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lbl_question_bhq2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/answer_bhq2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_boeschungsneigung_luftseite">
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_boeschungsneigung_luftseite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_boeschungsneigung_wasserseite">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_boeschungsneigung_wasserseite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_stauinhalt">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_stauinhalt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_bhq1">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_bhq1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/lbl_question_bhq2">
+            <!--                <TextView-->
+            <!--                android:id="@+id/question_bhq2_abschaetzung"-->
+            <!--                style="@style/question_textview"-->
+            <!--                android:text="@string/lbl_question_bhq2_abschaetzung"-->
+            <!--                />-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/answer_bhq2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionNext"
-                        android:inputType="numberDecimal"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-<!--                <TextView-->
-<!--                android:id="@+id/question_bhq2_abschaetzung"-->
-<!--                style="@style/question_textview"-->
-<!--                android:text="@string/lbl_question_bhq2_abschaetzung"-->
-<!--                />-->
-
-<!--                <EditText-->
-<!--                    android:id="@+id/answer_bhq2_abschaetzung"-->
-<!--                    style="@style/question_edittext"-->
-<!--                    android:imeOptions="actionDone"-->
-<!--                    android:inputType="textMultiLine"-->
-<!--                    android:autofillHints="@string/wird_momentan_nicht_beachtet"-->
-<!--                    android:hint="@string/wird_momentan_nicht_beachtet"/>-->
+            <!--                <EditText-->
+            <!--                    android:id="@+id/answer_bhq2_abschaetzung"-->
+            <!--                    style="@style/question_edittext"-->
+            <!--                    android:imeOptions="actionDone"-->
+            <!--                    android:inputType="textMultiLine"-->
+            <!--                    android:autofillHints="@string/wird_momentan_nicht_beachtet"-->
+            <!--                    android:hint="@string/wird_momentan_nicht_beachtet"/>-->
 
 
-                <TextView
-                    android:id="@+id/question_betriebsvorschrift_normalbetrieb"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
+            <TextView
+                android:id="@+id/question_betriebsvorschrift_normalbetrieb"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_betriebsvorschrift_normalbetrieb" />
 
-                <RadioGroup
-                    android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
-                    style="@style/question_radiogroup"
-                    android:checkedButton="@+id/opt_unknown_betriebsvorschrift_normalbetrieb">
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschrift_normalbetrieb"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_normalbetrieb">
 
-                    <RadioButton
-                        android:id="@+id/opt_yes_betriebsvorschrift_normalbetrieb"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_yes" />
+                <RadioButton
+                    android:id="@+id/opt_yes_betriebsvorschrift_normalbetrieb"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
 
-                    <RadioButton
-                        android:id="@+id/opt_no_betriebsvorschrift_normalbetrieb"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_no" />
+                <RadioButton
+                    android:id="@+id/opt_no_betriebsvorschrift_normalbetrieb"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
 
-                    <RadioButton
-                        android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_unknown" />
-                </RadioGroup>
+                <RadioButton
+                    android:id="@+id/opt_unknown_betriebsvorschrift_normalbetrieb"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
 
 
-                <TextView
-                    android:id="@+id/question_betriebsvorschtift_hochwasserfall"
-                    style="@style/question_textview"
-                    android:text="@string/lbl_question_betriebsvorschrift_hochwasserfall" />
+            <TextView
+                android:id="@+id/question_betriebsvorschtift_hochwasserfall"
+                style="@style/question_textview"
+                android:text="@string/lbl_question_betriebsvorschrift_hochwasserfall" />
 
-                <RadioGroup
-                    android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
-                    style="@style/question_radiogroup"
-                    android:checkedButton="@+id/opt_unknown_betriebsvorschrift_hochwasserfall">
+            <RadioGroup
+                android:id="@+id/radio_betriebsvorschtift_hochwasserfall"
+                style="@style/question_radiogroup"
+                android:checkedButton="@+id/opt_unknown_betriebsvorschrift_hochwasserfall">
 
-                    <RadioButton
-                        android:id="@+id/opt_yes_betriebsvorschrift_hochwasserfall"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_yes" />
+                <RadioButton
+                    android:id="@+id/opt_yes_betriebsvorschrift_hochwasserfall"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_yes" />
 
-                    <RadioButton
-                        android:id="@+id/opt_no_betriebsvorschrift_hochwasserfall"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_no" />
+                <RadioButton
+                    android:id="@+id/opt_no_betriebsvorschrift_hochwasserfall"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_no" />
 
-                    <RadioButton
-                        android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
-                        style="@style/question_radiobutton"
-                        android:text="@string/opt_unknown" />
-                </RadioGroup>
+                <RadioButton
+                    android:id="@+id/opt_unknown_betriebsvorschrift_hochwasserfall"
+                    style="@style/question_radiobutton"
+                    android:text="@string/opt_unknown" />
+            </RadioGroup>
 
-            </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
@@ -539,6 +653,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:onClick="openQuestionnaireTragfaehigkeit"
-        app:srcCompat="@drawable/ic_done_white_24dp"/>
+        app:srcCompat="@drawable/ic_done_white_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

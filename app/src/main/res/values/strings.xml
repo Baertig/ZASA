@@ -105,5 +105,18 @@
     <string name="lbl_question_berme_breite">Breite der Berme [m]</string>
     <string name="lbl_question_boeschungsneigung_luftseite">Böschungsneigung der Luftseite</string>
     <string name="lbl_question_boeschungsneigung_wasserseite">Böschungsneigung der Wasserseite</string>
-
+    <string name="description_dammoberflaeche_luftseite">Material der Dammoberfläche auf der Luftseite</string>
+    <string name="description_dammoberflaeche_wasserseite">Material der Dammoberfläche auf der Wasserseite</string>
+    <string name="description_dammoberflaeche_dammkrone">Material der Dammoberfläche auf der Dammkrone</string>
+    <string name="lbl_material_rasen">Rasen</string>
+    <string name="lbl_material_steinschuettung">Steinschüttung</string>
+    <string name="lbl_material_buesche">Büsche</string>
+    <string name="lbl_material_baeume">Bäume</string>
+    <string name="lbl_material_sonstige">Sonstige</string>
+    <string name="lbl_question_dammoberflaeche_luftseite">Aus welchem Material besteht die Dammoberfläche an der <b>Luftseite</b> (Mehrfach Angaben möglich)</string>
+    <string name="lbl_question_dammoberflaeche_wasserseite">Aus welchem Material besteht die Dammoberfläche an der <b>Wasserseite</b> (Mehrfach Angaben möglich)</string>
+    <string name="lbl_question_dammoberflaeche_dammkrone">Aus welchem Material besteht die Dammoberfläche auf der <b>Dammkrone</b> (Mehrfach Angaben möglich)</string>
+    <string name="description_only_manually_Klassifizierung">Klassifizierung der Stauanlage</string>
+    <string name="description_klassifizierung_stauanlage_nach_dwa_m522">Klassifizierung der Stauanlage gemäß DWA M522</string>
+    <string name="description_differing_manually_Klassifizierung">Klassifizierung der Stauanlage abweichend von DWA M522</string>
 </resources>

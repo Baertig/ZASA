@@ -10,6 +10,7 @@ import androidx.room.TypeConverters;
 import de.badresden.zasa.converters.AnswerTypeConverter;
 import de.badresden.zasa.converters.DateTypeConverter;
 import de.badresden.zasa.converters.HoehenbezugssystemeTypeConverter;
+import de.badresden.zasa.converters.KlassifizierungTypeConverter;
 
 //Autor: Georg
 
@@ -20,7 +21,8 @@ import de.badresden.zasa.converters.HoehenbezugssystemeTypeConverter;
  */
 @SuppressWarnings("WeakerAccess")
 @Database(entities = {Stauanlage.class}, version = 1)
-@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class, HoehenbezugssystemeTypeConverter.class})
+@TypeConverters({DateTypeConverter.class, AnswerTypeConverter.class, HoehenbezugssystemeTypeConverter.class,
+        KlassifizierungTypeConverter.class})
 public abstract class StauanlageRoomDatabase extends RoomDatabase {
 
     public abstract StauanlageDao stauanlageDao();
