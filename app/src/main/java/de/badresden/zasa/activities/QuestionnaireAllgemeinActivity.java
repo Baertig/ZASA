@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -73,6 +74,26 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 			add(String.valueOf(Hoehenbezugssysteme.HN));
 			add(String.valueOf(Hoehenbezugssysteme.NHN92));
 			add(String.valueOf(Hoehenbezugssysteme.NHN2016));
+		}
+	};
+	private static final ArrayList<String> KLASSIFIZIERUNGEN_STRINGS = new ArrayList<String>(){
+		{
+			add(Stauanlage.Klassifizierung.GROSSE_ANLAGE.toString());
+			add(Stauanlage.Klassifizierung.MITTLERE_ANLAGE.toString());
+			add(Stauanlage.Klassifizierung.KLEINE_ANLAGE.toString());
+			add(Stauanlage.Klassifizierung.SEHR_KLEINE_ANLAGE.toString());
+			add(Stauanlage.Klassifizierung.KLEINSTE_ANLAGE.toString());
+			add(Stauanlage.Klassifizierung.NICHT_KLASSIFIZIERT.toString());
+		}
+	};
+	private static final ArrayList<Stauanlage.Klassifizierung> KLASSIFIZIERUNGEN = new ArrayList<Stauanlage.Klassifizierung>(){
+		{
+			add(Stauanlage.Klassifizierung.GROSSE_ANLAGE);
+			add(Stauanlage.Klassifizierung.MITTLERE_ANLAGE);
+			add(Stauanlage.Klassifizierung.KLEINE_ANLAGE);
+			add(Stauanlage.Klassifizierung.SEHR_KLEINE_ANLAGE);
+			add(Stauanlage.Klassifizierung.KLEINSTE_ANLAGE);
+			add(Stauanlage.Klassifizierung.NICHT_KLASSIFIZIERT);
 		}
 	};
 
@@ -134,6 +155,9 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 	private TextInputEditText inputDammoberflaecheDammkroneSonstige;
 
 	private TextInputEditText inputStauinhalt;
+	private TextView textKlassifizierungNachDwaM522;
+	private TextView questionKlassifizierung;
+	private Spinner inputKlassifizierung;
 	private TextInputEditText inputBHQ1;
 	private TextInputEditText inputBHQ2;
 	private EditText inputBHQ2Abschaetzung;
@@ -264,6 +288,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputDammoberflaecheDammkroneSonstige.setText(stauanlage.dammoberflaecheDammkroneSonstige);
 
 		inputStauinhalt.setText(doubleToString(stauanlage.stauinhaltInCbm));
+		inputKlassifizierung.setSelection(KLASSIFIZIERUNGEN_STRINGS.indexOf(
+				stauanlage.klassifizierung.toString()));
 		inputBHQ1.setText(doubleToString(stauanlage.bHQ1InCbmProSekunde));
 		inputBHQ2.setText(doubleToString(stauanlage.bHQ2InCbmProSekunde));
 		loadAnswerInRadioGroup(stauanlage.betriebsvorschriftNormalfallLiegtVor,
@@ -317,6 +343,8 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				inputHoehenbezugssystemOberkanteKrone.getSelectedItem().toString());
 		Hoehenbezugssysteme hoehenbezugssystemHoeheTiefsterPunkt = Hoehenbezugssysteme.valueOf(
 				inputHoehenbezugssystemTiefsterPunktGelaende.getSelectedItem().toString());
+		int indexOfKlassifizierung = KLASSIFIZIERUNGEN_STRINGS.indexOf(inputKlassifizierung.getSelectedItem().toString());
+		Stauanlage.Klassifizierung klassifizierung = KLASSIFIZIERUNGEN.get(indexOfKlassifizierung);
 		if (StauanlageHolder.getStauanlage() == null) {
 			Log.d(LOG_TAG, "openQuestionnaireTragfaehigkeit: Fatal Error there was no Stauanlage Object");
 			return;
@@ -349,6 +377,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 				boeschungsneigungLuftseite,
 				boeschungsneigungWasserseite,
 				Stauinhalt,
+				klassifizierung,
 				bHQ1,
 				bHQ2,
 				BetriebsvorschriftNormalfall,
@@ -406,6 +435,7 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputEigentuemer = findViewById(R.id.answer_eigentuemer);
 		inputArtDesAbsperrbauwerkes = findViewById(R.id.answer_art_des_absperrbauwerkes);
 		inputHoeheGruendung = findViewById(R.id.answer_hoehe_ueber_gruendung);
+		inputHoeheGruendung.addTextChangedListener(createTextWatcherForKlassifizierung());
 		inputHoehenbezugssystemHoheGruendung = findViewById(R.id.bezugssystem_hoehe_ueber_gruendung);
 		inputHoeheGelaende = findViewById(R.id.answer_hoehe_ueber_gelaende);
 		inputHoehenbezugssystemHoheGelaende = findViewById(R.id.bezugssystem_hoehe_ueber_gelaende);
@@ -441,20 +471,28 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 		inputDammoberflaecheDammkroneSonstige = findViewById(R.id.answer_dammoberflaeche_dammkrone_sonstige);
 
 		inputStauinhalt = findViewById(R.id.answer_stauinhalt);
+		inputStauinhalt.addTextChangedListener(createTextWatcherForKlassifizierung());
+		textKlassifizierungNachDwaM522 = findViewById(R.id.text_klassifizierung_nach_dwa_m522);
+		questionKlassifizierung = findViewById(R.id.question_klassifizierung);
+		inputKlassifizierung = findViewById(R.id.answer_klassifizierung);
 		inputBHQ1 = findViewById(R.id.answer_bhq1);
 		inputBHQ2 = findViewById(R.id.answer_bhq2);
 		inputBetriebsvorschriftNormalbetrieb = findViewById(R.id.radio_betriebsvorschrift_normalbetrieb);
 		inputBetriebsvorschriftHochwasserfall = findViewById(R.id.radio_betriebsvorschtift_hochwasserfall);
 		//TODO set List with possible answers for hohenbezugssystem ...
 		//
-		ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+		ArrayAdapter<String> adapterHoehenbezugssystem = new ArrayAdapter<>(this,
 				android.R.layout.simple_spinner_item, HOEHENBEZUGSSYSTEME);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		inputHoehenbezugssystemHoheGruendung.setAdapter(adapter);
-		inputHoehenbezugssystemHoheGelaende.setAdapter(adapter);
-		inputHoehenbezugssystemOberkanteKrone.setAdapter(adapter);
-		inputHoehenbezugssystemTiefsterPunktGelaende.setAdapter(adapter);
+		adapterHoehenbezugssystem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		inputHoehenbezugssystemHoheGruendung.setAdapter(adapterHoehenbezugssystem);
+		inputHoehenbezugssystemHoheGelaende.setAdapter(adapterHoehenbezugssystem);
+		inputHoehenbezugssystemOberkanteKrone.setAdapter(adapterHoehenbezugssystem);
+		inputHoehenbezugssystemTiefsterPunktGelaende.setAdapter(adapterHoehenbezugssystem);
 
+		ArrayAdapter<String> adapterKlassifizierung = new ArrayAdapter<>(this,
+				android.R.layout.simple_spinner_item, KLASSIFIZIERUNGEN_STRINGS);
+		adapterKlassifizierung.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		inputKlassifizierung.setAdapter(adapterKlassifizierung);
 		// inputBHQ2Abschaetzung = findViewById(R.id.answer_bhq2_abschaetzung);
 	}
 
@@ -491,6 +529,40 @@ public class QuestionnaireAllgemeinActivity extends AppCompatActivity {
 					if (layoutNameDerAnlage.getError() != null) {
 						layoutNameDerAnlage.setError(null);
 					}
+				}
+			}
+		};
+	}
+
+	/**
+	 *
+	 * @return TextWatcher that refreshes the Klassifikation fields
+	 */
+	private TextWatcher createTextWatcherForKlassifizierung(){
+		return new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				Double stauinhalt = safeParseStringToDouble(inputStauinhalt.getText().toString());
+				Double hoeheGruendung = safeParseStringToDouble(inputHoeheGruendung.getText().toString());
+				if(!stauinhalt.equals(Double.NaN) && !hoeheGruendung.equals(Double.NaN)){
+					textKlassifizierungNachDwaM522.setVisibility(View.VISIBLE);
+					textKlassifizierungNachDwaM522.setText(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522_extended,
+							Stauanlage.computeKlassifizierungwithHoeheAndStauinhalt(hoeheGruendung,stauinhalt).toString()));
+					questionKlassifizierung.setText(R.string.question_klassifizierung_differing_from_computation);
+				}else{
+					textKlassifizierungNachDwaM522.setText("");
+					textKlassifizierungNachDwaM522.setVisibility(View.GONE);
+					questionKlassifizierung.setText(R.string.question_klassifizierung_without_hoehe_or_stauinhalt);
 				}
 			}
 		};

@@ -244,6 +244,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.dammoberflaecheDammkroneBuesche = false;
         this.dammoberflaecheDammkroneBaeume = false;
 
+        this.klassifizierung = Klassifizierung.NICHT_KLASSIFIZIERT;
     }
 
     /**
@@ -257,7 +258,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
                                 Double hoeheAbsperrwerkOberkanteKrone, Hoehenbezugssysteme hoeheAbsperrwerkOberkanteKroneHoehenbezugssystem,
                                 Double hoeheTiefsterPunktImGelaendeLuftseite, Hoehenbezugssysteme hoeheTiefsterPunktImGelaendeLuftseiteHoehenbezugssystem,
                                 Double kronenbreiteInm, Boolean bermeVorhanden, Double bermeHoeheInm,Double bermeBreiteInm, Double boeschungsneigungLuftseite,
-                                Double boeschungsneigungWasserseite, Double stauinhaltInCbm,
+                                Double boeschungsneigungWasserseite, Double stauinhaltInCbm, Klassifizierung klassifizierung,
                                 Double bHQ1InCbmProSekunde, Double bHQ2InCbmProSekunde, Answer betriebsvorschriftNormalfallLiegtVor,
                                 Answer betriebsvorschriftHochwasserLiegtVor, Date datumUndUhrzeitLetzteBearbeitung) {
         this.nameDerAnlage = nameDerAnlage;
@@ -286,6 +287,7 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         this.boeschungsneigungLuftseite = boeschungsneigungLuftseite;
         this.boeschungsneigungWasserseite = boeschungsneigungWasserseite;
         this.stauinhaltInCbm = stauinhaltInCbm;
+        this.klassifizierung = klassifizierung;
         this.bHQ1InCbmProSekunde = bHQ1InCbmProSekunde;
         this.bHQ2InCbmProSekunde = bHQ2InCbmProSekunde;
         this.betriebsvorschriftNormalfallLiegtVor = betriebsvorschriftNormalfallLiegtVor;
@@ -414,12 +416,13 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_luftseite),this.getDammoberflaecheLuftseiteSummary(activity)));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_wasserseite),this.getDammoberflaecheWasserseiteSummary(activity)));
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_dammoberflaeche_dammkrone),this.getDammoberflaecheDammkroneSummary(activity)));
-        if(this.computeKlassifizierungwithHoeheAndStauinhalt() == null && this.klassifizierung != null){
+        Klassifizierung computedKlassifizierung = computeKlassifizierungwithHoeheAndStauinhalt(this.hoeheAbsperrwerkUeberGruendung,this.stauinhaltInCbm);
+        if(computedKlassifizierung == null && this.klassifizierung != Klassifizierung.NICHT_KLASSIFIZIERT){
             attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_only_manually_Klassifizierung),this.klassifizierung));
-        }else if(this.computeKlassifizierungwithHoeheAndStauinhalt() == this.klassifizierung){
+        }else if(computedKlassifizierung == this.klassifizierung){
             attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522),this.klassifizierung));
-        }else if(this.computeKlassifizierungwithHoeheAndStauinhalt() != this.klassifizierung){
-            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522),this.computeKlassifizierungwithHoeheAndStauinhalt()));
+        }else if(computedKlassifizierung != this.klassifizierung && this.klassifizierung != Klassifizierung.NICHT_KLASSIFIZIERT){
+            attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_klassifizierung_stauanlage_nach_dwa_m522),computedKlassifizierung));
             attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.description_differing_manually_Klassifizierung), this.klassifizierung));
         }
         attributeDetailedList.add(new AttributeDetailed(activity.getResources().getString(R.string.lbl_question_stauinhalt),this.stauinhaltInCbm));
@@ -494,7 +497,11 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         if(!this.dammoberflaecheLuftseiteSonstige.equals("")){
             DammoberflaecheLuftseiteSummary += this.dammoberflaecheLuftseiteSonstige + ",";
         }
-        return DammoberflaecheLuftseiteSummary.substring(0,DammoberflaecheLuftseiteSummary.length() -1); // strip last ","
+        if(DammoberflaecheLuftseiteSummary.equals("")){
+            return DammoberflaecheLuftseiteSummary;
+        }else{
+            return DammoberflaecheLuftseiteSummary.substring(0,DammoberflaecheLuftseiteSummary.length() -1); // strip last ","
+        }
     }
 
     public String getDammoberflaecheWasserseiteSummary(Activity activity){
@@ -514,7 +521,11 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         if(!this.dammoberflaecheWasserseiteSonstige.equals("")){
             DammoberflaecheWasserseiteSummary += this.dammoberflaecheWasserseiteSonstige + ",";
         }
-        return DammoberflaecheWasserseiteSummary.substring(0,DammoberflaecheWasserseiteSummary.length() -1); // strip last ","
+        if(DammoberflaecheWasserseiteSummary.equals("")){
+            return DammoberflaecheWasserseiteSummary;
+        }else{
+            return DammoberflaecheWasserseiteSummary.substring(0,DammoberflaecheWasserseiteSummary.length() -1); // strip last ","
+        }
     }
 
     public String getDammoberflaecheDammkroneSummary(Activity activity){
@@ -534,22 +545,29 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         if(!this.dammoberflaecheDammkroneSonstige.equals("")){
             DammoberflaecheDammkroneSummary += this.dammoberflaecheDammkroneSonstige + ",";
         }
-        return DammoberflaecheDammkroneSummary.substring(0,DammoberflaecheDammkroneSummary.length() -1); // strip last ","
+        if(DammoberflaecheDammkroneSummary.equals("")){
+            return DammoberflaecheDammkroneSummary;
+        }else{
+            return DammoberflaecheDammkroneSummary.substring(0,DammoberflaecheDammkroneSummary.length() -1); // strip last ","
+        }
     }
 
     /**
-     *
+     * this Method is static because i dont want to be forced to set the field hoeheAbsperrwerkUeberGruendung and
+     * stauinhaltInCbm beforehand. That would introduce inconsistent behavior because i only set fiels when the user
+     * clicks on the save Button.
      * @return Gibt die Klassifizierung der Stauanlage basierend auf der hoehe und dem Stauinhalt zurück
      */
-    public Klassifizierung computeKlassifizierungwithHoeheAndStauinhalt(){
-        if(this.hoeheAbsperrwerkUeberGruendung == null || this.stauinhaltInCbm == null){
+    public static Klassifizierung computeKlassifizierungwithHoeheAndStauinhalt(Double hoeheAbsperrwerkUeberGruendung,
+                                                                               Double stauinhaltInCbm){
+        if(hoeheAbsperrwerkUeberGruendung == null || stauinhaltInCbm == null){
             return null;
         }
-        if(this.hoeheAbsperrwerkUeberGruendung < 2 && this.stauinhaltInCbm < 10000){
+        if(hoeheAbsperrwerkUeberGruendung < 2 && stauinhaltInCbm < 10000){
             return Klassifizierung.KLEINSTE_ANLAGE;
-        }else if(this.hoeheAbsperrwerkUeberGruendung < 4 && this.stauinhaltInCbm < 50000){
+        }else if(hoeheAbsperrwerkUeberGruendung < 4 && stauinhaltInCbm < 50000){
             return Klassifizierung.SEHR_KLEINE_ANLAGE;
-        }else if(this.hoeheAbsperrwerkUeberGruendung < 6 && this.stauinhaltInCbm < 100000){
+        }else if(hoeheAbsperrwerkUeberGruendung < 6 && stauinhaltInCbm < 100000){
             return Klassifizierung.KLEINE_ANLAGE;
         }else {
             return Klassifizierung.MITTLERE_ANLAGE; //FIXME just default value for now if it is too large
@@ -577,6 +595,10 @@ public class Stauanlage { //der Fragebogen beschreibt eine Stauanlage, deshalb d
         }, KLEINSTE_ANLAGE{
             public String toString(){
                 return "kleinste Anlage";
+            }
+        }, NICHT_KLASSIFIZIERT{
+            public String toString(){
+                return "nicht klassifiziert";
             }
         }
     }

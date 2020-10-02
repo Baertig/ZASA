@@ -532,13 +532,11 @@
             <!--  Text content is set programmaticly        -->
             <TextView
                 android:id="@+id/text_klassifizierung_nach_dwa_m522"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                style="@style/question_textview" />
 
             <TextView
                 android:id="@+id/question_klassifizierung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                style="@style/question_textview"/>
 
             <Spinner
                 android:id="@+id/answer_klassifizierung"

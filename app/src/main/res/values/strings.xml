@@ -119,4 +119,7 @@
     <string name="description_only_manually_Klassifizierung">Klassifizierung der Stauanlage</string>
     <string name="description_klassifizierung_stauanlage_nach_dwa_m522">Klassifizierung der Stauanlage gemäß DWA M522</string>
     <string name="description_differing_manually_Klassifizierung">Klassifizierung der Stauanlage abweichend von DWA M522</string>
+    <string name="description_klassifizierung_stauanlage_nach_dwa_m522_extended">Die Stauanlage ist auf Grundlage der Höhe über der Gruendung und dem Stauinhalt gemäß DWA M522 als %1$s klassifiziert</string>
+    <string name="question_klassifizierung_without_hoehe_or_stauinhalt">Ohne Angabe der Höhe über der Gründung oder dem Stauinhalt kann die Stauanlage nicht gemäß DWA M522 klassifiziert werden ist Ihnen dennoch die Klassifizierung bekannt?</string>
+    <string name="question_klassifizierung_differing_from_computation">Ist Ihnen eine davon abweichende Klassifizierung bekannt?</string>
 </resources>
